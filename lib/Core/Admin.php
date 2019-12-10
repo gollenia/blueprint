@@ -1,8 +1,6 @@
 <?php
-
-namespace Contexis\Classes;
-use Symfony\Component\Yaml\Yaml;
-$config = Yaml::parseFile(__DIR__ . '/config.yml');
+namespace Contexis\Core;
+use Contexis\Core\Config;
 
 /**
  * Class for managing Theme Options. An Admin-Page will be generated, and Theme Options can be loaded with get()
@@ -10,7 +8,7 @@ $config = Yaml::parseFile(__DIR__ . '/config.yml');
  * @since 1.0.0
  */
 
-class Config {
+class Admin {
 
     private $options = [];
     /**
@@ -22,17 +20,24 @@ class Config {
     public function __construct() {
         add_action('admin_menu', [$this, 'theme_menu']);
         define( 'DISALLOW_FILE_EDIT', true );
-        $this->options = \Contexis\Config::get("options")
+        $this->options = Config::load("options");
+        
     }
 
     public function theme_menu() {
-        add_theme_page("Theme Anpassungen", "Theme Anpassungen", "manage_options", "theme-options", [$this, 'theme_options'], null, 99);
+        add_theme_page("Theme Anpassungen", "Theme Anpassungen", "manage_options", "theme_options", [$this, 'theme_options'], null, 99);
     }
 
     public function theme_options() {
-        foreach
+        echo "hihi";
+        add_settings_field (
+            "facebook", 
+            "Facebook", 
+            function() {echo "hallo";},
+            "theme_options"
+        );
     }
 
-    public static function get
+
 
 }
