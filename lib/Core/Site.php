@@ -20,10 +20,7 @@ class Site extends \Timber\Site {
 		//add_action( 'init', array( $this, 'register_taxonomies' ) );
 		$this->addShortcodes();
 		$this->addBlocks();
-		
 		parent::__construct();
-		
-		
 	}
 
 	public function addHook( $type, $name, $function ) {  
@@ -34,17 +31,17 @@ class Site extends \Timber\Site {
         }
 		add_action( $name, $function );
 	}
-	
-	public function createContext($context) {
-		$context['footer'] = \Timber::get_widgets('footer_area');
-		$context['menu'] = new \Timber\Menu();
-		$context['site'] = $this;
-		return $context;
+
+	public function getConfig() {
+		return($this->config);
 	}
+
+	
 
 	private function addShortcodes() {
 		// get all shortcodes from the shortcodesfolder
 		$files = scandir(__DIR__ . '/../Shortcodes');
+		if (!$files) { return; }
 		foreach($files as $file) {
 			if ("php" === substr($file, -3)) {
 				require_once(__DIR__ . '/../Shortcodes/' . $file);
@@ -57,7 +54,9 @@ class Site extends \Timber\Site {
 	private function addBlocks() {
 		// get all blocks from the blocks folder
 		// these are not new blocks but modifications of core-blocks
+		// new blocks should be generated with react!
 		$files = scandir(__DIR__ . '/../Blocks');
+		if (!$files) { return; }
 		foreach($files as $file) {
 			if ("php" === substr($file, -3)) {
 				require_once(__DIR__ . '/../Blocks/' . $file);

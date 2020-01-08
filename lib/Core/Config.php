@@ -83,7 +83,7 @@ class Config {
         
     }
 
-    // this should later be outsourced into a debug function to be vailable on twig-..
+    // OBSOLETE: Function is now in \Contexis\Core\Utilities::debug
     public function debug() {
         echo "<script>console.log(" . json_encode($this->config) . ");</script>";
     }

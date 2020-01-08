@@ -32,12 +32,12 @@ class Page {
      * @return bool Returns false, if key already exists. If key already exists and $force is false, the functio returns false, else true.
      * 
      */
-    public function addContent (string $key, mixed $content, bool $force = false) {
-        if (array_key_exists( $key , $this->content) && !$force) {
+    public function addContent (string $key, array $context, bool $force = false) {
+        if (array_key_exists( $key , $this->context) && !$force) {
             return false;
         }
 
-        $this->content[$key] = $content;
+        $this->context[$key] = $context;
         return true;
     }
 
@@ -55,8 +55,9 @@ class Page {
      * @return mixed whatever is stored in the key
      * 
      */
-    public function getContent(string $key) {
-        return $this->content($key);
+    public function getContent(string $key = "") {
+        if ($key == "") { return $this->context; }
+        return $this->context[$key];
     }
 
     /**

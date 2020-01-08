@@ -37,6 +37,6 @@ function my_myme_types($mime_types){
 }
 add_filter('upload_mimes', 'my_myme_types', 1, 1);
 
-var_dump(get_option('image_logo'));
+
+
 $all_settings = get_theme_mods();
-var_dump( $all_settings );
