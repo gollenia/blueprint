@@ -2,6 +2,11 @@
 
 namespace Contexis\Controllers;
 
+use \Timber\URLHelper;
+use \Timber\Helper;
+use \Timber\Request;
+use \Timber\User;
+
 /**
  * Page Controller, which collects page data ("context") and renders it.
  * 
@@ -13,12 +18,21 @@ class Page {
     private $context = [];
     private $templates = [];
 
-    public function __construct() {
-        $this->context = \Timber::context();
+    public function __construct($site) {
+        $this->context['http_host'] = URLHelper::get_scheme().'://'.URLHelper::get_host();
+        $this->context['wp_title']['wp_title'] = Helper::get_wp_title();
+		$this->context['body_class'] = implode(' ', get_body_class());
+        $this->context['site'] = $site;
+		$this->context['request'] = new Request();
+		$user = new User();
+        $this->context['user'] = ($user->ID) ? $user : false;
+        $this->context['theme'] = $site->theme;
+        \Contexis\Core\Utilities::debug($this->context);
         $this->context['post'] = new \Timber\Post();
         $this->context['footer'] = \Timber::get_widgets('footer_area');
         $this->context['menu'] = new \Timber\Menu();
         $this->templates = array( 'pages/page-' . $this->context['post']->post_name . '.twig', 'pages/index.twig' );
+        
     }
     /**
      *  Add Content to Controller

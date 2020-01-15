@@ -1,11 +1,33 @@
 {
-  "name": "kids-team",
+  "name": "kidsteam_wp_theme",
   "version": "1.0.0",
-  "description": "Theme for Kids Team Website",
-  "main": "index.js",
+  "description": "WordPress Theme for KidsTeam Page",
+  "license": "MIT",
+  "repository": "none",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "webpack --mode development",
+    "dist": "webpack --mode production",
+    "watch": "webpack --watch --mode development"
   },
   "author": "Thomas Gollenia",
-  "license": "ISC"
+  "devDependencies": {
+    "@babel/core": "^7.8.3",
+    "babel-loader": "^8.0.6",
+    "babel-preset-env": "^1.7.0",
+    "css-loader": "^3.4.2",
+    "fibers": "^4.0.2",
+    "mini-css-extract-plugin": "^0.9.0",
+    "node-sass": "^4.13.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "sass": "^1.24.4",
+    "sass-loader": "^8.0.2",
+    "uglifyjs-webpack-plugin": "^2.2.0",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10"
+  },
+  "dependencies": {
+    "bootstrap": "^4.4.1",
+    "jquery": "^3.4.1",
+    "popper.js": "^1.16.0"
+  }
 }
