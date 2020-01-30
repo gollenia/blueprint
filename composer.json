@@ -2,9 +2,6 @@
     "require": {
         "timber/timber": "^1.13"
     },
-    "require-dev": {
-        "phpdocumentor/phpdocumentor": "2.*"
-    },
     "autoload": {
         "psr-4": {
               "Contexis\\Core\\": "lib/Core",
