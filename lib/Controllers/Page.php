@@ -8,7 +8,8 @@ use \Timber\Request;
 use \Timber\User;
 
 /**
- * Page Controller, which collects page data ("context") and renders it.
+ * Der Seiten-Controller erstellt einen PHP-Array (Context), in dem alle für den Aufbau der Seite benötigten
+ * Informationen gespeichert werden. 
  * 
  * @since 1.0.0
  */
@@ -18,22 +19,47 @@ class Page {
     private $context = [];
     private $templates = [];
 
-    public function __construct($site) {
+    public function __construct($site, $template = false) {
+
+        // these come from the original timber-context function
         $this->context['http_host'] = URLHelper::get_scheme().'://'.URLHelper::get_host();
-        $this->context['wp_title']['wp_title'] = Helper::get_wp_title();
-		$this->context['body_class'] = implode(' ', get_body_class());
+        //$this->context['wp_title'] = Helper::get_wp_title();
+        
+        // Diese Variable sollte eigentlich in den Post-Intalt
+        $this->context['body_class'] = implode(' ', get_body_class());
+        
+        // Das Site-Objekt. 
         $this->context['site'] = $site;
-		$this->context['request'] = new Request();
-		$user = new User();
+
+        // Der Request
+        $this->context['request'] = new Request();
+        
+        // Das User-Objekt, falls angemeldet - sonst false
+        $user = new User();
         $this->context['user'] = ($user->ID) ? $user : false;
+
+        // Informationen über das Theme, wie URI, Name, etc
         $this->context['theme'] = $site->theme;
-        \Contexis\Core\Utilities::debug($this->context);
+
+        // Der aktuelle Post
         $this->context['post'] = new \Timber\Post();
+
+        // Die Widgets
         $this->context['footer'] = \Timber::get_widgets('footer_area');
+
+        // Das Menü
         $this->context['menu'] = new \Timber\Menu();
-        $this->templates = array( 'pages/page-' . $this->context['post']->post_name . '.twig', 'pages/index.twig' );
+
+        $this->templates = $this::setTemplate();
+
+        // Wenn der Debug-Mode aktiviert ist, gib den Kontext über die JS-Console aus
+        if( WP_DEBUG === true ) { 
+            \Contexis\Core\Utilities::debug($this->context);
+        }
+        
         
     }
+    
     /**
      *  Add Content to Controller
      * 
@@ -46,34 +72,12 @@ class Page {
      * @return bool Returns false, if key already exists. If key already exists and $force is false, the functio returns false, else true.
      * 
      */
-    public function addContent (string $key, array $context, bool $force = false) {
-        if (array_key_exists( $key , $this->context) && !$force) {
-            return false;
-        }
 
-        $this->context[$key] = $context;
-        return true;
+    protected function setTemplate() {
+        return array( 'pages/page-' . $this->context['post']->post_name . '.twig', 'pages/index.twig' );
     }
 
-    public function addImage() {}
-
-    public function addQuery() {}
-
-    /**
-     *  Get Content from Controller
-     * 
-     * @since 1.0.0
-     * 
-     * @param string $key Which content should be fetched?
-     * 
-     * @return mixed whatever is stored in the key
-     * 
-     */
-    public function getContent(string $key = "") {
-        if ($key == "") { return $this->context; }
-        return $this->context[$key];
-    }
-
+    
     /**
      *  Render Content to Twig
      * 

@@ -8,6 +8,6 @@ $post_slug = get_post_field( 'post_name' );
 
 
 $page = new Contexis\Controllers\Page($site);
-$page->addContent('config', $site->getConfig());
-\Contexis\Core\Utilities::debug($page->getContent(""));
+
+
 $page->render();
