@@ -11,7 +11,6 @@
         
 
         
-        // Hier wird geprüft, ob für die aktuelle Seite ein Controller existiert,
         // wenn nicht, wird auf den Parent-Controller \Contexis\Controllers\Page zurückgegriffen.
         
         if(is_front_page()) {
