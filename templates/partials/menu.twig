@@ -23,7 +23,7 @@
 				{% if submenu %}<span class="caret"></span>{% endif %}
 			</a>
 			{% if submenu %}
-				{% include "dropdown-menu.twig" with {'menu': item.get_children} %}
+				{% include "partials/dropdown-menu.twig" with {'menu': item.get_children} %}
 			{% endif %}
 		</li>
         
