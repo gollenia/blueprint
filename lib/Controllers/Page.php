@@ -16,30 +16,20 @@ use \Timber\User;
 
 class Page {
 
-    private $context = [];
-    private $templates = [];
+    protected $context = [];
+    protected $templates = [];
 
     public function __construct($site, $template = false) {
-
-        // these come from the original timber-context function
-        $this->context['http_host'] = URLHelper::get_scheme().'://'.URLHelper::get_host();
-        //$this->context['wp_title'] = Helper::get_wp_title();
         
         // Diese Variable sollte eigentlich in den Post-Intalt
         $this->context['body_class'] = implode(' ', get_body_class());
         
         // Das Site-Objekt. 
         $this->context['site'] = $site;
-
-        // Der Request
-        $this->context['request'] = new Request();
         
         // Das User-Objekt, falls angemeldet - sonst false
-        $user = new User();
-        $this->context['user'] = ($user->ID) ? $user : false;
-
-        // Informationen über das Theme, wie URI, Name, etc
-        $this->context['theme'] = $site->theme;
+        //$user = new User();
+        //$this->context['user'] = ($user->ID) ? $user : false;
 
         // Der aktuelle Post
         $this->context['post'] = new \Timber\Post();
@@ -53,15 +43,13 @@ class Page {
         $this->templates = $this::setTemplate();
 
         // Wenn der Debug-Mode aktiviert ist, gib den Kontext über die JS-Console aus
-        if( WP_DEBUG === true ) { 
-            \Contexis\Core\Utilities::debug($this->context);
-        }
         
+      
         
     }
     
     /**
-     *  Add Content to Controller
+     *  Template festlegen
      * 
      * @since 1.0.0
      * 
@@ -74,24 +62,35 @@ class Page {
      */
 
     protected function setTemplate() {
+        if(is_404()) {
+            return 'pages/404.twig';
+        }
         return array( 'pages/page-' . $this->context['post']->post_name . '.twig', 'pages/index.twig' );
     }
 
     
     /**
-     *  Render Content to Twig
+     *  Seite mit Twig rendern
      * 
      * @since 1.0.0
-     * 
-     * @param string $key Which content should be fetched?
-     * 
-     * @return mixed whatever is stored in the key
      * 
      */
     public function render() {
         \Timber::render( $this->templates, $this->context );
     }
 
+    /**
+     *  Inhalt als JSON ausgeben
+     * 
+     *  Für AJAX-Anwendungen kann es sinnvoll sein, den Inhalt als JSON zurückzugeben
+     * 
+     * @since 1.0.0
+     * 
+     * @param int $options Ausgabe Optionen
+     * 
+     * @return string Fertiges JSON-Objekt
+     * 
+     */
     public function returnJson(int $options = 0, int $depth = 512) {
         header('Content-Type: application/json');
         return json_encode($this->context, $options, $depth);

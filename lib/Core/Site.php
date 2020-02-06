@@ -3,13 +3,22 @@
 namespace Contexis\Core;
 use Contexis\Core\Config;
 
+/**
+ * Der Seiten-Controller erstellt einen PHP-Array (Context), in dem alle für den Aufbau der Seite benötigten
+ * Informationen gespeichert werden. 
+ * 
+ * @since 1.0.0
+ */
+
 class Site extends \Timber\Site {
 
 	private $config;
 
 	/** Add timber support. */
 	public function __construct() {
+
 		$this->config = Config::load('site');
+
 		setlocale(LC_TIME, $this->config['locale']);
 		\Timber::$dirname = $this->config['template_folder'];
 		$this->addThemeSupport($this->config['theme_support']);
@@ -81,7 +90,7 @@ class Site extends \Timber\Site {
 	}
 
 	public function deregisterStyles($styles) {
-		$this->addHook('action', 'wp_print_styles', function() use ($features){
+		$this->addHook('action', 'wp_print_styles', function() use ($styles){
 			foreach($styles as $style) {
 				wp_dequeue_style( $style );
 			}		

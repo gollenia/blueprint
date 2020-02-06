@@ -5,7 +5,10 @@ use Contexis\Core\Config;
 
 class Router {
 
-	public static function get($route) {
 
+
+	public static function get($route) {
+        $controllerName = "Page";
+        return $controllerName;
     }
 }

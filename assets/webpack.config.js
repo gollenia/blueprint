@@ -5,6 +5,7 @@ const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 // include the css extraction and minification plugins
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const webpack = require("webpack");
 
 module.exports = {
   entry: ['./src/js/app.js', './src/scss/app.scss'],
@@ -36,6 +37,13 @@ module.exports = {
     // extract css into dedicated file
     new MiniCssExtractPlugin({
       filename: 'app.css'
+    }),
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery',
+      jquery: 'jquery',
+      'window.jQuery': 'jquery',
+      Popper: ['popper.js', 'default']
     })
   ],
   optimization: {

@@ -12,41 +12,25 @@
 
     <body>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#">Kids Team</a>
+            <a class="navbar-brand" href="#"><img src="{{ site.theme.uri }}/assets/dist/img/kidsteam.svg" height="60px"> Damit Kinder ihr Vertrauen auf Gott setzen</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Über uns</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Angebote
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Was wir bietten</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                </li>
+                {% include "partials/menu.twig" with {'menu': menu.get_items} %}
 
-                </ul>
-                <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Suchen" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Suche</button>
-                </form>
             </div>
             </nav>
   
         {% block content %}
             Wenn Sie das lesen können, gab es ein schweres Problem mit unserer Seite.
         {% endblock %}
+
+        <footer>
+            {{footer}}
+        </footer>
+
+        <script src="{{ site.theme.uri }}/assets/dist/main.js"></script>
     </body>
 </html>

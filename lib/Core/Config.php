@@ -1,7 +1,6 @@
 <?php
 
 namespace Contexis\Core;
-use Symfony\Component\Yaml\Yaml;
 
 
 /**
@@ -10,9 +9,6 @@ use Symfony\Component\Yaml\Yaml;
  * 
  * @since 1.0.0
  */
-
-
-
 
 
 class Config {
@@ -24,15 +20,11 @@ class Config {
         $files = scandir($config_path);
         
         foreach($files as $file) {
-            
-			if ("yaml" === substr($file, -4)) {
-                $setting = substr($file, 0, -5);
-                $this->config[$setting] = Yaml::parseFile($config_path . $file);
-			}
 
+            
             if ("json" === substr($file, -4)) {
                 $setting = substr($file, 0, -5);
-                $json = file_get_contents($config_path . $file);
+                $string = file_get_contents($config_path . $file);
                 $this->config[$setting] = json_decode($string, true);
             }
             
@@ -51,7 +43,7 @@ class Config {
         
         foreach ( $keys as $key )
         {
-            $isArray = is_array( $movingTarget ) || $movingTarget instanceof ArrayAccess;
+            $isArray = is_array( $movingTarget ) || $movingTarget instanceof \ArrayAccess;
             if ( ! $isArray || ! isset( $movingTarget[ $key ] ) ) return NULL;
             
             $movingTarget = $movingTarget[ $key ];
@@ -63,13 +55,6 @@ class Config {
     public static function load(string $file) {
 
         $config_path = get_template_directory() . "/config/";
-
-        
-        if (file_exists ( $config_path . $file . ".yaml" )) {
-            return Yaml::parseFile($config_path . $file . ".yaml");
-        }
-
-        
 
         if (file_exists ( $config_path . $file . ".json" )) {
             $json = file_get_contents($config_path . $file);

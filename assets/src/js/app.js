@@ -1,1 +1,5 @@
-console.log("it works!");
+import 'bootstrap';
+
+$(document).ready(function () {
+    console.log('Webpack loaded!');
+});
