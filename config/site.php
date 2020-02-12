@@ -24,5 +24,10 @@ return [
             "before_title"=> '<h4>',
             "after_title"=> '</h4>'
         ]
+    ],
+    "mime" => [
+        'svg' => 'image/svg+xml',
+        'pdf' => 'application/pdf',
+        'zip' => 'application/zip'
     ]
 ];

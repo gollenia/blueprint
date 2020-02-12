@@ -2,11 +2,6 @@
 
 namespace Contexis\Controllers;
 
-use \Timber\URLHelper;
-use \Timber\Helper;
-use \Timber\Request;
-use \Timber\User;
-
 /**
  * Der Seiten-Controller erstellt einen PHP-Array (Context), in dem alle für den Aufbau der Seite benötigten
  * Informationen gespeichert werden. 
@@ -35,17 +30,12 @@ class Page {
         $this->context['post'] = new \Timber\Post();
 
         // Die Widgets
-        $this->context['footer'] = \Timber::get_widgets('footer_area');
+        $this->context['footer'] = \Timber\Timber::get_widgets('footer_area');
 
         // Das Menü
         $this->context['menu'] = new \Timber\Menu();
 
         $this->templates = $this::setTemplate();
-
-        // Wenn der Debug-Mode aktiviert ist, gib den Kontext über die JS-Console aus
-        
-      
-        
     }
     
     /**
@@ -62,9 +52,7 @@ class Page {
      */
 
     protected function setTemplate() {
-        if(is_404()) {
-            return 'pages/404.twig';
-        }
+  
         return array( 'pages/page-' . $this->context['post']->post_name . '.twig', 'pages/index.twig' );
     }
 
@@ -76,7 +64,10 @@ class Page {
      * 
      */
     public function render() {
-        \Timber::render( $this->templates, $this->context );
+        if( WP_DEBUG === true ) { 
+            \Contexis\Core\Utilities::debug($this->context);
+        }
+        \Timber\Timber::render( $this->templates, $this->context );
     }
 
     /**

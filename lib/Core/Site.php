@@ -3,6 +3,7 @@
 namespace Contexis\Core;
 use Contexis\Core\Config;
 
+
 /**
  * Der Seiten-Controller erstellt einen PHP-Array (Context), in dem alle für den Aufbau der Seite benötigten
  * Informationen gespeichert werden. 
@@ -17,14 +18,16 @@ class Site extends \Timber\Site {
 	/** Add timber support. */
 	public function __construct() {
 
+		// aus dem config-Folder das Site-Objekt laden
 		$this->config = Config::load('site');
 
 		setlocale(LC_TIME, $this->config['locale']);
-		\Timber::$dirname = $this->config['template_folder'];
+		\Timber\Timber::$dirname = $this->config['template_folder'];
 		$this->addThemeSupport($this->config['theme_support']);
 		$this->addWidgets($this->config["widgets"]);
 		//$this->addThemeSupport(['editor-color-palette', $config->colors]);
 		add_filter( 'timber/context', array( $this, 'createContext' ) );
+		add_filter('upload_mimes', array($this, 'addMimeTypes', 1, 1));
 		//add_action( 'init', array( $this, 'register_post_types' ) );
 		//add_action( 'init', array( $this, 'register_taxonomies' ) );
 		$this->addShortcodes();
@@ -45,7 +48,17 @@ class Site extends \Timber\Site {
 		return($this->config);
 	}
 
+	public function addMimeTypes($mime_types) {
+		array_push($mime_types, $this->config['mimes']);
+        return $mime_types;
+	}
+
 	
+	/**
+	 * function addShortcodes
+	 * 
+	 * @since 1.0
+	 */
 
 	private function addShortcodes() {
 		// get all shortcodes from the shortcodesfolder

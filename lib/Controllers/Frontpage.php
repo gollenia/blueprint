@@ -19,9 +19,7 @@ class Frontpage extends Page {
         
         parent::__construct($site);
         $this->context["welcome"] = "Herzlich Willkommen!!! Diesen Text findes du im Frontpage-Controller";
-        if( WP_DEBUG === true ) { 
-            \Contexis\Core\Utilities::debug($this->context);
-        }
+        
     }
 
     protected function setTemplate() {

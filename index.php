@@ -1,28 +1,26 @@
 <?php
 
+/**
+ * Normalerweise werden Controller in Wordpress mit einzelnen PHP-Dateien im Root-Verzeichnis ermittelt.
+ * Diese werden hier funktional gesteuert. Die einzelnen Controller sammeln dann die Informationen (News,
+ * Events, etc.), die für den Aufbaiu der Seite benötigt werden.
+ */
 
-        
-        
-        function my_myme_types($mime_types){
-            $mime_types['svg'] = 'image/svg+xml'; //Adding svg extension
-            return $mime_types;
-        }
-        add_filter('upload_mimes', 'my_myme_types', 1, 1);
-        
+if(is_front_page()) {
+    $page = new Contexis\Controllers\Frontpage($site);
+}
 
-        
-        // wenn nicht, wird auf den Parent-Controller \Contexis\Controllers\Page zurückgegriffen.
-        
-        if(is_front_page()) {
-            $page = new Contexis\Controllers\Frontpage($site);
-        }
+if(is_404()) {
+    return 'pages/404.twig';
+}
 
-        else {
-            // Der Controller entscheident, welche Inhalte für die Seite gesammel werden sollen und welches Template geladen werden soll
-            $page = new Contexis\Controllers\Page($site);
-        }
+else {
+    $page = new Contexis\Controllers\Page($site);
+}
         
-        // zum Schluss wird die Seite an Twig übergeben
-        $page->render();
+/**
+ * Zum Schluss wird die Seite gerendert.
+ */
+$page->render();
    
         

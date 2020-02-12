@@ -1,12 +1,19 @@
 <?php
-// Abhängigkeiten werden mittls PSR-4 Autoload geladen
+
+/**
+ * Hier wird der Autoloader von Composer geladen. Composer ist ein PHP-Paketmanager,
+ * mit dem Abhängigkeiten installiert, aktualisiert und zur Laufzeit je nach Nutzung
+ * eingehängt werden können. Weitere Informationen:
+ * 
+ * @link https://getcomposer.org/
+ */
 require_once( __DIR__ . '/vendor/autoload.php' );
 
-// Timber ist ine Twig-Implementierung für Wordpress
-// Aber brauchen wir hier das Timber.Objekt überhaupt?
-$timber = new Timber\Timber();
 
-$options = new Contexis\Core\Options;
-
-// Das Site-Objekt enthält alle Daten, die später an Twig übergeben werden
+/**
+ * Das Site-Objekt sucht alle Daten zusammen, die für den generellen Betrieb der
+ * Seite wichtig sind. Hier werden Wordpress-Funktionen, Filter und Hooks eingebunden
+ * und die Konfigurationsdatei geladen. Das Site-Objekt wird später an das Page-Objekt
+ * weitergegeben (siehe index.php)
+ */ 
 $site = new Contexis\Core\Site;
