@@ -5,9 +5,9 @@ use Contexis\Core\Config;
 
 class Router {
 
-    private $routes = [];
+    public $routes;
 
-	public function construct($route) {
+	public function __construct() {
         $this->routes = Config::load('routes');
     }
 

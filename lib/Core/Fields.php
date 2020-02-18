@@ -2,12 +2,26 @@
 namespace Contexis\Core;
 
 /**
- * Utility Class with various static functions
+ * Classification of Advanced Custom Fields
+ * 
+ * @link https://www.advancedcustomfields.com/resources/register-fields-via-php/
  * 
  * @since 1.0.0
  */
 
-class Utilities {
+class Fields {
+
+    /**
+	 * Speichert die Kinfiguration, die unter /config/site.php zu finden ist
+	 */
+    private $fields;
+    private $blocks;
+
+    public function __construct() {
+        $config = \Contexis\Core\Config::load('fields');
+        $this->fields = $config['fields'];
+        $this->blocks = $config['blocks'];
+    }
 
     /**
      *  Cast any variable into the Browser Javascript Console. Better way to analyze arrays than var_dump.

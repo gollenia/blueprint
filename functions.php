@@ -17,3 +17,5 @@ require_once( __DIR__ . '/vendor/autoload.php' );
  * weitergegeben (siehe index.php)
  */ 
 $site = new Contexis\Core\Site;
+
+

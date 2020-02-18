@@ -1,16 +1,26 @@
 <?php
 
 /**
- * Hier werden Optionen für das Backend gespeichert. Ein Generator in \Contexis\Core\Options 
- * erstellt daraus dann die entsprechenden Wordpress-Funktionen.
+ * Hier könen Sammlungen und Felder für Advanced Custom Fields gespeichert werden. 
  * 
  * @since 1.0.0
  * @deprecated  Optionen werden über ACF gesteuert!
  */
 
 return [
-    'pages' => '',
-    'sections' => [
+    'blocks' => [
+        [
+            'name'              => 'testimonial',
+            'id'                => 'hihi',
+            'title'             => __('Testimonial'),
+            'description'       => __('A custom testimonial block.'),
+            'render_callback'   => "\Contexis\Utilities::render",
+            'category'          => 'formatting',
+            'icon'              => 'admin-comments',
+            'keywords'          => array( 'testimonial', 'quote' )
+        ]
+    ],
+    'field_groups' => [
         [
             'id' => 'default',
             'title' => 'Allgemein',

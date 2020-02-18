@@ -5,7 +5,7 @@
 
 # Language for date and time calculation
 return [
-    "locale" => "de_DE",
+    "locale" => "de_AT", 
     "template_folder"=> ['templates', 'views'],
     "theme_support" => [
         "menus" => [],
@@ -29,5 +29,8 @@ return [
         'svg' => 'image/svg+xml',
         'pdf' => 'application/pdf',
         'zip' => 'application/zip'
+    ],
+    "acf_blocks" => [
+        
     ]
 ];

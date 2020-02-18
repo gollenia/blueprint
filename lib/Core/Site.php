@@ -13,23 +13,33 @@ use Contexis\Core\Config;
 
 class Site extends \Timber\Site {
 
+	/**
+	 * Speichert die Konfiguration, die unter /config/site.php zu finden ist
+	 */
 	private $config;
 
-	/** Add timber support. */
+	/**
+	 * Hier werden im Prinzip alle Funktionen ausgeführt, die normalerweise in 
+	 * functions.php zu finden sind. Von dort aus wird die Klasse auch initiiert.
+	 * 
+	 * @since 1.0.0
+	 * 
+	 * @todo Aufräumen: Was wird wirklich benötigt?
+	 */
 	public function __construct() {
 
 		// aus dem config-Folder das Site-Objekt laden
 		$this->config = Config::load('site');
-
 		setlocale(LC_TIME, $this->config['locale']);
 		\Timber\Timber::$dirname = $this->config['template_folder'];
 		$this->addThemeSupport($this->config['theme_support']);
 		$this->addWidgets($this->config["widgets"]);
 		//$this->addThemeSupport(['editor-color-palette', $config->colors]);
-		add_filter( 'timber/context', array( $this, 'createContext' ) );
-		add_filter('upload_mimes', array($this, 'addMimeTypes', 1, 1));
+		\add_filter( 'timber/context', array( $this, 'createContext' ) );
+		//add_filter('upload_mimes', array($this, 'addMimeTypes', 1, 1));
 		//add_action( 'init', array( $this, 'register_post_types' ) );
 		//add_action( 'init', array( $this, 'register_taxonomies' ) );
+		\add_action('acf/init', array($this, 'addAcfBlocks'));
 		$this->addShortcodes();
 		$this->addBlocks();
 		parent::__construct();
@@ -44,22 +54,27 @@ class Site extends \Timber\Site {
 		add_action( $name, $function );
 	}
 
-	public function getConfig() {
-		return($this->config);
-	}
-
+	/**
+	 * MIME-Typen hinzufügen. Im jetzigen Zustand funtioniert die Funktion nicht, weil die vorhandenen Mime-Types nicht übergeben werden.
+	 * 
+	 * @since 1.0.0
+	 * 
+	 * @return array Array mit den Mime-Typen
+	 * 
+	 * @todo Funktion so schreiben, dass sie funktioniert
+	 */
 	public function addMimeTypes($mime_types) {
+		var_dump($mime_types);
 		array_push($mime_types, $this->config['mimes']);
         return $mime_types;
 	}
 
 	
 	/**
-	 * function addShortcodes
+	 * Shortcodes im Verzeichnis /lib/Shortcodes sammlen und initiieren
 	 * 
-	 * @since 1.0
+	 * @since 1.0.0
 	 */
-
 	private function addShortcodes() {
 		// get all shortcodes from the shortcodesfolder
 		$files = scandir(__DIR__ . '/../Shortcodes');
@@ -73,10 +88,13 @@ class Site extends \Timber\Site {
 		}
 	}
 
+	/**
+	 * Existierende Blöcke können mit ACF (derzeit noch) nicht überschrieben werden.
+	 * Blocks im Verzeichnis /lib/Blocks sammlen und initiieren
+	 * 
+	 * @since 1.0.0
+	 */
 	private function addBlocks() {
-		// get all blocks from the blocks folder
-		// these are not new blocks but modifications of core-blocks
-		// new blocks should be generated with react!
 		$files = scandir(__DIR__ . '/../Blocks');
 		if (!$files) { return; }
 		foreach($files as $file) {
@@ -94,6 +112,11 @@ class Site extends \Timber\Site {
 		}	
 	}
 
+	/**
+	 * Widgets hinzufügen, die in /config/site.php abgespeichert sind.
+	 * 
+	 * @since 1.0.0
+	 */
 	public function addWidgets ($widgets) {
 		$this->addHook('action', 'widgets_init', function() use ($widgets){
 			foreach ($widgets as $area) {
@@ -102,6 +125,34 @@ class Site extends \Timber\Site {
 		});	
 	}
 
+	/**
+	 * Widgets hinzufügen, die in /config/site.php abgespeichert sind.
+	 * 
+	 * @since 1.0.0
+	 */
+	public function addAcfBlocks () {
+		if( function_exists('acf_register_block_type') ) {
+			for ($i=0; $i < count($this->config['acf_blocks']) ; $i++) { 
+				$block = $this->config['acf_blocks'][$i];
+				$block['render_callback'] = array($this, "renderAcfBlock");
+				acf_register_block_type($block);
+			}
+		}
+	}
+
+	public function renderAcfBlock($block, $content = '', $is_preview = false, $post_id = 0) {
+		echo "Hallo";
+		\Contexis\Core\Utilities::debug($block);
+		\Timber\Timber::render('blocks/' . $block['name'] . '.twig', $block);
+	}
+
+	/**
+	 * Widgets hinzufügen, die in /config/site.php abgespeichert sind.
+	 * 
+	 * @since 1.0.0
+	 * 
+	 * @ignore
+	 */
 	public function deregisterStyles($styles) {
 		$this->addHook('action', 'wp_print_styles', function() use ($styles){
 			foreach($styles as $style) {
@@ -111,7 +162,12 @@ class Site extends \Timber\Site {
 	}
 
 	
-	// function for theme support
+	/**
+	 * Theme-Supports hinzufügen, die in /config/site.php abgespeichert sind.
+	 * 
+	 * @since 1.0.0
+	 * 
+	 */
 	public function addThemeSupport($features) {
 		$this->addHook('action', 'after_setup_theme', function() use ($features){
 			foreach((array) $features as $key => $value) {

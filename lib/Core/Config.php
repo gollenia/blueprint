@@ -10,7 +10,6 @@ namespace Contexis\Core;
  * @since 1.0.0
  */
 
-
 class Config {
     
     private $config = array();
@@ -53,8 +52,9 @@ class Config {
     }
 
     public static function load(string $file) {
-
+        
         $config_path = get_template_directory() . "/config/";
+
 
         if (file_exists ( $config_path . $file . ".json" )) {
             $json = file_get_contents($config_path . $file);
@@ -68,11 +68,4 @@ class Config {
         
     }
 
-    // OBSOLETE: Function is now in \Contexis\Core\Utilities::debug
-    public function debug() {
-        echo "<script>console.log(" . json_encode($this->config) . ");</script>";
-    }
-
-    // a set function is (yet) not needed. Maybe later for a Backend-Configuration-Plugin?
-    public function set() {}
 }

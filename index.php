@@ -6,21 +6,17 @@
  * Events, etc.), die für den Aufbaiu der Seite benötigt werden.
  */
 
-if(is_front_page()) {
-    $page = new Contexis\Controllers\Frontpage($site);
-}
 
-if(is_404()) {
-    return 'pages/404.twig';
-}
+$router = new \Contexis\Core\Router();
 
+$controller = 'Contexis\Controllers\\' . $router->get();
+
+if (class_exists($controller)) {
+    $page = new $controller($site);
+    $page->render();
+}
 else {
-    $page = new Contexis\Controllers\Page($site);
+    echo "Es konnte kein Controller geladen werden.";
 }
-        
-/**
- * Zum Schluss wird die Seite gerendert.
- */
-$page->render();
-   
-        
+
+
