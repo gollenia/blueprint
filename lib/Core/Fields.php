@@ -12,7 +12,7 @@ namespace Contexis\Core;
 class Fields {
 
     /**
-	 * Speichert die Kinfiguration, die unter /config/site.php zu finden ist
+	 * Speichert die Konfiguration, die unter /config/fields.php zu finden ist
 	 */
     private $fields;
     private $blocks;
@@ -21,24 +21,27 @@ class Fields {
         $config = \Contexis\Core\Config::load('fields');
         $this->fields = $config['fields'];
         $this->blocks = $config['blocks'];
+        add_action('acf/init', array($this, 'addAcfBlocks'));
     }
 
     /**
-     *  Cast any variable into the Browser Javascript Console. Better way to analyze arrays than var_dump.
-     * 
-     * @since 1.0.0
-     * 
-     * @param $value Which content should be fetched?
-     * 
-     * @return mixed whatever is stored in the key
-     * 
-     */
-    public static function debug($value = "nothing to debug") {
-        echo "<script>console.log(" . json_encode($value) . ");</script>";
-    }
+	 * Widgets hinzufügen, die in /config/site.php abgespeichert sind.
+	 * 
+	 * @since 1.0.0
+	 */
+	public function addAcfBlocks () {
+		if( function_exists('acf_register_block_type') ) {
+			for ($i=0; $i < count($this->blocks) ; $i++) { 
+				$block = $this->blocks[$i];
+				$block['render_callback'] = array($this, "renderAcfBlock");
+				acf_register_block_type($block);
+			}
+		}
+	}
 
-    public static function render($context) {
-        var_dump($context);
-        echo "Hihi";
-    }
+	public function renderAcfBlock($block, $content = '', $is_preview = false, $post_id = 0) {
+		
+		\Contexis\Core\Utilities::debug($block);
+		\Timber\Timber::render('blocks/' . $block['name'] . '.twig', $block);
+	}
 }

@@ -4,7 +4,7 @@
  * Hier könen Sammlungen und Felder für Advanced Custom Fields gespeichert werden. 
  * 
  * @since 1.0.0
- * @deprecated  Optionen werden über ACF gesteuert!
+ * 
  */
 
 return [
@@ -32,7 +32,7 @@ return [
             'description' => "Integrate Facebook, Twitter etc. into your Site"
         ]
     ],
-    'settings' => [
+    'fields' => [
         [
             'id' => 'facebook',
             'title' => "Facebook-URL",

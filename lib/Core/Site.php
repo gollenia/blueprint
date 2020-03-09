@@ -39,7 +39,7 @@ class Site extends \Timber\Site {
 		//add_filter('upload_mimes', array($this, 'addMimeTypes', 1, 1));
 		//add_action( 'init', array( $this, 'register_post_types' ) );
 		//add_action( 'init', array( $this, 'register_taxonomies' ) );
-		\add_action('acf/init', array($this, 'addAcfBlocks'));
+		
 		$this->addShortcodes();
 		$this->addBlocks();
 		parent::__construct();
@@ -125,26 +125,7 @@ class Site extends \Timber\Site {
 		});	
 	}
 
-	/**
-	 * Widgets hinzufügen, die in /config/site.php abgespeichert sind.
-	 * 
-	 * @since 1.0.0
-	 */
-	public function addAcfBlocks () {
-		if( function_exists('acf_register_block_type') ) {
-			for ($i=0; $i < count($this->config['acf_blocks']) ; $i++) { 
-				$block = $this->config['acf_blocks'][$i];
-				$block['render_callback'] = array($this, "renderAcfBlock");
-				acf_register_block_type($block);
-			}
-		}
-	}
-
-	public function renderAcfBlock($block, $content = '', $is_preview = false, $post_id = 0) {
-		echo "Hallo";
-		\Contexis\Core\Utilities::debug($block);
-		\Timber\Timber::render('blocks/' . $block['name'] . '.twig', $block);
-	}
+	
 
 	/**
 	 * Widgets hinzufügen, die in /config/site.php abgespeichert sind.
