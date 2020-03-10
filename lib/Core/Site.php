@@ -150,12 +150,17 @@ class Site extends \Timber\Site {
 	 * 
 	 */
 	public function addThemeSupport($features) {
+		//var_dump($features);
 		$this->addHook('action', 'after_setup_theme', function() use ($features){
+			
 			foreach((array) $features as $key => $value) {
+				//echo $key;
 				if(empty($value)) {
+			
 					add_theme_support( $key );
-					return;
+					continue;
 				}
+				
 				add_theme_support( $key, $value );
 			}		
 	

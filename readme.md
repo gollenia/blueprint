@@ -4,7 +4,7 @@ This theme is created for the Wordpress-powered Website from kids-team.at/de/ch.
 
 ## Configuration
 
-Things like theme-support, widgets, custom post types, taxonomy or the admin interface can be set in simple PHP arrays in the config folder. Just browse there to get a hint. Many things can be adjusted there without having to dive into the source code.
+Yo. Things like theme-support, widgets, custom post types, taxonomy or the admin interface can be set in simple PHP arrays in the config folder. Just browse there to get a hint. Many things can be adjusted there without having to dive into the source code.
 
 ## twig Templates
 

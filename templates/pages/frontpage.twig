@@ -1,6 +1,10 @@
 {% extends "master.twig" %}
 
 {% block content %}
+    <div class="header">
+        <img src="{{ Image(post._thumbnail_id).src }}" class="img-fluid" alt="Another way to initialize images as TimberImages, but within Twig" />
+    </div>    
+
     <div class="container">
         {# the_content muss aufgerufen werden um die Gutenberg-Blöcke zu rendern. #}
         {{ function( 'apply_filters', 'the_content', post.content ) }}

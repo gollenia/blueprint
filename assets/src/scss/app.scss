@@ -32,3 +32,37 @@
 //@import "node_modules/bootstrap/scss/spinners";
 @import "node_modules/bootstrap/scss/utilities";
 @import "node_modules/bootstrap/scss/print";
+
+body {
+    
+    margin-right: 3%;
+}
+
+
+.navbar-brand {
+    padding-bottom: 0px;
+    span {
+        font-size: 1rem;
+        margin-left: 80px;
+    }
+    img {
+        position: absolute;
+        margin-top: -24px;
+    }
+}
+
+.navbar-nav > .nav-item > .nav-link {
+    display: block;
+    padding: 0.3rem 1rem;
+}
+
+.navbar.fixed {
+    position: fixed;
+    left: 0;
+    right: 0;
+}
+
+.navbar {
+    padding-top: 1.5rem;
+    padding-bottom: 0px;
+}
