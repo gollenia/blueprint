@@ -13,7 +13,35 @@ return [
         "title-tag"=> [],
         "automatic-feed-links"=> [],
         "html5"=> ['comment-form', 'comment-list', 'gallery', 'caption'],
-        "post-formats"=> ['aside', 'image', 'video', 'quote', 'link', 'gallery', 'audio']
+        "post-formats"=> ['aside', 'image', 'video', 'quote', 'link', 'gallery', 'audio'],
+        "editor-color-palette" => [
+            [
+                "color" => "#34c4eb",
+                "name" => "Blau",
+                "slug" => "primary"
+            ],
+            [
+                "color" => "#f59c00",
+                "name" => "Orange",
+                "slug" => "warning"
+            ],
+            [
+                "color" => "#85bc22",
+                "name" => "Orange",
+                "slug" => "success"
+            ],
+            [
+                "color" => "#fff",
+                "name" => "Weiß",
+                "slug" => "white"
+            ],
+            [
+                "color" => "#333",
+                "name" => "Schwarz",
+                "slug" => "black"
+            ]
+            
+        ]
     ],
     "widgets" => [
         'Footer-Bereich' => [
@@ -29,8 +57,5 @@ return [
         'svg' => 'image/svg+xml',
         'pdf' => 'application/pdf',
         'zip' => 'application/zip'
-    ],
-    "acf_blocks" => [
-        
     ]
 ];

@@ -66,3 +66,12 @@ body {
     padding-top: 1.5rem;
     padding-bottom: 0px;
 }
+
+header {
+    height: 300px;
+    background-size: cover;
+}
+
+body > .container {
+    padding-top: 200px;
+}
