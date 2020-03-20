@@ -1,5 +1,5 @@
 {% if menu %}
-	<ul class="navbar-nav ml-auto">
+	<ul class="uk-navbar-nav">
 	{% for item in menu %}
 
 		{% if item.get_children is not empty %}
@@ -9,16 +9,7 @@
 		{% endif %}
 
 		<li class="nav-item {{item.classes | join(' ')}}{% if submenu %} dropdown{% endif %} {% if loop.last %} last{% endif %}">
-			<a class="nav-link"
-				href="{{item.get_link}}"
-				{% if submenu %}
-					class="dropdown-toggle"
-					data-toggle="dropdown"
-					role="button"
-					aria-haspopup="true"
-					aria-expanded="false"
-				{% endif %}
-			>
+			<a href="{{item.get_link}}">
 				{{item.title}}
 				{% if submenu %}<span class="caret"></span>{% endif %}
 			</a>

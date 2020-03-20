@@ -39,11 +39,7 @@ module.exports = {
       filename: 'app.css'
     }),
     new webpack.ProvidePlugin({
-      $: 'jquery',
-      jQuery: 'jquery',
-      jquery: 'jquery',
-      'window.jQuery': 'jquery',
-      Popper: ['popper.js', 'default']
+  
     })
   ],
   optimization: {

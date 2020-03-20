@@ -12,17 +12,18 @@
     </head>
 
     <body>
-        <nav class="navbar fixed navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#"><img src="{{ site.theme.uri }}/assets/dist/img/kidsteam.svg" class="ctx-logo-image" height="70px"><span>Damit Kinder ihr Vertrauen auf Gott setzen</span></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                {% include "partials/menu.twig" with {'menu': menu.get_items} %}
-
-            </div>
+        <div uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky">
+            <nav class="uk-navbar-container" uk-navbar>
+                <div class="uk-navbar-left">
+                    <a href="" class="uk-navbar-item uk-logo">
+                        <img src="{{ site.theme.uri }}/assets/dist/img/kidsteam.svg" class="ctx-logo-image" uk-svg width="70" height="70px">
+                    </a>
+                </div>
+                <div class="uk-navbar-right">
+                    {% include "partials/menu.twig" with {'menu': menu.get_items} %}
+                </div>
             </nav>
+        </div>
   
         {% block content %}
             Wenn Sie das lesen können, gab es ein schweres Problem mit unserer Seite.

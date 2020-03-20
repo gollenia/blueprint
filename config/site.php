@@ -16,12 +16,17 @@ return [
         "post-formats"=> ['aside', 'image', 'video', 'quote', 'link', 'gallery', 'audio'],
         "editor-color-palette" => [
             [
-                "color" => "#34c4eb",
+                "color" => "#222222",
+                "name" => "Standard",
+                "slug" => "default"
+            ],
+            [
+                "color" => "#10bae7",
                 "name" => "Blau",
                 "slug" => "primary"
             ],
             [
-                "color" => "#f59c00",
+                "color" => "#f59b00",
                 "name" => "Orange",
                 "slug" => "warning"
             ],
@@ -29,6 +34,11 @@ return [
                 "color" => "#85bc22",
                 "name" => "Orange",
                 "slug" => "success"
+            ],
+            [
+                "color" => "#e3000b",
+                "name" => "Rot",
+                "slug" => "danger"
             ],
             [
                 "color" => "#fff",
