@@ -11,12 +11,13 @@ return [
         "menus" => [],
         "post-thumbnails"=> [],
         "title-tag"=> [],
+        "align-wide"=>[],
         "automatic-feed-links"=> [],
         "html5"=> ['comment-form', 'comment-list', 'gallery', 'caption'],
         "post-formats"=> ['aside', 'image', 'video', 'quote', 'link', 'gallery', 'audio'],
         "editor-color-palette" => [
             [
-                "color" => "#222222",
+                "color" => "#eeeeee",
                 "name" => "Standard",
                 "slug" => "default"
             ],

@@ -1,9 +1,10 @@
 @import "variables.scss";
 @import "uikit/src/scss/uikit.scss";
 
+// Weitere Variablen
+$global-default-background: #eeeeee !default;
 
-body {
-    
+body {   
     margin-right: 3%;
 }
 
@@ -39,4 +40,23 @@ body {
 header {
     height: 300px;
     background-size: cover;
+}
+
+// Sections
+
+.uk-section.uk-section-default {
+    background-color: $global-default-background;
+    color: #333
+}
+.uk-section.uk-section-warning {
+    background-color: $global-warning-background;
+    color: #fff
+}
+.uk-section.uk-section-success {
+    background-color: $global-success-background;
+    color: #fff
+}
+.uk-section.uk-section-danger {
+    background-color: $global-danger-background;
+    color: #fff
 }

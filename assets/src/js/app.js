@@ -1,5 +1,5 @@
-import UIkit from 'uikit'
+import UIkit from 'uikit';
 
-$(document).ready(function () {
-    console.log('Webpack loaded!');
-});
+
+
+UIkit.notification('Hello world.');

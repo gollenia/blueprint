@@ -8615,3 +8615,19 @@ header {
   height: 300px;
   background-size: cover; }
 
+.uk-section.uk-section-default {
+  background-color: #eeeeee;
+  color: #333; }
+
+.uk-section.uk-section-warning {
+  background-color: #f59b00;
+  color: #fff; }
+
+.uk-section.uk-section-success {
+  background-color: #85bc22;
+  color: #fff; }
+
+.uk-section.uk-section-danger {
+  background-color: #e3000b;
+  color: #fff; }
+
