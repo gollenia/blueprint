@@ -1,5 +1,4 @@
 import UIkit from 'uikit';
 
-
-
-UIkit.notification('Hello world.');
+import './../scss/app.scss';
+window.UIkit = UIkit;

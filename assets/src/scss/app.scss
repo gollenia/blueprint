@@ -1,5 +1,8 @@
 @import "variables.scss";
+@import "blocks.scss";
 @import "uikit/src/scss/uikit.scss";
+
+@import url('https://fonts.googleapis.com/css?family=Inria+Sans:400,400i,700&display=swap');
 
 // Weitere Variablen
 $global-default-background: #eeeeee !default;
@@ -59,4 +62,50 @@ header {
 .uk-section.uk-section-danger {
     background-color: $global-danger-background;
     color: #fff
+}
+
+.uk-section.uk-section-black {
+    background-color: $global-secondary-background;
+    color: #fff
+}
+
+
+
+
+.ctx-circle {
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    .ctx-inner {
+        position: absolute;
+        border-radius: 50%;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+.ctx-circle.ctx-border {
+    border: 10px solid #fff;
+}
+
+.ctx-circle.box-shadow {
+    box-shadow: 1px 1px 8px rgba(0,0,0,0.5);
+}
+    
+.ctx-circle-wrap.ctx-align-left {
+    text-align: left;
+}
+
+.ctx-circle-wrap.ctx-align-center {
+    text-align: center;
+}
+
+.ctx-circle-wrap.ctx-align-right {
+    text-align: right;
 }

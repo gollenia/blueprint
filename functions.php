@@ -11,6 +11,13 @@ require_once( __DIR__ . '/vendor/autoload.php' );
 
 define('EM_GUTENBERG', true);
 
+
+function kb_svg ( $svg_mime ){
+	$svg_mime['svg'] = 'image/svg+xml';
+	return $svg_mime;
+}
+
+add_filter( 'upload_mimes', 'kb_svg' );
 /**
  * Das Site-Objekt sucht alle Daten zusammen, die für den generellen Betrieb der
  * Seite wichtig sind. Hier werden Wordpress-Funktionen, Filter und Hooks eingebunden

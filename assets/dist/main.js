@@ -149,7 +149,7 @@ eval("var g;\n\n// This works in non-strict mode\ng = (function() {\n\treturn th
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nvar _uikit = __webpack_require__(/*! uikit */ \"./node_modules/uikit/dist/js/uikit.js\");\n\nvar _uikit2 = _interopRequireDefault(_uikit);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\n_uikit2.default.notification('Hello world.');\n\n//# sourceURL=webpack:///./src/js/app.js?");
+eval("\n\nvar _uikit = __webpack_require__(/*! uikit */ \"./node_modules/uikit/dist/js/uikit.js\");\n\nvar _uikit2 = _interopRequireDefault(_uikit);\n\n__webpack_require__(/*! ./../scss/app.scss */ \"./src/scss/app.scss\");\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nwindow.UIkit = _uikit2.default;\n\n//# sourceURL=webpack:///./src/js/app.js?");
 
 /***/ }),
 

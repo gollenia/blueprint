@@ -39,6 +39,9 @@ class Site extends \Timber\Site {
 		//add_filter('upload_mimes', array($this, 'addMimeTypes', 1, 1));
 		//add_action( 'init', array( $this, 'register_post_types' ) );
 		//add_action( 'init', array( $this, 'register_taxonomies' ) );
+		add_action('admin_enqueue_scripts', [$this, 'adminStyle']);
+		
+		
 		
 		$this->addShortcodes();
 		$this->addBlocks();
@@ -52,6 +55,10 @@ class Site extends \Timber\Site {
 			return;
         }
 		add_action( $name, $function );
+	}
+
+	public function adminStyle() {
+		wp_enqueue_style('admin-styles', get_template_directory_uri().'/assets/dist/admin.css');
 	}
 
 	/**
