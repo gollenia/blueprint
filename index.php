@@ -12,8 +12,8 @@ $router = new \Contexis\Core\Router();
 $controller = 'Contexis\Controllers\\' . $router->get();
 
 if (class_exists($controller)) {
-    $page = new $controller($site);
-    $page->render();
+    $pageObject = new $controller($site);
+    $pageObject->render();
 }
 else {
     echo "Es konnte kein Controller geladen werden.";
