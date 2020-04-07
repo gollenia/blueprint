@@ -4,7 +4,7 @@ namespace Contexis\Core;
 
 
 /**
- * Class loading config files. When  an Instance is loaded, every YAML and JSON file in a
+ * Class loading config files. When an Instance is loaded, every PHP and JSON file in a
  * given directory is loaded into the object
  * 
  * @since 1.0.0
@@ -20,7 +20,6 @@ class Config {
         
         foreach($files as $file) {
 
-            
             if ("json" === substr($file, -4)) {
                 $setting = substr($file, 0, -5);
                 $string = file_get_contents($config_path . $file);
@@ -35,8 +34,12 @@ class Config {
         
     }
 
-    public function get( $string )
+    public function get( $string = "")
     {
+        if ($string === "") {
+            return $this->config;
+        }
+
         $keys = explode( '.', strval( $string ) );
         $movingTarget = $this->config;
         
