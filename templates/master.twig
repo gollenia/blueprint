@@ -4,7 +4,6 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         {{function('wp_head')}}
-        <link href="{{ site.theme.uri }}/assets/dist/app.css" rel="stylesheet">
         <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">      
     </head>
 
@@ -26,11 +25,9 @@
             Wenn Sie das lesen können, gab es ein schweres Problem mit unserer Seite.
         {% endblock %}
 
-        <footer>
-            {{footer}}
+        <footer class="uk-section uk-section-black uk-light">
+            <div class="uk-container">{{footer}}</div>
             {{function('wp_footer')}}
         </footer>
-
-        <script src="{{ site.theme.uri }}/assets/dist/main.js"></script>
     </body>
 </html>
