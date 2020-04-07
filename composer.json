@@ -1,10 +1,36 @@
 {
+    "name": "contexis/kids-team",
+    "version": "1.0.0",
+    "description": "Wordpress Theme for kids-team Europe",
+    "type": "project",
+    "homepage": "http://www.kids-team.at",
+    "readme": "readme.md",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Thomas Gollenia",
+            "email": "thomas@gollenia.at",
+            "homepage": "http://www.gollenia.at",
+            "role": "Developer"
+        },
+        {
+            "name": "Laura Emeder",
+            "email": "laura@kids-team.at",
+            "role": "Designer"
+        },
+        {
+            "name": "Matthias Demmin",
+            "email": "matthias@kids-team.at",
+            "role": "Manager"
+        }
+    ],
     "require": {
         "timber/timber": "^1.13"
     },
     "autoload": {
         "psr-4": {
               "Contexis\\Core\\": "lib/Core",
+              "Contexis\\Wordpress\\": "lib/Wordpress",
               "Contexis\\Controllers\\": "lib/Controllers"
         }
     }
