@@ -14,13 +14,13 @@ class Utilities {
      * 
      * @since 1.0.0
      * 
-     * @param $value Which content should be fetched?
-     * 
-     * @return mixed whatever is stored in the key
+     * @param $value array or variable to log
      * 
      */
     public static function debug($value = "nothing to debug") {
-        echo "<script>console.log(" . json_encode($value) . ");</script>";
+        if(!\wp_is_json_request()) {
+            echo "<script>console.log(" . json_encode($value) . ");</script>";
+        } 
     }
 
     public static function render($context) {
