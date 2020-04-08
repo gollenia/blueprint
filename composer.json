@@ -30,8 +30,8 @@
     "autoload": {
         "psr-4": {
               "Contexis\\Core\\": "lib/Core",
-              "Contexis\\Core\\Shortcodes\\": "lib/Core/Shortcodes",
               "Contexis\\Wordpress\\": "lib/Wordpress",
+              "Contexis\\Wordpress\\Shortcodes\\": "lib/Wordpress/Shortcodes",
               "Contexis\\Controllers\\": "lib/Controllers"
         }
     }
