@@ -40,7 +40,14 @@ class Site extends \Timber\Site {
 		\Contexis\Wordpress\Mime::register($this->config->get('mimes'));
 		\Contexis\Wordpress\Assets::register($this->config->get('assets'));
 		\Contexis\Wordpress\Taxonomy::register($this->config->get('taxonomies'));
+
+		\Contexis\Wordpress\Shortcode::register();
+
+		// remove automatic <p>-tags
 		remove_filter('the_content', 'wpautop');
+
+		// use Gutenberg Block Editor in Events-Manager
+		define('EM_GUTENBERG', true);
 	}
 
 	/**
