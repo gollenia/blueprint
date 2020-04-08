@@ -4,11 +4,11 @@ This theme is created for the Wordpress-powered Website from kids-team.at/de/ch.
 
 ## Configuration
 
-Yo. Things like theme-support, widgets, custom post types, taxonomy or the admin interface can be set in simple PHP arrays in the config folder. Just browse there to get a hint. Many things can be adjusted there without having to dive into the source code.
+Before digging into the code, you may want to have a look into the config Directory. Most common Wordpress features, such as Widgets, Theme-Support, MIME-Types, Taxonomies , etc you can edit here.
 
 ## twig Templates
 
-This theme uses the twig template engine. It unilizes the awesome Timber-Component. You do not need to install the timber-plugin, as it is included by composer. 
+This theme uses the twig template engine. It utilizes the awesome Timber-Component. You do not need to install the timber-plugin, as it is included by composer. 
 
 ## Class based structure
 
@@ -20,6 +20,24 @@ For development, webpack and browser-sync may be good accompany. Simply run
 
     npm install
 
-in the assets folder, then stat theming with ES6 and SASS.
+then start happy theming with ES6 and SASS.
+
+## Folder Structure
+
+.
++-- assets
+|   +-- edit your SCSS and JA files here
+|   +-- and compile them later with npm run build
++-- config
+|   +-- add features and settungs to wordpress, such as
+|   +-- theme_support, widgets, etc.
++-- lib
+|   +-- PHP Classes
++-- public
+|   +-- Where your compiled assets are
++-- templates
+|   +-- Twig Templates for your Theme
++-- vendor
+|   +-- Composer adds dependencies here.
 
 
