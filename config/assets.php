@@ -17,7 +17,7 @@ return [
     "styles" => [
             [
                 'handle' => 'theme_style',
-                'url' => get_template_directory_uri() . '/assets/dist/app.css',
+                'url' => get_template_directory_uri() . '/assets/dist/main.css',
                 'dependencies' => [],
                 'version' => false,
                 'media' => 'all'
