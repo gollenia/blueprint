@@ -1,3 +1,9 @@
-body {
-    background-color: #ff0000;
+@import url('https://fonts.googleapis.com/css?family=Inria+Sans:400,400i,700&display=swap');
+
+.editor-post-title__block .editor-post-title__input {
+  font-family: "Inria Sans";
+}
+
+.editor-styles-wrapper {
+  font-family: "Inria Sans" !important;
 }

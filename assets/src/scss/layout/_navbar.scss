@@ -1,0 +1,37 @@
+.uk-navbar-item.uk-logo {
+    padding-left: 120px;
+    .logo-image {
+        position:absolute;
+        padding: 0px;
+        left: 20px;
+        top: 12px;
+        span {
+            margin-left: 20px;
+        }
+        z-index: 999;
+    }
+}
+
+.uk-navbar-nav > li > a, .uk-navbar-item, .uk-navbar-toggle {
+    min-height: 62px;
+    padding: 30px 0px 5px 10px;
+}
+
+#hamburger {
+    padding-right: 8px;
+}
+
+#mobile-menu {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 62px;
+    background: #c3f0fa;
+    z-index: 50;
+    padding-top: 40px;
+
+    .nav-item > a {
+        color: #0095DA;
+    }
+}

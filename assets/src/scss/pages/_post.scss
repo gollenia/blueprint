@@ -1,0 +1,36 @@
+.ctx-post-side {
+
+    // Mobile first
+    margin-top: -50px;
+    img {
+        
+        border-top-left-radius: 50px;
+        border-bottom-right-radius: 50px;
+    }
+
+    @media only screen and (min-width: 960px) {
+        margin-top: -130px;
+    }
+
+
+    .ctx-post-image {
+        position: relative;
+        span {
+            position: absolute;
+            bottom: 0;
+            background: $global-primary-background;
+            padding: 5px 18px;
+            border-top-left-radius: 15px;
+            border-bottom-right-radius: 15px;
+            left: 10px;
+            margin-bottom: -8px;
+            color: #fff;
+        }
+    }
+}
+
+.ctx-post-info {
+    color: #000000;
+    opacity: 0.6;
+    margin-top: 50px;
+}
