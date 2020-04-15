@@ -30,7 +30,7 @@ return [
             "slug" => "default"
         ],
         [
-            "color" => "#10bae7",
+            "color" => "#00BFE8",
             "name" => "Blau",
             "slug" => "primary"
         ],
@@ -40,14 +40,24 @@ return [
             "slug" => "warning"
         ],
         [
-            "color" => "#85bc22",
-            "name" => "Orange",
+            "color" => "#A5BD58",
+            "name" => "Grün",
             "slug" => "success"
         ],
         [
             "color" => "#e3000b",
             "name" => "Rot",
             "slug" => "danger"
+        ],
+        [
+            "color" => "#9F70B0",
+            "name" => "Lila",
+            "slug" => "purple"
+        ],
+        [
+            "color" => "#00BFE8",
+            "name" => "Blau",
+            "slug" => "primary"
         ],
         [
             "color" => "#fff",
