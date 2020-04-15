@@ -14,23 +14,37 @@ class Config {
     
     private $config = array();
 
-    public function __construct($config_path) {
+    public function __construct($config_path, $files = false) {
 
-        $files = scandir($config_path);
-        
+        if (!$files) {
+            $files = scandir($config_path);
+            foreach($files as $file) {
+
+                if ("json" === substr($file, -4)) {
+                    $setting = substr($file, 0, -5);
+                    $string = file_get_contents($config_path . $file);
+                    $this->config[$setting] = json_decode($string, true);
+                }
+                
+                if ("php" === substr($file, -3)) {
+                    $setting = substr($file, 0, -4);
+                    $this->config[$setting] = require_once($config_path . $file);
+                }
+            }
+            return;
+        }
+
         foreach($files as $file) {
-
-            if ("json" === substr($file, -4)) {
-                $setting = substr($file, 0, -5);
-                $string = file_get_contents($config_path . $file);
-                $this->config[$setting] = json_decode($string, true);
+            if (file_exists($config_path . $file . ".json")) {
+                $string = file_get_contents($config_path . $file . ".json");
+                $this->config[$file] = json_decode($string, true);
             }
             
-            if ("php" === substr($file, -3)) {
-                $setting = substr($file, 0, -4);
-                $this->config[$setting] = require_once($config_path . $file);
-			}
-		}
+            if (file_exists($config_path . $file . ".php")) {
+                $this->config[$file] = require_once($config_path . $file . ".php");
+            }
+        }
+        
         
     }
 
@@ -52,6 +66,10 @@ class Config {
         }
         
         return $movingTarget;
+    }
+
+    public function set($key, $value) {
+        $this->config[$key] = $value;
     }
 
     public static function load(string $file) {
