@@ -1,43 +1,51 @@
 <?php
 
-/**
- * Hier könen Sammlungen und Felder für Advanced Custom Fields gespeichert werden. 
- * 
- * @since 1.0.0
- * 
- */
+// In this fils, you may configure your custom fields. You need to install Advanced Custom Fields in order to work,
+// otherwise this file will be ignored.
+
 
 return [
-    'field_groups' => [
-        [
-            'id' => 'default',
-            'title' => 'Allgemein',
-            'description' => 'Allgemeine Einstellungen'
+    [
+        "key" => "page_options",
+        "title" => "Optionen",
+        "fields" => [
+            [
+                "key" => "subtitle",
+                "label" => "Untertitel",
+                "name" => "subtitle",
+                "type" => "text",
+                'prefix' => '',
+                'instructions' => '',
+                'required' => 0,
+                'conditional_logic' => 0,
+                'wrapper' => [
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ],
+                'default_value' => '',
+                'placeholder' => '',
+                'prepend' => '',
+                'append' => '',
+                'maxlength' => '',
+                'readonly' => 0,
+                'disabled' => 0,
+            ]
+            ],
+        "location" => [
+            [
+                [
+                    "param" => "post_type",
+                    "operator" => "==",
+                    "value" => "post"
+                ]
+            ]
         ],
-        [
-            'id' => 'social',
-            'title' => "Social Media",
-            'description' => "Integrate Facebook, Twitter etc. into your Site"
-        ]
-    ],
-    'fields' => [
-        [
-            'id' => 'facebook',
-            'title' => "Facebook-URL",
-            'type' => "text",
-            'section' => "default"
-        ],
-        [
-            'id' => "twitter",
-            'title' => "Twitter Name",
-            'type' => "text",
-            'section' => "default"
-        ],
-        [
-            'id' => 'logo',
-            'title' => "Twitter Name",
-            'type' => "image",
-            'section' => "default"
-        ]
+        'menu_order' => 0,
+        'position' => 'normal',
+        'style' => 'default',
+        'label_placement' => 'top',
+        'instruction_placement' => 'label',
+        'hide_on_screen' => '',
     ]
 ];
