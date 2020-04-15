@@ -7,8 +7,13 @@ class Router {
 
     public $routes;
 
-	public function __construct() {
-        $this->routes = Config::load('routes');
+	public function __construct($routes = false) {
+        if (!$routes) {
+            $this->routes = Config::load('routes');
+            return;
+        }
+
+        $this->routes = $routes;
     }
 
     /**
