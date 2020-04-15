@@ -33,6 +33,10 @@ class Utilities {
             echo "<script>console.log(" . json_encode($value) . ");</script>";
         });
 
+        add_action ('admin_head', function() use (&$value) {
+            echo "<script>console.log(" . json_encode($value) . ");</script>";
+        });
+
     }
     
 
