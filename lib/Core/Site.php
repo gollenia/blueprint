@@ -14,7 +14,7 @@ class Site extends \Timber\Site {
 	/**
 	 * Must be a \Contexis\Core\Config object
 	 */
-	private $config;
+	private \Contexis\Core\Config $config;
 
 	/**
 	 * Constructor loads config and parent constructor
@@ -40,8 +40,11 @@ class Site extends \Timber\Site {
 		\Contexis\Wordpress\Mime::register($this->config->get('mimes'));
 		\Contexis\Wordpress\Assets::register($this->config->get('assets'));
 		\Contexis\Wordpress\Taxonomy::register($this->config->get('taxonomies'));
-
 		\Contexis\Wordpress\Shortcode::register();
+		\Contexis\Wordpress\Block::register($this->config->get('blocks'));
+		
+		// plugin-dependent
+		\Contexis\Core\Fields::register($this->config->get('fields'));
 
 		// remove automatic <p>-tags
 		remove_filter('the_content', 'wpautop');
