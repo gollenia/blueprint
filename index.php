@@ -7,16 +7,16 @@
  */
 
 
-$router = new \Contexis\Core\Router();
+$route = new \Contexis\Core\Router($config->get('router'));
 
-$controller = 'Contexis\Controllers\\' . $router->get();
+$controller = 'Contexis\\Controllers\\' . $route->get();
 
 if (class_exists($controller)) {
     $pageObject = new $controller($site);
     $pageObject->render();
 }
 else {
-    echo "Es konnte kein Controller geladen werden.";
+    echo "No Controller found.";
 }
 
 
