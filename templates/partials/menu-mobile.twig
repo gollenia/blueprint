@@ -1,0 +1,27 @@
+{% if menu %}
+<div id="mobile-menu" aria-hidden="true" hidden>
+	<div class="uk-container">
+		<ul class="uk-nav ctx-full-menu">
+		{% for item in menu %}
+
+			{% if item.get_children is not empty %}
+				{% set submenu = true %}
+			{% else %}
+				{% set submenu = false %}
+			{% endif %}
+
+			<li class="nav-item {{item.classes | join(' ')}}{% if submenu %} dropdown{% endif %} {% if loop.last %} last{% endif %}">
+				<a href="{{item.get_link}}">
+					{{item.title}}
+					{% if submenu %}<span class="caret"></span>{% endif %}
+				</a>
+				{% if submenu %}
+					{% include "partials/menu-dropdown.twig" with {'menu': item.get_children} %}
+				{% endif %}
+			</li>
+			
+		{% endfor %}
+		</ul>
+	</div>
+</div>
+{% endif %}
