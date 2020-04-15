@@ -16,10 +16,7 @@ class Frontpage extends Page {
 
     
     public function __construct($site, $template = false) {
-        
         parent::__construct($site);
-        $this->context["welcome"] = "Herzlich Willkommen!!! Diesen Text findes du im Frontpage-Controller";
-        
     }
 
     protected function setTemplate() {
