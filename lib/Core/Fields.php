@@ -2,34 +2,24 @@
 namespace Contexis\Core;
 
 /**
- * Classification of Advanced Custom Fields
+ * Advanced Custom Fields
  * 
  * @link https://www.advancedcustomfields.com/resources/register-fields-via-php/
  * 
  * @since 1.0.0
  */
 
-class Fields {
+Class Fields {
 
-    /**
-	 * Speichert die Konfiguration, die unter /config/fields.php zu finden ist
-	 */
-    private $fields;
-    private $blocks;
+    public static function register($fields) {
 
-    public function __construct() {
-        $config = \Contexis\Core\Config::load('fields');
-        $this->fields = $config['fields'];
+		if ($fields === null) { return; }
+        
+		add_action('acf/init', function() use (&$fields){
+			foreach ($fields as $field) {
+                acf_add_local_field_group($field);	
+            }	
+		});
     }
-
-    /**
-	 * Widgets hinzufügen, die in /config/site.php abgespeichert sind.
-	 * 
-	 * @since 1.0.0
-	 */
-	public function renderAcfBlock($block, $content = '', $is_preview = false, $post_id = 0) {
-		
-		\Contexis\Core\Utilities::debug($block);
-		\Timber\Timber::render('blocks/' . $block['name'] . '.twig', $block);
-	}
+    
 }
