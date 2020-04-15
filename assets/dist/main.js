@@ -81,10 +81,33 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = "./assets/src/js/main.js");
 /******/ })
 /************************************************************************/
 /******/ ({
+
+/***/ "./assets/src/js/main.js":
+/*!*******************************!*\
+  !*** ./assets/src/js/main.js ***!
+  \*******************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nvar _uikit = __webpack_require__(/*! uikit */ \"./node_modules/uikit/dist/js/uikit.js\");\n\nvar _uikit2 = _interopRequireDefault(_uikit);\n\n__webpack_require__(/*! ./../scss/app.scss */ \"./assets/src/scss/app.scss\");\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nwindow.UIkit = _uikit2.default;\n\n_uikit2.default.util.on('#mobile-menu', 'show', function () {\n  document.getElementById('hamburger').classList.add(\"is-active\");\n});\n\n_uikit2.default.util.on('#mobile-menu', 'hide', function () {\n  document.getElementById('hamburger').classList.remove(\"is-active\");\n});\n\n//# sourceURL=webpack:///./assets/src/js/main.js?");
+
+/***/ }),
+
+/***/ "./assets/src/scss/app.scss":
+/*!**********************************!*\
+  !*** ./assets/src/scss/app.scss ***!
+  \**********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./assets/src/scss/app.scss?");
+
+/***/ }),
 
 /***/ "./node_modules/process/browser.js":
 /*!*****************************************!*\
@@ -138,40 +161,6 @@ eval("/* WEBPACK VAR INJECTION */(function(setImmediate) {/*! UIkit 3.3.7 | http
 /***/ (function(module, exports) {
 
 eval("var g;\n\n// This works in non-strict mode\ng = (function() {\n\treturn this;\n})();\n\ntry {\n\t// This works if eval is allowed (see CSP)\n\tg = g || new Function(\"return this\")();\n} catch (e) {\n\t// This works if the window reference is available\n\tif (typeof window === \"object\") g = window;\n}\n\n// g can still be undefined, but nothing to do about it...\n// We return undefined, instead of nothing here, so it's\n// easier to handle this case. if(!global) { ...}\n\nmodule.exports = g;\n\n\n//# sourceURL=webpack:///(webpack)/buildin/global.js?");
-
-/***/ }),
-
-/***/ "./src/js/app.js":
-/*!***********************!*\
-  !*** ./src/js/app.js ***!
-  \***********************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-eval("\n\nvar _uikit = __webpack_require__(/*! uikit */ \"./node_modules/uikit/dist/js/uikit.js\");\n\nvar _uikit2 = _interopRequireDefault(_uikit);\n\n__webpack_require__(/*! ./../scss/app.scss */ \"./src/scss/app.scss\");\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nwindow.UIkit = _uikit2.default;\n\n//# sourceURL=webpack:///./src/js/app.js?");
-
-/***/ }),
-
-/***/ "./src/scss/app.scss":
-/*!***************************!*\
-  !*** ./src/scss/app.scss ***!
-  \***************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/scss/app.scss?");
-
-/***/ }),
-
-/***/ 0:
-/*!*************************************************!*\
-  !*** multi ./src/js/app.js ./src/scss/app.scss ***!
-  \*************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-eval("__webpack_require__(/*! ./src/js/app.js */\"./src/js/app.js\");\nmodule.exports = __webpack_require__(/*! ./src/scss/app.scss */\"./src/scss/app.scss\");\n\n\n//# sourceURL=webpack:///multi_./src/js/app.js_./src/scss/app.scss?");
 
 /***/ })
 
