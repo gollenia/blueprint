@@ -35,7 +35,7 @@ class Page {
         // Das Menü
         $this->context['menu'] = new \Timber\Menu();
 
-        $this->templates = $this::setTemplate();
+        $this->templates = $this->setTemplate();
     }
     
     /**
@@ -53,7 +53,7 @@ class Page {
 
     protected function setTemplate() {
   
-        return array( 'pages/page-' . $this->context['post']->post_name . '.twig', 'pages/index.twig' );
+        return array( 'pages/page-' . $this->context['post']->post_name . '.twig', 'pages/page.twig' );
     }
 
     

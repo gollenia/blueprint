@@ -1,0 +1,13 @@
+{% extends "master.twig" %}
+
+{% block content %}
+    <header class="uk-flex uk-flex-left uk-flex-bottom uk-padding uk-padding-remove-horizontal">
+        <div class="uk-container">
+            <h2>{{post.title}}</h2>
+        </div>
+        
+    </header>
+    <article>
+        {{ post.post_content }}
+    </article>
+{% endblock %}
