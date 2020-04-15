@@ -5,9 +5,9 @@ namespace Contexis\Wordpress;
 Class Mime {
 
     public static function register($new_mimes) {
-        $mimes = wp_get_mime_types();
 
-        
+        $mimes = wp_get_mime_types();
+        if ($new_mimes === null) { return $mimes; }
 
         foreach($new_mimes['remove'] as $key) {
             unset($mimes[$key]);

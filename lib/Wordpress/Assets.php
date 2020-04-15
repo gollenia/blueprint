@@ -4,10 +4,11 @@ namespace Contexis\Wordpress;
 Class Assets {
 
     public static function register($assets) {
-        self::addScripts($assets['scripts']);
-        self::addStyles($assets['styles']);
-        self::removeScripts($assets['remove_scripts']);
-        self::removeStyles($assets['remove_styles']);
+        if (!$assets) {return;}
+        if ($assets['scripts'] !== null) { self::addScripts($assets['scripts']); }
+        if ($assets['styles'] !== null) { self::addStyles($assets['styles']); }
+        if ($assets['remove_scripts'] !== null) { self::removeScripts($assets['remove_scripts']); }
+        if ($assets['remove_styles'] !== null) { self::removeStyles($assets['remove_styles']); }
     }
 
     private static function addScripts($scripts) {
