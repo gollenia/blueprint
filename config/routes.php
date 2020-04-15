@@ -19,7 +19,7 @@ return [
 
     //"Events" => is_page('events'),          // Seite beinhaltet eine Eventliste
 
-    "News" => is_single(),
+    "Post" => is_single(),
 
     //"Freizeiten" => in_category('freizeiten') && is_singular('event'),
 
