@@ -59,6 +59,7 @@ class Site extends \Timber\Site {
 	 * @since 1.0.0
 	 */
 	private function add_timber_functions() {
+		//setlocale(LC_ALL, $this->config->get('site.locale'));
 		\Timber\Timber::$dirname = $this->config->get('site.template_folder');
 	}
 	
