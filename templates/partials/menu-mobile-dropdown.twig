@@ -1,0 +1,11 @@
+{% if menu %}
+<ul class="uk-nav-sub">
+    {% for item in menu %}
+        <li class="{{item.class}} {% if (item.current or item.current_item_ancestor) %}uk-active{% endif %}">
+            <a href="{{item.get_link}}">
+                {{item.title}}
+            </a>
+        </li>
+    {% endfor %}
+</ul>
+{% endif %}

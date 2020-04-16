@@ -1,23 +1,15 @@
 {% if menu %}
 	<ul class="uk-navbar-nav uk-visible@m">
 	{% for item in menu %}
-
-		{% if item.get_children is not empty %}
-			{% set submenu = true %}
-		{% else %}
-			{% set submenu = false %}
-		{% endif %}
-
-		<li class="nav-item {{item.classes | join(' ')}}{% if submenu %} dropdown{% endif %} {% if loop.last %} last{% endif %}">
-			<a href="{{item.get_link}}">
+		<li class="nav-item {{item.class}} {% if item.has_child_class %}dropdown{% endif %} {% if loop.last %}last{% endif %} {% if (item.current or item.current_item_ancestor) %}uk-active{% endif %}">
+			<a href="{% if item.has_child_class %}#{% else %}{{item.get_link}}{% endif %}">
 				{{item.title}}
-				{% if submenu %}<span class="caret"></span>{% endif %}
+				{% if item.has_child_class %}<span class="caret"></span>{% endif %}
 			</a>
-			{% if submenu %}
-				{% include "partials/menu-dropdown.twig" with {'menu': item.get_children} %}
+			{% if item.has_child_class %}
+				{% include "partials/menu-dropdown.twig" with {'menu': item.children} %}
 			{% endif %}
-		</li>
-        
+		</li>  
 	{% endfor %}
 	</ul>
     <div class="contact  ml-auto">

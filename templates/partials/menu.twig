@@ -9,12 +9,12 @@
 		<div class="uk-navbar-right">
 			{% include "partials/menu-desktop.twig" with {'menu': menu.get_items} %}
 			<ul class="uk-navbar-nav uk-hidden@m">
-				<li>
-			<a class="hamburger hamburger--collapse" id="hamburger" type="button" uk-toggle="target: #mobile-menu">
-				<span class="hamburger-box">
-				  <span class="hamburger-inner"></span>
-				</span>
-			</a>
+				<li class="hamburger-menu">
+					<a class="hamburger hamburger--collapse" id="hamburger" type="button" uk-toggle="target: #mobile-menu; animation: uk-animation-slide-top">
+						<span class="hamburger-box">
+						<span class="hamburger-inner"></span>
+						</span>
+					</a>
 				</li>
 			</ul>
 		</div>
