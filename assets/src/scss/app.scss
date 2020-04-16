@@ -4,39 +4,28 @@
 
 @import "uikit/src/scss/uikit.scss";
 
-$hamburger-padding-x           : 0px;
-$hamburger-padding-y           : 0px;
-$hamburger-layer-width         : 25px;
-$hamburger-layer-height        : 2px;
-$hamburger-layer-spacing       : 5px;
-$hamburger-layer-color         : #000;
-$hamburger-layer-border-radius : 4px;
-$hamburger-hover-opacity       : 1;
-
+@import "globals";
 
 @import "hamburgers/_sass/hamburgers/hamburgers.scss";
   
 @import url('https://fonts.googleapis.com/css?family=Inria+Sans:400,400i,700&display=swap');
 
 // Weitere Variablen
+// Deprecated?
 $global-default-background: #eeeeee !default;
 
 body {   
     margin-right: 3%;
 }
 
-$purple-color: #926FAD;
-$purple-background-color: #E2DAEB;
 
-$blue-color: #0094D6;
-$blue-background-color: #CDE0F4;
 
-$green-color: #ABBB5F;
-$green-background-color: #EAECD8;
+
 
 @import "blocks";
 @import "layout";
 @import "pages";
+
 
 .body {
     position: relative;
@@ -68,3 +57,11 @@ body.home {
     }
 }
 
+.ctx-round-edges {
+    border-top-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+}
+
+.ctx-image-border {
+    border: 5px solid #fff;
+}

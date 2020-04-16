@@ -1,0 +1,24 @@
+$purple-color: #926FAD;
+$purple-background-color: #E2DAEB;
+
+$blue-color: #0094D6;
+$blue-background-color: #CDE0F4;
+
+$green-color: #ABBB5F;
+$green-background-color: #EAECD8;
+
+$hamburger-padding-x           : 0px;
+$hamburger-padding-y           : 0px;
+$hamburger-layer-width         : 25px;
+$hamburger-layer-height        : 2px;
+$hamburger-layer-spacing       : 5px;
+$hamburger-layer-color         : #000;
+$hamburger-layer-border-radius : 4px;
+$hamburger-hover-opacity       : 1;
+
+.ctx-small-round-border {
+    border-top-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    border-top-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
