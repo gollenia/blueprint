@@ -94,7 +94,7 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nvar _uikit = __webpack_require__(/*! uikit */ \"./node_modules/uikit/dist/js/uikit.js\");\n\nvar _uikit2 = _interopRequireDefault(_uikit);\n\n__webpack_require__(/*! ./../scss/app.scss */ \"./assets/src/scss/app.scss\");\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nwindow.UIkit = _uikit2.default;\n\n_uikit2.default.util.on('#mobile-menu', 'show', function () {\n  document.getElementById('hamburger').classList.add(\"is-active\");\n});\n\n_uikit2.default.util.on('#mobile-menu', 'hide', function () {\n  document.getElementById('hamburger').classList.remove(\"is-active\");\n});\n\n//# sourceURL=webpack:///./assets/src/js/main.js?");
+eval("\n\nvar _uikit = __webpack_require__(/*! uikit */ \"./node_modules/uikit/dist/js/uikit.js\");\n\nvar _uikit2 = _interopRequireDefault(_uikit);\n\n__webpack_require__(/*! ./../scss/app.scss */ \"./assets/src/scss/app.scss\");\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nwindow.UIkit = _uikit2.default;\n\n_uikit2.default.util.on('#mobile-menu', 'beforeshow', function (event) {\n  if (event.target.id == \"mobile-menu\") {\n    document.getElementById('hamburger').classList.add(\"is-active\");\n  }\n});\n\n_uikit2.default.util.on('#mobile-menu', 'beforehide', function (event) {\n  if (event.target.id == \"mobile-menu\") {\n    document.getElementById('hamburger').classList.remove(\"is-active\");\n  }\n});\n\n//# sourceURL=webpack:///./assets/src/js/main.js?");
 
 /***/ }),
 
