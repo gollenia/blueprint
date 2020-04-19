@@ -8,6 +8,8 @@ Class Assets {
         if ($assets['scripts'] !== null) { self::addScripts($assets['scripts']); }
         if ($assets['styles'] !== null) { self::addStyles($assets['styles']); }
         if ($assets['remove_scripts'] !== null) { self::removeScripts($assets['remove_scripts']); }
+        if ($assets['admin_styles'] !== null) { self::adminStyles($assets['remove_scripts']); }
+        if ($assets['admin_scripts'] !== null) { self::adminScripts($assets['remove_scripts']); }
         if ($assets['remove_styles'] !== null) { self::removeStyles($assets['remove_styles']); }
     }
 
@@ -21,6 +23,23 @@ Class Assets {
 
     private static function addStyles($styles) {
         add_action('wp_print_styles', function() use (&$styles) {
+            foreach($styles as $style) {
+                wp_enqueue_style( $style['handle'], $style['url'], $style['dependencies'], $style['version'], $style['media'] );
+            }
+        });
+
+    }
+
+    private static function adminScripts($scripts) {
+        add_action('admin_enqueue_scripts', function() use (&$scripts) {
+            foreach($scripts as $script) {
+                wp_enqueue_script( $script['handle'], $script['url'], $script['dependencies'], $script['version'], $script['in_footer'] );
+            }
+        });
+    }
+
+    private static function adminStyles($styles) {
+        add_action('admin-styles', function() use (&$styles) {
             foreach($styles as $style) {
                 wp_enqueue_style( $style['handle'], $style['url'], $style['dependencies'], $style['version'], $style['media'] );
             }
