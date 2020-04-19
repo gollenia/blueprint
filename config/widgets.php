@@ -10,10 +10,10 @@
 */
 
 return [
-    'Footer-Bereich' => [
+    'Fußzeile' => [
             "id" => 'footer_area',
             "description" => 'Widget-Bereich ganz unten auf der Seite',
-            "before_widget"=> '<div class="col col-12 col-lg-4">',
+            "before_widget"=> '<div>',
             "after_widget"=> '</div>',
             "before_title"=> '<h4>',
             "after_title"=> '</h4>'
