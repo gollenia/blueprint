@@ -1,4 +1,14 @@
 import UIkit from 'uikit';
+import Icons from 'uikit/dist/js/uikit-icons';
+
+import boy from '../img/icons/boy.svg';
+import calendar from '../img/icons/calendar.svg';
+
+UIkit.use(Icons);
+
+
+UIkit.icon.add("boy", boy);
+UIkit.icon.add("calendar", calendar);
 
 
 
