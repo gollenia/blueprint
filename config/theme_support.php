@@ -30,9 +30,14 @@ return [
             "slug" => "default"
         ],
         [
-            "color" => "#00BFE8",
+            "color" => "#009cd9",
             "name" => "Blau",
             "slug" => "primary"
+        ],
+        [
+            "color" => "#ccf1ff",
+            "name" => "Hellblau",
+            "slug" => "lightblue"
         ],
         [
             "color" => "#f59b00",
@@ -40,14 +45,19 @@ return [
             "slug" => "warning"
         ],
         [
+            "color" => "#ffeccc",
+            "name" => "Hell Orange",
+            "slug" => "lightorange"
+        ],
+        [
             "color" => "#A5BD58",
             "name" => "Grün",
             "slug" => "success"
         ],
         [
-            "color" => "#e3000b",
-            "name" => "Rot",
-            "slug" => "danger"
+            "color" => "#ebf0db",
+            "name" => "Grün",
+            "slug" => "lightgreen"
         ],
         [
             "color" => "#9F70B0",
@@ -55,9 +65,14 @@ return [
             "slug" => "purple"
         ],
         [
-            "color" => "#00BFE8",
-            "name" => "Blau",
-            "slug" => "primary"
+            "color" => "#e9deed",
+            "name" => "Lila",
+            "slug" => "lightpurple"
+        ],
+        [
+            "color" => "#e3000b",
+            "name" => "Rot",
+            "slug" => "danger"
         ],
         [
             "color" => "#fff",
