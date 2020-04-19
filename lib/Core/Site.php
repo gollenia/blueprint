@@ -27,6 +27,30 @@ class Site extends \Timber\Site {
 		$this->add_wordpress_functions();
 		$this->add_timber_functions();
 		parent::__construct();
+		add_action( 'init', [$this, 'add_taxonomies_to_pages'] );
+	}
+
+	/**
+	 * add_taxonomies_to_pages()
+	 * 
+	 * Add Taxonomy to normal pages. Must be hooked into init
+	 * 
+	 * @since 1.0.0
+	 */
+	public function add_taxonomies_to_pages() {
+		register_taxonomy_for_object_type( 'post_tag', 'page' );
+		register_taxonomy_for_object_type( 'category', 'page' );
+	}
+
+	/**
+	 * getConfig()
+	 * 
+	 * get config as array, used in controller
+	 * 
+	 * @since 1.0.0
+	 */
+	public function getConfig() {
+		return $this->config->get();
 	}
 
 	/**
@@ -35,6 +59,7 @@ class Site extends \Timber\Site {
 	 * @since 1.0.0
 	 */
 	private function add_wordpress_functions() {
+
 		\Contexis\Wordpress\ThemeSupport::register($this->config->get('theme_support'));
 		\Contexis\Wordpress\Widgets::register($this->config->get('widgets'));
 		\Contexis\Wordpress\Mime::register($this->config->get('mimes'));
