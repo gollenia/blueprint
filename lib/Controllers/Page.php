@@ -15,12 +15,21 @@ class Page {
     protected $templates = [];
 
     public function __construct($site, $template = false) {
+
+        global $wp_customize;
         
         // Diese Variable sollte eigentlich in den Post-Intalt
         $this->context['body_class'] = implode(' ', get_body_class());
         
         // Das Site-Objekt. 
         $this->context['site'] = $site;
+
+        $this->context['config'] = $site->getConfig();
+
+        $this->context['fields'] = get_fields('option');
+
+        $post = \Timber\Timber::get_post();
+        $this->context['categories'] = $post->terms( 'category' );
         
         // Das User-Objekt, falls angemeldet - sonst false
         //$user = new User();
@@ -36,6 +45,7 @@ class Page {
         $this->context['menu'] = new \Timber\Menu();
 
         $this->templates = $this->setTemplate();
+
     }
     
     /**
