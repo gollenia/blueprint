@@ -17,12 +17,24 @@
 }
 
 .uk-navbar-nav > li:hover {
-    @extend .ctx-small-round-border;
+    
     background-color: $global-primary-background;
     > a { color: #fff; }
     &.dropdown {
         border-bottom-left-radius: 0px;
     }
+}
+
+.single header {
+    background-color:var(--primary-light-color);
+    padding-top: 100px;
+    padding-bottom: 50px;
+}
+
+.uk-navbar-nav > li {
+    @extend .ctx-small-round-border;
+    transition: background-color .5s;
+    > a { transition: color .5s;}
 }
 
 .uk-navbar-dropdown {
@@ -32,6 +44,7 @@
 .uk-navbar {
     z-index: 99;
 }
+
 
 // .uk-navbar-nav > li, .uk-logo, .uk-navbar-toggle {
 //     min-height: 62px;

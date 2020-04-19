@@ -1,11 +1,29 @@
-$purple-color: #926FAD;
-$purple-background-color: #E2DAEB;
+.page {
+    --primary-color: var(--primary);
+    --primary-light-color: var(--lightblue);
+}
 
-$blue-color: #0094D6;
-$blue-background-color: #CDE0F4;
+.single {
+    --primary-color: var(--primary);
+    --primary-light-color: var(--lightblue);
+}
 
-$green-color: #ABBB5F;
-$green-background-color: #EAECD8;
+.graz {
+    --primary-color: var(--purple);
+    --primary-light-color: var(--lightpurple);
+}
+
+.wien {
+    --primary-color: var(--warning);
+    --primary-light-color: var(--lightorange);
+}
+
+.innsbruck {
+    --primary-color: var(--success);
+    --primary-light-color: var(--lightgreen);
+}
+
+
 
 $hamburger-padding-x           : 0px;
 $hamburger-padding-y           : 0px;
