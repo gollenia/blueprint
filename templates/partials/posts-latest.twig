@@ -1,8 +1,8 @@
 <div class="ctx-post-items">
 {% for item in latest_posts %}
-    <a class="uk-link-reset ctx-post-item uk-margin-bottom uk-flex uk-flex-middle" href="/aktuell/{{item.post_name}}">
+    <a class="uk-link-reset ctx-post-item uk-margin-bottom uk-flex uk-flex-middle {% for term in item.get_terms() %}{{term.slug}} {% endfor %}" href="/aktuell/{{item.post_name}}">
         <div class="uk-margin-right">
-            <img src="{{ item.thumbnail.src('qsmall') }}" width="100px" class="uk-box-shadow-small uk-border-circle ctx-image-border">
+            <img src="{{ item.thumbnail.src('qsmall') }}" width="100px" class="uk-border-circle">
         </div>
     
         <div>
