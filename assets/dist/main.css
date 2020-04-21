@@ -9351,46 +9351,55 @@ body {
   background-color: var(--lightpurple);
   color: var(--purple); }
 
-.uk-card img {
-  border-top-left-radius: 50px;
-  border-bottom-right-radius: 50px; }
+.uk-section.uk-section-lightorange {
+  background-color: var(--lightorange);
+  color: #222222; }
 
-.uk-card {
+.uk-section.uk-section-lightblue {
+  background-color: var(--lightblue);
+  color: #222222; }
+
+.uk-section.uk-section-lightgreen {
+  background-color: var(--lightgreen);
+  color: #222222; }
+
+.uk-section.uk-section-lightred {
+  background-color: var(--lightred);
+  color: #222222; }
+
+.uk-section.uk-section-lightpurple {
+  background-color: var(--lightpurple);
+  color: #222222; }
+
+.uk-first-column .uk-card, .uk-first-column .uk-card img {
   border-top-left-radius: 50px; }
 
-.uk-card.first-image img, .uk-card.first-image {
-  border-bottom-right-radius: 0px; }
-
-.uk-card.last-image img {
-  border-top-left-radius: 0px; }
-
-.uk-card img {
-  border-top-left-radius: 0px;
-  border-bottom-right-radius: 0px; }
+.uk-grid div:last-child .uk-card {
+  border-bottom-right-radius: 50px; }
 
 .uk-card-success {
   background-color: var(--success);
   color: #fff; }
-  .uk-card-success img {
-    border-radius: 0px; }
+  .uk-card-success .uk-card-title {
+    color: #fff; }
 
 .uk-card-purple {
   background-color: var(--purple);
   color: #fff; }
-  .uk-card-purple img {
-    border-radius: 0px; }
+  .uk-card-purple .uk-card-title {
+    color: #fff; }
 
 .uk-card-warning {
   background-color: var(--warning);
   color: #fff; }
-  .uk-card-warning img {
-    border-radius: 0px; }
+  .uk-card-warning .uk-card-title {
+    color: #fff; }
 
 .uk-card-danger {
   background-color: var(--danger);
   color: #fff; }
-  .uk-card-danger img {
-    border-radius: 0px; }
+  .uk-card-danger .uk-card-title {
+    color: #fff; }
 
 .uk-navbar-item.uk-logo {
   padding-left: 120px; }
