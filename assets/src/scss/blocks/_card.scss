@@ -1,4 +1,4 @@
-.uk-first-column {
+.uk-grid div:first-child {
     .uk-card, .uk-card img {
         border-top-left-radius: 50px;
     }
@@ -9,6 +9,15 @@
     .uk-card {
         border-bottom-right-radius: 50px;
     }
+}
+
+.uk-card-primary {
+    background-color: var(--primary);
+    color: #fff;
+    .uk-card-title {
+        color: #fff
+    }
+   
 }
 
 .uk-card-success {

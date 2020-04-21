@@ -2,16 +2,16 @@
     background-color: $global-default-background;
     color: #333
 }
+.uk-section.uk-section-primary {
+    background-color: $global-warning-background;
+    color: #fff
+}
 .uk-section.uk-section-warning {
     background-color: $global-warning-background;
     color: #fff
 }
 .uk-section.uk-section-success {
     background-color: $global-success-background;
-    color: #fff
-}
-.uk-section.uk-section-danger {
-    background-color: $global-danger-background;
     color: #fff
 }
 

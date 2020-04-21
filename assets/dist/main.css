@@ -8588,13 +8588,13 @@ iframe.uk-cover {
   h3 {
     page-break-after: avoid; } }
 
-.page {
+.de-AT {
   --primary-color: var(--primary);
   --primary-light-color: var(--lightblue); }
 
-.single {
-  --primary-color: var(--primary);
-  --primary-light-color: var(--lightblue); }
+.de-DE {
+  --primary-color: var(--success);
+  --primary-light-color: var(--lightgreen); }
 
 .graz {
   --primary-color: var(--purple);
@@ -8607,6 +8607,14 @@ iframe.uk-cover {
 .innsbruck {
   --primary-color: var(--success);
   --primary-light-color: var(--lightgreen); }
+
+.zentrale {
+  --primary-color: var(--primary);
+  --primary-light-color: var(--lightblue); }
+
+.de-CH {
+  --primary-color: var(--warning);
+  --primary-light-color: var(--lightorange); }
 
 .ctx-small-round-border, .uk-navbar-nav > li {
   border-top-right-radius: 15px;
@@ -9331,16 +9339,16 @@ body {
   background-color: #eeeeee;
   color: #333; }
 
+.uk-section.uk-section-primary {
+  background-color: #f59b00;
+  color: #fff; }
+
 .uk-section.uk-section-warning {
   background-color: #f59b00;
   color: #fff; }
 
 .uk-section.uk-section-success {
   background-color: #A5BD58;
-  color: #fff; }
-
-.uk-section.uk-section-danger {
-  background-color: #e3000b;
   color: #fff; }
 
 .uk-section.uk-section-black {
@@ -9371,11 +9379,17 @@ body {
   background-color: var(--lightpurple);
   color: #222222; }
 
-.uk-first-column .uk-card, .uk-first-column .uk-card img {
+.uk-grid div:first-child .uk-card, .uk-grid div:first-child .uk-card img {
   border-top-left-radius: 50px; }
 
 .uk-grid div:last-child .uk-card {
   border-bottom-right-radius: 50px; }
+
+.uk-card-primary {
+  background-color: var(--primary);
+  color: #fff; }
+  .uk-card-primary .uk-card-title {
+    color: #fff; }
 
 .uk-card-success {
   background-color: var(--success);

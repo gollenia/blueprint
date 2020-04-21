@@ -14,7 +14,7 @@
         </style>
     </head>
 
-    <body class="{{body_class}} {% for term in post.get_terms() %}{{term.slug}} {% endfor %}">
+    <body class="{{body_class}} {{site.language}} {% for term in post.get_terms() %}{{term.slug}} {% endfor %}">
         <div class="body">
         {% include "partials/menu.twig" with {'menu': menu} %}
         {% include "partials/menu-mobile.twig" with {'menu': menu.get_items} %}

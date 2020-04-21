@@ -1,11 +1,11 @@
-.page {
+.de-AT {
     --primary-color: var(--primary);
     --primary-light-color: var(--lightblue);
 }
 
-.single {
-    --primary-color: var(--primary);
-    --primary-light-color: var(--lightblue);
+.de-DE {
+    --primary-color: var(--success);
+    --primary-light-color: var(--lightgreen);
 }
 
 .graz {
@@ -21,6 +21,16 @@
 .innsbruck {
     --primary-color: var(--success);
     --primary-light-color: var(--lightgreen);
+}
+
+.zentrale {
+    --primary-color: var(--primary);
+    --primary-light-color: var(--lightblue);
+}
+
+.de-CH {
+    --primary-color: var(--warning);
+    --primary-light-color: var(--lightorange);
 }
 
 
