@@ -40,3 +40,22 @@ $hamburger-hover-opacity       : 1;
     border-top-left-radius: 3px;
     border-bottom-right-radius: 3px;
 }
+
+.uk-card img {
+    border-top-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+}
+
+.uk-card.first-image img {
+    border-bottom-right-radius: 0px;
+}
+
+.uk-card.last-image img {
+    border-top-left-radius: 0px;
+}
+
+.uk-card.center-image img {
+    border-top-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
