@@ -8614,20 +8614,6 @@ iframe.uk-cover {
   border-top-left-radius: 3px;
   border-bottom-right-radius: 3px; }
 
-.uk-card img {
-  border-top-left-radius: 50px;
-  border-bottom-right-radius: 50px; }
-
-.uk-card.first-image img {
-  border-bottom-right-radius: 0px; }
-
-.uk-card.last-image img {
-  border-top-left-radius: 0px; }
-
-.uk-card.center-image img {
-  border-top-left-radius: 0px;
-  border-bottom-right-radius: 0px; }
-
 /*!
  * Hamburgers
  * @description Tasty CSS-animated hamburgers
@@ -9364,6 +9350,47 @@ body {
 .uk-section.uk-section-purple {
   background-color: var(--lightpurple);
   color: var(--purple); }
+
+.uk-card img {
+  border-top-left-radius: 50px;
+  border-bottom-right-radius: 50px; }
+
+.uk-card {
+  border-top-left-radius: 50px; }
+
+.uk-card.first-image img, .uk-card.first-image {
+  border-bottom-right-radius: 0px; }
+
+.uk-card.last-image img {
+  border-top-left-radius: 0px; }
+
+.uk-card img {
+  border-top-left-radius: 0px;
+  border-bottom-right-radius: 0px; }
+
+.uk-card-success {
+  background-color: var(--success);
+  color: #fff; }
+  .uk-card-success img {
+    border-radius: 0px; }
+
+.uk-card-purple {
+  background-color: var(--purple);
+  color: #fff; }
+  .uk-card-purple img {
+    border-radius: 0px; }
+
+.uk-card-warning {
+  background-color: var(--warning);
+  color: #fff; }
+  .uk-card-warning img {
+    border-radius: 0px; }
+
+.uk-card-danger {
+  background-color: var(--danger);
+  color: #fff; }
+  .uk-card-danger img {
+    border-radius: 0px; }
 
 .uk-navbar-item.uk-logo {
   padding-left: 120px; }
