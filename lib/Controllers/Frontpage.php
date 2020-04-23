@@ -12,15 +12,12 @@ use \Timber\User;
  * @since 1.0.0
  */
 
-class Frontpage extends Page {
+class Frontpage extends \Contexis\Core\Controller {
 
     
     public function __construct($site, $template = false) {
         parent::__construct($site);
-    }
-
-    protected function setTemplate() {
-        return array( 'pages/frontpage.twig' );
+        $this->setTemplate('pages/frontpage.twig');
     }
 
 }

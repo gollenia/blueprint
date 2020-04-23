@@ -47,6 +47,6 @@ return [
 
     ],
     "remove_styles" => [
-        ['events-manager-css']
+        'events-manager', "events-manager-pro"
     ]
 ];

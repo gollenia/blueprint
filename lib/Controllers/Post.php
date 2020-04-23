@@ -12,13 +12,18 @@ use \Timber\User;
  * @since 1.0.0
  */
 
-class Post extends Page {
+class Post extends \Contexis\Core\Controller {
 
     
     public function __construct(\Contexis\Core\Site $site, $template = false) {
         parent::__construct($site);
-        $this->context['author'] = get_the_author_meta( 'display_name', $this->context['post']->post_author );
-        $this->context['latest_posts'] = $this->getLatestPosts(5);
+
+        $this->addToContext([
+            "author" => $this->getAuthor(),
+            "latest_posts" => $this->getLatestPosts(5)
+        ]);
+        
+        $this->setTemplate('pages/post.twig');
     }
 
     private function getLatestPosts(int $limit = 5) {
@@ -31,8 +36,10 @@ class Post extends Page {
         ]);
     }
 
-    protected function setTemplate() {
-        return array( 'pages/post.twig' );
+    private function getAuthor()
+    {
+        return get_the_author_meta( 'display_name', $this->context['post']->post_author );
     }
+
 
 }

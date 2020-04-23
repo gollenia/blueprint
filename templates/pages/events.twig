@@ -1,0 +1,54 @@
+{% extends "master.twig" %}
+
+{% block content %}
+    <div id="events-filter" uk-filter="target: .js-filter">
+        
+    
+    <header class="events-header" style="background-image:url('{{ Image(post._thumbnail_id).src }}')">
+        <div class="uk-container">
+        <h2>{{post.post_title}}</h2>
+        <p>{{post.post_excerpt}}</p>
+        <ul class="uk-subnav uk-subnav-pill">
+            <li class="uk-active" uk-filter-control><a href="#">Alle</a></li>
+            {% for term in terms %}
+                <li uk-filter-control=".{{term.slug}}"><a href="#">{{term.name}}</a></li>
+            {% endfor %}
+        </ul>
+        </div>
+    </header>    
+    <div class="uk-width-1-1">{{ function( 'apply_filters', 'the_content', post.content ) }}</div>
+    <article class="js-filter">        
+        {% for event in events %}
+            <section class="uk-section event {{ cycle(['odd', 'even'], loop.index0) }} {% for term in event.get_terms('event-categories') %}{{term.slug}}{% endfor %}">
+                <div class="uk-container">
+                    <div uk-grid>
+                        <div class="uk-width-1-3@s uk-width-1-3@m">
+                            <div class="image-container">
+                                <img src="{{ event.thumbnail.src('medium') }}" class="">
+                                <span class="audience">{{event.get_terms('audience')|first}}</span>
+                            </div>
+                        </div>
+                        <div class="uk-width-1-2@s uk-width-1-2@m">
+                            <h3>{{event.post_title}}</h3>
+                            <div class="ctx-post-date uk-flex uk-flex-middle uk-flex-left">
+                                <img src="{{ site.theme.uri }}/assets/dist/img/calendar-icon.svg" width="20" class="uk-margin-right" uk-svg>
+                                <span>
+                                    {% if event._event_start_date == event._event_end_date %}
+                                        {{ event._event_start_date|date("j. F") }} ab {{ event._event_start_time|date("G:i") }} Uhr bis {{ event._event_end|date("j. F Y \\u\\m G:i") }} Uhr
+                                    {% else %}
+                                        {{ event._event_start_date|date("j. F Y") }} von {{ event._event_start_time|date("G:i") }} bis {{ event._event_end_time|date("G:i") }} Uhr
+                                    {% endif %}
+                                </span>
+                            </div>
+                            <p>{{event.post_excerpt}}</p>
+                            <div class="uk-text-right"><a href="/{{slug}}/{{event.slug}}" class="uk-button uk-button-primary">Infos und Anmeldung</a></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        {% endfor %}
+    </article>
+
+    </div>
+    
+{% endblock %}

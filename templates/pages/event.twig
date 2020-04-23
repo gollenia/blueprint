@@ -35,7 +35,7 @@
                 </div>
                 {{ function( 'apply_filters', 'the_content', post.content ) }}
                 <div class="latest-news uk-hidden@m">
-                    <h4>Weitere Nachrichten</h4>
+                    <h4>Weitere Freizeiten</h4>
                     {% include "partials/posts-latest.twig" with {'latest_posts': latest_posts} %}
                 </div>
             </div>
@@ -45,7 +45,7 @@
                     <img src="{{ post.thumbnail.src('medium') }}" class="ctx-round-edges" alt="Image for {{ post.title }}" />
                 </div>
                 <div class="latest-news uk-visible@m">
-                    <h4>Weitere Nachrichten</h4>
+                    <h4>Weitere Freizeiten</h4>
                     {% include "partials/posts-latest.twig" with {'latest_posts': latest_posts} %}
                 </div>
             </div>

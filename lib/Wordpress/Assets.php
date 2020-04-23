@@ -56,9 +56,10 @@ Class Assets {
     }
 
     private static function removeStyles($styles) {
-        add_action('wp_print_styles', function() use (&$styles) {
+        add_action('em_enqueue_styles', function() use (&$styles) {
             foreach($styles as $style) {
-                wp_dequeue_style( $style );
+                wp_dequeue_style($style);
+                wp_deregister_style( $style );
             }
         });
     }

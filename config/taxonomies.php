@@ -10,9 +10,9 @@
 */
 
 return [
-    /*
+    
     "audience" => [
-        "object_type" => ['page', 'post'],
+        "object_type" => EM_POST_TYPE_EVENT,
         "options" => [
             'hierarchical' => false,
             'labels' => [
@@ -21,7 +21,6 @@ return [
                 'all_items' => "Alle Zielgruppen",
                 'add_new_item' => "Neue Zielgruppe erstellen",
                 'not_found' => "Keine Zielgruppen gefunden",
-
             ],
             'show_ui' => true,
             'show_in_rest' => true,
@@ -31,5 +30,5 @@ return [
             'rewrite' => ['slug' => 'audience']
         ]
     ]
-    */
+    
 ];

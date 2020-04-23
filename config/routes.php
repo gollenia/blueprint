@@ -15,9 +15,9 @@
 return [
     "Error" => is_404(),                      // Seite existiert nicht
 
-    //"Event" => is_singular('event'),        // Seite ist ein einzelnes Event
+    "Event" => is_singular('event'),        // Seite ist ein einzelnes Event
 
-    //"Events" => is_page('events'),          // Seite beinhaltet eine Eventliste
+    "Events" => is_page('veranstaltungen'),          // Seite beinhaltet eine Eventliste
 
     "Post" => is_single(),
 

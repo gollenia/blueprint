@@ -22,6 +22,11 @@ UIkit.util.on('#mobile-menu', 'beforeshow', function (event) {
     }
 });
 
+UIkit.util.on('#events-filter', 'afterFilter', function (event) {
+    console.log(event);
+});
+
+
 UIkit.util.on('#mobile-menu', 'beforehide', function (event) {
     if(event.target.id == "mobile-menu") {
         document.getElementById('hamburger').classList.remove("is-active");

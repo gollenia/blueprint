@@ -40,6 +40,7 @@ class Site extends \Timber\Site {
 	public function add_taxonomies_to_pages() {
 		register_taxonomy_for_object_type( 'post_tag', 'page' );
 		register_taxonomy_for_object_type( 'category', 'page' );
+		add_post_type_support( 'page', 'excerpt' );
 	}
 
 	/**
@@ -75,7 +76,7 @@ class Site extends \Timber\Site {
 		remove_filter('the_content', 'wpautop');
 
 		// use Gutenberg Block Editor in Events-Manager
-		define('EM_GUTENBERG', true);
+		//define('EM_GUTENBERG', true);
 	}
 
 	/**

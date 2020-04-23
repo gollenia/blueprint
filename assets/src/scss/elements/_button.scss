@@ -1,0 +1,7 @@
+.uk-button:hover {
+    filter: brightness(90%);
+}
+
+.uk-button {
+    @extend .small-border-radius
+}

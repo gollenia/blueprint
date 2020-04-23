@@ -25,64 +25,82 @@ return [
     "post-formats"=> ['aside', 'image', 'video', 'quote', 'link', 'gallery', 'audio'],
     "editor-color-palette" => [
         [
-            "color" => "#eeeeee",
+            "color" => "#222222",
             "name" => "Standard",
-            "slug" => "default"
+            "slug" => "default",
+            "contrast" => "#ffffff"
         ],
         [
             "color" => "#009cd9",
             "name" => "Blau",
-            "slug" => "primary"
+            "slug" => "blue",
+            "contrast" => "#ffffff"
         ],
         [
             "color" => "#ccf1ff",
             "name" => "Hellblau",
-            "slug" => "lightblue"
+            "slug" => "lightblue",
+            "contrast" => "#222222"
         ],
         [
             "color" => "#f59b00",
             "name" => "Orange",
-            "slug" => "warning"
+            "slug" => "orange",
+            "contrast" => "#ffffff"
         ],
         [
             "color" => "#ffeccc",
             "name" => "Hell Orange",
-            "slug" => "lightorange"
+            "slug" => "lightorange",
+            "contrast" => "#222222"
         ],
         [
             "color" => "#A5BD58",
             "name" => "Grün",
-            "slug" => "success"
+            "slug" => "green",
+            "contrast" => "#ffffff"
         ],
         [
             "color" => "#ebf0db",
             "name" => "Grün",
-            "slug" => "lightgreen"
+            "slug" => "lightgreen",
+            "contrast" => "#222222"
         ],
         [
             "color" => "#9F70B0",
             "name" => "Lila",
-            "slug" => "purple"
+            "slug" => "purple",
+            "contrast" => "#ffffff"
         ],
         [
             "color" => "#e9deed",
             "name" => "Lila",
-            "slug" => "lightpurple"
+            "slug" => "lightpurple",
+            "contrast" => "#222222"
         ],
         [
             "color" => "#e3000b",
             "name" => "Rot",
-            "slug" => "danger"
+            "slug" => "red",
+            "contrast" => "#ffffff"
+        ],
+        [
+            "color" => "#ffcccf",
+            "name" => "Hell-Rot",
+            "slug" => "lightred",
+            "contrast" => "#222222"
         ],
         [
             "color" => "#fff",
             "name" => "Weiß",
-            "slug" => "white"
+            "slug" => "white",
+            "contrast" => "#222222"
         ],
         [
-            "color" => "#333",
+            "color" => "#222222",
             "name" => "Schwarz",
-            "slug" => "black"
+            "slug" => "black",
+            "contrast" => "#ffffff"
         ]       	    
     ]
 ];

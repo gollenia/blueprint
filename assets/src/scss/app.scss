@@ -2,11 +2,13 @@
 
 @import "blocks/accordion.scss";
 
-@import "uikit/src/scss/uikit.scss";
+
+@import "uikit/src/scss/mixins-theme.scss";
+@import "uikit/src/scss/uikit-theme.scss";
 
 @import "globals";
 
-@import "hamburgers/_sass/hamburgers/hamburgers.scss";
+
   
 @import url('https://fonts.googleapis.com/css?family=Inria+Sans:400,400i,700&display=swap');
 
@@ -16,34 +18,15 @@ $global-default-background: #eeeeee !default;
 
 body {   
     margin-right: 3%;
+    position: relative;
 }
 
-
-
-
-
+@import "elements";
 @import "blocks";
 @import "layout";
 @import "pages";
 
-
-.body {
-    position: relative;
-}
-
-
-.page header {
-    height: 130px;
-    background-color: #ddd;
-}
-
-.home header {
-    height: 500px;
-    background-size: cover;
-}
-
-
-
+@import "hamburgers/_sass/hamburgers/hamburgers.scss";
 
 // Sections
 body.home {

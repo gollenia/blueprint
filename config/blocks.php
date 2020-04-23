@@ -1,5 +1,16 @@
 <?php
 
+/** 
+ * Maybe you don't want every block being allowed on every page. Here, you can whitelist, which blocks on
+ * which page are allowed
+ * 
+ * @link https://developer.wordpress.org/reference/hooks/allowed_block_types/
+ * 
+ * @return array Allowed Blocks
+ * 
+ * @since 1.0.0
+*/ 
+
 return [
     "post" => [
         "core/paragraph",

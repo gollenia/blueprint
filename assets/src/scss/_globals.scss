@@ -1,48 +1,52 @@
 .de-AT {
-    --primary-color: var(--primary);
-    --primary-light-color: var(--lightblue);
+    --primary: var(--blue);
+    --primary-light: var(--lightblue);
 }
 
 .de-DE {
-    --primary-color: var(--success);
-    --primary-light-color: var(--lightgreen);
+    --primary: var(--green);
+    --primary-light: var(--lightgreen);
 }
 
 .graz {
-    --primary-color: var(--purple);
-    --primary-light-color: var(--lightpurple);
+    --primary: var(--purple);
+    --primary-light: var(--lightpurple);
 }
 
 .wien {
-    --primary-color: var(--warning);
-    --primary-light-color: var(--lightorange);
+    --primary: var(--orange);
+    --primary-light: var(--lightorange);
 }
 
 .innsbruck {
-    --primary-color: var(--success);
-    --primary-light-color: var(--lightgreen);
+    --primary: var(--green);
+    --primary-light: var(--lightgreen);
 }
 
-.zentrale {
-    --primary-color: var(--primary);
-    --primary-light-color: var(--lightblue);
+.salzburg {
+    --primary: var(--blue);
+    --primary-light: var(--lightblue);
 }
 
 .de-CH {
-    --primary-color: var(--warning);
-    --primary-light-color: var(--lightorange);
+    --primary: var(--orange);
+    --primary-light: var(--lightorange);
+}
+
+// UiKit-Compatibility for primary, warning, alert, ...
+:root {
+    --warning: var(--orange);
+    --warning-light: var(--orange);
+    --danger: var(--red);
+    --danger-light: var(--red-light);
+    --success: var(--green);
+    --success-light: var(--green-light);
+    --success: var(--green);
+    --success-light: var(--green-light);
 }
 
 
 
-$hamburger-padding-x           : 0px;
-$hamburger-padding-y           : 0px;
-$hamburger-layer-width         : 25px;
-$hamburger-layer-height        : 2px;
-$hamburger-layer-spacing       : 5px;
-$hamburger-layer-color         : #000;
-$hamburger-layer-border-radius : 4px;
-$hamburger-hover-opacity       : 1;
 
 .ctx-small-round-border {
     border-top-right-radius: 15px;
@@ -51,3 +55,13 @@ $hamburger-hover-opacity       : 1;
     border-bottom-right-radius: 3px;
 }
 
+
+.uk-subnav-pill li a {
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.small-border-radius {
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}

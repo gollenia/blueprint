@@ -1,6 +1,6 @@
 <?php
 /** 
- * In this fils, you may configure your custom fields. You need to install Advanced Custom Fields in order to work,
+ * In this file, you may configure your custom fields. You need to install Advanced Custom Fields in order to work,
  * otherwise this file will be ignored.
  * 
  * @link https://www.advancedcustomfields.com/resources/register-fields-via-php/

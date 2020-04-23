@@ -6,15 +6,21 @@
         {{function('wp_head')}}
         <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
         <style>
-            :root {
+            
             {% for colorset in attribute(config.theme_support, 'editor-color-palette') %}
-                --{{colorset.slug}}: {{colorset.color}};
+                :root {
+                    --{{colorset.slug}}: {{colorset.color}};
+                }
+                .uk-section-{{colorset.slug}}, .uk-button-{{colorset.slug}} { 
+                    background: var(--{{colorset.slug}});
+                    color: {{colorset.contrast}};
+                }
             {% endfor %}
-            }
+            
         </style>
     </head>
 
-    <body class="{{body_class}} {{site.language}} {% for term in post.get_terms() %}{{term.slug}} {% endfor %}">
+    <body class="{{body_class}} {{site.language}} {{post.slug}} {% for term in post.get_terms() %}{{term.slug}} {% endfor %}">
         <div class="body">
         {% include "partials/menu.twig" with {'menu': menu} %}
         {% include "partials/menu-mobile.twig" with {'menu': menu.get_items} %}
