@@ -29,6 +29,7 @@
     "webpack-cli": "^3.3.10"
   },
   "dependencies": {
+    "autogrow-textarea": "^1.0.1",
     "hamburgers": "^1.1.3",
     "uikit": "^3.4.2"
   }
