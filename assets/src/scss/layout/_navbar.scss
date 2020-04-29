@@ -25,12 +25,6 @@
     }
 }
 
-.single header {
-    background-color:var(--primary-light-color);
-    padding-top: 100px;
-    padding-bottom: 50px;
-}
-
 .uk-navbar-nav > li {
     @extend .ctx-small-round-border;
     transition: background-color .5s;
