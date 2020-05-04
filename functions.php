@@ -1,5 +1,14 @@
 <?php
 
+// Debug-Hack. Kommt später weg
+$url =  'http://' . $_SERVER['SERVER_NAME'];
+$url = explode(".", parse_url($url, PHP_URL_HOST));
+$url = end($url);
+if (!isset($_GET['dev']) && $url == "at") {
+    header("Location: http://www.kids-team.com/at");
+    exit();
+} 
+
 /**
  * First we need to load the Composer Autoload which is responsinble for making Classes available
  * 
