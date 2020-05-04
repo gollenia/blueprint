@@ -49,11 +49,14 @@ class Event extends \Contexis\Core\Controller {
                     case "password":
                         $field->addClass("uk-input");
                         break;
+                    case "radio":
+                        $field->addClass("uk-radio");
+                        break;
                     case "checkbox":
                         $field->addClass("uk-checkbox");
                         break;
                     case "submit":
-                        $field->addClass("uk-button");
+                        $field->addClass("uk-button uk-button-primary");
                         break;
                     default:       
                 }
@@ -117,6 +120,15 @@ class Event extends \Contexis\Core\Controller {
             $html->filter("form")->setAttribute("uk-grid", true);
             $html->filter("form")->setAttribute("novalidate", true);
             $html->filter("form")->addClass("uk-child-width-1-2@m");
+        }
+
+        $currency = get_option('dbem_bookings_currency');
+        if($currency == "EUR") {
+            $currency = "€";
+        }
+
+        if(($html)->filter(".em-booking-gateway")->count()) {
+            $html->filter(".em-booking-gateway")->prepend("<table class='uk-table'><tr><td>Gesamtpreis</td><td><span id='price' class='uk-text-bold uk-text-right'>0,00 " . $currency . "</span></td></tr></table>");
         }
 
         return $html->saveHTML();
