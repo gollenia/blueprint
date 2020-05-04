@@ -22,29 +22,31 @@
         <div uk-grid>
             <div class="uk-width-1-2@l">
                 <div class="uk-text-muted uk-margin-top">
-                    <h5 class="uk-text-bold uk-text-muted">Zielgruppe</h5>
-                    <div class="ctx-post-date uk-flex uk-flex-middle uk-flex-left">
-                    <img src="{{ site.theme.uri }}/assets/dist/img/boy-icon.svg" width="20" class="uk-margin-right" uk-svg>
-                    <span>{{post.get_terms('audience')|first}}</span>
-                    </div>
-                    <h5 class="uk-text-bold uk-text-muted">Datum</h5>
-                    <div class="ctx-post-date uk-flex uk-flex-middle uk-flex-left">
-                        <img src="{{ site.theme.uri }}/assets/dist/img/calendar-icon.svg" width="20" class="uk-margin-right" uk-svg>
+                    <p class="ctx-post-date uk-flex uk-flex-middle uk-flex-left">
+                        <img src="{{ site.theme.uri }}/assets/dist/img/icons/boy.svg" width="20" class="uk-margin-right" uk-svg>
+                        <span>{{post.get_terms('audience')|first}}</span>
+                    </span>
+                    <p class="ctx-post-date uk-flex uk-flex-middle uk-flex-left">
+                        <img src="{{ site.theme.uri }}/assets/dist/img/icons/calendar.svg" width="20" class="uk-margin-right" uk-svg>
                         <span>{% if post._event_start_date == post._event_end_date %}
-                            {{ post._event_start_date|date("j. F") }} ab {{ post._event_start_time|date("G:i") }} Uhr bis {{ post._event_end|date("j. F Y \\u\\m G:i") }} Uhr
+                            {{ post._event_start_date|date("j. F") }} ab {{ post._event_start_time|date("G:i") }} - {{ post._event_end|date("j. F Y \\u\\m G:i") }} Uhr
                         {% else %}
                             {{ post._event_start_date|date("j. F Y") }} von {{ post._event_start_time|date("G:i") }} bis {{ post._event_end_time|date("G:i") }} Uhr
                         {% endif %}</span>
-                    </div>
+                    </p>
+                    <p class="ctx-post-date uk-flex uk-flex-middle uk-flex-left">
+                        <img src="{{ site.theme.uri }}/assets/dist/img/icons/map.svg" width="20" class="uk-margin-right" uk-svg>
+                        <span>Ort</span>
+                    </p>
+
                 </div>
                 <p class="dotted-line-bottom uk-padding uk-padding-remove-horizontal">{{post.post_excerpt}}</p>
-                <hr class="uk-divider">
                 <div class="dotted-line-bottom uk-padding uk-padding-remove-horizontal">{{post.post_content}}</div>
                 <div class="uk-text-right uk-padding uk-padding-remove-horizontal"><a class="uk-button uk-button-primary" href="#booking-modal" uk-toggle>Zur Anmeldung</a></div>
                 <div id="booking-modal" class="uk-modal-full" uk-modal>
                     <div class="uk-modal-dialog">
                         <button class="uk-modal-close-full uk-close-large" type="button" uk-close></button>
-                            <div class="uk-container">
+                            <div class="uk-container uk-padding-large uk-padding-remove-top">
                                 <h2>Anmeldung zur {{post.post_title}}</h2>
                                 {{ booking }}
                             </div>
