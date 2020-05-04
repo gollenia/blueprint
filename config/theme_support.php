@@ -25,10 +25,10 @@ return [
     "post-formats"=> ['aside', 'image', 'video', 'quote', 'link', 'gallery', 'audio'],
     "editor-color-palette" => [
         [
-            "color" => "#222222",
+            "color" => "#eeeeee",
             "name" => "Standard",
             "slug" => "default",
-            "contrast" => "#ffffff"
+            "contrast" => "#222222"
         ],
         [
             "color" => "#009cd9",
