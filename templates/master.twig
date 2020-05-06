@@ -4,20 +4,8 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         {{function('wp_head')}}
-        <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
-        <style>
-            
-            {% for colorset in attribute(config.theme_support, 'editor-color-palette') %}
-                :root {
-                    --{{colorset.slug}}: {{colorset.color}};
-                }
-                .uk-section-{{colorset.slug}}, .uk-button-{{colorset.slug}} { 
-                    background: var(--{{colorset.slug}});
-                    color: {{colorset.contrast}};
-                }
-            {% endfor %}
-            
-        </style>
+        
+        {% include "partials/stylesheet.twig" with {'config': config} %}
     </head>
 
     <body class="{{body_class}} {{site.language}} {{post.slug}} {% for term in post.get_terms() %}{{term.slug}} {% endfor %}">
@@ -29,11 +17,21 @@
         {% endblock %}
 
         <footer class="uk-section uk-section-black uk-light">
-            <div class="uk-container">{{footer}}</div>
+            <div class="uk-container"><div class="uk-child-width-1-2@s uk-child-width-1-4@l" uk-grid>{{footer}}</div></div>
             <script>var lang = "{{site.language}}";</script>
             {{function('wp_footer')}}
             
         </footer>
+        <div class="imprint">
+            <div class="uk-container">
+                <div uk-grid>
+                    <div class="imprint-logo"><img data-src="{{ site.theme.uri }}/assets/dist/img/logo.svg" class="ctx-logo-image" uk-svg width="24" height="24"></div>
+                    <div><span>Copyright: kids-team</span></div>
+                    <div><a href="/impressum">Impressum</a></div>
+                    <div><a href="/datenschutzerklärung">Datenschutzerklärung</a></div>
+                </div>
+            </div>
+        </div>
     </div>
     </body>
 </html>
