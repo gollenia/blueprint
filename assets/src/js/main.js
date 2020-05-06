@@ -29,10 +29,10 @@ UIkit.util.on('#mobile-menu', 'beforehide', function (event) {
 });
 
 
-
 document.addEventListener("focusout", validateInput);
 document.addEventListener("change", validateInput);
 document.addEventListener("change", addTicketLabel);
+
 
 textareaResize("textarea");
 
