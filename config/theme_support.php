@@ -34,7 +34,7 @@ return [
             "color" => "#009cd9",
             "name" => "Blau",
             "slug" => "blue",
-            "contrast" => "#ffffff"
+            "contrast" => "#eeeeee"
         ],
         [
             "color" => "#ccf1ff",
@@ -46,7 +46,7 @@ return [
             "color" => "#f59b00",
             "name" => "Orange",
             "slug" => "orange",
-            "contrast" => "#ffffff"
+            "contrast" => "#eeeeee"
         ],
         [
             "color" => "#ffeccc",
@@ -58,7 +58,7 @@ return [
             "color" => "#A5BD58",
             "name" => "Grün",
             "slug" => "green",
-            "contrast" => "#ffffff"
+            "contrast" => "#eeeeee"
         ],
         [
             "color" => "#ebf0db",
@@ -70,7 +70,7 @@ return [
             "color" => "#9F70B0",
             "name" => "Lila",
             "slug" => "purple",
-            "contrast" => "#ffffff"
+            "contrast" => "#eeeeee"
         ],
         [
             "color" => "#e9deed",
@@ -82,7 +82,7 @@ return [
             "color" => "#e3000b",
             "name" => "Rot",
             "slug" => "red",
-            "contrast" => "#ffffff"
+            "contrast" => "#eeeeee"
         ],
         [
             "color" => "#ffcccf",
@@ -91,16 +91,10 @@ return [
             "contrast" => "#222222"
         ],
         [
-            "color" => "#fff",
-            "name" => "Weiß",
-            "slug" => "white",
-            "contrast" => "#222222"
-        ],
-        [
             "color" => "#222222",
             "name" => "Schwarz",
             "slug" => "black",
-            "contrast" => "#ffffff"
+            "contrast" => "#eeeeee"
         ]       	    
     ]
 ];
