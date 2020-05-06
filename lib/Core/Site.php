@@ -77,6 +77,10 @@ class Site extends \Timber\Site {
 
 		// use Gutenberg Block Editor in Events-Manager
 		//define('EM_GUTENBERG', true);
+
+		add_filter( 'wpcf7_form_elements', function($content) {
+			return str_replace('aria-required="true"', 'required aria-required="true"', $content);
+		});
 	}
 
 	/**
