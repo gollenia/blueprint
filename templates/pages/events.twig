@@ -31,7 +31,7 @@
                         <div class="uk-width-1-2@s uk-width-1-2@m">
                             <h3>{{event.post_title}}</h3>
                             <div class="ctx-post-date uk-flex uk-flex-middle uk-flex-left">
-                                <img src="{{ site.theme.uri }}/assets/dist/img/calendar-icon.svg" width="20" class="uk-margin-right" uk-svg>
+                                <img src="{{ site.theme.uri }}/assets/dist/img/icons/calendar-day.svg" width="24" class="uk-margin-right" uk-svg>
                                 <span>
                                     {% if event._event_start_date == event._event_end_date %}
                                         {{ event._event_start_date|date("j. F") }} ab {{ event._event_start_time|date("G:i") }} Uhr bis {{ event._event_end|date("j. F Y \\u\\m G:i") }} Uhr

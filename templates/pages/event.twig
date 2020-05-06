@@ -27,7 +27,7 @@
                         <span>{{post.get_terms('audience')|first}}</span>
                     </span>
                     <p class="ctx-post-date uk-flex uk-flex-middle uk-flex-left">
-                        <img src="{{ site.theme.uri }}/assets/dist/img/icons/calendar.svg" width="20" class="uk-margin-right" uk-svg>
+                        <img src="{{ site.theme.uri }}/assets/dist/img/icons/calendar-day.svg" width="20" class="uk-margin-right" uk-svg>
                         <span>{% if post._event_start_date == post._event_end_date %}
                             {{ post._event_start_date|date("j. F") }} ab {{ post._event_start_time|date("G:i") }} - {{ post._event_end|date("j. F Y \\u\\m G:i") }} Uhr
                         {% else %}
