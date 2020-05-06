@@ -1,13 +1,16 @@
 import calculatePrice from './calculatePrice';
 
 export default function addTicketLabel(event) {
-    [].forEach.call(document.querySelectorAll('.attendee-label'),function(e){
-        e.parentNode.removeChild(e);
-      });
+    
 
     if(!event.target.classList.contains("em-ticket-select")) {
         return;
     }
+
+    [].forEach.call(document.querySelectorAll('.attendee-label'),function(e){
+        e.parentNode.removeChild(e);
+    });
+
     var attendees = document.getElementsByClassName("em-attendee-fields");
     if (attendees == undefined) {
         return;
