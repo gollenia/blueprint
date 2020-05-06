@@ -1,0 +1,27 @@
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="{{site.theme.uri}}/assets/dist/img/favicon/favicon_{{site.language}}_180.png">
+<link rel="icon" type="image/png" sizes="32x32" href="{{site.theme.uri}}/assets/dist/img/favicon/favicon_{{site.language}}_32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="{{site.theme.uri}}/assets/dist/img/favicon/favicon_{{site.language}}_16.png">
+
+<style>
+    {# Hier werden vor allem die globalen Farben für das Theme definiert #}        
+    {% for colorset in attribute(config.theme_support, 'editor-color-palette') %}
+        :root {
+            --{{colorset.slug}}: {{colorset.color}};
+            --{{colorset.slug}}-transparent: {{colorset.color}}80;
+        }
+        .uk-section-{{colorset.slug}}, .uk-button-{{colorset.slug}} { 
+            background: var(--{{colorset.slug}});
+            color: {{colorset.contrast}};
+        }
+        .uk-card-{{colorset.slug}} { 
+            background: var(--{{colorset.slug}});
+            color: {{colorset.contrast}} !important;
+        }
+        .uk-card-{{colorset.slug}} h1, .uk-card-{{colorset.slug}} h2, .uk-card-{{colorset.slug}} h3, .uk-card-{{colorset.slug}} h4 { 
+            color: {{colorset.contrast}};
+        }
+    {% endfor %}
+    
+</style>
