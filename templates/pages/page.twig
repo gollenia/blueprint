@@ -1,13 +1,14 @@
 {% extends "master.twig" %}
 
 {% block content %}
-    <header class="uk-flex uk-flex-left uk-flex-bottom uk-padding uk-padding-remove-horizontal">
-        <div class="uk-container">
-            <h2>{{post.title}}</h2>
-        </div>
-        
-    </header>
+<header class="{{ post.thumbnail.src('xlarge') is empty ? "no-background-image" }}" style="background-image: url('{{ post.thumbnail.src('xlarge') }}')">
+    <div class="caption">
+        <h5 class="uk-margin-remove">{{post.subtitle}}</h5>
+        <h1 class="uk-margin-remove">{{post.title}}</h1>
+    </div>
+    
+</header>
     <article>
-        {{ post.post_content }}
+        {{ post.content }}
     </article>
 {% endblock %}
