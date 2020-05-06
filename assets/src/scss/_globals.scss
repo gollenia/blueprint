@@ -1,10 +1,12 @@
 .de-AT {
     --primary: var(--blue);
+    --primary-transparent: var(--blue-transparent);
     --primary-light: var(--lightblue);
 }
 
 .de-DE {
     --primary: var(--green);
+    --primary-transparent: var(--green-transparent);
     --primary-light: var(--lightgreen);
 }
 
@@ -30,6 +32,7 @@
 
 .de-CH {
     --primary: var(--orange);
+    --primary-transparent: var(--orange-transparent);
     --primary-light: var(--lightorange);
 }
 

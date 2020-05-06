@@ -27,8 +27,18 @@
 
 .uk-navbar-nav > li {
     @extend .ctx-small-round-border;
-    transition: background-color .5s;
-    > a { transition: color .5s;}
+    
+    transition: background-color .2s;
+    > a { 
+        transition: color .2s;
+        
+        text-transform: none;
+        font-weight: bold;
+    }
+}
+
+.uk-navbar-nav > li.hamburger-menu {
+    margin-bottom: 0px;
 }
 
 .uk-navbar-dropdown {
@@ -57,7 +67,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    top: 60px;
+    top: 66px;
     background: $alert-primary-background;
     z-index: 50;
     padding-top: 40px;
