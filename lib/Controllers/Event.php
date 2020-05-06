@@ -87,7 +87,6 @@ class Event extends \Contexis\Core\Controller {
                 $field = \Wa72\HtmlPageDom\HtmlPageCrawler::create($field);
                 if($field->filter('span.em-form-required')->count() && $field->filter('input,select')->count()) {
                     $field->filter('span.em-form-required')->remove();
-                    $field->filter('select')->addClass('required')->setAttribute("required", true);
                     $field->filter('input')->addClass('required')->setAttribute("required", true);
 
                 }
@@ -104,6 +103,7 @@ class Event extends \Contexis\Core\Controller {
             }
         }
 
+        // input-types festlegen
         $types = [
             "#user_email" => "email",
             "#dbem_phone" => "tel",
@@ -116,19 +116,22 @@ class Event extends \Contexis\Core\Controller {
             }
         }
 
+        // Zwei-Spalten-Ansicht
         if($html->filter("form")->count()) {
             $html->filter("form")->setAttribute("uk-grid", true);
             $html->filter("form")->setAttribute("novalidate", true);
             $html->filter("form")->addClass("uk-child-width-1-2@m");
         }
 
+
         $currency = get_option('dbem_bookings_currency');
         if($currency == "EUR") {
             $currency = "€";
         }
 
+        // Tabelle für Gesamtpreis hinzufügen
         if(($html)->filter(".em-booking-gateway")->count()) {
-            $html->filter(".em-booking-gateway")->prepend("<table class='uk-table'><tr><td>Gesamtpreis</td><td><span id='price' class='uk-text-bold uk-text-right'>0,00 " . $currency . "</span></td></tr></table>");
+            $html->filter(".em-booking-gateway")->prepend("<table class='uk-table'><tr><td>Gesamtpreis</td><td class='uk-text-right'><span id='price' class='uk-text-bold'>0,00 " . $currency . "</span></td></tr></table>");
         }
 
         return $html->saveHTML();
