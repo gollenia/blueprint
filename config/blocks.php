@@ -52,6 +52,7 @@ return [
         "ctx-blocks/grid-column",
         "ctx-blocks/card",
         "ctx-blocks/button",
+        "ctx-blocks/modal",
         "ctx-blocks/progress",
         "ctx-blocks/section",
         "ctx-blocks/columns",
