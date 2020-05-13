@@ -2,6 +2,12 @@
 
 namespace Contexis\Wordpress;
 
+/**
+ * Allow or disallow mime-types from Array
+ * 
+ * @param array $new_mimes
+ * @since 1.0.0
+ */
 Class Mime {
 
     public static function register($new_mimes) {

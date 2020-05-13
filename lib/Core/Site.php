@@ -19,6 +19,7 @@ class Site extends \Timber\Site {
 	/**
 	 * Constructor loads config and parent constructor
 	 * 
+	 * @param \Contexis\Core\Config $config config Object
 	 * @since 1.0.0
 	 * 
 	 */
@@ -75,13 +76,23 @@ class Site extends \Timber\Site {
 		// remove automatic <p>-tags
 		remove_filter('the_content', 'wpautop');
 
-		// use Gutenberg Block Editor in Events-Manager
-		//define('EM_GUTENBERG', true);
+		$this->add_required_to_wpcf7();
+		
+	}
 
+	
+	/**
+	 * Hack for Contact form 7 to add "required" attribute, will hopefully becom
+	 * deprecated in future
+	 * 
+	 * @since 1.0.0
+	 */
+	private function add_required_to_wpcf7() {
 		add_filter( 'wpcf7_form_elements', function($content) {
 			return str_replace('aria-required="true"', 'required aria-required="true"', $content);
 		});
 	}
+
 
 	/**
 	 * Calls all Timber related functions
@@ -90,6 +101,7 @@ class Site extends \Timber\Site {
 	 */
 	private function add_timber_functions() {
 		//setlocale(LC_ALL, $this->config->get('site.locale'));
+		
 		\Timber\Timber::$dirname = $this->config->get('site.template_folder');
 	}
 	

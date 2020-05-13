@@ -1,6 +1,12 @@
 <?php
 namespace Contexis\Wordpress;
 
+/**
+ * Load Assets from a config Array and enqeue/dequeue them
+ * 
+ * @param array $assets 
+ * @since 1.0.0
+ */
 Class Assets {
 
     public static function register($assets) {

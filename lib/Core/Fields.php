@@ -2,7 +2,7 @@
 namespace Contexis\Core;
 
 /**
- * Advanced Custom Fields
+ * This Class adds custom fields via Advanced Custom Fields Plugin
  * 
  * @link https://www.advancedcustomfields.com/resources/register-fields-via-php/
  * 
@@ -11,6 +11,12 @@ namespace Contexis\Core;
 
 Class Fields {
 
+    /**
+     * Register an array of fields
+     * 
+     * @param array $options Array with ACF Fields and Pages
+     * @since 1.0.0
+     */
     public static function register($options) {
       
       if ($options === null) { return; }
@@ -19,6 +25,12 @@ Class Fields {
 		
     }
 
+    /**
+     * Callback function to register fields
+     * 
+     * @param array $options Array with ACF Fields
+     * @since 1.0.0
+     */
     private static function registerFields($fields) {
       add_action('acf/init', function() use (&$fields){
         foreach ($fields as $field) {
@@ -27,6 +39,12 @@ Class Fields {
       });
     }
 
+    /**
+     * Callback function to register pages
+     * 
+     * @param array $options Array with ACF Pages
+     * @since 1.0.0
+     */
     private static function registerPages($pages) {
       add_action('acf/init', function() use (&$pages){
         foreach ($pages as $page) {

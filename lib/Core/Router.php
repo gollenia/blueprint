@@ -7,7 +7,14 @@ class Router {
 
     public $routes;
 
+    /**
+	 * Constructor
+	 * 
+     * @param array $routes
+	 * @since 1.0.0
+	 */
 	public function __construct($routes = false) {
+        // deprecated, since config should always be given as param
         if (!$routes) {
             $this->routes = Config::load('routes');
             return;
@@ -17,9 +24,10 @@ class Router {
     }
 
     /**
-     * liefert den ersten Controller, der true ergibt
+     * 
+     * Retrieves the firs route that is true
      *
-     * @return bool
+     * @return string Controller Classname
      */
     public function get() {
         $controller = "";
@@ -33,15 +41,15 @@ class Router {
     }
 
     /**
-     * Fügt den Routen eine neue hinzu, die an einer bestimmten Stelle eingefügt werden kann.
+     * Adds a new route at a specified position
      *
-     * @param string $name der name des Controllers der später aufgerufen wird 
-     * @param bool $condition eine Bedingung oder eine Funktion, die eine Bedingung zurückgibt
-     * @param integer $position an welcher Stelle soll die Route eingefügt werden?
+     * @param string $name Name of a Controller Class
+     * @param bool $condition when is this route fulfilled? See Wordpress Conditionals for examples
+     * @param integer $priority where should the route be placed?
      * @return void
      */
-    public function add($name, $condition, $position = 1) {
-        array_splice( $this->routes, $position, 0, array($name => $condition) );
+    public function add($name, $condition, $priority = 1) {
+        array_splice( $this->routes, $priority, 0, array($name => $condition) );
     }
 
 

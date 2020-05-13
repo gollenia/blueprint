@@ -2,6 +2,11 @@
 
 namespace Contexis\Wordpress;
 
+/**
+ * Load Widgets from Array and add them to Wordpress
+ * 
+ * @since 1.0.0
+ */
 Class Widgets {
 
     public static function register($widgets) {

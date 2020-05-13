@@ -39,9 +39,4 @@ class Utilities {
 
     }
     
-
-    public static function render($context) {
-        var_dump($context);
-        echo "Hihi";
-    }
 }

@@ -3,17 +3,22 @@
 namespace Contexis\Core;
 
 /**
- * Der Seiten-Controller erstellt einen PHP-Array (Context), in dem alle für den Aufbau der Seite benötigten
- * Informationen gespeichert werden. 
+ * The Page-Controller creates a PHP-Array ($context), which stores all data to render the page or to return JSON.
  * 
  * @since 1.0.0
  */
-
 class Controller {
 
     protected array $context = [];
     protected array $templates = [];
 
+    /**
+     * Constructor
+     * 
+     * @param \Contexis\Core\Site $site A Site Object
+     * @param string $template Twig template to be rendered
+     * @since 1.0.0
+     */
     public function __construct(\Contexis\Core\Site $site, string $template = "") {
 
         global $wp_customize;
@@ -50,7 +55,7 @@ class Controller {
     }
     
     /**
-     *  Template festlegen
+     *  Set Template file
      * 
      * @since 1.0.0
      * 
@@ -59,7 +64,6 @@ class Controller {
      * @return bool Returns false, if key already exists. If key already exists and $force is false, the functio returns false, else true.
      * 
      */
-
     protected function setTemplate(string $template) {
         if ($template === "") {
             $this->templates = array( 'pages/page.twig' );    
@@ -76,9 +80,10 @@ class Controller {
 
     
     /**
-     *  Seite mit Twig rendern
+     *  Render page with twig/timber
      * 
      * @since 1.0.0
+     * @todo return rendered code instead of echoing it
      * 
      */
     public function render() {
@@ -89,15 +94,16 @@ class Controller {
     }
 
     /**
-     *  Inhalt als JSON ausgeben
+     *  Return Contetn as JSON
      * 
-     *  Für AJAX-Anwendungen kann es sinnvoll sein, den Inhalt als JSON zurückzugeben
+     *  For AJAX calls, it may come in handy to return a JSON Object
      * 
      * @since 1.0.0
      * 
-     * @param int $options Ausgabe Optionen
+     * @param int $options JSON Options
+     * @param int $depth Max depth of the JSON Object
      * 
-     * @return string Fertiges JSON-Objekt
+     * @return string Stringified JSON Object
      * 
      */
     public function returnJson(int $options = 0, int $depth = 512) {

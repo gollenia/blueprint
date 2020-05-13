@@ -2,6 +2,12 @@
 
 namespace Contexis\Wordpress;
 
+/**
+ * Load allowed Gutenberg blocks for page types from config
+ * 
+ * @param array $post_types 
+ * @since 1.0.0
+ */
 Class Block {
 
     public static function register($post_types) {

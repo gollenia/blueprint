@@ -2,6 +2,11 @@
 
 namespace Contexis\Wordpress;
 
+/**
+ * Load Theme Supports from Array and add them to Wordpress
+ * 
+ * @since 1.0.0
+ */
 Class ThemeSupport {
 
     public static function register($theme_support) {
