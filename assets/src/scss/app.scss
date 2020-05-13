@@ -8,11 +8,8 @@
 
 @import "globals";
 
-
-  
-@import url('https://fonts.googleapis.com/css?family=Exo&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Exo+2&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Kalam:400,700&display=swap');
 
 // Weitere Variablen
 // Deprecated?
@@ -21,6 +18,7 @@ $global-default-background: #eeeeee !default;
 body {   
     margin-right: 3%;
     position: relative;
+    background: #eeeeee;
 }
 
 @import "elements";
@@ -89,4 +87,9 @@ input[type="email"]:valid, input[type="number"]:valid, .uk-form-success:focus, i
     width: 20px !important;
     border: 2px solid #999;
     margin-right: 10px;
+}
+
+.main-header {
+    padding-top: 200px;
+    padding-bottom: 200px;
 }

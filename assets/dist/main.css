@@ -1,6 +1,5 @@
-@import url(https://fonts.googleapis.com/css?family=Exo&display=swap);
-@import url(https://fonts.googleapis.com/css?family=Exo+2&display=swap);
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700&display=swap);
+@import url(https://fonts.googleapis.com/css?family=Kalam:400,700&display=swap);
 @charset "UTF-8";
 .accordion {
   background: #fff; }
@@ -1878,7 +1877,7 @@ select.uk-form-width-xsmall {
   box-sizing: border-box;
   padding: 0 30px;
   vertical-align: middle;
-  font-size: 0.875rem;
+  font-size: 1rem;
   /* 8 */
   line-height: 38px;
   /* 9 */
@@ -1916,14 +1915,14 @@ select.uk-form-width-xsmall {
  */
 .uk-button-default {
   background-color: transparent;
-  color: #333;
+  color: #fff;
   border: 1px solid #e5e5e5; }
 
 /* Hover + Focus */
 .uk-button-default:hover,
 .uk-button-default:focus {
   background-color: transparent;
-  color: #333;
+  color: #fff;
   border-color: #b2b2b2; }
 
 /* OnClick + Active */
@@ -2015,7 +2014,7 @@ select.uk-form-width-xsmall {
 .uk-button-large {
   padding: 0 40px;
   line-height: 53px;
-  font-size: 0.875rem; }
+  font-size: 1rem; }
 
 /* Text modifiers
  ========================================================================== */
@@ -10091,6 +10090,9 @@ iframe.uk-cover {
   --success: var(--green);
   --success-light: var(--green-light); }
 
+.ctx-font-script {
+  font-family: "Kalam"; }
+
 .ctx-small-round-border, .uk-navbar-nav > li {
   border-top-right-radius: 15px;
   border-bottom-left-radius: 15px;
@@ -10117,10 +10119,14 @@ iframe.uk-cover {
 
 body {
   margin-right: 3%;
-  position: relative; }
+  position: relative;
+  background: #eeeeee; }
 
 .uk-button:hover {
   filter: brightness(90%); }
+
+.uk-button {
+  text-transform: none; }
 
 .uk-modal-dialog {
   border-bottom-right-radius: 50px;
@@ -11137,4 +11143,8 @@ input:focus[type="number"]:valid, input:focus[type="email"]:valid, input:focus[t
   width: 20px !important;
   border: 2px solid #999;
   margin-right: 10px; }
+
+.main-header {
+  padding-top: 200px;
+  padding-bottom: 200px; }
 

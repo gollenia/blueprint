@@ -3,5 +3,7 @@
 }
 
 .uk-button {
-    @extend .small-border-radius
+    @extend .small-border-radius;
+    text-transform: none;
+    
 }
