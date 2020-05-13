@@ -16,7 +16,5 @@ if (class_exists($controller)) {
     $pageObject->render();
 }
 else {
-    echo "No Controller found.";
+    echo "No Controller found";
 }
-
-
