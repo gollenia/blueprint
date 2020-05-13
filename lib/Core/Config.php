@@ -9,14 +9,23 @@ namespace Contexis\Core;
  * 
  * @since 1.0.0
  */
-
 class Config {
     
     private $config = array();
 
-    public function __construct($config_path, $files = false) {
+    /**
+     * Constructor sets up the Config Object from an Array, wich is stored
+     * i a given file
+     * 
+     * @param string $config_path path where config files can be found
+     * @param array $files Instead of scanning the directory, only use the files given in this array
+     * @since 1.0.0
+     */
+    public function __construct(string $config_path, array $files = []) {
 
-        if (!$files) {
+        
+        if (empty($files)) {
+            
             $files = scandir($config_path);
             foreach($files as $file) {
 
@@ -48,6 +57,15 @@ class Config {
         
     }
 
+    /**
+     * Retrieve a config value or sub array
+     * 
+     * Configs can be called with dot notation like $config->get("foo.bar")
+     * 
+     * @param string Config key in dot notation
+     * @return mixed Config value
+     * @since 1.0.0
+     */
     public function get( $string = "")
     {
         if ($string === "") {
@@ -68,10 +86,26 @@ class Config {
         return $movingTarget;
     }
 
+    /**
+     * Set config value or array
+     * 
+     * @param $key key of config
+     * @param mixed $value whatever to store at the key
+     * @return void
+     * @todo ability to add values at subkey with dot-notation
+     * @since 1.0.0
+     */
     public function set($key, $value) {
         $this->config[$key] = $value;
     }
 
+    /**
+     * Static usage to simply generate Config array from files
+     * 
+     * @deprecated
+     * @since 0.5.0
+     * @param string $file file to read
+     */
     public static function load(string $file) {
         
         $config_path = get_template_directory() . "/config/";
