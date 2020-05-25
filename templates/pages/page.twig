@@ -2,11 +2,12 @@
 
 {% block content %}
 <header class="{{ post.thumbnail.src('xlarge') is empty ? "no-background-image" }}" style="background-image: url('{{ post.thumbnail.src('xlarge') }}')">
+    <div class="uk-container">
     <div class="caption">
         <h5 class="uk-margin-remove">{{post.subtitle}}</h5>
         <h1 class="uk-margin-remove">{{post.title}}</h1>
     </div>
-    
+</div>
 </header>
     <article>
         {{ post.content }}
