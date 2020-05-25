@@ -4,12 +4,12 @@
     <header>
         <div class="uk-container">
             <div uk-grid>
-                <div class="uk-width-1-2@l">
+                <div class="uk-width-1-2@m">
                     <h5 class="uk-margin-remove">{{post.subtitle}}</h5>
                     <h2 class="uk-margin-remove">{{post.title}}</h2>
                     
                 </div>
-                <div class="uk-width-1-2@l">
+                <div class="uk-width-1-2@m">
                     
                 </div>
             </div>
@@ -20,7 +20,7 @@
     <article>
         <div class="uk-container">
         <div uk-grid>
-            <div class="uk-width-1-2@l">
+            <div class="uk-width-1-2@m">
                 <div class="uk-text-muted uk-margin-top">
                     <p class="ctx-post-date uk-flex uk-flex-middle uk-flex-left">
                         <img src="{{ site.theme.uri }}/assets/dist/img/icons/boy.svg" width="20" class="uk-margin-right" uk-svg>
@@ -54,19 +54,18 @@
                     </div>
                 </div>
                 
-                <div class="latest-news uk-hidden@m">
-                    <h4>Weitere Freizeiten</h4>
-                    {% include "partials/posts-latest.twig" with {'latest_posts': latest_posts} %}
+                <div class="similar-events uk-hidden@m">
+                    
+                    {% include "partials/similar-events.twig" with {'events': events} %}
                 </div>
             </div>
-            <div class="uk-width-1-2@l ctx-event-side uk-flex-first uk-flex-last@m">
+            <div class="uk-width-1-2@m ctx-event-side uk-flex-first uk-flex-last@m">
                 <div class="ctx-event-image">
                     <span>{{post.thumbnail.caption}}</span>
-                    <img src="{{ post.thumbnail.src('medium') }}" class="ctx-round-edges" alt="Image for {{ post.title }}" />
+                    <img src="{{ post.thumbnail.src('large') }}" class="ctx-round-edges" alt="Image for {{ post.title }}" />
                 </div>
-                <div class="latest-news uk-visible@m">
-                    <h4>Weitere Freizeiten</h4>
-                    {% include "partials/posts-latest.twig" with {'latest_posts': latest_posts} %}
+                <div class="similar-events uk-visible@m uk-margin-top">
+                    {% include "partials/similar-events.twig" with {'events': events} %}
                 </div>
             </div>
         </div>
