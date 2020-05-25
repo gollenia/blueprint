@@ -48,6 +48,10 @@
     --success-light: var(--green-light);
 }
 
+.has-default-color {
+    color: var(--default);
+}
+
 
 .ctx-font-script {
     font-family: "Kalam";
