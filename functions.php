@@ -1,6 +1,24 @@
 <?php
 
 
+// BETA Code. This Code will be removed, when Site is complete
+
+// Debug-Hack. Kommt später weg
+$url =  'http://' . $_SERVER['SERVER_NAME'];
+$url = explode(".", parse_url($url, PHP_URL_HOST));
+$url = end($url);
+if (isset($_GET['dev']) ) {
+    set_transient( $_SERVER['REMOTE_ADDR'], "yes", 60*60*12 );
+}
+
+if(!get_transient( $_SERVER['REMOTE_ADDR'])) {
+    header("Location: http://www.kids-team.com/at");
+    exit();
+}
+
+
+
+remove_action("wp_footer", "EM_Bookings::em_booking_js_footer", 30);
 /**
  * First we need to load the Composer Autoload which is responsinble for making Classes available
  * 
