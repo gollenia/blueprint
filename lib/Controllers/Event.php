@@ -18,16 +18,58 @@ class Event extends \Contexis\Core\Controller {
     public function __construct($site, $template = false) {
         parent::__construct($site);
         $this->setTemplate('pages/event.twig'); 
-        $this->context['booking'] = $this->getBookingForm();
-    }
-
-    private function getBookingForm() {
         $post = \Timber\Timber::get_post();
-        $content = apply_filters( 'the_content', $post->content );
-        return $this->filterForm($content);
+        
+        $this->addToContext([
+            "booking" => $this->get_booking_form(),
+            "events" => $this->get_events($post)
+        ]);
     }
 
-    public function filterForm($form) {
+    private function get_booking_form() {
+        $post = \Timber\Timber::get_post();
+        
+        $content = apply_filters( 'the_content', $post->content );
+        return $this->filter_booking_form($content);
+    }
+
+
+    private function get_events(\Timber\Post $post, int $limit = 5) {
+
+        $categories = $post->get_terms('event-categories');
+
+        if(empty($categories)) {
+            return false;
+        }
+
+        
+        
+        return new \Timber\PostQuery([
+            'post_type' => 'event',
+            'orderby' => '_event_start_date',
+            'order' => 'ASC',
+            'post__not_in' => [$post->ID],
+            'tax_query' => array(
+                array (
+                    'taxonomy' => 'event-categories',
+                    'field' => 'slug',
+                    'terms' => $categories[0]->slug,
+                )
+            ),
+            'meta_query' => array(
+                array(
+                  'key' => '_event_start_date',
+                  'value' => date('Y-m-d'),
+                  'compare' => '>=',
+                )
+              )
+        ]);
+    }
+    
+
+    public function filter_booking_form($form) {
+
+        
         if ($form=="") {return;}
         $html = new \Wa72\HtmlPageDom\HtmlPageCrawler($form);
     
