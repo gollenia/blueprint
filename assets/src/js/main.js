@@ -8,6 +8,7 @@ window.UIkit = UIkit;
 import addTicketLabel from './events/addTicketLabel';
 import validateInput from './events/validateInput';
 import textareaResize from './extras/textareaResize';
+import contactFormInvalid from './contact/contactFormInvalid';
 
 
 
@@ -32,7 +33,38 @@ UIkit.util.on('#mobile-menu', 'beforehide', function (event) {
 document.addEventListener("focusout", validateInput);
 document.addEventListener("change", validateInput);
 document.addEventListener("change", addTicketLabel);
+document.addEventListener("wpcf7invalid ", function(event) {
+    UIkit.notification(event.detail.apiResponse.message, {status:'danger'});
+});
+document.addEventListener("wpcf7spam", function(event) {
+    UIkit.notification(event.detail.apiResponse.message, {status:'danger'});
+});
+document.addEventListener("wpcf7mailsent", function(event) {
+    UIkit.notification(event.detail.apiResponse.message, {status:'success'});
+});
+document.addEventListener("wpcf7mailfailed", function(event) {
+    UIkit.notification(event.detail.apiResponse.message, {status:'danger'});
+});
+document.addEventListener("wpcf7submit", function(event) {
+    UIkit.notification(event.detail.apiResponse.message, {status:'danger'});
+});
 
+
+document.addEventListener("em_booking_success", function(event) {
+    console.log(event);
+});
+
+document.addEventListener("em_booking_error", function(event) {
+    console.log(event);
+});
+
+document.addEventListener("em_booking_complete", function(event) {
+    console.log(event);
+});
+
+document.addEventListener("em_booking_ajax_error", function(event) {
+    console.log(event);
+});
 
 textareaResize("textarea");
 
