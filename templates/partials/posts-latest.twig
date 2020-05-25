@@ -1,14 +1,14 @@
 <div class="ctx-post-items">
 {% for item in latest_posts %}
     <a class="uk-link-reset ctx-post-item uk-margin-bottom uk-flex uk-flex-middle {% for term in item.get_terms() %}{{term.slug}} {% endfor %}" href="/aktuell/{{item.post_name}}">
-        <div class="uk-margin-right">
+        <div class="uk-margin-right uk-flex-none">
             <img src="{{ item.thumbnail.src('qsmall') }}" width="100px" class="uk-border-circle">
         </div>
     
         <div>
             <h5 class="uk-text-bold uk-margin-remove">{{item.title}}</h5>
             {% if item.post_excerpt is not empty %}
-    ...         <span>{{item.post_excerpt}}</span><br/>
+                <span>{{item.post_excerpt|excerpt(10, "...")}}</span><br/>
             {% endif %}
             <span class="uk-text-muted">{{item.post_date|date("j. F Y")}}</span>
             
