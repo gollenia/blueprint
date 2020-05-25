@@ -6,18 +6,21 @@
     background-position: center;
     .caption {
         background-color: var(--primary-transparent);
-        width: 50%;
+        display: inline-block;
         padding-right: 50px;
         border-top-right-radius: 50px;
         padding-top: 50px;
         padding-bottom: 50px;
-        backdrop-filter: blur(50%);
+        margin-left: -2000px;
+        padding-left: 2000px;
+        backdrop-filter: blur(5px);
+        text-align: right;
     }
     h1 {
         font-weight: bold;
         
         color: #fff;
-        font-size: 4rem;
+
     }
 }
 
@@ -25,7 +28,7 @@
     .page header {
         background-color:var(--primary-light);
         padding-top: 120px;
-        padding-bottom: 50px;
+        padding-bottom: 0px;
         background-size: cover;
         background-position: center;
     }

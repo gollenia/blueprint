@@ -21,10 +21,17 @@ body {
     background: #eeeeee;
 }
 
+@media only screen and (max-width: 640px) {
+    body {   
+        margin-right: 5%;
+    }   
+}
+
 @import "elements";
 @import "blocks";
 @import "layout";
 @import "pages";
+@import "plugins";
 
 @import "hamburgers/_sass/hamburgers/hamburgers.scss";
 
@@ -35,6 +42,8 @@ body.home {
         background-position: center;
     }
 }
+
+
 
 .ctx-round-edges {
     border-top-left-radius: 50px;

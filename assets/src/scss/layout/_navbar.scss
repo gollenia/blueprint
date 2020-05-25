@@ -65,9 +65,11 @@
 #mobile-menu {
     position: fixed;
     left: 0;
-    right: 0;
+    right: 5%;
     bottom: 0;
-    top: 66px;
+    opacity: 95%;
+    backdrop-filter: blur(5px);
+    top: 60px;
     background: $alert-primary-background;
     z-index: 50;
     padding-top: 40px;
