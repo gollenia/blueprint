@@ -4,12 +4,12 @@
     <header>
         <div class="uk-container">
             <div uk-grid>
-                <div class="uk-width-1-2@l">
+                <div class="uk-width-1-2@m">
                     <h5 class="uk-margin-remove">{{post.subtitle}}</h5>
                     <h2 class="uk-margin-remove">{{post.title}}</h2>
                     <h5 class="uk-margin-remove">{{post.post_excerpt}}</h5>
                 </div>
-                <div class="uk-width-1-2@l">
+                <div class="uk-width-1-2@m">
                     
                 </div>
             </div>
@@ -20,7 +20,7 @@
     <article>
         <div class="uk-container">
         <div uk-grid>
-            <div class="uk-width-1-2@l">
+            <div class="uk-width-1-2@m">
                 <div class="uk-text-muted uk-margin-top">
                     <h5 class="uk-text-bold uk-text-muted">Verfasser</h5>
                     <div class="ctx-post-date uk-flex uk-flex-middle uk-flex-left">
@@ -39,10 +39,10 @@
                     {% include "partials/posts-latest.twig" with {'latest_posts': latest_posts} %}
                 </div>
             </div>
-            <div class="uk-width-1-2@l ctx-post-side uk-flex-first uk-flex-last@m">
+            <div class="uk-width-1-2@m ctx-post-side uk-flex-first uk-flex-last@m">
                 <div class="ctx-post-image">
                     <span>{{post.thumbnail.caption}}</span>
-                    <img src="{{ post.thumbnail.src('medium') }}" class="ctx-round-edges" alt="Image for {{ post.title }}" />
+                    <img src="{{ post.thumbnail.src('large') }}" class="ctx-round-edges" alt="Image for {{ post.title }}" />
                 </div>
                 <div class="latest-news uk-visible@m">
                     <h4>Weitere Nachrichten</h4>
