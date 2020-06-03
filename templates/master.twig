@@ -18,8 +18,12 @@
 
         <footer class="uk-section uk-section-black uk-light">
             <div class="uk-container"><div class="uk-child-width-1-2@s uk-child-width-1-4@l" uk-grid>{{footer}}</div></div>
-            <script>var lang = "{{site.language}}";</script>
+            <script>
+                var lang = "{{site.language}}";
+                var theme_uri = "{{site.theme.uri}}";
+            </script>
             {{function('wp_footer')}}
+            <script type="text/javascript" src="http://kids-team.local/wp-content/themes/kids-team/assets/dist/main.js?ver=5.4.1"></script> 
             
         </footer>
         <div class="imprint">
