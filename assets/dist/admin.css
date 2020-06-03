@@ -5,3 +5,6 @@
 .editor-styles-wrapper {
   font-family: "Inria Sans" !important; }
 
+.wp-block {
+  max-width: 1000px; }
+
