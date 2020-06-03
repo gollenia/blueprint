@@ -10135,6 +10135,11 @@ body {
 .uk-button {
   text-transform: none; }
 
+.ctx-icon svg {
+  margin-right: 7px; }
+  .ctx-icon svg path {
+    fill: #fff !important; }
+
 .uk-modal-dialog {
   border-bottom-right-radius: 50px;
   border-top-left-radius: 50px; }
@@ -10452,6 +10457,9 @@ input:required::after {
     border: 2px solid var(--primary-color); }
 
 .wpcf7-response-output {
+  display: none !important; }
+
+.statusnotice {
   display: none !important; }
 
 /*!

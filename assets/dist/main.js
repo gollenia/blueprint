@@ -86,15 +86,15 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./assets/src/js/contact/contactFormInvalid.js":
-/*!*****************************************************!*\
-  !*** ./assets/src/js/contact/contactFormInvalid.js ***!
-  \*****************************************************/
+/***/ "./assets/src/js/contact/contactForm.js":
+/*!**********************************************!*\
+  !*** ./assets/src/js/contact/contactForm.js ***!
+  \**********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.default = contactFormInvalid;\n\nfunction contactFormInvalid(event) {\n  console.log(event);\n}\n\n//# sourceURL=webpack:///./assets/src/js/contact/contactFormInvalid.js?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\nvar _uikit = __webpack_require__(/*! uikit */ \"./node_modules/uikit/dist/js/uikit.js\");\n\nvar _uikit2 = _interopRequireDefault(_uikit);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nexports.default = function () {\n  document.addEventListener(\"wpcf7invalid \", function (event) {\n    _uikit2.default.notification(event.detail.apiResponse.message, {\n      status: 'danger'\n    });\n  });\n  document.addEventListener(\"wpcf7spam\", function (event) {\n    _uikit2.default.notification(event.detail.apiResponse.message, {\n      status: 'danger'\n    });\n  });\n  document.addEventListener(\"wpcf7mailsent\", function (event) {\n    _uikit2.default.notification(event.detail.apiResponse.message, {\n      status: 'success'\n    });\n  });\n  document.addEventListener(\"wpcf7mailfailed\", function (event) {\n    _uikit2.default.notification(event.detail.apiResponse.message, {\n      status: 'danger'\n    });\n  });\n  document.addEventListener(\"wpcf7submit\", function (event) {\n    _uikit2.default.notification(event.detail.apiResponse.message, {\n      status: 'danger'\n    });\n  });\n}();\n\n//# sourceURL=webpack:///./assets/src/js/contact/contactForm.js?");
 
 /***/ }),
 
@@ -107,6 +107,18 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n
 
 "use strict";
 eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.default = addTicketLabel;\n\nvar _calculatePrice = __webpack_require__(/*! ./calculatePrice */ \"./assets/src/js/events/calculatePrice.js\");\n\nvar _calculatePrice2 = _interopRequireDefault(_calculatePrice);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nfunction addTicketLabel(event) {\n  if (!event.target.classList.contains(\"em-ticket-select\")) {\n    return;\n  }\n\n  [].forEach.call(document.querySelectorAll('.attendee-label'), function (e) {\n    e.parentNode.removeChild(e);\n  });\n  var attendees = document.getElementsByClassName(\"em-attendee-fields\");\n\n  if (attendees == undefined) {\n    return;\n  }\n\n  for (var index = 0; index < attendees.length; index++) {\n    var span = document.createElement(\"span\");\n    span.classList.add(\"attendee-label\");\n    span.innerText = index + 1 + \". Teilnehmer/in\";\n    attendees[index].prepend(span);\n  }\n\n  (0, _calculatePrice2.default)();\n}\n\n//# sourceURL=webpack:///./assets/src/js/events/addTicketLabel.js?");
+
+/***/ }),
+
+/***/ "./assets/src/js/events/bookingForm.js":
+/*!*********************************************!*\
+  !*** ./assets/src/js/events/bookingForm.js ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\nvar _uikit = __webpack_require__(/*! uikit */ \"./node_modules/uikit/dist/js/uikit.js\");\n\nvar _uikit2 = _interopRequireDefault(_uikit);\n\nvar _addTicketLabel = __webpack_require__(/*! ./addTicketLabel */ \"./assets/src/js/events/addTicketLabel.js\");\n\nvar _addTicketLabel2 = _interopRequireDefault(_addTicketLabel);\n\nvar _validateInput = __webpack_require__(/*! ./validateInput */ \"./assets/src/js/events/validateInput.js\");\n\nvar _validateInput2 = _interopRequireDefault(_validateInput);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nexports.default = function () {\n  if (document.getElementsByClassName(\"em-tickets\").length === 0) {\n    return;\n  }\n\n  var ticketInfo = document.createElement(\"tr\");\n  ticketInfo.innerHTML = '<td colspan=\"3\"><h4 class=\"ctx-font-script\">Sag uns zuerst, wer mitfährt</h4></td>';\n  document.getElementsByClassName('em-tickets')[0].prepend(ticketInfo);\n  var personInfo = document.createElement(\"div\");\n  personInfo.innerHTML = '<h4 class=\"ctx-font-script\">Gib dann deine Bestelldaten an</h4>';\n  document.getElementsByClassName('em-booking-form-details')[0].prepend(personInfo);\n  document.addEventListener(\"focusout\", _validateInput2.default);\n  document.addEventListener(\"change\", _validateInput2.default);\n  document.addEventListener(\"change\", _addTicketLabel2.default); // We need old jQuery since jQuery-Events are not seen by vanilla JavaScript\n\n  jQuery(document).on('em_booking_error', function (error) {\n    _uikit2.default.notification(EM.bb_error, {\n      status: 'danger'\n    });\n  });\n  jQuery(document).on('em_booking_success', function (error) {\n    _uikit2.default.modal(\"#booking-modal\").hide();\n\n    _uikit2.default.notification(EM.bb_booked, {\n      status: 'success'\n    });\n  });\n}();\n\n//# sourceURL=webpack:///./assets/src/js/events/bookingForm.js?");
 
 /***/ }),
 
@@ -146,6 +158,18 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n
 
 /***/ }),
 
+/***/ "./assets/src/js/icons.js":
+/*!********************************!*\
+  !*** ./assets/src/js/icons.js ***!
+  \********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\nexports.default = function () {\n  var iconElements = document.querySelectorAll(\".ctx-icon\");\n  iconElements.forEach(function (element) {\n    var icon;\n\n    for (var i = 0; i < element.classList.length; i++) {\n      if (element.classList[i].substring(0, 9) === \"ctx-icon-\") {\n        icon = element.classList[i].substring(9);\n        fetch(theme_uri + \"/assets/dist/img/icons/\" + icon + \".svg\").then(function (res) {\n          return res.text();\n        }).then(function (data) {\n          var parser = new DOMParser();\n          var svg = parser.parseFromString(data, 'image/svg+xml').querySelector('svg');\n          element.prepend(svg);\n        }).catch(function (error) {\n          return console.error(error);\n        });\n      }\n    }\n  });\n}();\n\n//# sourceURL=webpack:///./assets/src/js/icons.js?");
+
+/***/ }),
+
 /***/ "./assets/src/js/main.js":
 /*!*******************************!*\
   !*** ./assets/src/js/main.js ***!
@@ -154,7 +178,7 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nvar _uikit = __webpack_require__(/*! uikit */ \"./node_modules/uikit/dist/js/uikit.js\");\n\nvar _uikit2 = _interopRequireDefault(_uikit);\n\n__webpack_require__(/*! ./../scss/app.scss */ \"./assets/src/scss/app.scss\");\n\nvar _addTicketLabel = __webpack_require__(/*! ./events/addTicketLabel */ \"./assets/src/js/events/addTicketLabel.js\");\n\nvar _addTicketLabel2 = _interopRequireDefault(_addTicketLabel);\n\nvar _validateInput = __webpack_require__(/*! ./events/validateInput */ \"./assets/src/js/events/validateInput.js\");\n\nvar _validateInput2 = _interopRequireDefault(_validateInput);\n\nvar _textareaResize = __webpack_require__(/*! ./extras/textareaResize */ \"./assets/src/js/extras/textareaResize.js\");\n\nvar _textareaResize2 = _interopRequireDefault(_textareaResize);\n\nvar _contactFormInvalid = __webpack_require__(/*! ./contact/contactFormInvalid */ \"./assets/src/js/contact/contactFormInvalid.js\");\n\nvar _contactFormInvalid2 = _interopRequireDefault(_contactFormInvalid);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nwindow.UIkit = _uikit2.default;\n\n_uikit2.default.util.on('#mobile-menu', 'beforeshow', function (event) {\n  if (event.target.id == \"mobile-menu\") {\n    document.getElementById('hamburger').classList.add(\"is-active\");\n  }\n});\n\n_uikit2.default.util.on('#events-filter', 'afterFilter', function (event) {\n  console.log(event);\n});\n\n_uikit2.default.util.on('#mobile-menu', 'beforehide', function (event) {\n  if (event.target.id == \"mobile-menu\") {\n    document.getElementById('hamburger').classList.remove(\"is-active\");\n  }\n});\n\ndocument.addEventListener(\"focusout\", _validateInput2.default);\ndocument.addEventListener(\"change\", _validateInput2.default);\ndocument.addEventListener(\"change\", _addTicketLabel2.default);\ndocument.addEventListener(\"wpcf7invalid \", function (event) {\n  _uikit2.default.notification(event.detail.apiResponse.message, {\n    status: 'danger'\n  });\n});\ndocument.addEventListener(\"wpcf7spam\", function (event) {\n  _uikit2.default.notification(event.detail.apiResponse.message, {\n    status: 'danger'\n  });\n});\ndocument.addEventListener(\"wpcf7mailsent\", function (event) {\n  _uikit2.default.notification(event.detail.apiResponse.message, {\n    status: 'success'\n  });\n});\ndocument.addEventListener(\"wpcf7mailfailed\", function (event) {\n  _uikit2.default.notification(event.detail.apiResponse.message, {\n    status: 'danger'\n  });\n});\ndocument.addEventListener(\"wpcf7submit\", function (event) {\n  _uikit2.default.notification(event.detail.apiResponse.message, {\n    status: 'danger'\n  });\n});\ndocument.addEventListener(\"em_booking_success\", function (event) {\n  console.log(event);\n});\ndocument.addEventListener(\"em_booking_error\", function (event) {\n  console.log(event);\n});\ndocument.addEventListener(\"em_booking_complete\", function (event) {\n  console.log(event);\n});\ndocument.addEventListener(\"em_booking_ajax_error\", function (event) {\n  console.log(event);\n});\n(0, _textareaResize2.default)(\"textarea\"); // var form  = document.getElementsByTagName('form')[0];\n// form.addEventListener(\"change\", function(event) {\n//     var submitButton = document.querySelectorAll('input[type=\"submit\"]');\n//     console.log(event);\n//     if(event.target.validity.valid){\n//         submitButton[0].disabled = false;\n//         return;\n//     }\n//     submitButton[0].disabled = true;\n// });\n\n//# sourceURL=webpack:///./assets/src/js/main.js?");
+eval("\n\nvar _uikit = __webpack_require__(/*! uikit */ \"./node_modules/uikit/dist/js/uikit.js\");\n\nvar _uikit2 = _interopRequireDefault(_uikit);\n\n__webpack_require__(/*! ./../scss/app.scss */ \"./assets/src/scss/app.scss\");\n\nvar _textareaResize = __webpack_require__(/*! ./extras/textareaResize */ \"./assets/src/js/extras/textareaResize.js\");\n\nvar _textareaResize2 = _interopRequireDefault(_textareaResize);\n\n__webpack_require__(/*! ./events/bookingForm */ \"./assets/src/js/events/bookingForm.js\");\n\n__webpack_require__(/*! ./contact/contactForm */ \"./assets/src/js/contact/contactForm.js\");\n\n__webpack_require__(/*! ./icons */ \"./assets/src/js/icons.js\");\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nwindow.UIkit = _uikit2.default;\n\n_uikit2.default.util.on('#mobile-menu', 'beforeshow', function (event) {\n  if (event.target.id == \"mobile-menu\") {\n    document.getElementById('hamburger').classList.add(\"is-active\");\n  }\n});\n\n_uikit2.default.util.on('#mobile-menu', 'beforehide', function (event) {\n  if (event.target.id == \"mobile-menu\") {\n    document.getElementById('hamburger').classList.remove(\"is-active\");\n  }\n});\n\n(0, _textareaResize2.default)(\"textarea\"); // var form  = document.getElementsByTagName('form')[0];\n// form.addEventListener(\"change\", function(event) {\n//     var submitButton = document.querySelectorAll('input[type=\"submit\"]');\n//     console.log(event);\n//     if(event.target.validity.valid){\n//         submitButton[0].disabled = false;\n//         return;\n//     }\n//     submitButton[0].disabled = true;\n// });\n\n//# sourceURL=webpack:///./assets/src/js/main.js?");
 
 /***/ }),
 
