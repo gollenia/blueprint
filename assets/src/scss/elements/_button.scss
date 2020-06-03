@@ -7,3 +7,13 @@
     text-transform: none;
     
 }
+
+.ctx-icon {
+    svg {
+        margin-right: 7px;
+        path {
+            fill: #fff !important;
+        }
+    }
+}
+
