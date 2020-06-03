@@ -14,13 +14,15 @@
 
 return [
     "scripts" => [
-        [
-            'handle' => 'theme_script',
-            'url' => get_template_directory_uri() . '/assets/dist/main.js',
-            'dependencies' => [],
-            'version' => false,
-            'in_footer' => true
-        ],
+        // [
+        //     'handle' => 'theme_script',
+        //     'url' => get_template_directory_uri() . '/assets/dist/main.js',
+        //     'dependencies' => [
+        //         'wp-api-fetch'
+        //     ],
+        //     'version' => false,
+        //     'in_footer' => true
+        // ],
     ],
     "styles" => [
         [
