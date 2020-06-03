@@ -71,9 +71,9 @@ class Event extends \Contexis\Core\Controller {
 
         
         if ($form=="") {return;}
+
         $html = new \Wa72\HtmlPageDom\HtmlPageCrawler($form);
     
-        
         if($html->filter(".input-country")->count()) {
             $html->filter("option[value=0]")->setAttribute("disabled", "")->setAttribute("value", "")->setText("Land auswählen...");
         }
@@ -123,15 +123,23 @@ class Event extends \Contexis\Core\Controller {
 
         // Add some infos for form-validation
 
-        if($html->filter('.input-user-field')->count()) {
-            $fields = $html->filter('.input-user-field,.input-group');
+        if($html->filter('.em-booking-form-details .input-user-field, .em-booking-form-details .input-group')->count()) {
+            $fields = $html->filter('.em-booking-form-details .input-user-field,.em-booking-form-details .input-group');
             foreach ($fields as $field) {
                 $field = \Wa72\HtmlPageDom\HtmlPageCrawler::create($field);
                 if($field->filter('span.em-form-required')->count() && $field->filter('input,select')->count()) {
                     $field->filter('span.em-form-required')->remove();
                     $field->filter('input')->addClass('required')->setAttribute("required", true);
-
                 }
+               
+            }
+        }
+
+        if($html->filter('.input-group, .input-user-field')->count()) {
+            $fields = $html->filter('.em-booking-form-details .input-user-field, .input-group');
+            foreach ($fields as $field) {
+                $field = \Wa72\HtmlPageDom\HtmlPageCrawler::create($field);
+                
                 if($field->filter('label')->count() && $field->filter('input[type="text"]')->count()) {
                     $placeholder = $field->filter('label')->text();
                     $field->filter('label')->remove();
@@ -161,7 +169,7 @@ class Event extends \Contexis\Core\Controller {
         // Zwei-Spalten-Ansicht
         if($html->filter("form")->count()) {
             $html->filter("form")->setAttribute("uk-grid", true);
-            $html->filter("form")->setAttribute("novalidate", true);
+            //$html->filter("form")->setAttribute("novalidate", true);
             $html->filter("form")->addClass("uk-child-width-1-2@m");
         }
 
