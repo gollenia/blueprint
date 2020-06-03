@@ -11,14 +11,17 @@ if (isset($_GET['dev']) ) {
     set_transient( $_SERVER['REMOTE_ADDR'], "yes", 60*60*12 );
 }
 
+if($url === "ch") {
+    $url = "ch-de";
+}
+
 if(!get_transient( $_SERVER['REMOTE_ADDR'])) {
-    header("Location: http://www.kids-team.com/at");
+    header("Location: http://www.kids-team.com/" . $url);
     exit();
 }
 
 
 
-remove_action("wp_footer", "EM_Bookings::em_booking_js_footer", 30);
 /**
  * First we need to load the Composer Autoload which is responsinble for making Classes available
  * 
