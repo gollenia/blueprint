@@ -15,16 +15,23 @@ use \Timber\User;
 class Event extends \Contexis\Core\Controller {
 
     
+    private \EM_Event $event;
+
     public function __construct($site, $template = false) {
         parent::__construct($site);
         $this->setTemplate('pages/event.twig'); 
         $post = \Timber\Timber::get_post();
+
+        $this->event = \EM_Events::get(['post_id' => $post->id])[0];
         
         $this->addToContext([
             "booking" => $this->get_booking_form(),
-            "events" => $this->get_events($post)
+            "events" => $this->get_events($post),
+            "event" => \EM_Events::get(['post_id' => $post->id])[0],
+            "bookings" => $this->remaining_spaces()
         ]);
     }
+
 
     private function get_booking_form() {
         $post = \Timber\Timber::get_post();
@@ -33,6 +40,10 @@ class Event extends \Contexis\Core\Controller {
         return $this->filter_booking_form($content);
     }
 
+    private function remaining_spaces() {
+        $booking = new \EM_Bookings($this->event);
+        return $booking->get_available_spaces();
+    }
 
     private function get_events(\Timber\Post $post, int $limit = 5) {
 
