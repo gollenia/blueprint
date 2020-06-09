@@ -8,24 +8,18 @@
 
 @import "globals";
 
-@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700&display=swap');
+
+
+//@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,400;0,700;1,400&display=swap');
+//@import url('https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,400;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap');
+
 @import url('https://fonts.googleapis.com/css?family=Kalam:400,700&display=swap');
 
-// Weitere Variablen
-// Deprecated?
-$global-default-background: #eeeeee !default;
 
-body {   
-    margin-right: 3%;
-    position: relative;
-    background: #eeeeee;
-}
 
-@media only screen and (max-width: 640px) {
-    body {   
-        margin-right: 5%;
-    }   
-}
 
 @import "elements";
 @import "blocks";
@@ -34,71 +28,3 @@ body {
 @import "plugins";
 
 @import "hamburgers/_sass/hamburgers/hamburgers.scss";
-
-// Sections
-body.home {
-    header {
-        background-size: cover;
-        background-position: center;
-    }
-}
-
-
-
-.ctx-round-edges {
-    border-top-left-radius: 50px;
-    border-bottom-right-radius: 50px;
-}
-
-.ctx-image-border {
-    border: 5px solid #fff;
-}
-
-.uk-input, .uk-select {
-    border-top: 0px;
-    border-bottom: 2px solid $global-muted-color;
-    border-right: 0px;
-    border-left: 0px;
-    background: transparent !important;
-}
-
-.uk-form-success {
-    border-bottom: 2px solid #008a2a;
-    color: #008a2a;
-}
-
-input[type="email"]:valid, input[type="number"]:valid, .uk-form-success:focus, input:focus[type="email"]:valid, input:focus[type="number"]:valid {
-    border-bottom: 2px solid #008a2a;
-    color: #008a2a;
-}
-
-.uk-form-danger {
-    border-bottom: 2px solid var(--danger);
-}
-.uk-form-danger::placeholder {
-    color: --danger;
-}
-
-.error {
-    @extend .uk-text-danger;
-    @extend .uk-text-small;
-}
-
-.uk-textarea {
-    border: none;
-    border-bottom: 2px solid #999;
-    resize: none;
-    background: transparent !important;
-}
-
-.uk-checkbox {
-    height: 20px !important;
-    width: 20px !important;
-    border: 2px solid #999;
-    margin-right: 10px;
-}
-
-.main-header {
-    padding-top: 200px;
-    padding-bottom: 200px;
-}

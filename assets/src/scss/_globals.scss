@@ -1,3 +1,53 @@
+// Weitere Variablen
+// Deprecated?
+$global-default-background: #eeeeee !default;
+
+body {   
+    margin-right: 3%;
+    position: relative;
+    background: #eeeeee;
+}
+
+@media only screen and (max-width: 640px) {
+    body {   
+        margin-right: 5%;
+    }   
+}
+
+
+// Sections
+body.home {
+    header {
+        background-size: cover;
+        background-position: center;
+    }
+}
+
+
+
+
+.error {
+    @extend .uk-text-danger;
+    @extend .uk-text-small;
+}
+
+
+.main-header {
+    padding-top: 200px;
+    padding-bottom: 200px;
+}
+
+.ctx-round-edges {
+    border-top-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+}
+
+.ctx-image-border {
+    border: 5px solid #fff;
+}
+
+
+
 .de-AT {
     --primary: var(--blue);
     --primary-transparent: var(--blue-transparent);
@@ -54,7 +104,7 @@
 
 
 .ctx-font-script {
-    font-family: "Kalam";
+    font-family: "Gamja Flower";
 }
 
 .ctx-small-round-border {

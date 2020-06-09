@@ -2,7 +2,7 @@
     height: auto;
     background-color: var(--primary-light);
     .uk-container {
-        padding-top: 60px;
+        padding-top: 0px;
         padding-bottom: 10px;
     }
 }
@@ -19,9 +19,9 @@
             top: 0;
             right: 50px;
             margin-top: -10px;
-            background: var(--primary);
+            background: var(--black);
             color: #ffffff;
-            padding: 1px 5px 1px 5px;
+            padding: 1px 9px 1px 9px;
             @extend .small-border-radius
         }
     }
@@ -39,5 +39,14 @@
             background: linear-gradient(to right, rgba(238, 238, 238, 0), rgba(238, 238, 238, 1) 50%);
           }
     }
+    &.odd {
+        background: rgb(221,221,221);
+        p:after {
+            background: linear-gradient(to right, rgba(221, 221, 221, 0), rgba(221, 221, 221, 1) 50%);
+        }
+
+    }
 } 
+
+
 

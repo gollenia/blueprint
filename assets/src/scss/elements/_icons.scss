@@ -1,0 +1,32 @@
+.ctx-icon {
+
+    $colors: danger, warning, success, default, primary;
+
+    
+    @each $color in $colors {
+        &.uk-text-#{$color} {
+            svg {
+                path {
+                    fill: var(--#{$color}) !important;
+                }
+            }
+        }
+    }
+
+    &.uk-text-muted {
+        svg {
+            margin-right: 7px;
+            path {
+                fill: #999 !important;
+            }
+        }
+    }
+    
+}
+
+span.ctx-icon svg, address.ctx-icon svg {
+    margin-right: 7px;
+}
+
+
+
