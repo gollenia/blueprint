@@ -1,4 +1,6 @@
-@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,400;0,700;1,400&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap);
 @import url(https://fonts.googleapis.com/css?family=Kalam:400,700&display=swap);
 @charset "UTF-8";
 .accordion {
@@ -15,8 +17,8 @@
  */
 html {
   /* 1 */
-  font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  font-size: 1rem;
+  font-family: "Exo 2", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 14px;
   font-weight: normal;
   line-height: 1.5;
   /* 2 */
@@ -242,7 +244,7 @@ h6, .uk-h6,
 .uk-heading-xlarge,
 .uk-heading-2xlarge {
   margin: 0 0 20px 0;
-  font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: "Exo 2", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-weight: normal;
   color: #333;
   text-transform: none; }
@@ -281,7 +283,7 @@ h4, .uk-h4 {
   line-height: 1.4; }
 
 h5, .uk-h5 {
-  font-size: 1rem;
+  font-size: 14px;
   line-height: 1.4; }
 
 h6, .uk-h6 {
@@ -1877,7 +1879,7 @@ select.uk-form-width-xsmall {
   box-sizing: border-box;
   padding: 0 30px;
   vertical-align: middle;
-  font-size: 1rem;
+  font-size: 14px;
   /* 8 */
   line-height: 38px;
   /* 9 */
@@ -2014,7 +2016,7 @@ select.uk-form-width-xsmall {
 .uk-button-large {
   padding: 0 40px;
   line-height: 53px;
-  font-size: 1rem; }
+  font-size: 14px; }
 
 /* Text modifiers
  ========================================================================== */
@@ -3770,7 +3772,7 @@ ul.uk-nav-sub {
 .uk-nav-header {
   padding: 5px 0;
   text-transform: uppercase;
-  font-size: 1rem; }
+  font-size: 14px; }
 
 .uk-nav-header:not(:first-child) {
   margin-top: 20px; }
@@ -4005,8 +4007,8 @@ ul.uk-nav-sub {
   min-height: 30px;
   padding: 0 15px;
   /* 3 */
-  font-size: 1rem;
-  font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 14px;
+  font-family: "Exo 2", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   /* 4 */
   text-decoration: none; }
 
@@ -6971,7 +6973,7 @@ ul.uk-nav-sub {
 
 /* Size modifiers
  ========================================================================== */
-.uk-text-small, .imprint a, .imprint span, .ticket-desc, .error {
+.uk-text-small, .error, .imprint a, .imprint span, .ticket-desc {
   font-size: 0.875rem;
   line-height: 1.5; }
 
@@ -7853,8 +7855,8 @@ iframe.uk-cover {
  * 1. Required for `a`
  */
 .uk-logo {
-  font-size: 1rem;
-  font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 14px;
+  font-family: "Exo 2", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   color: #222222;
   /* 1 */
   text-decoration: none; }
@@ -10049,6 +10051,30 @@ iframe.uk-cover {
   h3 {
     page-break-after: avoid; } }
 
+body {
+  margin-right: 3%;
+  position: relative;
+  background: #eeeeee; }
+
+@media only screen and (max-width: 640px) {
+  body {
+    margin-right: 5%; } }
+
+body.home header {
+  background-size: cover;
+  background-position: center; }
+
+.main-header {
+  padding-top: 200px;
+  padding-bottom: 200px; }
+
+.ctx-round-edges {
+  border-top-left-radius: 50px;
+  border-bottom-right-radius: 50px; }
+
+.ctx-image-border {
+  border: 5px solid #fff; }
+
 .de-AT {
   --primary: var(--blue);
   --primary-transparent: var(--blue-transparent);
@@ -10094,7 +10120,7 @@ iframe.uk-cover {
   color: var(--default); }
 
 .ctx-font-script {
-  font-family: "Kalam"; }
+  font-family: "Gamja Flower"; }
 
 .ctx-small-round-border, .uk-navbar-nav > li {
   border-top-right-radius: 15px;
@@ -10120,25 +10146,15 @@ iframe.uk-cover {
   background-position-y: bottom;
   background-repeat: repeat no-repeat; }
 
-body {
-  margin-right: 3%;
-  position: relative;
-  background: #eeeeee; }
-
-@media only screen and (max-width: 640px) {
-  body {
-    margin-right: 5%; } }
-
 .uk-button:hover {
   filter: brightness(90%); }
 
 .uk-button {
   text-transform: none; }
-
-.ctx-icon svg {
-  margin-right: 7px; }
-  .ctx-icon svg path {
-    fill: #fff !important; }
+  .uk-button.ctx-icon svg {
+    margin-right: 7px; }
+    .uk-button.ctx-icon svg path {
+      fill: #fff !important; }
 
 .uk-modal-dialog {
   border-bottom-right-radius: 50px;
@@ -10159,6 +10175,29 @@ body {
 .uk-notification {
   border-bottom-right-radius: 20px;
   border-top-left-radius: 20px; }
+
+.ctx-icon.uk-text-danger svg path, .ctx-icon.error svg path {
+  fill: var(--danger) !important; }
+
+.ctx-icon.uk-text-warning svg path {
+  fill: var(--warning) !important; }
+
+.ctx-icon.uk-text-success svg path {
+  fill: var(--success) !important; }
+
+.ctx-icon.uk-text-default svg path {
+  fill: var(--default) !important; }
+
+.ctx-icon.uk-text-primary svg path {
+  fill: var(--primary) !important; }
+
+.ctx-icon.uk-text-muted svg, .ctx-icon.ticket-desc svg {
+  margin-right: 7px; }
+  .ctx-icon.uk-text-muted svg path, .ctx-icon.ticket-desc svg path {
+    fill: #999 !important; }
+
+span.ctx-icon svg, address.ctx-icon svg {
+  margin-right: 7px; }
 
 .accordion {
   background: #fff; }
@@ -10280,6 +10319,42 @@ a.ctx-post {
   .imprint #logo-background {
     fill: #666; }
 
+.uk-input, .uk-select {
+  border-top: 0px;
+  border-bottom: 2px solid #999;
+  border-right: 0px;
+  border-left: 0px;
+  background: transparent !important; }
+
+.uk-form-success, input[type="email"]:valid, input[type="number"]:valid {
+  border-bottom: 2px solid #008a2a;
+  color: #008a2a; }
+
+input[type="email"]:valid, input[type="number"]:valid,
+.uk-form-success:focus,
+input:focus[type="email"]:valid,
+input:focus[type="number"]:valid, input:focus[type="email"]:valid, input:focus[type="number"]:valid {
+  border-bottom: 2px solid #008a2a;
+  color: #008a2a; }
+
+.uk-form-danger {
+  border-bottom: 2px solid var(--danger); }
+
+.uk-form-danger::placeholder {
+  color: --danger; }
+
+.uk-textarea {
+  border: none;
+  border-bottom: 2px solid #999;
+  resize: none;
+  background: transparent !important; }
+
+.uk-checkbox {
+  height: 20px !important;
+  width: 20px !important;
+  border: 2px solid #999;
+  margin-right: 10px; }
+
 .page header {
   background-color: var(--primary-light);
   padding-top: 200px;
@@ -10343,7 +10418,7 @@ a.ctx-post {
   height: auto;
   background-color: var(--primary-light); }
   .veranstaltungen header .uk-container {
-    padding-top: 60px;
+    padding-top: 0px;
     padding-bottom: 10px; }
 
 .event img {
@@ -10357,9 +10432,9 @@ a.ctx-post {
     top: 0;
     right: 50px;
     margin-top: -10px;
-    background: var(--primary);
+    background: var(--black);
     color: #ffffff;
-    padding: 1px 5px 1px 5px; }
+    padding: 1px 9px 1px 9px; }
 
 .event p {
   height: 6rem;
@@ -10374,6 +10449,11 @@ a.ctx-post {
     width: 70%;
     height: 1.5em;
     background: linear-gradient(to right, rgba(238, 238, 238, 0), #eeeeee 50%); }
+
+.event.odd {
+  background: #dddddd; }
+  .event.odd p:after {
+    background: linear-gradient(to right, rgba(221, 221, 221, 0), #dddddd 50%); }
 
 .em-attendee-fields {
   position: relative;
@@ -11168,55 +11248,4 @@ input:required::after {
   .hamburger--vortex-r.is-active .hamburger-inner::after {
     bottom: 0;
     transform: rotate(-90deg); }
-
-body.home header {
-  background-size: cover;
-  background-position: center; }
-
-.ctx-round-edges {
-  border-top-left-radius: 50px;
-  border-bottom-right-radius: 50px; }
-
-.ctx-image-border {
-  border: 5px solid #fff; }
-
-.uk-input, .uk-select {
-  border-top: 0px;
-  border-bottom: 2px solid #999;
-  border-right: 0px;
-  border-left: 0px;
-  background: transparent !important; }
-
-.uk-form-success, input[type="email"]:valid, input[type="number"]:valid {
-  border-bottom: 2px solid #008a2a;
-  color: #008a2a; }
-
-input[type="email"]:valid, input[type="number"]:valid,
-.uk-form-success:focus,
-input:focus[type="email"]:valid,
-input:focus[type="number"]:valid, input:focus[type="email"]:valid, input:focus[type="number"]:valid {
-  border-bottom: 2px solid #008a2a;
-  color: #008a2a; }
-
-.uk-form-danger {
-  border-bottom: 2px solid var(--danger); }
-
-.uk-form-danger::placeholder {
-  color: --danger; }
-
-.uk-textarea {
-  border: none;
-  border-bottom: 2px solid #999;
-  resize: none;
-  background: transparent !important; }
-
-.uk-checkbox {
-  height: 20px !important;
-  width: 20px !important;
-  border: 2px solid #999;
-  margin-right: 10px; }
-
-.main-header {
-  padding-top: 200px;
-  padding-bottom: 200px; }
 
