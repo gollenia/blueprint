@@ -19,28 +19,34 @@
         <div class="uk-container">
         <div uk-grid>
             <div class="uk-width-1-2@m">
-                <div class="uk-text-muted uk-margin-top">
+                <div class="uk-margin-top">
                     <p class="ctx-post-date uk-flex uk-flex-middle uk-flex-left">
-                        <img src="{{ site.theme.uri }}/assets/dist/img/icons/boy.svg" width="20" class="uk-margin-right" uk-svg>
-                        <span>{{post.get_terms('audience')|first}}</span>
+                        <span class="ctx-icon ctx-icon-boy">{{post.get_terms('audience')|first}}</span>
                     </span>
                     <p class="ctx-post-date uk-flex uk-flex-middle uk-flex-left">
-                        <img src="{{ site.theme.uri }}/assets/dist/img/icons/calendar-day.svg" width="20" class="uk-margin-right" uk-svg>
-                        <span>{% if post._event_start_date == post._event_end_date %}
+                        
+                        <span class="ctx-icon ctx-icon-calendar">{% if post._event_start_date == post._event_end_date %}
                             {{ post._event_start_date|date("j. F") }} ab {{ post._event_start_time|date("G:i") }} - {{ post._event_end|date("j. F Y \\u\\m G:i") }} Uhr
                         {% else %}
                             {{ post._event_start_date|date("j. F Y") }} von {{ post._event_start_time|date("G:i") }} bis {{ post._event_end_time|date("G:i") }} Uhr
                         {% endif %}</span>
                     </p>
-                    <p class="ctx-post-date uk-flex uk-flex-middle uk-flex-left">
-                        <img src="{{ site.theme.uri }}/assets/dist/img/icons/map.svg" width="20" class="uk-margin-right" uk-svg>
-                        <span>Ort</span>
-                    </p>
-
+                    {% if event.location %}
+                    <address class="ctx-post-date uk-flex uk-flex-top uk-flex-left ctx-icon ctx-icon-map">
+                        <span>{{event.location.location_name}}<br>{{event.location.address}}<br>{{event.location.postcode}} {{event.location.town}}
+                            </span>
+                        
+                    </address>
+                    {% endif %}
+                    {% if bookings < 5 %}
+                        <span class="ctx-icon ctx-icon-warning uk-text-danger">Nur noch wenige Plätze frei</span>
+                    {% endif %}
                 </div>
                 <p class="dotted-line-bottom uk-padding uk-padding-remove-horizontal">{{post.post_excerpt}}</p>
                 <div class="dotted-line-bottom uk-padding uk-padding-remove-horizontal">{{post.post_content}}</div>
-                <div class="uk-text-right uk-padding uk-padding-remove-horizontal"><a class="uk-button uk-button-primary" href="#booking-modal" uk-toggle>Zur Anmeldung</a></div>
+                
+                {% if bookings > 0 %}
+                <div class="uk-text-right uk-padding uk-padding-remove-horizontal"><a class="uk-button uk-button-primary ctx-icon ctx-icon-pen" href="#booking-modal" uk-toggle>Zur Anmeldung</a></div>
                 <div id="booking-modal" class="uk-modal-full" uk-modal>
                     <div class="uk-modal-dialog">
                         <button class="uk-modal-close-full uk-close-large" type="button" uk-close></button>
@@ -51,7 +57,7 @@
                         
                     </div>
                 </div>
-                
+                {% endif %}
                 <div class="similar-events uk-hidden@m">
                     
                     {% include "partials/similar-events.twig" with {'events': events} %}
