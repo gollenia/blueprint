@@ -1,8 +1,7 @@
-.uk-button:hover {
-    filter: brightness(90%);
-}
+
 
 .uk-button {
+    font-weight: 600;
     @extend .small-border-radius;
     text-transform: none;
     &.ctx-icon {
@@ -13,6 +12,10 @@
             }
         }
     }
+}
+
+.uk-button-large {
+    font-size: 1.25rem;
 }
 
 

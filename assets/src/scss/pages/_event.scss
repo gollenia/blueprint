@@ -107,3 +107,9 @@ input:required::after {
         border: 2px solid var(--primary-color)
     }
 }
+
+.ctx-event-details {
+    background: #dddddd;
+    @extend .large-border-radius;
+    padding: 30px;
+}

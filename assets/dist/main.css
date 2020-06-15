@@ -1,6 +1,7 @@
-@import url(https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,400;0,700;1,400&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&display=swap);
 @import url(https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap);
 @import url(https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Gochi+Hand&display=swap);
 @import url(https://fonts.googleapis.com/css?family=Kalam:400,700&display=swap);
 @charset "UTF-8";
 .accordion {
@@ -18,7 +19,7 @@
 html {
   /* 1 */
   font-family: "Exo 2", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  font-size: 14px;
+  font-size: 1rem;
   font-weight: normal;
   line-height: 1.5;
   /* 2 */
@@ -246,7 +247,7 @@ h6, .uk-h6,
   margin: 0 0 20px 0;
   font-family: "Exo 2", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-weight: normal;
-  color: #333;
+  color: inherit;
   text-transform: none; }
 
 /* Add margin if adjacent element */
@@ -283,7 +284,7 @@ h4, .uk-h4 {
   line-height: 1.4; }
 
 h5, .uk-h5 {
-  font-size: 14px;
+  font-size: 1rem;
   line-height: 1.4; }
 
 h6, .uk-h6 {
@@ -1879,7 +1880,7 @@ select.uk-form-width-xsmall {
   box-sizing: border-box;
   padding: 0 30px;
   vertical-align: middle;
-  font-size: 14px;
+  font-size: 1rem;
   /* 8 */
   line-height: 38px;
   /* 9 */
@@ -2016,7 +2017,7 @@ select.uk-form-width-xsmall {
 .uk-button-large {
   padding: 0 40px;
   line-height: 53px;
-  font-size: 14px; }
+  font-size: 1rem; }
 
 /* Text modifiers
  ========================================================================== */
@@ -3772,7 +3773,7 @@ ul.uk-nav-sub {
 .uk-nav-header {
   padding: 5px 0;
   text-transform: uppercase;
-  font-size: 14px; }
+  font-size: 1rem; }
 
 .uk-nav-header:not(:first-child) {
   margin-top: 20px; }
@@ -4007,7 +4008,7 @@ ul.uk-nav-sub {
   min-height: 30px;
   padding: 0 15px;
   /* 3 */
-  font-size: 14px;
+  font-size: 1rem;
   font-family: "Exo 2", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   /* 4 */
   text-decoration: none; }
@@ -7855,7 +7856,7 @@ iframe.uk-cover {
  * 1. Required for `a`
  */
 .uk-logo {
-  font-size: 14px;
+  font-size: 1rem;
   font-family: "Exo 2", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   color: #222222;
   /* 1 */
@@ -10120,7 +10121,7 @@ body.home header {
   color: var(--default); }
 
 .ctx-font-script {
-  font-family: "Gamja Flower"; }
+  font-family: "Gochi Hand"; }
 
 .ctx-small-round-border, .uk-navbar-nav > li {
   border-top-right-radius: 15px;
@@ -10136,6 +10137,10 @@ body.home header {
   border-top-left-radius: 10px;
   border-bottom-right-radius: 10px; }
 
+.large-border-radius, .ctx-event-details {
+  border-top-left-radius: 50px;
+  border-bottom-right-radius: 50px; }
+
 .dotted-line-bottom {
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='6' height='2'><circle r='0.9' style='fill:%2322222;' cy='1' cx='1'/></svg>");
   background-position-y: bottom;
@@ -10146,15 +10151,16 @@ body.home header {
   background-position-y: bottom;
   background-repeat: repeat no-repeat; }
 
-.uk-button:hover {
-  filter: brightness(90%); }
-
 .uk-button {
+  font-weight: 600;
   text-transform: none; }
   .uk-button.ctx-icon svg {
     margin-right: 7px; }
     .uk-button.ctx-icon svg path {
       fill: #fff !important; }
+
+.uk-button-large {
+  font-size: 1.25rem; }
 
 .uk-modal-dialog {
   border-bottom-right-radius: 50px;
@@ -10198,6 +10204,32 @@ body.home header {
 
 span.ctx-icon svg, address.ctx-icon svg {
   margin-right: 7px; }
+
+h1.ctx-font-script {
+  font-size: 2.625rem; }
+
+h2.ctx-font-script {
+  font-size: 2.04rem; }
+
+h3.ctx-font-script {
+  font-size: 1.8rem; }
+
+h4.ctx-font-script {
+  font-size: 1.5rem; }
+
+h5.ctx-font-script {
+  font-size: 1.2rem; }
+
+h6.ctx-font-script {
+  font-size: 1.05rem; }
+
+h1:not(.ctx-font-script),
+h2:not(.ctx-font-script),
+h3:not(.ctx-font-script),
+h4:not(.ctx-font-script),
+h5:not(.ctx-font-script),
+h6:not(.ctx-font-script) {
+  font-weight: 600; }
 
 .accordion {
   background: #fff; }
@@ -10291,6 +10323,7 @@ a.ctx-post {
   right: 5%;
   bottom: 0;
   opacity: 95%;
+  border-bottom-right-radius: 100px;
   backdrop-filter: blur(5px);
   top: 60px;
   background: var(--primary-light);
@@ -10535,6 +10568,10 @@ input:required::after {
   margin-top: 70px; }
   .latest-news a img {
     border: 2px solid var(--primary-color); }
+
+.ctx-event-details {
+  background: #dddddd;
+  padding: 30px; }
 
 .wpcf7-response-output {
   display: none !important; }
