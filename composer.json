@@ -28,7 +28,8 @@
         "timber/timber": "^1.13",
         "symfony/dom-crawler": "^5.0",
         "symfony/css-selector": "^5.0",
-        "wa72/htmlpagedom": "^2.0"
+        "wa72/htmlpagedom": "^2.0",
+        "ozdemirburak/iris": "^2.1"
     },
     "autoload": {
         "psr-4": {
