@@ -5,23 +5,38 @@
 <link rel="icon" type="image/png" sizes="16x16" href="{{site.theme.uri}}/assets/dist/img/favicon/favicon_{{site.language}}_16.png">
 
 <style>
-    {# Hier werden vor allem die globalen Farben für das Theme definiert #}        
+    {# Damit die Farben aus der Theme-Configuration direkt im CSS butzbar sind, ohne sie doppelt zu definieren, werden sie hier per twig gerendert #}  
+    :root {      
+        {% for colorset in attribute(config.theme_support, 'editor-color-palette') %}
+                --{{colorset.slug}}: {{colorset.color}};
+                --{{colorset.slug}}-transparent: {{colorset.color}}80;
+                
+                --{{colorset.slug}}-lighter: {{colorset.color|lighten(10)}};
+                --{{colorset.slug}}-darker: {{colorset.color|darken(10)}};
+                {% if colorset.dark %}
+                    --{{colorset.slug}}-constrast: {{colorset.color|tint(80)}};
+                {% else %}
+                    --{{colorset.slug}}-constrast: {{colorset.color|shade(80)}};
+                {% endif %}
+
+        {% endfor %}
+    }
     {% for colorset in attribute(config.theme_support, 'editor-color-palette') %}
-        :root {
-            --{{colorset.slug}}: {{colorset.color}};
-            --{{colorset.slug}}-transparent: {{colorset.color}}80;
-            --{{colorset.slug}}-constrast: {{colorset.contrast}};
-        }
-        .uk-section-{{colorset.slug}}, .uk-button-{{colorset.slug}} { 
+        .uk-section-{{colorset.slug}}, .uk-button-{{colorset.slug}}, .uk-card-{{colorset.slug}} { 
             background: var(--{{colorset.slug}});
-            color: {{colorset.contrast}};
+            color: var(--{{colorset.slug}}-constrast);
+        }
+        
+        .uk-button-{{colorset.slug}}:hover {
+            background: var(--{{colorset.slug}}-darker);
+            color: var(--{{colorset.slug}}-constrast);
         }
         .uk-card-{{colorset.slug}} { 
             background: var(--{{colorset.slug}});
             color: {{colorset.contrast}} !important;
         }
         .uk-card-{{colorset.slug}} h1, .uk-card-{{colorset.slug}} h2, .uk-card-{{colorset.slug}} h3, .uk-card-{{colorset.slug}} h4 { 
-            color: {{colorset.contrast}};
+            color: var(--{{colorset.slug}}-constrast);
         }
     {% endfor %}
     
