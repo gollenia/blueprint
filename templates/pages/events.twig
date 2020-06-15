@@ -34,9 +34,10 @@
                                 <img src="{{ site.theme.uri }}/assets/dist/img/icons/calendar.svg" width="24" class="uk-margin-right" uk-svg>
                                 <span>
                                     {% if event._event_start_date == event._event_end_date %}
-                                        {{ event._event_start_date|date("j. F") }} ab {{ event._event_start_time|date("G:i") }} Uhr bis {{ event._event_end|date("j. F Y \\u\\m G:i") }} Uhr
+                                    {{ event._event_start_date|date("j. F Y") }} von {{ event._event_start_time|date("G:i") }} bis {{ event._event_end_time|date("G:i") }} Uhr
                                     {% else %}
-                                        {{ event._event_start_date|date("j. F Y") }} von {{ event._event_start_time|date("G:i") }} bis {{ event._event_end_time|date("G:i") }} Uhr
+                                    {{ event._event_start_date|date("j. F") }} bis {{ event._event_end|date("j. F Y") }}
+                                        
                                     {% endif %}
                                 </span>
                             </div>
