@@ -28,73 +28,74 @@ return [
             "color" => "#eeeeee",
             "name" => "Standard",
             "slug" => "default",
-            "contrast" => "#222222"
+            "dark" => false
+            
         ],
         [
             "color" => "#009cd9",
             "name" => "Blau",
             "slug" => "blue",
-            "contrast" => "#eeeeee"
+            "dark" => true
         ],
         [
             "color" => "#ccf1ff",
             "name" => "Hellblau",
             "slug" => "lightblue",
-            "contrast" => "#222222"
+            "dark" => false
         ],
         [
             "color" => "#f59b00",
             "name" => "Orange",
             "slug" => "orange",
-            "contrast" => "#eeeeee"
+            "dark" => false
         ],
         [
             "color" => "#ffeccc",
             "name" => "Hell Orange",
             "slug" => "lightorange",
-            "contrast" => "#222222"
+            "dark" => false
         ],
         [
             "color" => "#A5BD58",
             "name" => "Grün",
             "slug" => "green",
-            "contrast" => "#eeeeee"
+            "dark" => true
         ],
         [
             "color" => "#ebf0db",
             "name" => "Grün",
             "slug" => "lightgreen",
-            "contrast" => "#222222"
+            "dark" => false
         ],
         [
             "color" => "#9F70B0",
             "name" => "Lila",
             "slug" => "purple",
-            "contrast" => "#eeeeee"
+            "dark" => true
         ],
         [
             "color" => "#e9deed",
             "name" => "Lila",
             "slug" => "lightpurple",
-            "contrast" => "#222222"
+            "dark" => false
         ],
         [
             "color" => "#e3000b",
             "name" => "Rot",
             "slug" => "red",
-            "contrast" => "#eeeeee"
+            "dark" => true
         ],
         [
             "color" => "#ffcccf",
             "name" => "Hell-Rot",
             "slug" => "lightred",
-            "contrast" => "#222222"
+            "dark" => false
         ],
         [
             "color" => "#222222",
             "name" => "Schwarz",
             "slug" => "black",
-            "contrast" => "#eeeeee"
+            "dark" => true
         ]       	    
     ]
 ];
