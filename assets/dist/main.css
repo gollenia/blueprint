@@ -10117,6 +10117,9 @@ body.home header {
 .has-default-color {
   color: var(--default); }
 
+em {
+  color: inherit !important; }
+
 .ctx-font-script {
   font-family: "Gochi Hand"; }
 
