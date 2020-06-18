@@ -368,7 +368,7 @@ blockquote footer {
   margin-top: 10px;
   font-size: 0.875rem;
   line-height: 1.5;
-  color: #222222; }
+  color: inherit; }
   blockquote footer::before {
     content: "— "; }
 

@@ -27,6 +27,15 @@
             color: var(--{{colorset.slug}}-constrast);
         }
 
+        .uk-section-{{colorset.slug}} .wp-block-quote {
+            border-left: 4px dotted --{{colorset.slug}}-lighter;
+        }
+
+        .uk-section-{{colorset.slug}} cite {
+            color: var(--{{colorset.slug}});
+            background: var(--{{colorset.slug}}-constrast);
+        }
+
         .uk-button-{{colorset.slug}} {
             background: var(--{{colorset.slug}});
             {% if colorset.dark %}
