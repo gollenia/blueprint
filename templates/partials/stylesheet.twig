@@ -56,6 +56,14 @@
         .uk-card-{{colorset.slug}} h1, .uk-card-{{colorset.slug}} h2, .uk-card-{{colorset.slug}} h3, .uk-card-{{colorset.slug}} h4 { 
             color: var(--{{colorset.slug}}-constrast);
         }
+
+        .has-{{colorset.slug}}-color {
+            color: var(--{{colorset.slug}});
+        }
+
+        .has-{{colorset.slug}}-background {
+            background: var(--{{colorset.slug}});
+        }
     {% endfor %}
     
 </style>
