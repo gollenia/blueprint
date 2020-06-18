@@ -23,12 +23,12 @@
     }
     {% for colorset in attribute(config.theme_support, 'editor-color-palette') %}
         .uk-section-{{colorset.slug}}, .uk-card-{{colorset.slug}} { 
-            background: var(--{{colorset.slug}});
+            background: var(--{{colorset.slug}}-lighter);
             color: var(--{{colorset.slug}}-constrast);
         }
 
         .uk-section-{{colorset.slug}} .wp-block-quote {
-            border-left: 4px dotted var(--{{colorset.slug}}-lighter);
+            border-left: 4px dotted var(--{{colorset.slug}}-contrast);
         }
 
         .uk-section-{{colorset.slug}} cite {
