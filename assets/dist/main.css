@@ -97,13 +97,13 @@ strong {
  * Emphasize
  */
 em {
-  color: var(--danger); }
+  color: inherit; }
 
 /*
  * Insert
  */
 ins {
-  background: #ffd;
+  background: inherit;
   color: #222222;
   text-decoration: none; }
 
@@ -111,7 +111,7 @@ ins {
  * Mark
  */
 mark {
-  background: #ffd;
+  background: inherit;
   color: #222222; }
 
 /*
@@ -10246,8 +10246,7 @@ cite {
   border-bottom-right-radius: 50px; }
 
 .uk-card-default {
-  box-shadow: none;
-  background: #dddddd; }
+  box-shadow: none; }
 
 a.uk-card:hover {
   text-decoration: none;
@@ -10586,12 +10585,12 @@ input:required::after {
   background: #dddddd;
   padding: 30px; }
 
-.page header {
+.frontpage header {
   background-color: var(--primary-light);
   padding-top: 40vh;
   background-size: cover;
   background-position: center; }
-  .page header .caption {
+  .frontpage header .caption {
     background-color: var(--primary-transparent);
     display: inline-block;
     padding-right: 50px;
@@ -10603,18 +10602,18 @@ input:required::after {
     padding-left: 2000px;
     backdrop-filter: blur(5px);
     text-align: right; }
-    .page header .caption a.uk-button {
+    .frontpage header .caption a.uk-button {
       position: absolute;
       top: -20px;
       right: 50px; }
-  .page header h1, .page header h3 {
+  .frontpage header h1, .frontpage header h3 {
     font-weight: bold;
     color: #fff; }
 
 @media only screen and (max-width: 640px) {
-  .page header {
+  .frontpage header {
     background-color: var(--primary-light);
-    padding-top: 120px;
+    padding-top: 60vh;
     padding-bottom: 0px;
     background-size: cover;
     background-position: center; } }
