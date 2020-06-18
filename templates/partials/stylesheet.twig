@@ -22,9 +22,18 @@
         {% endfor %}
     }
     {% for colorset in attribute(config.theme_support, 'editor-color-palette') %}
-        .uk-section-{{colorset.slug}}, .uk-button-{{colorset.slug}}, .uk-card-{{colorset.slug}} { 
+        .uk-section-{{colorset.slug}}, .uk-card-{{colorset.slug}} { 
             background: var(--{{colorset.slug}});
             color: var(--{{colorset.slug}}-constrast);
+        }
+
+        .uk-button-{{colorset.slug}} {
+            background: var(--{{colorset.slug}});
+            {% if colorset.dark %}
+                color: #fff;
+            {% else %}
+                color: #000;
+            {% endif %}
         }
         
         .uk-button-{{colorset.slug}}:hover {

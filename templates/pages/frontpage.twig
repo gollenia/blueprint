@@ -1,6 +1,16 @@
 {% extends "master.twig" %}
 
 {% block content %}
+    <header class="{{ post.thumbnail.src('xlarge') is empty ? "no-background-image" }}" style="background-image: url('{{ post.thumbnail.src('xlarge') }}')">
+        <div class="uk-container">
+            <div class="caption">
+                
+                <h1 class="ctx-font-script uk-margin-remove">{{post.title}}</h1>
+                <h3 class="uk-margin-remove">...damit Kinder ihr Vertrauen auf Gott setzen</h3>
+                <a href="/about-us" class=" uk-button uk-button-primary uk-button-large ctx-icon ctx-icon-arrow-forward">Erfahre mehr!</a>
+            </div>
+        </div>
+    </header>
     <article>
         {{ post.content }}
     </article>
