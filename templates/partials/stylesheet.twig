@@ -23,7 +23,7 @@
     }
     {% for colorset in attribute(config.theme_support, 'editor-color-palette') %}
         .uk-section-{{colorset.slug}}, .uk-card-{{colorset.slug}} { 
-            background: var(--{{colorset.slug}}-lighter);
+            background: var(--{{colorset.slug}}-darker);
             color: var(--{{colorset.slug}}-constrast);
         }
 
