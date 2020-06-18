@@ -1,4 +1,4 @@
-.page header {
+.frontpage header {
     background-color:var(--primary-light);
     padding-top: 40vh;
     
@@ -32,9 +32,9 @@
 }
 
 @media only screen and (max-width: 640px) {
-    .page header {
+    .frontpage header {
         background-color:var(--primary-light);
-        padding-top: 120px;
+        padding-top: 60vh;
         padding-bottom: 0px;
         background-size: cover;
         background-position: center;

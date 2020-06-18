@@ -102,6 +102,8 @@ body.home {
     color: var(--default);
 }
 
+em {
+    color: inherit !important; }
 
 .ctx-font-script {
     font-family: "Gochi Hand";
