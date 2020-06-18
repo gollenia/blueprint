@@ -10228,6 +10228,11 @@ h5:not(.ctx-font-script),
 h6:not(.ctx-font-script) {
   font-weight: 600; }
 
+cite {
+  padding: 3px 10px;
+  border-top-left-radius: 5px;
+  border-bottom-right-radius: 5px; }
+
 .accordion {
   background: #fff; }
 
