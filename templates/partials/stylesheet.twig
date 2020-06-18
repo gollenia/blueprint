@@ -14,9 +14,9 @@
                 --{{colorset.slug}}-lighter: {{colorset.color|lighten(10)}};
                 --{{colorset.slug}}-darker: {{colorset.color|darken(10)}};
                 {% if colorset.dark %}
-                    --{{colorset.slug}}-constrast: {{colorset.color|tint(80)}};
+                    --{{colorset.slug}}-contrast: {{colorset.color|tint(80)}};
                 {% else %}
-                    --{{colorset.slug}}-constrast: {{colorset.color|shade(80)}};
+                    --{{colorset.slug}}-contrast: {{colorset.color|shade(80)}};
                 {% endif %}
 
         {% endfor %}
@@ -24,7 +24,7 @@
     {% for colorset in attribute(config.theme_support, 'editor-color-palette') %}
         .uk-section-{{colorset.slug}}, .uk-card-{{colorset.slug}} { 
             background: var(--{{colorset.slug}});
-            color: var(--{{colorset.slug}}-constrast);
+            color: var(--{{colorset.slug}}-contrast);
         }
 
         .uk-card-{{colorset.slug}}.ctx-darker {
@@ -37,7 +37,7 @@
 
         .uk-section-{{colorset.slug}} cite {
             color: var(--{{colorset.slug}});
-            background: var(--{{colorset.slug}}-constrast);
+            background: var(--{{colorset.slug}}-contrast);
         }
 
         .uk-button-{{colorset.slug}} {
@@ -51,14 +51,14 @@
         
         .uk-button-{{colorset.slug}}:hover {
             background: var(--{{colorset.slug}}-darker);
-            color: var(--{{colorset.slug}}-constrast);
+            color: var(--{{colorset.slug}}-contrast);
         }
         .uk-card-{{colorset.slug}} { 
             background: var(--{{colorset.slug}});
             color: {{colorset.contrast}} !important;
         }
         .uk-card-{{colorset.slug}} h1, .uk-card-{{colorset.slug}} h2, .uk-card-{{colorset.slug}} h3, .uk-card-{{colorset.slug}} h4 { 
-            color: var(--{{colorset.slug}}-constrast);
+            color: var(--{{colorset.slug}}-contrast);
         }
 
         .has-{{colorset.slug}}-color {
