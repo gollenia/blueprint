@@ -1,4 +1,4 @@
-.frontpage header {
+.home header {
     background-color:var(--primary-light);
     padding-top: 40vh;
     
@@ -32,7 +32,7 @@
 }
 
 @media only screen and (max-width: 640px) {
-    .frontpage header {
+    .home header {
         background-color:var(--primary-light);
         padding-top: 60vh;
         padding-bottom: 0px;
@@ -40,3 +40,4 @@
         background-position: center;
     }
 }
+
