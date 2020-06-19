@@ -10252,6 +10252,12 @@ a.uk-card:hover {
   text-decoration: none;
   color: inherit; }
 
+.uk-section > .uk-container > .uk-card {
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  border-top-left-radius: 50px;
+  border-bottom-right-radius: 50px; }
+
 a.ctx-post {
   text-decoration: none !important; }
   a.ctx-post h5 {
