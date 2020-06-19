@@ -10415,6 +10415,7 @@ input:focus[type="number"]:valid, input:focus[type="email"]:valid, input:focus[t
     margin-left: -2000px;
     padding-left: 2000px;
     backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
     text-align: right; }
   .page header h1 {
     font-weight: bold;
@@ -10601,6 +10602,7 @@ input:required::after {
     position: relative;
     padding-left: 2000px;
     backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
     text-align: right; }
     .home header .caption a.uk-button {
       position: absolute;
