@@ -25,4 +25,11 @@ a.uk-card:hover {
     backdrop-filter: blur(5px);
     border-top-left-radius: 50px;
     border-bottom-right-radius: 50px;
+    position: relative;
+
+    h1:first-child, h2:first-child, h3:first-child, h4:first-child, h5:first-child {
+        position: absolute;
+        top: -10px;
+        left: 50px;
+    }
 }
