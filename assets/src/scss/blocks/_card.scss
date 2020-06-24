@@ -1,3 +1,18 @@
+@each $color in $color-slugs {
+    .uk-card-#{$color} {
+        background-color: var(--#{$color});
+        color: var(--#{$color}-contrast);
+
+        h1, h2, h3, h4, h5, h6 {
+            color: var(--#{$color}-soft-contrast);
+        }
+    }
+
+    .uk-section > .uk-container > .uk-card-#{$color} {
+        background: var(--#{$color}-transparent);
+    }
+}
+
 .uk-grid div:first-child {
     .uk-card, .uk-card img {
         border-top-left-radius: 50px;

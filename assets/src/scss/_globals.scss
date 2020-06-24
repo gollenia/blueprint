@@ -24,6 +24,10 @@ body.home {
 }
 
 
+p:empty, span:empty {
+    display: none;
+}
+
 
 
 .error {

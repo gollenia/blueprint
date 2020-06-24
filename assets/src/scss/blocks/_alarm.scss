@@ -1,5 +1,5 @@
 @each $color in $color-slugs {
-    .uk-section-#{$color} {
+    .uk-alert-#{$color} {
         background-color: var(--#{$color});
         color: var(--#{$color}-contrast);
     }
