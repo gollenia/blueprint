@@ -10775,6 +10775,9 @@ h6:not(.ctx-font-script) {
 
 .uk-section > .uk-container > .uk-card-default {
   background: var(--default-transparent); }
+  .uk-section > .uk-container > .uk-card-default h1:first-child, .uk-section > .uk-container > .uk-card-default h2:first-child, .uk-section > .uk-container > .uk-card-default h3:first-child, .uk-section > .uk-container > .uk-card-default h4:first-child, .uk-section > .uk-container > .uk-card-default h5:first-child {
+    background-color: var(--default);
+    color: var(--default-contrast); }
 
 .uk-card-white {
   background-color: var(--white);
@@ -10784,6 +10787,9 @@ h6:not(.ctx-font-script) {
 
 .uk-section > .uk-container > .uk-card-white {
   background: var(--white-transparent); }
+  .uk-section > .uk-container > .uk-card-white h1:first-child, .uk-section > .uk-container > .uk-card-white h2:first-child, .uk-section > .uk-container > .uk-card-white h3:first-child, .uk-section > .uk-container > .uk-card-white h4:first-child, .uk-section > .uk-container > .uk-card-white h5:first-child {
+    background-color: var(--white);
+    color: var(--white-contrast); }
 
 .uk-card-blue {
   background-color: var(--blue);
@@ -10793,6 +10799,9 @@ h6:not(.ctx-font-script) {
 
 .uk-section > .uk-container > .uk-card-blue {
   background: var(--blue-transparent); }
+  .uk-section > .uk-container > .uk-card-blue h1:first-child, .uk-section > .uk-container > .uk-card-blue h2:first-child, .uk-section > .uk-container > .uk-card-blue h3:first-child, .uk-section > .uk-container > .uk-card-blue h4:first-child, .uk-section > .uk-container > .uk-card-blue h5:first-child {
+    background-color: var(--blue);
+    color: var(--blue-contrast); }
 
 .uk-card-lightblue {
   background-color: var(--lightblue);
@@ -10802,6 +10811,9 @@ h6:not(.ctx-font-script) {
 
 .uk-section > .uk-container > .uk-card-lightblue {
   background: var(--lightblue-transparent); }
+  .uk-section > .uk-container > .uk-card-lightblue h1:first-child, .uk-section > .uk-container > .uk-card-lightblue h2:first-child, .uk-section > .uk-container > .uk-card-lightblue h3:first-child, .uk-section > .uk-container > .uk-card-lightblue h4:first-child, .uk-section > .uk-container > .uk-card-lightblue h5:first-child {
+    background-color: var(--lightblue);
+    color: var(--lightblue-contrast); }
 
 .uk-card-darkblue {
   background-color: var(--darkblue);
@@ -10811,6 +10823,9 @@ h6:not(.ctx-font-script) {
 
 .uk-section > .uk-container > .uk-card-darkblue {
   background: var(--darkblue-transparent); }
+  .uk-section > .uk-container > .uk-card-darkblue h1:first-child, .uk-section > .uk-container > .uk-card-darkblue h2:first-child, .uk-section > .uk-container > .uk-card-darkblue h3:first-child, .uk-section > .uk-container > .uk-card-darkblue h4:first-child, .uk-section > .uk-container > .uk-card-darkblue h5:first-child {
+    background-color: var(--darkblue);
+    color: var(--darkblue-contrast); }
 
 .uk-card-orange {
   background-color: var(--orange);
@@ -10820,6 +10835,9 @@ h6:not(.ctx-font-script) {
 
 .uk-section > .uk-container > .uk-card-orange {
   background: var(--orange-transparent); }
+  .uk-section > .uk-container > .uk-card-orange h1:first-child, .uk-section > .uk-container > .uk-card-orange h2:first-child, .uk-section > .uk-container > .uk-card-orange h3:first-child, .uk-section > .uk-container > .uk-card-orange h4:first-child, .uk-section > .uk-container > .uk-card-orange h5:first-child {
+    background-color: var(--orange);
+    color: var(--orange-contrast); }
 
 .uk-card-lightorange {
   background-color: var(--lightorange);
@@ -10829,6 +10847,9 @@ h6:not(.ctx-font-script) {
 
 .uk-section > .uk-container > .uk-card-lightorange {
   background: var(--lightorange-transparent); }
+  .uk-section > .uk-container > .uk-card-lightorange h1:first-child, .uk-section > .uk-container > .uk-card-lightorange h2:first-child, .uk-section > .uk-container > .uk-card-lightorange h3:first-child, .uk-section > .uk-container > .uk-card-lightorange h4:first-child, .uk-section > .uk-container > .uk-card-lightorange h5:first-child {
+    background-color: var(--lightorange);
+    color: var(--lightorange-contrast); }
 
 .uk-card-darkorange {
   background-color: var(--darkorange);
@@ -10838,6 +10859,9 @@ h6:not(.ctx-font-script) {
 
 .uk-section > .uk-container > .uk-card-darkorange {
   background: var(--darkorange-transparent); }
+  .uk-section > .uk-container > .uk-card-darkorange h1:first-child, .uk-section > .uk-container > .uk-card-darkorange h2:first-child, .uk-section > .uk-container > .uk-card-darkorange h3:first-child, .uk-section > .uk-container > .uk-card-darkorange h4:first-child, .uk-section > .uk-container > .uk-card-darkorange h5:first-child {
+    background-color: var(--darkorange);
+    color: var(--darkorange-contrast); }
 
 .uk-card-green {
   background-color: var(--green);
@@ -10847,6 +10871,9 @@ h6:not(.ctx-font-script) {
 
 .uk-section > .uk-container > .uk-card-green {
   background: var(--green-transparent); }
+  .uk-section > .uk-container > .uk-card-green h1:first-child, .uk-section > .uk-container > .uk-card-green h2:first-child, .uk-section > .uk-container > .uk-card-green h3:first-child, .uk-section > .uk-container > .uk-card-green h4:first-child, .uk-section > .uk-container > .uk-card-green h5:first-child {
+    background-color: var(--green);
+    color: var(--green-contrast); }
 
 .uk-card-lightgreen {
   background-color: var(--lightgreen);
@@ -10856,6 +10883,9 @@ h6:not(.ctx-font-script) {
 
 .uk-section > .uk-container > .uk-card-lightgreen {
   background: var(--lightgreen-transparent); }
+  .uk-section > .uk-container > .uk-card-lightgreen h1:first-child, .uk-section > .uk-container > .uk-card-lightgreen h2:first-child, .uk-section > .uk-container > .uk-card-lightgreen h3:first-child, .uk-section > .uk-container > .uk-card-lightgreen h4:first-child, .uk-section > .uk-container > .uk-card-lightgreen h5:first-child {
+    background-color: var(--lightgreen);
+    color: var(--lightgreen-contrast); }
 
 .uk-card-darkgreen {
   background-color: var(--darkgreen);
@@ -10865,6 +10895,9 @@ h6:not(.ctx-font-script) {
 
 .uk-section > .uk-container > .uk-card-darkgreen {
   background: var(--darkgreen-transparent); }
+  .uk-section > .uk-container > .uk-card-darkgreen h1:first-child, .uk-section > .uk-container > .uk-card-darkgreen h2:first-child, .uk-section > .uk-container > .uk-card-darkgreen h3:first-child, .uk-section > .uk-container > .uk-card-darkgreen h4:first-child, .uk-section > .uk-container > .uk-card-darkgreen h5:first-child {
+    background-color: var(--darkgreen);
+    color: var(--darkgreen-contrast); }
 
 .uk-card-purple {
   background-color: var(--purple);
@@ -10874,6 +10907,9 @@ h6:not(.ctx-font-script) {
 
 .uk-section > .uk-container > .uk-card-purple {
   background: var(--purple-transparent); }
+  .uk-section > .uk-container > .uk-card-purple h1:first-child, .uk-section > .uk-container > .uk-card-purple h2:first-child, .uk-section > .uk-container > .uk-card-purple h3:first-child, .uk-section > .uk-container > .uk-card-purple h4:first-child, .uk-section > .uk-container > .uk-card-purple h5:first-child {
+    background-color: var(--purple);
+    color: var(--purple-contrast); }
 
 .uk-card-lightpurple {
   background-color: var(--lightpurple);
@@ -10883,6 +10919,9 @@ h6:not(.ctx-font-script) {
 
 .uk-section > .uk-container > .uk-card-lightpurple {
   background: var(--lightpurple-transparent); }
+  .uk-section > .uk-container > .uk-card-lightpurple h1:first-child, .uk-section > .uk-container > .uk-card-lightpurple h2:first-child, .uk-section > .uk-container > .uk-card-lightpurple h3:first-child, .uk-section > .uk-container > .uk-card-lightpurple h4:first-child, .uk-section > .uk-container > .uk-card-lightpurple h5:first-child {
+    background-color: var(--lightpurple);
+    color: var(--lightpurple-contrast); }
 
 .uk-card-darkpurple {
   background-color: var(--darkpurple);
@@ -10892,6 +10931,9 @@ h6:not(.ctx-font-script) {
 
 .uk-section > .uk-container > .uk-card-darkpurple {
   background: var(--darkpurple-transparent); }
+  .uk-section > .uk-container > .uk-card-darkpurple h1:first-child, .uk-section > .uk-container > .uk-card-darkpurple h2:first-child, .uk-section > .uk-container > .uk-card-darkpurple h3:first-child, .uk-section > .uk-container > .uk-card-darkpurple h4:first-child, .uk-section > .uk-container > .uk-card-darkpurple h5:first-child {
+    background-color: var(--darkpurple);
+    color: var(--darkpurple-contrast); }
 
 .uk-card-red {
   background-color: var(--red);
@@ -10901,6 +10943,9 @@ h6:not(.ctx-font-script) {
 
 .uk-section > .uk-container > .uk-card-red {
   background: var(--red-transparent); }
+  .uk-section > .uk-container > .uk-card-red h1:first-child, .uk-section > .uk-container > .uk-card-red h2:first-child, .uk-section > .uk-container > .uk-card-red h3:first-child, .uk-section > .uk-container > .uk-card-red h4:first-child, .uk-section > .uk-container > .uk-card-red h5:first-child {
+    background-color: var(--red);
+    color: var(--red-contrast); }
 
 .uk-card-lightred {
   background-color: var(--lightred);
@@ -10910,6 +10955,9 @@ h6:not(.ctx-font-script) {
 
 .uk-section > .uk-container > .uk-card-lightred {
   background: var(--lightred-transparent); }
+  .uk-section > .uk-container > .uk-card-lightred h1:first-child, .uk-section > .uk-container > .uk-card-lightred h2:first-child, .uk-section > .uk-container > .uk-card-lightred h3:first-child, .uk-section > .uk-container > .uk-card-lightred h4:first-child, .uk-section > .uk-container > .uk-card-lightred h5:first-child {
+    background-color: var(--lightred);
+    color: var(--lightred-contrast); }
 
 .uk-card-darkred {
   background-color: var(--darkred);
@@ -10919,6 +10967,9 @@ h6:not(.ctx-font-script) {
 
 .uk-section > .uk-container > .uk-card-darkred {
   background: var(--darkred-transparent); }
+  .uk-section > .uk-container > .uk-card-darkred h1:first-child, .uk-section > .uk-container > .uk-card-darkred h2:first-child, .uk-section > .uk-container > .uk-card-darkred h3:first-child, .uk-section > .uk-container > .uk-card-darkred h4:first-child, .uk-section > .uk-container > .uk-card-darkred h5:first-child {
+    background-color: var(--darkred);
+    color: var(--darkred-contrast); }
 
 .uk-card-black {
   background-color: var(--black);
@@ -10928,6 +10979,9 @@ h6:not(.ctx-font-script) {
 
 .uk-section > .uk-container > .uk-card-black {
   background: var(--black-transparent); }
+  .uk-section > .uk-container > .uk-card-black h1:first-child, .uk-section > .uk-container > .uk-card-black h2:first-child, .uk-section > .uk-container > .uk-card-black h3:first-child, .uk-section > .uk-container > .uk-card-black h4:first-child, .uk-section > .uk-container > .uk-card-black h5:first-child {
+    background-color: var(--black);
+    color: var(--black-contrast); }
 
 .uk-grid div:first-child .uk-card, .uk-grid div:first-child .uk-card img {
   border-top-left-radius: 50px; }
@@ -10950,8 +11004,11 @@ a.uk-card:hover {
   position: relative; }
   .uk-section > .uk-container > .uk-card h1:first-child, .uk-section > .uk-container > .uk-card h2:first-child, .uk-section > .uk-container > .uk-card h3:first-child, .uk-section > .uk-container > .uk-card h4:first-child, .uk-section > .uk-container > .uk-card h5:first-child {
     position: absolute;
-    top: -10px;
-    left: 50px; }
+    top: -20px;
+    left: 50px;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding: 5px 15px; }
 
 a.ctx-post {
   text-decoration: none !important; }
