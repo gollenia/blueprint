@@ -10,70 +10,17 @@
         {% for colorset in attribute(config.theme_support, 'editor-color-palette') %}
                 --{{colorset.slug}}: {{colorset.color}};
                 --{{colorset.slug}}-transparent: {{colorset.color}}80;
-                
                 --{{colorset.slug}}-lighter: {{colorset.color|lighten(10)}};
                 --{{colorset.slug}}-darker: {{colorset.color|darken(10)}};
                 {% if colorset.dark %}
-                    --{{colorset.slug}}-contrast: {{colorset.color|tint(80)}};
+                    --{{colorset.slug}}-soft-contrast: {{colorset.color|tint(80)}};
+                    --{{colorset.slug}}-contrast: #ffffff;
                 {% else %}
-                    --{{colorset.slug}}-contrast: {{colorset.color|shade(80)}};
+                    --{{colorset.slug}}-soft-contrast: {{colorset.color|shade(80)}};
+                    --{{colorset.slug}}-contrast: #000000;
                 {% endif %}
-
         {% endfor %}
     }
-    {% for colorset in attribute(config.theme_support, 'editor-color-palette') %}
-        .uk-section-{{colorset.slug}}, .uk-card-{{colorset.slug}} { 
-            background: var(--{{colorset.slug}});
-            color: var(--{{colorset.slug}}-contrast);
-        }
-
-        .uk-card-{{colorset.slug}}.ctx-darker {
-            background: var(--{{colorset.slug}}-darker);
-        }
-
-        .uk-section-{{colorset.slug}} .wp-block-quote {
-            border-left: 4px dotted var(--{{colorset.slug}}-contrast);
-        }
-
-        
-
-        .uk-section-{{colorset.slug}} cite {
-            color: var(--{{colorset.slug}});
-            background: var(--{{colorset.slug}}-contrast);
-        }
-
-        .uk-button-{{colorset.slug}} {
-            background: var(--{{colorset.slug}});
-            {% if colorset.dark %}
-                color: #fff;
-            {% else %}
-                color: #000;
-            {% endif %}
-        }
-        
-        .uk-button-{{colorset.slug}}:hover {
-            background: var(--{{colorset.slug}}-darker);
-            color: var(--{{colorset.slug}}-contrast);
-        }
-        .uk-card-{{colorset.slug}} { 
-            background: var(--{{colorset.slug}});
-            color: {{colorset.contrast}} !important;
-        }
-        .uk-card-{{colorset.slug}} h1, .uk-card-{{colorset.slug}} h2, .uk-card-{{colorset.slug}} h3, .uk-card-{{colorset.slug}} h4 { 
-            color: var(--{{colorset.slug}}-contrast);
-        }
-
-        .has-{{colorset.slug}}-color {
-            color: var(--{{colorset.slug}});
-        }
-
-        .has-{{colorset.slug}}-background {
-            background: var(--{{colorset.slug}});
-        }
-
-        .uk-section > .uk-container > .uk-card-{{colorset.slug}} {
-            background: var(--{{colorset.slug}}-transparent)
-        }
-    {% endfor %}
+   
     
 </style>
