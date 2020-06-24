@@ -29,6 +29,9 @@ class Site extends \Timber\Site {
 		$this->add_timber_functions();
 		parent::__construct();
 		add_action( 'init', [$this, 'add_taxonomies_to_pages'] );
+		if( WP_DEBUG ) {
+			$this->development_functions();
+		}
 	}
 
 	/**
@@ -53,6 +56,10 @@ class Site extends \Timber\Site {
 	 */
 	public function getConfig() {
 		return $this->config->get();
+	}
+
+	private function development_functions() {
+		\Contexis\Wordpress\Assets::writeColorsToScss($this->config->get('theme_support.editor-color-palette'));
 	}
 
 	/**
