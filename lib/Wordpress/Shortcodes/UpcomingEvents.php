@@ -99,7 +99,7 @@ class UpcomingEvents extends \Contexis\Wordpress\Shortcode {
                         <div>
                             <h5 class="uk-text-bold uk-margin-remove">{{item.title}}</h5>
                             {% if item.post_excerpt is not empty %}
-                                <span>{{item.post_excerpt|excerpt(10, "...")}}</span><br/>
+                                <span>{{item.post_excerpt}}</span><br/>
                             {% endif %}
                             <span class="uk-text-muted">{{item.post_date|date("j. F Y")}}</span>
                         </div>
