@@ -90,6 +90,15 @@ p:empty, span:empty {
     --primary-light: var(--lightorange);
 }
 
+
+@each $color in $color-slugs {
+    .page-#{$color} {
+        --primary: var(--#{$color});
+        --primary-transparent: var(--#{$color}-transparent);
+        --primary-light: var(--light#{$color});
+    }
+}
+
 // UiKit-Compatibility for primary, warning, alert, ...
 :root {
     --warning: var(--orange);
@@ -147,3 +156,5 @@ em {
     background-position-y: bottom;
     background-repeat: repeat no-repeat;
 }
+
+
