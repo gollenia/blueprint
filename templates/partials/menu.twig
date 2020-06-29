@@ -10,10 +10,8 @@
 			{% include "partials/menu-desktop.twig" with {'menu': menu.get_items} %}
 			<ul class="uk-navbar-nav uk-hidden@m">
 				<li class="hamburger-menu">
-					<a class="hamburger hamburger--collapse" id="hamburger" type="button" uk-toggle="target: #mobile-menu; animation: uk-animation-slide-top">
-						<span class="hamburger-box">
-						<span class="hamburger-inner"></span>
-						</span>
+					<a class="hamburger hamburger--collapse" id="hamburger" type="button" uk-toggle="target: #mobile-menu; animation: uk-animation-slide-left">
+						<img data-src="{{ site.theme.uri }}/assets/dist/img/icons/menu.svg" class="hamburger-icon" uk-svg width="30" height="30px">
 					</a>
 				</li>
 			</ul>
