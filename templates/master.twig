@@ -8,7 +8,7 @@
         {% include "partials/stylesheet.twig" with {'config': config} %}
     </head>
 
-    <body class="{{body_class}} {{site.language}} {{post.slug}} {% for term in post.get_terms() %}{{term.slug}} {% endfor %}">
+    <body class="{{body_class}} {{site.language}} {{post.slug}} {{post.pagecolor}} {% for term in post.get_terms() %}{{term.slug}} {% endfor %}">
         <div class="body">
         {% include "partials/menu.twig" with {'menu': menu} %}
         {% include "partials/menu-mobile.twig" with {'menu': menu.get_items} %}
