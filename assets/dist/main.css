@@ -2717,7 +2717,7 @@ select.uk-form-width-xsmall {
   position: absolute;
   top: 0;
   bottom: 0;
-  border-left: 1px solid #e5e5e5; }
+  border-left: 1px solid 7px dotted #666; }
 
 /* Vertical */
 .uk-grid-divider.uk-grid-stack > .uk-grid-margin::before {
@@ -2725,7 +2725,7 @@ select.uk-form-width-xsmall {
   position: absolute;
   left: 0;
   right: 0;
-  border-top: 1px solid #e5e5e5; }
+  border-top: 1px solid 7px dotted #666; }
 
 /*
  * Default
@@ -11716,9 +11716,12 @@ input:focus[type="number"]:valid, input:focus[type="email"]:valid, input:focus[t
   border: 2px solid #999;
   margin-right: 10px; }
 
+header h4 {
+  color: #fff; }
+
 .page header {
   background-color: var(--primary-light);
-  padding-top: 200px;
+  padding-top: 30vh;
   background-size: cover;
   background-position: center; }
   .page header .caption {
@@ -11733,7 +11736,7 @@ input:focus[type="number"]:valid, input:focus[type="email"]:valid, input:focus[t
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
     text-align: right; }
-  .page header h1 {
+  .page header h1, .page header h4 {
     font-weight: bold;
     color: #fff; }
 
