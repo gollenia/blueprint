@@ -14,9 +14,11 @@
                 --{{colorset.slug}}-darker: {{colorset.color|darken(10)}};
                 {% if colorset.dark %}
                     --{{colorset.slug}}-soft-contrast: {{colorset.color|tint(80)}};
+                    --{{colorset.slug}}-cozy-contrast: {{colorset.color|tint(40)}};
                     --{{colorset.slug}}-contrast: #ffffff;
                 {% else %}
                     --{{colorset.slug}}-soft-contrast: {{colorset.color|shade(80)}};
+                    --{{colorset.slug}}-cozy-contrast: {{colorset.color|shade(40)}};
                     --{{colorset.slug}}-contrast: #000000;
                 {% endif %}
         {% endfor %}
