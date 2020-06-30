@@ -10888,127 +10888,127 @@ h6:not(.ctx-font-script) {
   background-color: var(--default);
   color: var(--default-contrast); }
   .uk-section-default .uk-grid-divider > :not(.uk-first-column)::before {
-    border-left: 7px dotted var(--default-soft-contrast); }
+    border-left: 7px dotted var(--default-cozy-contrast); }
 
 .uk-section-lightgrey {
   background-color: var(--lightgrey);
   color: var(--lightgrey-contrast); }
   .uk-section-lightgrey .uk-grid-divider > :not(.uk-first-column)::before {
-    border-left: 7px dotted var(--lightgrey-soft-contrast); }
+    border-left: 7px dotted var(--lightgrey-cozy-contrast); }
 
 .uk-section-mediumgrey {
   background-color: var(--mediumgrey);
   color: var(--mediumgrey-contrast); }
   .uk-section-mediumgrey .uk-grid-divider > :not(.uk-first-column)::before {
-    border-left: 7px dotted var(--mediumgrey-soft-contrast); }
+    border-left: 7px dotted var(--mediumgrey-cozy-contrast); }
 
 .uk-section-darkgrey {
   background-color: var(--darkgrey);
   color: var(--darkgrey-contrast); }
   .uk-section-darkgrey .uk-grid-divider > :not(.uk-first-column)::before {
-    border-left: 7px dotted var(--darkgrey-soft-contrast); }
+    border-left: 7px dotted var(--darkgrey-cozy-contrast); }
 
 .uk-section-white {
   background-color: var(--white);
   color: var(--white-contrast); }
   .uk-section-white .uk-grid-divider > :not(.uk-first-column)::before {
-    border-left: 7px dotted var(--white-soft-contrast); }
+    border-left: 7px dotted var(--white-cozy-contrast); }
 
 .uk-section-blue {
   background-color: var(--blue);
   color: var(--blue-contrast); }
   .uk-section-blue .uk-grid-divider > :not(.uk-first-column)::before {
-    border-left: 7px dotted var(--blue-soft-contrast); }
+    border-left: 7px dotted var(--blue-cozy-contrast); }
 
 .uk-section-lightblue {
   background-color: var(--lightblue);
   color: var(--lightblue-contrast); }
   .uk-section-lightblue .uk-grid-divider > :not(.uk-first-column)::before {
-    border-left: 7px dotted var(--lightblue-soft-contrast); }
+    border-left: 7px dotted var(--lightblue-cozy-contrast); }
 
 .uk-section-darkblue {
   background-color: var(--darkblue);
   color: var(--darkblue-contrast); }
   .uk-section-darkblue .uk-grid-divider > :not(.uk-first-column)::before {
-    border-left: 7px dotted var(--darkblue-soft-contrast); }
+    border-left: 7px dotted var(--darkblue-cozy-contrast); }
 
 .uk-section-orange {
   background-color: var(--orange);
   color: var(--orange-contrast); }
   .uk-section-orange .uk-grid-divider > :not(.uk-first-column)::before {
-    border-left: 7px dotted var(--orange-soft-contrast); }
+    border-left: 7px dotted var(--orange-cozy-contrast); }
 
 .uk-section-lightorange {
   background-color: var(--lightorange);
   color: var(--lightorange-contrast); }
   .uk-section-lightorange .uk-grid-divider > :not(.uk-first-column)::before {
-    border-left: 7px dotted var(--lightorange-soft-contrast); }
+    border-left: 7px dotted var(--lightorange-cozy-contrast); }
 
 .uk-section-darkorange {
   background-color: var(--darkorange);
   color: var(--darkorange-contrast); }
   .uk-section-darkorange .uk-grid-divider > :not(.uk-first-column)::before {
-    border-left: 7px dotted var(--darkorange-soft-contrast); }
+    border-left: 7px dotted var(--darkorange-cozy-contrast); }
 
 .uk-section-green {
   background-color: var(--green);
   color: var(--green-contrast); }
   .uk-section-green .uk-grid-divider > :not(.uk-first-column)::before {
-    border-left: 7px dotted var(--green-soft-contrast); }
+    border-left: 7px dotted var(--green-cozy-contrast); }
 
 .uk-section-lightgreen {
   background-color: var(--lightgreen);
   color: var(--lightgreen-contrast); }
   .uk-section-lightgreen .uk-grid-divider > :not(.uk-first-column)::before {
-    border-left: 7px dotted var(--lightgreen-soft-contrast); }
+    border-left: 7px dotted var(--lightgreen-cozy-contrast); }
 
 .uk-section-darkgreen {
   background-color: var(--darkgreen);
   color: var(--darkgreen-contrast); }
   .uk-section-darkgreen .uk-grid-divider > :not(.uk-first-column)::before {
-    border-left: 7px dotted var(--darkgreen-soft-contrast); }
+    border-left: 7px dotted var(--darkgreen-cozy-contrast); }
 
 .uk-section-purple {
   background-color: var(--purple);
   color: var(--purple-contrast); }
   .uk-section-purple .uk-grid-divider > :not(.uk-first-column)::before {
-    border-left: 7px dotted var(--purple-soft-contrast); }
+    border-left: 7px dotted var(--purple-cozy-contrast); }
 
 .uk-section-lightpurple {
   background-color: var(--lightpurple);
   color: var(--lightpurple-contrast); }
   .uk-section-lightpurple .uk-grid-divider > :not(.uk-first-column)::before {
-    border-left: 7px dotted var(--lightpurple-soft-contrast); }
+    border-left: 7px dotted var(--lightpurple-cozy-contrast); }
 
 .uk-section-darkpurple {
   background-color: var(--darkpurple);
   color: var(--darkpurple-contrast); }
   .uk-section-darkpurple .uk-grid-divider > :not(.uk-first-column)::before {
-    border-left: 7px dotted var(--darkpurple-soft-contrast); }
+    border-left: 7px dotted var(--darkpurple-cozy-contrast); }
 
 .uk-section-red {
   background-color: var(--red);
   color: var(--red-contrast); }
   .uk-section-red .uk-grid-divider > :not(.uk-first-column)::before {
-    border-left: 7px dotted var(--red-soft-contrast); }
+    border-left: 7px dotted var(--red-cozy-contrast); }
 
 .uk-section-lightred {
   background-color: var(--lightred);
   color: var(--lightred-contrast); }
   .uk-section-lightred .uk-grid-divider > :not(.uk-first-column)::before {
-    border-left: 7px dotted var(--lightred-soft-contrast); }
+    border-left: 7px dotted var(--lightred-cozy-contrast); }
 
 .uk-section-darkred {
   background-color: var(--darkred);
   color: var(--darkred-contrast); }
   .uk-section-darkred .uk-grid-divider > :not(.uk-first-column)::before {
-    border-left: 7px dotted var(--darkred-soft-contrast); }
+    border-left: 7px dotted var(--darkred-cozy-contrast); }
 
 .uk-section-black {
   background-color: var(--black);
   color: var(--black-contrast); }
   .uk-section-black .uk-grid-divider > :not(.uk-first-column)::before {
-    border-left: 7px dotted var(--black-soft-contrast); }
+    border-left: 7px dotted var(--black-cozy-contrast); }
 
 .uk-card-default {
   background-color: var(--default);
