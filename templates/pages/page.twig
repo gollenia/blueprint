@@ -4,8 +4,10 @@
 <header class="{{ post.thumbnail.src('xlarge') is empty ? "no-background-image" }}" style="padding-top: {{post.headerheight}}vh; background-position: {{post.headerimageorientation}}; background-image: url('{{ post.thumbnail.src('xlarge') }}')">
     <div class="uk-container">
     <div class="caption">
-        <h5 class="uk-margin-remove">{{post.subtitle}}</h5>
         <h1 class="uk-margin-remove">{{post.title}}</h1>
+        {% if post.subtitle %}
+            <h4 class="uk-margin-remove">{{post.subtitle}}</h4>
+        {% endif %}
     </div>
 </div>
 </header>
