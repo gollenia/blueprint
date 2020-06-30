@@ -2,5 +2,9 @@
     .uk-section-#{$color} {
         background-color: var(--#{$color});
         color: var(--#{$color}-contrast);
+
+        .uk-grid-divider > :not(.uk-first-column)::before {
+            border-left: 7px dotted var(--#{$color}-soft-contrast);
+        }
     }
 }

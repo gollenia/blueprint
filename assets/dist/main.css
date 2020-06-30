@@ -2717,7 +2717,7 @@ select.uk-form-width-xsmall {
   position: absolute;
   top: 0;
   bottom: 0;
-  border-left: 1px solid 7px dotted #666; }
+  border-left: 1px solid #e5e5e5; }
 
 /* Vertical */
 .uk-grid-divider.uk-grid-stack > .uk-grid-margin::before {
@@ -2725,7 +2725,7 @@ select.uk-form-width-xsmall {
   position: absolute;
   left: 0;
   right: 0;
-  border-top: 1px solid 7px dotted #666; }
+  border-top: 1px solid #e5e5e5; }
 
 /*
  * Default
@@ -10887,86 +10887,128 @@ h6:not(.ctx-font-script) {
 .uk-section-default {
   background-color: var(--default);
   color: var(--default-contrast); }
+  .uk-section-default .uk-grid-divider > :not(.uk-first-column)::before {
+    border-left: 7px dotted var(--default-soft-contrast); }
 
 .uk-section-lightgrey {
   background-color: var(--lightgrey);
   color: var(--lightgrey-contrast); }
+  .uk-section-lightgrey .uk-grid-divider > :not(.uk-first-column)::before {
+    border-left: 7px dotted var(--lightgrey-soft-contrast); }
 
 .uk-section-mediumgrey {
   background-color: var(--mediumgrey);
   color: var(--mediumgrey-contrast); }
+  .uk-section-mediumgrey .uk-grid-divider > :not(.uk-first-column)::before {
+    border-left: 7px dotted var(--mediumgrey-soft-contrast); }
 
 .uk-section-darkgrey {
   background-color: var(--darkgrey);
   color: var(--darkgrey-contrast); }
+  .uk-section-darkgrey .uk-grid-divider > :not(.uk-first-column)::before {
+    border-left: 7px dotted var(--darkgrey-soft-contrast); }
 
 .uk-section-white {
   background-color: var(--white);
   color: var(--white-contrast); }
+  .uk-section-white .uk-grid-divider > :not(.uk-first-column)::before {
+    border-left: 7px dotted var(--white-soft-contrast); }
 
 .uk-section-blue {
   background-color: var(--blue);
   color: var(--blue-contrast); }
+  .uk-section-blue .uk-grid-divider > :not(.uk-first-column)::before {
+    border-left: 7px dotted var(--blue-soft-contrast); }
 
 .uk-section-lightblue {
   background-color: var(--lightblue);
   color: var(--lightblue-contrast); }
+  .uk-section-lightblue .uk-grid-divider > :not(.uk-first-column)::before {
+    border-left: 7px dotted var(--lightblue-soft-contrast); }
 
 .uk-section-darkblue {
   background-color: var(--darkblue);
   color: var(--darkblue-contrast); }
+  .uk-section-darkblue .uk-grid-divider > :not(.uk-first-column)::before {
+    border-left: 7px dotted var(--darkblue-soft-contrast); }
 
 .uk-section-orange {
   background-color: var(--orange);
   color: var(--orange-contrast); }
+  .uk-section-orange .uk-grid-divider > :not(.uk-first-column)::before {
+    border-left: 7px dotted var(--orange-soft-contrast); }
 
 .uk-section-lightorange {
   background-color: var(--lightorange);
   color: var(--lightorange-contrast); }
+  .uk-section-lightorange .uk-grid-divider > :not(.uk-first-column)::before {
+    border-left: 7px dotted var(--lightorange-soft-contrast); }
 
 .uk-section-darkorange {
   background-color: var(--darkorange);
   color: var(--darkorange-contrast); }
+  .uk-section-darkorange .uk-grid-divider > :not(.uk-first-column)::before {
+    border-left: 7px dotted var(--darkorange-soft-contrast); }
 
 .uk-section-green {
   background-color: var(--green);
   color: var(--green-contrast); }
+  .uk-section-green .uk-grid-divider > :not(.uk-first-column)::before {
+    border-left: 7px dotted var(--green-soft-contrast); }
 
 .uk-section-lightgreen {
   background-color: var(--lightgreen);
   color: var(--lightgreen-contrast); }
+  .uk-section-lightgreen .uk-grid-divider > :not(.uk-first-column)::before {
+    border-left: 7px dotted var(--lightgreen-soft-contrast); }
 
 .uk-section-darkgreen {
   background-color: var(--darkgreen);
   color: var(--darkgreen-contrast); }
+  .uk-section-darkgreen .uk-grid-divider > :not(.uk-first-column)::before {
+    border-left: 7px dotted var(--darkgreen-soft-contrast); }
 
 .uk-section-purple {
   background-color: var(--purple);
   color: var(--purple-contrast); }
+  .uk-section-purple .uk-grid-divider > :not(.uk-first-column)::before {
+    border-left: 7px dotted var(--purple-soft-contrast); }
 
 .uk-section-lightpurple {
   background-color: var(--lightpurple);
   color: var(--lightpurple-contrast); }
+  .uk-section-lightpurple .uk-grid-divider > :not(.uk-first-column)::before {
+    border-left: 7px dotted var(--lightpurple-soft-contrast); }
 
 .uk-section-darkpurple {
   background-color: var(--darkpurple);
   color: var(--darkpurple-contrast); }
+  .uk-section-darkpurple .uk-grid-divider > :not(.uk-first-column)::before {
+    border-left: 7px dotted var(--darkpurple-soft-contrast); }
 
 .uk-section-red {
   background-color: var(--red);
   color: var(--red-contrast); }
+  .uk-section-red .uk-grid-divider > :not(.uk-first-column)::before {
+    border-left: 7px dotted var(--red-soft-contrast); }
 
 .uk-section-lightred {
   background-color: var(--lightred);
   color: var(--lightred-contrast); }
+  .uk-section-lightred .uk-grid-divider > :not(.uk-first-column)::before {
+    border-left: 7px dotted var(--lightred-soft-contrast); }
 
 .uk-section-darkred {
   background-color: var(--darkred);
   color: var(--darkred-contrast); }
+  .uk-section-darkred .uk-grid-divider > :not(.uk-first-column)::before {
+    border-left: 7px dotted var(--darkred-soft-contrast); }
 
 .uk-section-black {
   background-color: var(--black);
   color: var(--black-contrast); }
+  .uk-section-black .uk-grid-divider > :not(.uk-first-column)::before {
+    border-left: 7px dotted var(--black-soft-contrast); }
 
 .uk-card-default {
   background-color: var(--default);
