@@ -1,0 +1,9 @@
+.ctx-description-item {
+    margin-bottom: 10px;
+    &:last-child {
+        margin-bottom: 0px;
+    }
+    img, svg {
+        margin-right: 10px;
+    }
+}

@@ -11262,7 +11262,7 @@ h6:not(.ctx-font-script) {
     background-color: var(--black);
     color: var(--black-contrast); }
 
-.uk-grid div:first-child .uk-card, .uk-grid div:first-child .uk-card img {
+.uk-grid div:first-child .uk-card, .uk-grid div:first-child .uk-card img:not(.ctx-border-image) {
   border-top-left-radius: 50px; }
 
 .uk-grid div:last-child .uk-card {
@@ -11475,6 +11475,16 @@ cite {
   padding: 3px 10px;
   border-top-left-radius: 5px;
   border-bottom-right-radius: 5px; }
+
+.ctx-description-item {
+  margin-bottom: 10px; }
+  .ctx-description-item:last-child {
+    margin-bottom: 0px; }
+  .ctx-description-item img, .ctx-description-item svg {
+    margin-right: 10px; }
+
+.uk-nav-default {
+  font-size: inherit; }
 
 .uk-navbar-item.uk-logo {
   padding-left: 120px; }
