@@ -59,7 +59,7 @@ class Controller {
      * 
      * @since 1.0.0
      * 
-     * @param string $key How sould this content item be available in twig?
+     * @param string $key How should this content item be available in twig?
      * 
      * @return bool Returns false, if key already exists. If key already exists and $force is false, the functio returns false, else true.
      * 
@@ -76,6 +76,24 @@ class Controller {
         foreach($context as $key => $value) {
             $this->context[$key] = $value;
         }
+    }
+
+    /**
+     *  Get context (mainly fpr debugging)
+     * 
+     * @since 1.0.0
+     * 
+     * @param string $key which key of the context to return?
+     * 
+     * @return mixed return Data stored in context.
+     * 
+     */
+    public function get_context($key = false) {
+        if (!$key) {
+            return $this->context;
+        }
+
+        return $this->context[$key];
     }
 
     
