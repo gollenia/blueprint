@@ -18,7 +18,7 @@ class Categories extends \Contexis\Core\Controller{
             'posts' => new \Timber\PostQuery(),
             'category' => single_cat_title('', false)
         ]);
-        \Contexis\Core\Utilities::debug($this->get_context('category'));
+        
         $this->setTemplate('pages/categories.twig');
         
     }
