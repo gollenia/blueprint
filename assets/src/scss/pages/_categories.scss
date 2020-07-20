@@ -1,0 +1,23 @@
+.category {
+    header {
+        background-color:var(--primary-light);
+        padding-top: 100px;
+        padding-bottom: 50px;
+        h1, h4 {
+            color: var(--primary)
+        }
+    }
+
+    .uk-card-body {
+        background: #fff;
+        color: #222;
+    }
+
+    .uk-card, .uk-card img {
+        border-top-left-radius: 0px !important;
+    }
+
+    .uk-card-hover:hover {
+        box-shadow: 
+    }
+}
