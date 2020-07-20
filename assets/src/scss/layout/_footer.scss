@@ -8,4 +8,14 @@
     #logo-background {
         fill: #666;
     }
+
+    
+}
+
+footer {
+    .ctx-icon svg {
+        path {
+            stroke: #fff !important;
+        }
+    }
 }
