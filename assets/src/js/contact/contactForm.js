@@ -13,7 +13,4 @@ export default (function() {
     document.addEventListener("wpcf7mailfailed", function(event) {
         UIkit.notification(event.detail.apiResponse.message, {status:'danger'});
     });
-    document.addEventListener("wpcf7submit", function(event) {
-        UIkit.notification(event.detail.apiResponse.message, {status:'danger'});
-    });
 })();
