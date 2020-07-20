@@ -10591,8 +10591,10 @@ em {
   .ctx-icon.uk-text-muted svg path, .ctx-icon.ticket-desc svg path {
     fill: #999 !important; }
 
-span.ctx-icon svg, address.ctx-icon svg {
-  margin-right: 7px; }
+a.ctx-icon svg, span.ctx-icon svg, address.ctx-icon svg {
+  margin-right: 7px;
+  width: 20px;
+  height: 20px; }
 
 h1.ctx-font-script {
   font-size: 2.625rem; }
@@ -11580,6 +11582,9 @@ cite {
   .imprint #logo-background {
     fill: #666; }
 
+footer .ctx-icon svg path {
+  stroke: #fff !important; }
+
 .has-default-color {
   color: var(--default); }
 
@@ -11990,6 +11995,20 @@ input:required::after {
     padding-bottom: 0px;
     background-size: cover;
     background-position: center; } }
+
+.category header {
+  background-color: var(--primary-light);
+  padding-top: 100px;
+  padding-bottom: 50px; }
+  .category header h1, .category header h4 {
+    color: var(--primary); }
+
+.category .uk-card-body {
+  background: #fff;
+  color: #222; }
+
+.category .uk-card, .category .uk-card img {
+  border-top-left-radius: 0px !important; }
 
 .wpcf7-response-output {
   display: none !important; }
