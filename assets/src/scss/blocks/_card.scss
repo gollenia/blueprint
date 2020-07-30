@@ -8,12 +8,9 @@
         }
     }
 
-    .uk-section > .uk-container > .uk-card-#{$color} {
+    .uk-card.ctx-card-transparent {
         background: var(--#{$color}-transparent);
-        h1:first-child, h2:first-child, h3:first-child, h4:first-child, h5:first-child {
-            background-color: var(--#{$color});
-            color: var(--#{$color}-contrast);
-        }
+        backdrop-filter: blur(5px);
     }
 }
 
