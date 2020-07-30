@@ -20,7 +20,7 @@
 }
 
 .uk-grid div:first-child {
-    .uk-card, .uk-card img:not(.uk-border-circle) {
+    .uk-card:first-child, .uk-card:first-child img:not(.uk-border-circle,.round) {
         border-top-left-radius: 50px;
     }
     
