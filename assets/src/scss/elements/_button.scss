@@ -23,9 +23,33 @@
     .uk-button-#{$color} {
         background-color: var(--#{$color});
         color: var(--#{$color}-contrast);
+        &.uk-button-link {
+            background: none !important;
+            color: var(--#{$color});
+        }
     }
     .uk-button-#{$color}:hover {
         background-color: var(--#{$color}-darker);
         color: var(--#{$color}-contrast);
+        &.uk-button-link {
+            background: none !important;
+            color: var(--#{$color}-darker);
+        }
+    }
+
+    .uk-button-outline-#{$color} {
+        background: transparent;
+        border: 1px solid var(--#{$color});
+        color: var(--#{$color});
+
+        &:hover {
+            background: var(--#{$color});
+            color: var(--#{$color}-contrast);
+        }
+    }
+
+    .uk-button-link {
+        background: none !important;
+        color: var(--#{$color}-darker);
     }
 }
