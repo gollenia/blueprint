@@ -55,5 +55,8 @@
         padding: 0px 30px;
         display: inline-block;
         text-align: center;
+        &:hover {
+            text-decoration: none;
+        }
     }
 }
