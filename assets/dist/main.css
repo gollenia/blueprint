@@ -11018,7 +11018,7 @@ h6:not(.ctx-font-script) {
   .uk-card-default h1, .uk-card-default h2, .uk-card-default h3, .uk-card-default h4, .uk-card-default h5, .uk-card-default h6 {
     color: var(--default-contrast); }
   .uk-card-default .uk-text-muted, .uk-card-default .ticket-desc {
-    color: var(--default-soft-contrast); }
+    color: var(--default-soft-contrast) !important; }
   .uk-card-default.ctx-card-transparent {
     background: var(--default-transparent);
     backdrop-filter: blur(5px); }
@@ -11029,7 +11029,7 @@ h6:not(.ctx-font-script) {
   .uk-card-lightgrey h1, .uk-card-lightgrey h2, .uk-card-lightgrey h3, .uk-card-lightgrey h4, .uk-card-lightgrey h5, .uk-card-lightgrey h6 {
     color: var(--lightgrey-contrast); }
   .uk-card-lightgrey .uk-text-muted, .uk-card-lightgrey .ticket-desc {
-    color: var(--lightgrey-soft-contrast); }
+    color: var(--lightgrey-soft-contrast) !important; }
   .uk-card-lightgrey.ctx-card-transparent {
     background: var(--lightgrey-transparent);
     backdrop-filter: blur(5px); }
@@ -11040,7 +11040,7 @@ h6:not(.ctx-font-script) {
   .uk-card-mediumgrey h1, .uk-card-mediumgrey h2, .uk-card-mediumgrey h3, .uk-card-mediumgrey h4, .uk-card-mediumgrey h5, .uk-card-mediumgrey h6 {
     color: var(--mediumgrey-contrast); }
   .uk-card-mediumgrey .uk-text-muted, .uk-card-mediumgrey .ticket-desc {
-    color: var(--mediumgrey-soft-contrast); }
+    color: var(--mediumgrey-soft-contrast) !important; }
   .uk-card-mediumgrey.ctx-card-transparent {
     background: var(--mediumgrey-transparent);
     backdrop-filter: blur(5px); }
@@ -11051,7 +11051,7 @@ h6:not(.ctx-font-script) {
   .uk-card-darkgrey h1, .uk-card-darkgrey h2, .uk-card-darkgrey h3, .uk-card-darkgrey h4, .uk-card-darkgrey h5, .uk-card-darkgrey h6 {
     color: var(--darkgrey-contrast); }
   .uk-card-darkgrey .uk-text-muted, .uk-card-darkgrey .ticket-desc {
-    color: var(--darkgrey-soft-contrast); }
+    color: var(--darkgrey-soft-contrast) !important; }
   .uk-card-darkgrey.ctx-card-transparent {
     background: var(--darkgrey-transparent);
     backdrop-filter: blur(5px); }
@@ -11062,7 +11062,7 @@ h6:not(.ctx-font-script) {
   .uk-card-white h1, .uk-card-white h2, .uk-card-white h3, .uk-card-white h4, .uk-card-white h5, .uk-card-white h6 {
     color: var(--white-contrast); }
   .uk-card-white .uk-text-muted, .uk-card-white .ticket-desc {
-    color: var(--white-soft-contrast); }
+    color: var(--white-soft-contrast) !important; }
   .uk-card-white.ctx-card-transparent {
     background: var(--white-transparent);
     backdrop-filter: blur(5px); }
@@ -11073,7 +11073,7 @@ h6:not(.ctx-font-script) {
   .uk-card-blue h1, .uk-card-blue h2, .uk-card-blue h3, .uk-card-blue h4, .uk-card-blue h5, .uk-card-blue h6 {
     color: var(--blue-contrast); }
   .uk-card-blue .uk-text-muted, .uk-card-blue .ticket-desc {
-    color: var(--blue-soft-contrast); }
+    color: var(--blue-soft-contrast) !important; }
   .uk-card-blue.ctx-card-transparent {
     background: var(--blue-transparent);
     backdrop-filter: blur(5px); }
@@ -11084,7 +11084,7 @@ h6:not(.ctx-font-script) {
   .uk-card-lightblue h1, .uk-card-lightblue h2, .uk-card-lightblue h3, .uk-card-lightblue h4, .uk-card-lightblue h5, .uk-card-lightblue h6 {
     color: var(--lightblue-contrast); }
   .uk-card-lightblue .uk-text-muted, .uk-card-lightblue .ticket-desc {
-    color: var(--lightblue-soft-contrast); }
+    color: var(--lightblue-soft-contrast) !important; }
   .uk-card-lightblue.ctx-card-transparent {
     background: var(--lightblue-transparent);
     backdrop-filter: blur(5px); }
@@ -11095,7 +11095,7 @@ h6:not(.ctx-font-script) {
   .uk-card-darkblue h1, .uk-card-darkblue h2, .uk-card-darkblue h3, .uk-card-darkblue h4, .uk-card-darkblue h5, .uk-card-darkblue h6 {
     color: var(--darkblue-contrast); }
   .uk-card-darkblue .uk-text-muted, .uk-card-darkblue .ticket-desc {
-    color: var(--darkblue-soft-contrast); }
+    color: var(--darkblue-soft-contrast) !important; }
   .uk-card-darkblue.ctx-card-transparent {
     background: var(--darkblue-transparent);
     backdrop-filter: blur(5px); }
@@ -11106,7 +11106,7 @@ h6:not(.ctx-font-script) {
   .uk-card-orange h1, .uk-card-orange h2, .uk-card-orange h3, .uk-card-orange h4, .uk-card-orange h5, .uk-card-orange h6 {
     color: var(--orange-contrast); }
   .uk-card-orange .uk-text-muted, .uk-card-orange .ticket-desc {
-    color: var(--orange-soft-contrast); }
+    color: var(--orange-soft-contrast) !important; }
   .uk-card-orange.ctx-card-transparent {
     background: var(--orange-transparent);
     backdrop-filter: blur(5px); }
@@ -11117,7 +11117,7 @@ h6:not(.ctx-font-script) {
   .uk-card-lightorange h1, .uk-card-lightorange h2, .uk-card-lightorange h3, .uk-card-lightorange h4, .uk-card-lightorange h5, .uk-card-lightorange h6 {
     color: var(--lightorange-contrast); }
   .uk-card-lightorange .uk-text-muted, .uk-card-lightorange .ticket-desc {
-    color: var(--lightorange-soft-contrast); }
+    color: var(--lightorange-soft-contrast) !important; }
   .uk-card-lightorange.ctx-card-transparent {
     background: var(--lightorange-transparent);
     backdrop-filter: blur(5px); }
@@ -11128,7 +11128,7 @@ h6:not(.ctx-font-script) {
   .uk-card-darkorange h1, .uk-card-darkorange h2, .uk-card-darkorange h3, .uk-card-darkorange h4, .uk-card-darkorange h5, .uk-card-darkorange h6 {
     color: var(--darkorange-contrast); }
   .uk-card-darkorange .uk-text-muted, .uk-card-darkorange .ticket-desc {
-    color: var(--darkorange-soft-contrast); }
+    color: var(--darkorange-soft-contrast) !important; }
   .uk-card-darkorange.ctx-card-transparent {
     background: var(--darkorange-transparent);
     backdrop-filter: blur(5px); }
@@ -11139,7 +11139,7 @@ h6:not(.ctx-font-script) {
   .uk-card-green h1, .uk-card-green h2, .uk-card-green h3, .uk-card-green h4, .uk-card-green h5, .uk-card-green h6 {
     color: var(--green-contrast); }
   .uk-card-green .uk-text-muted, .uk-card-green .ticket-desc {
-    color: var(--green-soft-contrast); }
+    color: var(--green-soft-contrast) !important; }
   .uk-card-green.ctx-card-transparent {
     background: var(--green-transparent);
     backdrop-filter: blur(5px); }
@@ -11150,7 +11150,7 @@ h6:not(.ctx-font-script) {
   .uk-card-lightgreen h1, .uk-card-lightgreen h2, .uk-card-lightgreen h3, .uk-card-lightgreen h4, .uk-card-lightgreen h5, .uk-card-lightgreen h6 {
     color: var(--lightgreen-contrast); }
   .uk-card-lightgreen .uk-text-muted, .uk-card-lightgreen .ticket-desc {
-    color: var(--lightgreen-soft-contrast); }
+    color: var(--lightgreen-soft-contrast) !important; }
   .uk-card-lightgreen.ctx-card-transparent {
     background: var(--lightgreen-transparent);
     backdrop-filter: blur(5px); }
@@ -11161,7 +11161,7 @@ h6:not(.ctx-font-script) {
   .uk-card-darkgreen h1, .uk-card-darkgreen h2, .uk-card-darkgreen h3, .uk-card-darkgreen h4, .uk-card-darkgreen h5, .uk-card-darkgreen h6 {
     color: var(--darkgreen-contrast); }
   .uk-card-darkgreen .uk-text-muted, .uk-card-darkgreen .ticket-desc {
-    color: var(--darkgreen-soft-contrast); }
+    color: var(--darkgreen-soft-contrast) !important; }
   .uk-card-darkgreen.ctx-card-transparent {
     background: var(--darkgreen-transparent);
     backdrop-filter: blur(5px); }
@@ -11172,7 +11172,7 @@ h6:not(.ctx-font-script) {
   .uk-card-purple h1, .uk-card-purple h2, .uk-card-purple h3, .uk-card-purple h4, .uk-card-purple h5, .uk-card-purple h6 {
     color: var(--purple-contrast); }
   .uk-card-purple .uk-text-muted, .uk-card-purple .ticket-desc {
-    color: var(--purple-soft-contrast); }
+    color: var(--purple-soft-contrast) !important; }
   .uk-card-purple.ctx-card-transparent {
     background: var(--purple-transparent);
     backdrop-filter: blur(5px); }
@@ -11183,7 +11183,7 @@ h6:not(.ctx-font-script) {
   .uk-card-lightpurple h1, .uk-card-lightpurple h2, .uk-card-lightpurple h3, .uk-card-lightpurple h4, .uk-card-lightpurple h5, .uk-card-lightpurple h6 {
     color: var(--lightpurple-contrast); }
   .uk-card-lightpurple .uk-text-muted, .uk-card-lightpurple .ticket-desc {
-    color: var(--lightpurple-soft-contrast); }
+    color: var(--lightpurple-soft-contrast) !important; }
   .uk-card-lightpurple.ctx-card-transparent {
     background: var(--lightpurple-transparent);
     backdrop-filter: blur(5px); }
@@ -11194,7 +11194,7 @@ h6:not(.ctx-font-script) {
   .uk-card-darkpurple h1, .uk-card-darkpurple h2, .uk-card-darkpurple h3, .uk-card-darkpurple h4, .uk-card-darkpurple h5, .uk-card-darkpurple h6 {
     color: var(--darkpurple-contrast); }
   .uk-card-darkpurple .uk-text-muted, .uk-card-darkpurple .ticket-desc {
-    color: var(--darkpurple-soft-contrast); }
+    color: var(--darkpurple-soft-contrast) !important; }
   .uk-card-darkpurple.ctx-card-transparent {
     background: var(--darkpurple-transparent);
     backdrop-filter: blur(5px); }
@@ -11205,7 +11205,7 @@ h6:not(.ctx-font-script) {
   .uk-card-red h1, .uk-card-red h2, .uk-card-red h3, .uk-card-red h4, .uk-card-red h5, .uk-card-red h6 {
     color: var(--red-contrast); }
   .uk-card-red .uk-text-muted, .uk-card-red .ticket-desc {
-    color: var(--red-soft-contrast); }
+    color: var(--red-soft-contrast) !important; }
   .uk-card-red.ctx-card-transparent {
     background: var(--red-transparent);
     backdrop-filter: blur(5px); }
@@ -11216,7 +11216,7 @@ h6:not(.ctx-font-script) {
   .uk-card-lightred h1, .uk-card-lightred h2, .uk-card-lightred h3, .uk-card-lightred h4, .uk-card-lightred h5, .uk-card-lightred h6 {
     color: var(--lightred-contrast); }
   .uk-card-lightred .uk-text-muted, .uk-card-lightred .ticket-desc {
-    color: var(--lightred-soft-contrast); }
+    color: var(--lightred-soft-contrast) !important; }
   .uk-card-lightred.ctx-card-transparent {
     background: var(--lightred-transparent);
     backdrop-filter: blur(5px); }
@@ -11227,7 +11227,7 @@ h6:not(.ctx-font-script) {
   .uk-card-darkred h1, .uk-card-darkred h2, .uk-card-darkred h3, .uk-card-darkred h4, .uk-card-darkred h5, .uk-card-darkred h6 {
     color: var(--darkred-contrast); }
   .uk-card-darkred .uk-text-muted, .uk-card-darkred .ticket-desc {
-    color: var(--darkred-soft-contrast); }
+    color: var(--darkred-soft-contrast) !important; }
   .uk-card-darkred.ctx-card-transparent {
     background: var(--darkred-transparent);
     backdrop-filter: blur(5px); }
@@ -11238,7 +11238,7 @@ h6:not(.ctx-font-script) {
   .uk-card-black h1, .uk-card-black h2, .uk-card-black h3, .uk-card-black h4, .uk-card-black h5, .uk-card-black h6 {
     color: var(--black-contrast); }
   .uk-card-black .uk-text-muted, .uk-card-black .ticket-desc {
-    color: var(--black-soft-contrast); }
+    color: var(--black-soft-contrast) !important; }
   .uk-card-black.ctx-card-transparent {
     background: var(--black-transparent);
     backdrop-filter: blur(5px); }
