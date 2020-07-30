@@ -9,7 +9,7 @@
     :root {      
         {% for colorset in attribute(config.theme_support, 'editor-color-palette') %}
                 --{{colorset.slug}}: {{colorset.color}};
-                --{{colorset.slug}}-transparent: {{colorset.color}}80;
+                --{{colorset.slug}}-transparent: {{colorset.color}}90;
                 --{{colorset.slug}}-lighter: {{colorset.color|lighten(10)}};
                 --{{colorset.slug}}-darker: {{colorset.color|darken(10)}};
                 {% if colorset.dark %}
