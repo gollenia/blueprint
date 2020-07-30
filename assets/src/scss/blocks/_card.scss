@@ -20,14 +20,14 @@
 }
 
 .uk-grid div:first-child {
-    .uk-card:first-child, .uk-card:first-child img:not(.uk-border-circle,.round) {
+    .uk-card:first-child, .uk-card:first-child img:not(.uk-border-circle):not(.round) {
         border-top-left-radius: 50px;
     }
     
 }
 
 .uk-grid div:last-child {
-    .uk-card {
+    .uk-card:last-child {
         border-bottom-right-radius: 50px;
     }
 }
