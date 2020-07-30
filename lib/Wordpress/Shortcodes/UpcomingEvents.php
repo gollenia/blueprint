@@ -73,6 +73,7 @@ class UpcomingEvents extends \Contexis\Wordpress\Shortcode {
             'post_type' => 'event',
             'orderby' => '_event_start_date',
             'order' => strtoupper($this->attributes["order"]),
+            'posts_per_page' => $this->attributes["limit"],
             'tax_query' => $taxonomy,
             'meta_query' => array(
                 array(
