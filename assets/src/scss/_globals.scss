@@ -67,21 +67,19 @@ p:empty, span:empty {
 .graz {
     --primary: var(--purple);
     --primary-light: var(--lightpurple);
+    --primary-transparent: var(--purple-transparent);
 }
 
 .wien {
     --primary: var(--orange);
     --primary-light: var(--lightorange);
+    --primary-transparent: var(--orange-transparent);
 }
 
 .innsbruck {
     --primary: var(--green);
     --primary-light: var(--lightgreen);
-}
-
-.salzburg {
-    --primary: var(--blue);
-    --primary-light: var(--lightblue);
+    --primary-transparent: var(--green-transparent);
 }
 
 .de-CH {
