@@ -18,6 +18,11 @@
     font-size: 1.25rem;
 }
 
+.uk-button-primary-dark {
+    background: var(--primary-dark);
+    color: #fff;
+}
+
 
 @each $color in $color-slugs {
     .uk-button-#{$color} {
@@ -28,6 +33,7 @@
             color: var(--#{$color});
         }
     }
+
     .uk-button-#{$color}:hover {
         background-color: var(--#{$color}-darker);
         color: var(--#{$color}-contrast);

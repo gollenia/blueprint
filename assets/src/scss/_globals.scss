@@ -56,36 +56,42 @@ p:empty, span:empty {
     --primary: var(--blue);
     --primary-transparent: var(--blue-transparent);
     --primary-light: var(--lightblue);
+    --primary-dark: var(--darkblue);
 }
 
 .de-DE {
     --primary: var(--green);
     --primary-transparent: var(--green-transparent);
     --primary-light: var(--lightgreen);
+    --primary-dark: var(--darkgreen);
 }
 
 .graz {
     --primary: var(--purple);
     --primary-light: var(--lightpurple);
     --primary-transparent: var(--purple-transparent);
+    --primary-dark: var(--darkpurple);
 }
 
 .wien {
     --primary: var(--orange);
     --primary-light: var(--lightorange);
     --primary-transparent: var(--orange-transparent);
+    --primary-dark: var(--darkorange);
 }
 
 .innsbruck {
     --primary: var(--green);
     --primary-light: var(--lightgreen);
     --primary-transparent: var(--green-transparent);
+    --primary-dark: var(--darkgreen);
 }
 
 .de-CH {
     --primary: var(--orange);
     --primary-transparent: var(--orange-transparent);
     --primary-light: var(--lightorange);
+    --primary-dark: var(--darkorange);
 }
 
 
