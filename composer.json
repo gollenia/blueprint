@@ -36,6 +36,7 @@
               "Contexis\\Core\\": "lib/Core",
               "Contexis\\Wordpress\\": "lib/Wordpress",
               "Contexis\\Wordpress\\Shortcodes\\": "lib/Wordpress/Shortcodes",
+              "Contexis\\Wordpress\\Plugins\\": "lib/Wordpress/Plugins",
               "Contexis\\Wordpress\\Customizer\\": "lib/Wordpress/Customizer",
               "Contexis\\Controllers\\": "lib/Controllers"
         }
