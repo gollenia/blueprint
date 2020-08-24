@@ -4,38 +4,21 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         {{function('wp_head')}}
-        
         {% include "partials/stylesheet.twig" with {'config': config} %}
     </head>
 
     <body class="{{body_class}} {{site.language}} {{post.slug}} {{post.pagecolor}} {% for term in post.get_terms() %}{{term.slug}} {% endfor %}">
+        <div class="logo-image"><img data-src="{{ site.theme.uri }}/assets/dist/img/logo.svg" class="ctx-logo-image" uk-svg width="70" height="70px"></div>
+        {% include "partials/search.twig" with {'menu': menu} %}
         <div class="body">
-        {% include "partials/menu.twig" with {'menu': menu} %}
-        {% include "partials/menu-mobile.twig" with {'menu': menu.get_items} %}
-        {% block content %}
-            Wenn Sie das lesen können, gab es ein schweres Problem mit unserer Seite.
-        {% endblock %}
+            {% include "partials/menu.twig" with {'menu': menu} %}
+            {% include "partials/menu-mobile.twig" with {'menu': menu.get_items} %}
+            {% include "partials/breadcrumbs.twig" with {'breadcrumbs': breadcrumbs} %}
+            {% block content %}
+                Wenn Sie das lesen können, gab es ein schweres Problem mit unserer Seite.
+            {% endblock %}
 
-        <footer class="uk-section uk-section-black uk-light">
-            <div class="uk-container"><div class="uk-child-width-1-2@s uk-child-width-1-4@l" uk-grid>{{footer}}</div></div>
-            <script>
-                var lang = "{{site.language}}";
-                var theme_uri = "{{site.theme.uri}}";
-            </script>
-            {{function('wp_footer')}}
-            <script type="text/javascript" src="{{site.theme.uri}}/assets/dist/main.js?ver=5.4.1"></script> 
-            
-        </footer>
-        <div class="imprint">
-            <div class="uk-container">
-                <div uk-grid>
-                    <div class="imprint-logo"><img data-src="{{ site.theme.uri }}/assets/dist/img/logo.svg" class="ctx-logo-image" uk-svg width="24" height="24"></div>
-                    <div><span>Copyright: kids-team</span></div>
-                    <div><a href="/impressum">Impressum</a></div>
-                    <div><a href="/datenschutzerklärung">Datenschutzerklärung</a></div>
-                </div>
-            </div>
-        </div>
+            {% include "partials/footer.twig" with {'site': site} %}
     </div>
     </body>
 </html>
