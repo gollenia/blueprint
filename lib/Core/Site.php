@@ -27,6 +27,7 @@ class Site extends \Timber\Site {
 		$this->config = $config;
 		$this->add_wordpress_functions();
 		$this->add_timber_functions();
+		$this->custom_functions();
 		parent::__construct();
 		add_action( 'init', [$this, 'add_taxonomies_to_pages'] );
 		if( WP_DEBUG ) {
@@ -109,6 +110,10 @@ class Site extends \Timber\Site {
 	private function add_timber_functions() {
 		\Timber\Timber::$dirname = $this->config->get('site.template_folder');
 		add_filter( 'timber/twig', "\Contexis\Core\Color::add_twig_filter" );
+	}
+
+	private function custom_functions() {
+		\Contexis\Wordpress\Plugins\ContactForm7::addCustiomAttribute("booking");
 	}
 	
 }
