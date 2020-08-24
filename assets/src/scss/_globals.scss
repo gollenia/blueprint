@@ -56,12 +56,14 @@ p:empty, span:empty {
     --primary: var(--blue);
     --primary-transparent: var(--blue-transparent);
     --primary-light: var(--lightblue);
+    --primary-light-transparent: var(--lightblue-transparent);
     --primary-dark: var(--darkblue);
 }
 
 .de-DE {
     --primary: var(--green);
     --primary-transparent: var(--green-transparent);
+    --primary-light-transparent: var(--lightgreen-transparent);
     --primary-light: var(--lightgreen);
     --primary-dark: var(--darkgreen);
 }
@@ -70,6 +72,7 @@ p:empty, span:empty {
     --primary: var(--purple);
     --primary-light: var(--lightpurple);
     --primary-transparent: var(--purple-transparent);
+    --primary-light-transparent: var(--lightpurple-transparent);
     --primary-dark: var(--darkpurple);
 }
 
@@ -77,6 +80,7 @@ p:empty, span:empty {
     --primary: var(--orange);
     --primary-light: var(--lightorange);
     --primary-transparent: var(--orange-transparent);
+    --primary-light-transparent: var(--lightorange-transparent);
     --primary-dark: var(--darkorange);
 }
 
@@ -84,6 +88,7 @@ p:empty, span:empty {
     --primary: var(--green);
     --primary-light: var(--lightgreen);
     --primary-transparent: var(--green-transparent);
+    --primary-light-transparent: var(--lightgreen-transparent);
     --primary-dark: var(--darkgreen);
 }
 
@@ -91,6 +96,7 @@ p:empty, span:empty {
     --primary: var(--orange);
     --primary-transparent: var(--orange-transparent);
     --primary-light: var(--lightorange);
+    --primary-light-transparent: var(--lightorange-transparent);
     --primary-dark: var(--darkorange);
 }
 

@@ -1,15 +1,12 @@
 .uk-navbar-item.uk-logo {
     padding-left: 120px;
-    .logo-image {
-        position:absolute;
-        padding: 0px;
-        left: 20px;
-        top: 12px;
-        span {
-            margin-left: 20px;
-        }
-        z-index: 999;
-    }
+}
+
+.logo-image {
+    position: absolute;
+    z-index: 999;
+    top: 10px;
+    left: 32px;
 }
 
 #logo-background {
