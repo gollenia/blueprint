@@ -20,7 +20,8 @@ class Events extends \Contexis\Core\Controller {
         $this->addToContext([
             'events' => $this->getEvents(),
             'terms' => $this->getTerms(),
-            'slug' => get_option("dbem_cp_events_slug")
+            'slug' => get_option("dbem_cp_events_slug"),
+            "breadcrumbs" => \Contexis\Wordpress\Breadcrumbs::generate(),
         ]);
         $this->setTemplate('pages/events.twig');
     }

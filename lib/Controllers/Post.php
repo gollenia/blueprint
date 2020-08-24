@@ -20,7 +20,8 @@ class Post extends \Contexis\Core\Controller {
 
         $this->addToContext([
             "author" => $this->getAuthor(),
-            "latest_posts" => $this->getLatestPosts(5)
+            "latest_posts" => $this->getLatestPosts(5),
+            "breadcrumbs" => \Contexis\Wordpress\Breadcrumbs::generate(),
         ]);
         
         $this->setTemplate('pages/post.twig');

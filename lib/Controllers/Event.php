@@ -28,7 +28,8 @@ class Event extends \Contexis\Core\Controller {
             "booking" => $this->get_booking_form(),
             "events" => $this->get_events($post),
             "event" => \EM_Events::get(['post_id' => $post->id])[0],
-            "bookings" => $this->remaining_spaces()
+            "bookings" => $this->remaining_spaces(),
+            "breadcrumbs" => \Contexis\Wordpress\Breadcrumbs::generate(),
         ]);
     }
 

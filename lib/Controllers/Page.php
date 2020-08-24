@@ -14,6 +14,9 @@ class Page extends \Contexis\Core\Controller{
     public function __construct($site, $template = false) {
 
         parent::__construct($site);
+        $this->addToContext([
+            "breadcrumbs" => \Contexis\Wordpress\Breadcrumbs::generate(),
+        ]);
 
     }
     
