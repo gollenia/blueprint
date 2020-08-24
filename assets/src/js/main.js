@@ -12,6 +12,7 @@ import textareaResize from './extras/textareaResize';
 import  './events/bookingForm';
 import  './contact/contactForm';
 import  './icons';
+import  './search';
 
 
 UIkit.util.on('#mobile-menu', 'beforeshow', function (event) {
