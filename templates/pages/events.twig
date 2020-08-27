@@ -3,19 +3,30 @@
 {% block content %}
     <div id="events-filter" uk-filter="target: .js-filter">
         
-    
-    <header class="events-header" style="background-image:url('{{ Image(post._thumbnail_id).src }}')">
+    <header class="{{ post.thumbnail.src('xlarge') is empty ? "no-background-image" }}" style="padding-top: {{post.headerheight}}vh; background-position: {{post.headerimageorientation}}; background-image: url('{{ post.thumbnail.src('xlarge') }}')">
         <div class="uk-container">
-        <h2>{{post.post_title}}</h2>
-        <p>{{post.post_excerpt}}</p>
-        <ul class="uk-subnav uk-subnav-pill">
-            <li class="uk-active" uk-filter-control><a href="#">Alle</a></li>
-            {% for term in terms %}
-                <li uk-filter-control=".{{term.slug}}"><a href="#">{{term.name}}</a></li>
-            {% endfor %}
-        </ul>
+            <div class="caption">
+                <h1 class="uk-margin-remove">{{post.title}}</h1>
+                {% if post.subtitle %}
+                    <h4 class="uk-margin-remove">{{post.subtitle}}</h4>
+                {% endif %}
+                {%if post.headerurl %}<a target="{{post.headerurl.target}}" href="{{ post.headerurl.url }}" class=" uk-button uk-button-primary-dark uk-button-large ctx-icon ctx-icon-arrow-forward">{{ post.headerurl.title }}</a>{% endif %}
+            </div>
+            
         </div>
-    </header>    
+        <div class="ctx-pill-box">
+            <div class="uk-container">
+            <span class="ctx-font-script">Wählen Sie eine Kategorie</span>
+            <ul class="uk-subnav uk-subnav-pill">
+                <li class="uk-active" uk-filter-control><a href="#">Alle</a></li>
+                {% for term in terms %}
+                    <li uk-filter-control=".{{term.slug}}"><a href="#">{{term.name}}</a></li>
+                {% endfor %}
+            </ul>
+            </div>
+        </div>
+    </header>
+   
     <div class="uk-width-1-1">{{ function( 'apply_filters', 'the_content', post.content ) }}</div>
     <article class="js-filter">        
         {% for event in events %}
