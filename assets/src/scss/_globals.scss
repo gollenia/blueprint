@@ -60,6 +60,7 @@ p:empty, span:empty {
     --primary-dark: var(--darkblue);
 }
 
+
 .de-DE {
     --primary: var(--green);
     --primary-transparent: var(--green-transparent);
@@ -100,6 +101,13 @@ p:empty, span:empty {
     --primary-dark: var(--darkorange);
 }
 
+.fr-FR {
+    --primary: var(--orange);
+    --primary-transparent: var(--orange-transparent);
+    --primary-light: var(--lightorange);
+    --primary-light-transparent: var(--lightorange-transparent);
+    --primary-dark: var(--darkorange);
+}
 
 @each $color in $color-slugs {
     .page-#{$color} {
