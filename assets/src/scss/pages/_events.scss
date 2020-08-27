@@ -1,8 +1,9 @@
 .veranstaltungen header {
-    height: auto;
+    
     background-color: var(--primary-light);
-    .uk-container {
-        padding-top: 0px;
+    .ctx-pill-box {
+        background-color: var(--primary-light);
+        padding-top: 10px;
         padding-bottom: 10px;
     }
 }
