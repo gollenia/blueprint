@@ -14,12 +14,6 @@ class Router {
 	 * @since 1.0.0
 	 */
 	public function __construct($routes = false) {
-        // deprecated, since config should always be given as param
-        if (!$routes) {
-            $this->routes = Config::load('routes');
-            return;
-        }
-
         $this->routes = $routes;
     }
 
