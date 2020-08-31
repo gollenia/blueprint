@@ -8,7 +8,7 @@
     </head>
 
     <body class="{{body_class}} {{site.language}} {{post.slug}} {{post.pagecolor}} {% for term in post.get_terms() %}{{term.slug}} {% endfor %}">
-        <div class="logo-image"><img data-src="{{ site.theme.uri }}/assets/dist/img/logo.svg" class="ctx-logo-image" uk-svg width="70" height="70px"></div>
+        <div class="logo-image"><a href="/"><img data-src="{{ site.theme.uri }}/assets/dist/img/logo.svg" class="ctx-logo-image" uk-svg width="70" height="70px"></a></div>
         {% include "partials/search.twig" with {'menu': menu} %}
         <div class="body">
             {% include "partials/menu.twig" with {'menu': menu} %}
