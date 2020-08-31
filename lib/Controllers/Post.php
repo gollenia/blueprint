@@ -1,16 +1,16 @@
 <?php
-namespace Contexis\Controllers;
-
-use \Timber\URLHelper;
-use \Timber\Helper;
-use \Timber\User;
-
 /**
- * Der Seiten-Controller erstellt einen PHP-Array (Context), in dem alle für den Aufbau der Seite benötigten
- * Informationen gespeichert werden. 
+ * Post-Controller to render standard Posts
  * 
  * @since 1.0.0
  */
+
+namespace Contexis\Controllers;
+
+use Contexis\Wordpress\Breadcrumbs;
+use Timber\PostQuery;
+
+
 
 class Post extends \Contexis\Core\Controller {
 
@@ -21,14 +21,14 @@ class Post extends \Contexis\Core\Controller {
         $this->addToContext([
             "author" => $this->getAuthor(),
             "latest_posts" => $this->getLatestPosts(5),
-            "breadcrumbs" => \Contexis\Wordpress\Breadcrumbs::generate(),
+            "breadcrumbs" => Breadcrumbs::generate(),
         ]);
         
         $this->setTemplate('pages/post.twig');
     }
 
     private function getLatestPosts(int $limit = 5) {
-        return new \Timber\PostQuery([
+        return new PostQuery([
             'post_type' => 'post',
             'post__not_in' => [$this->context['post']->id],
             'limit' => 5,

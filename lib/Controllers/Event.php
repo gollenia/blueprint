@@ -1,54 +1,76 @@
 <?php
-namespace Contexis\Controllers;
-
-use \Timber\URLHelper;
-use \Timber\Helper;
-use \Timber\User;
-
 /**
- * Der Seiten-Controller erstellt einen PHP-Array (Context), in dem alle für den Aufbau der Seite benötigten
- * Informationen gespeichert werden. 
+ * Special Controller for the EM-Events-Plugin. 
  * 
  * @since 1.0.0
  */
+namespace Contexis\Controllers;
+
+
+use Timber\{
+    Timber,
+    Post,
+    PostQuery
+};
+
+use Contexis\Wordpress\Breadcrumbs;
+use EM_Events;
+use EM_Event;
+use EM_Bookings;
+
+use Wa72\HtmlPageDom\HtmlPageCrawler as HtmlCrawler;
+
+
 
 class Event extends \Contexis\Core\Controller {
 
     
-    private \EM_Event $event;
+    private EM_Event $event;
 
+    /**
+    * construct function collects information for page rendering
+    * 
+    * @param \Contexis\Core\Site $site Object
+    * @param string $template 
+    * @since 1.0.0
+    */
     public function __construct($site, $template = false) {
         parent::__construct($site);
         $this->setTemplate('pages/event.twig'); 
-        $post = \Timber\Timber::get_post();
+        $post = Timber::get_post();
 
-        $this->event = \EM_Events::get(['post_id' => $post->id])[0];
+        $this->event = EM_Events::get(['post_id' => $post->id])[0];
         
         $this->addToContext([
             "booking" => $this->get_booking_form(),
             "events" => $this->get_events($post),
-            "event" => \EM_Events::get(['post_id' => $post->id])[0],
+            "event" => EM_Events::get(['post_id' => $post->id])[0],
             "bookings" => $this->remaining_spaces(),
-            "breadcrumbs" => \Contexis\Wordpress\Breadcrumbs::generate(),
+            "breadcrumbs" => Breadcrumbs::generate(),
         ]);
     }
 
-
     private function get_booking_form() {
-        $post = \Timber\Timber::get_post();
+        $post = Timber::get_post();
         
         $content = apply_filters( 'the_content', $post->content );
         return $this->filter_booking_form($content);
     }
 
     private function remaining_spaces() {
-        $booking = new \EM_Bookings($this->event);
+        $booking = new EM_Bookings($this->event);
         return $booking->get_available_spaces();
     }
 
-    private function get_events(\Timber\Post $post, int $limit = 5) {
+    /**
+     * Collect events from the same category as the current event 
+     * 
+     * @param array $options Array with ACF Fields and Pages
+     * @since 1.0.0
+     */
+    private function get_events(Post $post, int $limit = 5) {
 
-        $categories = $post->get_terms('event-categories');
+        $categories = $post->terms('event-categories');
 
         if(empty($categories)) {
             return false;
@@ -56,7 +78,7 @@ class Event extends \Contexis\Core\Controller {
 
         
         
-        return new \Timber\PostQuery([
+        return new PostQuery([
             'post_type' => 'event',
             'orderby' => '_event_start_date',
             'order' => 'ASC',
@@ -78,13 +100,19 @@ class Event extends \Contexis\Core\Controller {
         ]);
     }
     
-
+    /**
+     * Since a better solution is found, we have to manipulate the
+     * HTML-Code of the booking-form with WA72's HtmlPageCrawler. 
+     * 
+     * @param array $options Array with ACF Fields and Pages
+     * @since 1.0.0
+     */
     public function filter_booking_form($form) {
 
         
         if ($form=="") {return;}
 
-        $html = new \Wa72\HtmlPageDom\HtmlPageCrawler($form);
+        $html = new HtmlCrawler($form);
     
         if($html->filter(".input-country")->count()) {
             $html->filter("option[value=0]")->setAttribute("disabled", "")->setAttribute("value", "")->setText("Land auswählen...");
@@ -94,7 +122,7 @@ class Event extends \Contexis\Core\Controller {
         
         if($html->filter('input')->count()) {
             foreach ($html->filter('input') as $field) {
-                $field = \Wa72\HtmlPageDom\HtmlPageCrawler::create($field);
+                $field = HtmlCrawler::create($field);
                 
                 switch ($field->getAttribute('type')) {
                     case "text":
@@ -138,7 +166,7 @@ class Event extends \Contexis\Core\Controller {
         if($html->filter('.em-booking-form-details .input-user-field, .em-booking-form-details .input-group')->count()) {
             $fields = $html->filter('.em-booking-form-details .input-user-field,.em-booking-form-details .input-group');
             foreach ($fields as $field) {
-                $field = \Wa72\HtmlPageDom\HtmlPageCrawler::create($field);
+                $field = HtmlCrawler::create($field);
                 if($field->filter('span.em-form-required')->count() && $field->filter('input,select')->count()) {
                     $field->filter('span.em-form-required')->remove();
                     $field->filter('input')->addClass('required')->setAttribute("required", true);
@@ -150,7 +178,7 @@ class Event extends \Contexis\Core\Controller {
         if($html->filter('.input-group, .input-user-field')->count()) {
             $fields = $html->filter('.em-booking-form-details .input-user-field, .input-group');
             foreach ($fields as $field) {
-                $field = \Wa72\HtmlPageDom\HtmlPageCrawler::create($field);
+                $field = HtmlCrawler::create($field);
                 
                 if($field->filter('label')->count() && $field->filter('input[type="text"]')->count()) {
                     $placeholder = $field->filter('label')->text();
@@ -165,7 +193,7 @@ class Event extends \Contexis\Core\Controller {
             }
         }
 
-        // input-types festlegen
+        // Input-types
         $types = [
             "#user_email" => "email",
             "#dbem_phone" => "tel",
@@ -178,7 +206,7 @@ class Event extends \Contexis\Core\Controller {
             }
         }
 
-        // Zwei-Spalten-Ansicht
+        // Two columns
         if($html->filter("form")->count()) {
             $html->filter("form")->setAttribute("uk-grid", true);
             //$html->filter("form")->setAttribute("novalidate", true);
@@ -191,7 +219,7 @@ class Event extends \Contexis\Core\Controller {
             $currency = "€";
         }
 
-        // Tabelle für Gesamtpreis hinzufügen
+        // Add pricing table
         if(($html)->filter(".em-booking-gateway")->count()) {
             $html->filter(".em-booking-gateway")->prepend("<table class='uk-table'><tr><td>Gesamtpreis</td><td class='uk-text-right'><span id='price' class='uk-text-bold'>0,00 " . $currency . "</span></td></tr></table>");
         }

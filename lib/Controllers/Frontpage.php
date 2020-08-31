@@ -1,16 +1,11 @@
 <?php
-namespace Contexis\Controllers;
-
-use \Timber\URLHelper;
-use \Timber\Helper;
-use \Timber\User;
-
 /**
- * Der Seiten-Controller erstellt einen PHP-Array (Context), in dem alle für den Aufbau der Seite benötigten
- * Informationen gespeichert werden. 
+ * Controller for the front-page. Could be obsolete, if template name was given to Page-Controller
  * 
  * @since 1.0.0
  */
+
+ namespace Contexis\Controllers;
 
 class Frontpage extends \Contexis\Core\Controller {
 

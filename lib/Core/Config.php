@@ -1,14 +1,13 @@
 <?php
-
-namespace Contexis\Core;
-
-
 /**
  * Class loading config files. When an Instance is loaded, every PHP and JSON file in a
  * given directory is loaded into the object
  * 
  * @since 1.0.0
  */
+
+namespace Contexis\Core;
+
 class Config {
     
     private $config = array();
@@ -97,30 +96,6 @@ class Config {
      */
     public function set($key, $value) {
         $this->config[$key] = $value;
-    }
-
-    /**
-     * Static usage to simply generate Config array from files
-     * 
-     * @deprecated
-     * @since 0.5.0
-     * @param string $file file to read
-     */
-    public static function load(string $file) {
-        
-        $config_path = get_template_directory() . "/config/";
-
-
-        if (file_exists ( $config_path . $file . ".json" )) {
-            $json = file_get_contents($config_path . $file);
-            return json_decode($json, true);
-        }
-
-        if (file_exists ( $config_path . $file . ".php" )) {
-            return include($config_path . $file . ".php");
-        }
-
-        
     }
 
 }

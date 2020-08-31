@@ -1,13 +1,12 @@
 <?php
-
-namespace Contexis\Controllers;
-
 /**
- * Der Seiten-Controller erstellt einen PHP-Array (Context), in dem alle für den Aufbau der Seite benötigten
- * Informationen gespeichert werden. 
+ * Page-Controller to render regular pages.
  * 
  * @since 1.0.0
  */
+
+namespace Contexis\Controllers;
+
 
 class Page extends \Contexis\Core\Controller{
 

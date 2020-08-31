@@ -1,13 +1,13 @@
 <?php
+/**
+ * Controler to render the categories page. Timber is used to get the posts within the given category
+ *  
+ * @since 1.0.0
+ */
 
 namespace Contexis\Controllers;
 
-/**
- * Der Seiten-Controller erstellt einen PHP-Array (Context), in dem alle für den Aufbau der Seite benötigten
- * Informationen gespeichert werden. 
- * 
- * @since 1.0.0
- */
+use Timber\PostQuery;
 
 class Categories extends \Contexis\Core\Controller{
 
@@ -15,7 +15,7 @@ class Categories extends \Contexis\Core\Controller{
 
         parent::__construct($site);
         $this->addToContext([
-            'posts' => new \Timber\PostQuery(),
+            'posts' => new PostQuery(),
             'category' => single_cat_title('', false)
         ]);
         

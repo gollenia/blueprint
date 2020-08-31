@@ -1,4 +1,10 @@
 <?php
+/**
+ * Additional twig-functions for working with colors. Utilizes OzdemirBuraks Color-Tools
+ * 
+ * @since 1.0.0
+ * @link https://github.com/ozdemirburak/iris
+ */
 
 namespace Contexis\Core;
 use OzdemirBurak\Iris\Color\Hex;

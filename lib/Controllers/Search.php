@@ -1,13 +1,15 @@
 <?php
-
-namespace Contexis\Controllers;
-
 /**
- * Der Seiten-Controller erstellt einen PHP-Array (Context), in dem alle für den Aufbau der Seite benötigten
- * Informationen gespeichert werden. 
+ * Search-Controller to return a JSON-Response with search results
  * 
  * @since 1.0.0
  */
+
+namespace Contexis\Controllers;
+    
+use Timber\{
+    PostQuery
+};
 
 class Search extends \Contexis\Core\Controller{
 
@@ -22,7 +24,7 @@ class Search extends \Contexis\Core\Controller{
     }
 
     private function getSearchResults() {
-        $results = new \Timber\PostQuery([
+        $results = new PostQuery([
             's' => $this->search_term,
             'orderby' => 'type',
         ]);
@@ -43,8 +45,7 @@ class Search extends \Contexis\Core\Controller{
         }
     }
 
-    public function render() {
-        
+    public function render() {  
         echo json_encode($this->results);
     }
     

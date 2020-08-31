@@ -1,12 +1,24 @@
 <?php
-
-namespace Contexis\Core;
-
 /**
  * The Page-Controller creates a PHP-Array ($context), which stores all data to render the page or to return JSON.
  * 
  * @since 1.0.0
  */
+
+namespace Contexis\Core;
+
+use Contexis\Core\{
+    Site,
+    Utilities
+};
+
+use Timber\{
+    Timber,
+    Menu,
+    Post
+};
+
+
 class Controller {
 
     protected array $context = [];
@@ -19,7 +31,7 @@ class Controller {
      * @param string $template Twig template to be rendered
      * @since 1.0.0
      */
-    public function __construct(\Contexis\Core\Site $site, string $template = "") {
+    public function __construct(Site $site, string $template = "") {
 
         global $wp_customize;
         
@@ -36,19 +48,19 @@ class Controller {
             $this->context['fields'] = get_fields('option');
         }
 
-        $post = \Timber\Timber::get_post();
+        $post = Timber::get_post();
 
         if($post) {
             $this->context['categories'] = $post->terms( 'category' );
             // Der aktuelle Post
-            $this->context['post'] = new \Timber\Post();
+            $this->context['post'] = new Post();
         }
 
         // Die Widgets
-        $this->context['footer'] = \Timber\Timber::get_widgets('footer_area');
+        $this->context['footer'] = Timber::get_widgets('footer_area');
 
         // Das Menü
-        $this->context['menu'] = new \Timber\Menu();
+        $this->context['menu'] = new Menu();
 
         $this->setTemplate($template);
 
@@ -106,9 +118,9 @@ class Controller {
      */
     public function render() {
         if( WP_DEBUG === true ) { 
-            \Contexis\Core\Utilities::debug($this->context);
+            Utilities::debug($this->context);
         }
-        \Timber\Timber::render( $this->templates, $this->context );
+        Timber::render( $this->templates, $this->context );
     }
 
     /**

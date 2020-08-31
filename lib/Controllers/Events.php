@@ -1,16 +1,13 @@
 <?php
-namespace Contexis\Controllers;
-
-use \Timber\URLHelper;
-use \Timber\Helper;
-use \Timber\User;
-
 /**
- * Der Seiten-Controller erstellt einen PHP-Array (Context), in dem alle für den Aufbau der Seite benötigten
- * Informationen gespeichert werden. 
+ * Controller for EM-Events-Plugin to list all Events.
  * 
  * @since 1.0.0
  */
+
+namespace Contexis\Controllers;
+
+use Contexis\Wordpress\Breadcrumbs;
 
 class Events extends \Contexis\Core\Controller {
 
@@ -21,7 +18,7 @@ class Events extends \Contexis\Core\Controller {
             'events' => $this->getEvents(),
             'terms' => $this->getTerms(),
             'slug' => get_option("dbem_cp_events_slug"),
-            "breadcrumbs" => \Contexis\Wordpress\Breadcrumbs::generate(),
+            "breadcrumbs" => Breadcrumbs::generate(),
         ]);
         $this->setTemplate('pages/events.twig');
     }
