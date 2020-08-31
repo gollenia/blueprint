@@ -1,7 +1,4 @@
 <?php
-
-namespace Contexis\Core;
-
 /**
  * Child Class of the \Timber\Site Object. Collects data about the Page and sets up Wordpress
  * functions such as Theme-Support, Widgets, Shortcodes, etc. 
@@ -9,12 +6,26 @@ namespace Contexis\Core;
  * @since 1.0.0
  */
 
+namespace Contexis\Core;
+
+use Contexis\Core\Config;
+use Contexis\Wordpress\Plugins\Fields;
+use Contexis\Wordpress\{
+	ThemeSupport,
+	Widgets,
+	Mime,
+	Assets,
+	Taxonomy,
+	Shortcode,
+	Block,
+};
+
 class Site extends \Timber\Site {
 
 	/**
 	 * Must be a \Contexis\Core\Config object
 	 */
-	private \Contexis\Core\Config $config;
+	private Config $config;
 
 	/**
 	 * Constructor loads config and parent constructor
@@ -60,7 +71,7 @@ class Site extends \Timber\Site {
 	}
 
 	private function development_functions() {
-		\Contexis\Wordpress\Assets::writeColorsToScss($this->config->get('theme_support.editor-color-palette'));
+		Assets::writeColorsToScss($this->config->get('theme_support.editor-color-palette'));
 	}
 
 	/**
@@ -70,37 +81,24 @@ class Site extends \Timber\Site {
 	 */
 	private function add_wordpress_functions() {
 
-		\Contexis\Wordpress\ThemeSupport::register($this->config->get('theme_support'));
-		\Contexis\Wordpress\Widgets::register($this->config->get('widgets'));
-		\Contexis\Wordpress\Mime::register($this->config->get('mimes'));
-		\Contexis\Wordpress\Assets::register($this->config->get('assets'));
-		\Contexis\Wordpress\Taxonomy::register($this->config->get('taxonomies'));
-		\Contexis\Wordpress\Shortcode::register();
-		\Contexis\Wordpress\Block::register($this->config->get('blocks'));
+		ThemeSupport::register($this->config->get('theme_support'));
+		Widgets::register($this->config->get('widgets'));
+		Mime::register($this->config->get('mimes'));
+		Assets::register($this->config->get('assets'));
+		Taxonomy::register($this->config->get('taxonomies'));
+		Shortcode::register();
+		Block::register($this->config->get('blocks'));
 		
-		// plugin-dependent
-		\Contexis\Core\Fields::register($this->config->get('fields'));
-
+		if (function_exists ( "acf_add_local_field_group" )) {
+			Fields::register($this->config->get('fields'));
+		}
+		
 		// remove automatic <p>-tags
 		remove_filter('the_content', 'wpautop');
 
 		$this->add_required_to_wpcf7();
 		
 	}
-
-	
-	/**
-	 * Hack for Contact form 7 to add "required" attribute, will hopefully becom
-	 * deprecated in future
-	 * 
-	 * @since 1.0.0
-	 */
-	private function add_required_to_wpcf7() {
-		add_filter( 'wpcf7_form_elements', function($content) {
-			return str_replace('aria-required="true"', 'required aria-required="true"', $content);
-		});
-	}
-
 
 	/**
 	 * Calls all Timber related functions
@@ -113,7 +111,8 @@ class Site extends \Timber\Site {
 	}
 
 	private function custom_functions() {
-		\Contexis\Wordpress\Plugins\ContactForm7::addCustiomAttribute("booking");
+		\Contexis\Wordpress\Plugins\ContactForm7::add_custom_attribute("booking");
+		\Contexis\Wordpress\Plugins\ContactForm7::add_required_to_wpcf7();
 	}
 	
 }
