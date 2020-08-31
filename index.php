@@ -7,7 +7,7 @@
  */
 
 
-$route = new \Contexis\Core\Router($config->get('router'));
+$route = new \Contexis\Core\Router($config->get('routes'));
 
 $controller = 'Contexis\\Controllers\\' . $route->get();
 
