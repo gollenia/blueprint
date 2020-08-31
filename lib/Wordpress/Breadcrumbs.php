@@ -2,7 +2,10 @@
 
 namespace Contexis\Wordpress;
 
-use Timber\Timber;
+use Timber\{
+    Post,
+    Term
+};
 
 /**
  * Generates an Array with parent Pages
@@ -16,7 +19,7 @@ Class Breadcrumbs {
             return false;
         }
     
-        $post = new \Timber\Post();
+        $post = new Post();
 
         $breadcrumbs = [];
         
@@ -27,8 +30,6 @@ Class Breadcrumbs {
     
         if ( is_single() ) {
             $term = $post->terms[0];
-
-            \Contexis\Core\Utilities::debug($term);
             
             $slug = explode("/", ltrim(get_option("permalink_structure"), '/'))[0];
 
@@ -38,7 +39,7 @@ Class Breadcrumbs {
 
             
             while($term->parent) {
-                $term = new \Timber\Term($term->parent);
+                $term = new Term($term->parent);
                 array_unshift($breadcrumbs, ["title" => $term->name,"url" => $term->slug]);
             }
 
