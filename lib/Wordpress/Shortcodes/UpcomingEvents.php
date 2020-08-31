@@ -1,12 +1,17 @@
 <?php
-
-namespace Contexis\Wordpress\Shortcodes;
-
 /**
- * Shortcode Class for displaying latest news
+ * Shortcode Class for displaying upcoming events
  * 
  * @since 1.0.0
  */
+
+namespace Contexis\Wordpress\Shortcodes;
+
+use Timber\{
+    Timber,
+    PostQuery
+};
+
 class UpcomingEvents extends \Contexis\Wordpress\Shortcode {
 
     public $shortcodeName = "ctx-upcoming-events";
@@ -69,7 +74,7 @@ class UpcomingEvents extends \Contexis\Wordpress\Shortcode {
             ]);
         }
         
-        return new \Timber\PostQuery([
+        return new PostQuery([
             'post_type' => 'event',
             'orderby' => '_event_start_date',
             'order' => strtoupper($this->attributes["order"]),
@@ -111,7 +116,7 @@ class UpcomingEvents extends \Contexis\Wordpress\Shortcode {
     }
 
     public function render($context) {
-        return \Timber\Timber::compile_string($this->get_template(), $context);
+        return Timber::compile_string($this->get_template(), $context);
     }
 }
 
