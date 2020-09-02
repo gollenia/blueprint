@@ -20,6 +20,7 @@ class Events extends \Contexis\Core\Controller {
             'slug' => get_option("dbem_cp_events_slug"),
             "breadcrumbs" => Breadcrumbs::generate(),
         ]);
+        
         $this->setTemplate('pages/events.twig');
     }
 
