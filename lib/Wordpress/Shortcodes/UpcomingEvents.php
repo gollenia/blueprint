@@ -23,9 +23,9 @@ class UpcomingEvents extends \Contexis\Wordpress\Shortcode {
         'limit' => 12,
         'tags' => '',
         'order' => 'desc',
-        'large-columns' => 0,
-        'medium-columns' => 0,
-        'small-columns' => 0,
+        'largecolumns' => 1,
+        'mediumcolumns' => 1,
+        'smallcolumns' => 1,
     ];
 
     public function __construct() {
@@ -99,7 +99,7 @@ class UpcomingEvents extends \Contexis\Wordpress\Shortcode {
 
     private function get_template() {
         return <<<EOD
-            <div class="uk-child-width-1-{{attributes.small-columns}}@s uk-child-width-1-{{attributes.medium-columns}}@m uk-child-width-1-{{attributes.large-columns}}@l" uk-grid>
+            <div class="uk-child-width-1-{{attributes.smallcolumns}}@s uk-child-width-1-{{attributes.mediumcolumns}}@m uk-child-width-1-{{attributes.largecolumns}}@l" uk-grid>
                 {% for item in events %}
                     <a class="uk-link-reset ctx-post-item uk-margin-bottom uk-flex uk-flex-middle {% for term in item.get_terms() %}{{term.slug}} {% endfor %}" href="/aktuell/{{item.post_name}}">
                         <div class="uk-margin-right uk-flex-none">
