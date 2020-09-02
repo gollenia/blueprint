@@ -22,7 +22,10 @@ class UpcomingEvents extends \Contexis\Wordpress\Shortcode {
         'tags' => false,
         'limit' => 12,
         'tags' => '',
-        'order' => 'desc'
+        'order' => 'desc',
+        'large-columns' => 0,
+        'medium-columns' => 0,
+        'small-columns' => 0,
     ];
 
     public function __construct() {
