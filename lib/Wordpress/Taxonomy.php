@@ -15,9 +15,8 @@ Class Taxonomy {
 
     
 		add_action('init', function() use (&$taxonomies){
-      var_dump("sdfsdf");
+      
 			foreach ($taxonomies as $taxonomy => $options) {
-                var_dump($options);
                 register_taxonomy($taxonomy, $options['object_type'], $options['options']);	
             }	
 		});
