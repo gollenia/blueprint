@@ -9,12 +9,8 @@
 // either set choose config files manually or scan whole directory
 // $config_array = ["site", "theme_support", "fields", "mimes", "assets", "routes", "widgets"];
 
-$config = new \Contexis\Core\Config(get_template_directory() . "/config/");
 
-// the site-object stores information about the whole site. It is later passed to twig.
-$site = new Contexis\Core\Site($config);
-
-$route = new \Contexis\Core\Router($config->get('routes'));
+$route = new \Contexis\Core\Router($config->load('routes'));
 
 $controller = 'Contexis\\Controllers\\' . $route->get();
 

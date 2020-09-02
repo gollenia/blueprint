@@ -98,4 +98,22 @@ class Config {
         $this->config[$key] = $value;
     }
 
+
+    public static function load(string $file) {
+        
+        $config_path = get_template_directory() . "/config/";
+
+
+        if (file_exists ( $config_path . $file . ".json" )) {
+            $json = file_get_contents($config_path . $file);
+            return json_decode($json, true);
+        }
+
+        if (file_exists ( $config_path . $file . ".php" )) {
+            return include($config_path . $file . ".php");
+        }
+
+        
+    }
+
 }
