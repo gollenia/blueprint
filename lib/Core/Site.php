@@ -85,6 +85,7 @@ class Site extends \Timber\Site {
 		Widgets::register($this->config->get('widgets'));
 		Mime::register($this->config->get('mimes'));
 		Assets::register($this->config->get('assets'));
+		
 		Taxonomy::register($this->config->get('taxonomies'));
 		Shortcode::register();
 		Block::register($this->config->get('blocks'));

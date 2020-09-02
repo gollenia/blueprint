@@ -5,7 +5,7 @@
  * @since 1.0.0
  */
 
- namespace Contexis\Controllers;
+namespace Contexis\Controllers;
 
 class Frontpage extends \Contexis\Core\Controller {
 
