@@ -1,0 +1,15 @@
+<div class="flex flex-{{imagePosition}} bg-{{backgroundColor}}{{transparent ? "-transparent"}} {{hover ? "hover:shadow-2xl" : ""}}">
+
+    {% if image.url %}
+    <img src={{image.url}} srcset="
+        {{image.sizes.small.url}} {{image.sizes.small.width}}w,
+        {{image.sizes.medium.url}} {{image.sizes.medium.width}}w,
+        {{image.sizes.large.url}} {{image.sizes.large.width}}w"
+        sizes = "(min-width: 1600px) 1200px, (min-width: 1400px) 1100px, (min-width:1000px) 900px, 100vw"
+        width="{{imageWidth}}%"
+    >
+    {% endif %}
+
+    <div class="block p-6 md:p-8 mb-8 text-{{backgroundColor}}-contrast">{{content|raw}}</div>
+    
+</div>

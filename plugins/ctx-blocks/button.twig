@@ -1,0 +1,12 @@
+<div class="text-{{buttonAlignment}}">
+   {% if outline %}
+   <a class="hover:text-{{buttonColor}}-contrast border-{{buttonColor}} border text-{{buttonColor}} bg-{{buttonColor}}-contrast hover:bg-{{buttonColor}} hover:text-white rounded-tl-sm px-4 py-2 rounded-br-sm text-white" href="{{url}}">{{title}}</a>
+   {% else %}
+   <a class="
+      bg-{{buttonColor}} hover:bg-{{buttonColor}}-darker text-{{buttonColor}}-contrast
+      px-4 py-2 {{ fullWidth ? w-100 }}
+      rounded-br-sm rounded-tl-sm inline-block" 
+      href="{{url}}">{{title}}
+   </a>
+   {% endif %}
+</div>
