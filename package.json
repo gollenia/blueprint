@@ -1,36 +1,37 @@
 {
-  "name": "kidsteam_wp_theme",
-  "version": "1.0.0",
-  "description": "WordPress Theme for KidsTeam Page",
-  "license": "MIT",
-  "repository": "none",
+  "name": "kids-team",
+  "version": "2.0.0",
+  "description": "Theme for kids-team Sites",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
   "scripts": {
-    "build": "webpack --mode development",
-    "dist": "webpack --mode production",
-    "watch": "webpack --watch --mode development"
+    "dev": "npm run development",
+    "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "watch": "npm run development -- --watch",
+    "watch-poll": "npm run watch -- --watch-poll",
+    "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "prod": "npm run production",
+    "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gollenia/kids-team.git"
   },
   "author": "Thomas Gollenia",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gollenia/kids-team/issues"
+  },
+  "homepage": "https://github.com/gollenia/kids-team#readme",
   "devDependencies": {
-    "@babel/core": "^7.10.2",
-    "babel-loader": "^8.0.6",
-    "babel-preset-env": "^1.7.0",
-    "copy-webpack-plugin": "^6.1.0",
-    "css-loader": "^3.6.0",
-    "fibers": "^4.0.3",
-    "mini-css-extract-plugin": "^0.9.0",
-    "node-sass": "^4.14.1",
-    "optimize-css-assets-webpack-plugin": "^5.0.3",
-    "sass": "^1.26.8",
-    "sass-loader": "^8.0.2",
-    "serialize-javascript": "^4.0.0",
-    "svg-inline-loader": "^0.8.2",
-    "uglifyjs-webpack-plugin": "^2.2.0",
-    "webpack": "^4.43.0",
-    "webpack-cli": "^3.3.12"
+    "cross-env": "^7.0.2",
+    "laravel-mix": "^5.0.5",
+    "tailwindcss": "^1.8.7"
   },
   "dependencies": {
-    "autogrow-textarea": "^1.0.1",
-    "hamburgers": "^1.1.3",
-    "uikit": "^3.5.4"
+    "@tailwindcss/typography": "^0.2.0",
+    "tailwindcss-filters": "^3.0.0"
   }
 }
