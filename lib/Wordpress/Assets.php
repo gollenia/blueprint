@@ -81,7 +81,7 @@ Class Assets {
         $scss_string = "// Auto-generated list of colors. DO NOT EDIT!\n";
         $scss_string .= "\$color-slugs: " . join(", ", $scss) . ";";
         
-        file_put_contents ( get_template_directory() . "/assets/src/scss/_colors.scss", $scss_string );
+        //file_put_contents ( get_template_directory() . "/assets/src/scss/_colors.scss", $scss_string );
         
     }
 
