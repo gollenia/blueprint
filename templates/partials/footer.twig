@@ -1,20 +1,22 @@
-<footer class="uk-section uk-section-black uk-light">
-    <div class="uk-container"><div class="uk-child-width-1-2@s uk-child-width-1-4@l" uk-grid>{{footer}}</div></div>
+<footer class="bg-darkgray py-20">
+    <div class="max-w-screen-xl mx-auto ">
+        <div class=" text-white grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">{{footer}}</div>
+    </div>
     <script>
         var lang = "{{site.language}}";
         var theme_uri = "{{site.theme.uri}}";
     </script>
     {{function('wp_footer')}}
-    <script type="text/javascript" src="{{site.theme.uri}}/assets/dist/main.js?ver=5.4.1"></script> 
+    
     
 </footer>
-<div class="imprint">
-    <div class="uk-container">
-        <div uk-grid>
-            <div class="imprint-logo"><img data-src="{{ site.theme.uri }}/assets/dist/img/logo.svg" class="ctx-logo-image" uk-svg width="24" height="24"></div>
+<div class="text-gray bg-darkgray-darker">
+    <div class="max-w-screen-xl mx-auto py-2">
+        <div class="flex flex-row">
+            <div class="imprint-logo"><img class="fill-gray" src="{{ site.theme.uri }}/assets/img/logo.svg" width="24" height="24"></div>
             <div><span>Copyright: kids-team</span></div>
-            <div><a href="/impressum">Impressum</a></div>
-            <div><a href="/datenschutzerklärung">Datenschutzerklärung</a></div>
+            <div class="place-self-end"><a href="/impressum">Impressum</a></div>
+            <div class="place-self-end"><a href="/datenschutzerklärung">Datenschutzerklärung</a></div>
         </div>
     </div>
 </div>

@@ -1,18 +1,17 @@
 {% if menu %}
-	<ul class="uk-navbar-nav uk-visible@m">
+	
 	{% for item in menu %}
-		<li class="nav-item {{item.class}} {% if item.has_child_class %}dropdown{% endif %} {% if loop.last %}last{% endif %} {% if (item.current or item.current_item_ancestor) %}uk-active{% endif %}">
-			<a href="{% if item.has_child_class %}#{% else %}{{item.get_link}}{% endif %}">
-				{{item.title}}
-				{% if item.has_child_class %}<span class="caret"></span>{% endif %}
-			</a>
-			{% if item.has_child_class %}
-				{% include "partials/menu-dropdown.twig" with {'menu': item.children} %}
-			{% endif %}
-		</li>  
+		
+		{% if item.has_child_class %}
+		{% include "partials/menu-dropdown.twig" with {'menu': item} %}
+		{% else %}
+		<a href="{{item.get_link}}" class="px-4 py-1 font-semibold text-gray-900 md:mt-0 hover:text-gray-900 
+			focus:text-gray-900 focus:outline-none focus:shadow-outline {% if (item.current or item.current_item_ancestor) %}bg-gray-200{% endif %}" href="">
+			{{item.title}}
+		</a>
+		
+		{% endif %}
+	
 	{% endfor %}
-		<li class="nav-item">
-			<a href="#" class="ctx-icon ctx-icon-search" uk-toggle="target: #search; animation: uk-animation-fade"></a>
-		</li>
-	</ul>
+	
 {% endif %}

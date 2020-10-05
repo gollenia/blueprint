@@ -1,30 +1,47 @@
 {% extends "master.twig" %}
 
 {% block content %}
-    <header>
-        <div class="uk-container">
-            <div uk-grid>
-                <div class="uk-width-1-2@m">
-                    <h5 class="uk-margin-remove">{{post.subtitle}}</h5>
-                    <h2 class="uk-margin-remove">{{post.title}}</h2>
-                </div>
-                <div class="uk-width-1-2@m">
+<header  class="bg-cover" style="background-position: {{post.headerimageorientation}}; background-image: url('{{ post.thumbnail.src('xlarge') }}')">
+    {% include "partials/breadcrumbs.twig" with {'breadcrumbs': breadcrumbs} %}
+    <div  style="margin-top: 30vh;"  class="max-w-screen-xl mx-auto">
+        <div class="relative inline-block bg-primary-transparent bg-opacity-75 bg-blur  rounded-tr-lg text-white text-right" style="margin-left: -2000px; padding: 50px 50px 50px 2000px;">
+            <h1 class="ml-4 md:ml-8 xl:mr-0 font-script uk-margin-remove">{{post.post_title}}</h1>
+            <h3 class="ml-4 md:ml-8 xl:mr-0 uk-margin-remove">{{post.subtitle}}</h3>
+            {%if post.headerurl %}<a target="{{post.headerurl.target}}" href="{{ post.headerurl.url }}" class="absolute right-0 rounded-tl-md rounded-br-md mr-8 top-0 -mt-4 px-4 py-2 text-xl bg-primary-dark ctx-icon ctx-icon-arrow-forward">{{ post.headerurl.title }}</a>{% endif %}
+        </div>
+    </div>
+    
+</header>     
+    
+    <article class="bg-default px-4 md:px-8 lg:px-0  py-8 ">
+        <div class="max-w-screen-xl mx-auto grid grid-cols-1 lg:grid-cols-3 my-20 md:gap-4">
+
+            <div class="col-span-2 ">
+                
+                <p class="dotted-line-bottom uk-padding uk-padding-remove-horizontal">{{post.post_excerpt}}</p>
+                <div class="dotted-line-bottom uk-padding uk-padding-remove-horizontal">{{post.post_content}}</div>
+                
+                {% if bookings > 0 %}
+                        <div x-data="" class="uk-text-right uk-padding uk-padding-remove-horizontal"><a @click="$dispatch('booking-modal')" class="uk-button uk-button-primary ctx-icon ctx-icon-pen" href="#booking-modal" uk-toggle>Zur Anmeldung</a></div>
+            
+                        <button @click="$dispatch('open-booking')" class="uk-modal-close-full uk-close-large" type="button" uk-close></button>
+                            <div class="uk-container uk-padding-large">
+                                <h2>Anmeldung zur {{post.title}}</h2>
+                                {{ booking }}
+                            </div>
+                {% endif %}
+                <div class="similar-events uk-hidden@m">
                     
+                    {% include "partials/similar-events.twig" with {'events': events} %}
                 </div>
             </div>
-        </div>
-    </header>
-    
-    <article>
-        <div class="uk-container">
-        <div uk-grid>
-            <div class="uk-width-1-2@m">
-                <div class="uk-margin-large-top ctx-event-details">
-                    <p class="ctx-post-date uk-flex uk-flex-middle uk-flex-left">
-                        <span class="ctx-icon ctx-icon-boy">{{post.get_terms('audience')|first}}</span>
+            <div class="">
+                <div class="bg-gray p-10 rounded-tl-md rounded-br-md">
+                    <p class="py-2 flex flex-row items-center">
+                        <img src="{{ site.theme.uri }}/assets/img/icons/boy.svg" width="24" class="mr-3"> <span class="ctx-icon ctx-icon-boy">{{post.get_terms('audience')|first}}</span>
                     </span>
-                    <p class="ctx-post-date uk-flex uk-flex-middle uk-flex-left">
-                        
+                    <p class="py-2  flex flex-row items-center">
+                        <img src="{{ site.theme.uri }}/assets/img/icons/calendar.svg" width="24" class="mr-3">
                         <span class="ctx-icon ctx-icon-calendar">
                             {% if post._event_start_date == post._event_end_date %}
                                 {{ post._event_start_date|date("j. F Y") }} 
@@ -39,7 +56,8 @@
                         
                     </p>
                     {% if event.event_all_day != 1 %}
-                    <p class="ctx-post-date uk-flex uk-flex-middle uk-flex-left">
+                    <p class="py-2 flex flex-row items-center">
+                        <img src="{{ site.theme.uri }}/assets/img/icons/time.svg" width="24" class="mr-3">
                         <span class="ctx-icon ctx-icon-time"></span>
                             {% if post._event_start_date == post._event_end_date %}
                                 Von {{ post._event_start_time|date("G:i") }} Bis {{ post._event_end_time|date("G:i") }} Uhr
@@ -62,37 +80,11 @@
                         <span class="ctx-icon ctx-icon-warning uk-text-danger">Nur noch wenige Plätze frei</span>
                     {% endif %}
                 </div>
-                <p class="dotted-line-bottom uk-padding uk-padding-remove-horizontal">{{post.post_excerpt}}</p>
-                <div class="dotted-line-bottom uk-padding uk-padding-remove-horizontal">{{post.post_content}}</div>
-                
-                {% if bookings > 0 %}
-                <div class="uk-text-right uk-padding uk-padding-remove-horizontal"><a class="uk-button uk-button-primary ctx-icon ctx-icon-pen" href="#booking-modal" uk-toggle>Zur Anmeldung</a></div>
-                <div id="booking-modal" class="uk-modal-full" uk-modal>
-                    <div class="uk-modal-dialog">
-                        <button class="uk-modal-close-full uk-close-large" type="button" uk-close></button>
-                            <div class="uk-container uk-padding-large">
-                                <h2>Anmeldung zur {{post.post_title}}</h2>
-                                {{ booking }}
-                            </div>
-                        
-                    </div>
-                </div>
-                {% endif %}
-                <div class="similar-events uk-hidden@m">
-                    
-                    {% include "partials/similar-events.twig" with {'events': events} %}
-                </div>
-            </div>
-            <div class="uk-width-1-2@m ctx-event-side uk-flex-first uk-flex-last@m">
-                <div class="ctx-event-image">
-                    <span>{{post.thumbnail.caption}}</span>
-                    <img src="{{ post.thumbnail.src('large') }}" class="ctx-round-edges" alt="Image for {{ post.title }}" />
-                </div>
                 <div class="similar-events uk-visible@m uk-margin-top">
                     {% include "partials/similar-events.twig" with {'events': events} %}
                 </div>
             </div>
-        </div>
+        
     </div>
         
     </article>

@@ -1,18 +1,18 @@
 {% extends "master.twig" %}
 
 {% block content %}
-<header class="{{ post.thumbnail.src('xlarge') is empty ? "no-background-image" }}" style="padding-top: {{post.headerheight}}vh; background-position: {{post.headerimageorientation}}; background-image: url('{{ post.thumbnail.src('xlarge') }}')">
-    <div class="uk-container">
-    <div class="caption">
-        <h1 class="uk-margin-remove">{{post.title}}</h1>
-        {% if post.subtitle %}
-            <h4 class="uk-margin-remove">{{post.subtitle}}</h4>
-        {% endif %}
-        {%if post.headerurl %}<a target="{{post.headerurl.target}}" href="{{ post.headerurl.url }}" class=" uk-button uk-button-primary-dark uk-button-large ctx-icon ctx-icon-arrow-forward">{{ post.headerurl.title }}</a>{% endif %}
-    </div>
-</div>
-</header>
-    <article>
+    <header class="bg-cover" style="padding-top: {{post.headerheight}}vh; background-position: {{post.headerimageorientation}}; background-image: url('{{ post.thumbnail.src('xlarge') }}')">
+        {% include "partials/breadcrumbs.twig" with {'breadcrumbs': breadcrumbs} %}
+        <div class="max-w-screen-xl mx-auto">
+            <div class="relative inline-block bg-blue-transparent bg-opacity-75 bg-blur  rounded-tr-lg text-white text-right" style="margin-left: -2000px; padding: 50px 50px 50px 2000px;">
+                
+                <h1 class="ml-4 md:ml-8 xl:mr-0 font-script uk-margin-remove">{{post.title}}</h1>
+                <h3 class="ml-4 md:ml-8 xl:mr-0 uk-margin-remove">{{post.subtitle}}</h3>
+                {%if post.headerurl %}<a target="{{post.headerurl.target}}" href="{{ post.headerurl.url }}" class="absolute right-0 rounded-tl-md rounded-br-md mr-8 top-0 -mt-4 px-4 py-2 text-xl bg-primary-dark ctx-icon ctx-icon-arrow-forward">{{ post.headerurl.title }}</a>{% endif %}
+            </div>
+        </div>
+    </header>
+    <article class="bg-default">
         {{ post.content }}
     </article>
 {% endblock %}

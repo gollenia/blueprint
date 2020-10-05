@@ -2,23 +2,27 @@
 <html lang="de">
     <head>
         <meta charset="utf-8">
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"></script>
+        
+
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         {{function('wp_head')}}
         {% include "partials/stylesheet.twig" with {'config': config} %}
     </head>
 
-    <body class="{{body_class}} {{site.language}} {{post.slug}} {{post.pagecolor}} {% for term in post.get_terms() %}{{term.slug}} {% endfor %}">
-        <div class="logo-image"><a href="/"><img data-src="{{ site.theme.uri }}/assets/dist/img/logo.svg" class="ctx-logo-image" uk-svg width="70" height="70px"></a></div>
+    <body class="font-body antialiased mr-4 lg:mr-10 {{body_class}} {{site.language}} {{post.slug}} {{post.pagecolor}} {% for term in post.get_terms() %}{{term.slug}} {% endfor %}">
+        <div class="absolute mt-3 ml-8 z-50"><a href="/">{{ source( theme_root ~ 'assets/img/logo.svg', ignore_missing = true) }}</a></div>
         {% include "partials/search.twig" with {'menu': menu} %}
         <div class="body">
             {% include "partials/menu.twig" with {'menu': menu} %}
             {% include "partials/menu-mobile.twig" with {'menu': menu.get_items} %}
-            {% include "partials/breadcrumbs.twig" with {'breadcrumbs': breadcrumbs} %}
+            
             {% block content %}
                 Wenn Sie das lesen können, gab es ein schweres Problem mit unserer Seite.
             {% endblock %}
 
             {% include "partials/footer.twig" with {'site': site} %}
     </div>
+    
     </body>
 </html>
