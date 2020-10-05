@@ -27,6 +27,8 @@ class Site extends \Timber\Site {
 	 */
 	private Config $config;
 
+	private string $theme_root;
+
 	/**
 	 * Constructor loads config and parent constructor
 	 * 
@@ -34,8 +36,9 @@ class Site extends \Timber\Site {
 	 * @since 1.0.0
 	 * 
 	 */
-	public function __construct($config) {
+	public function __construct(Config $config) {
 		$this->config = $config;
+		$this->theme_root = get_theme_root();
 		$this->add_wordpress_functions();
 		$this->add_timber_functions();
 		$this->custom_functions();
@@ -97,7 +100,7 @@ class Site extends \Timber\Site {
 		// remove automatic <p>-tags
 		remove_filter('the_content', 'wpautop');
 
-		$this->add_required_to_wpcf7();
+		//$this->add_required_to_wpcf7();
 		
 	}
 
