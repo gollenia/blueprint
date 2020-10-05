@@ -27,6 +27,7 @@ if(!get_transient( $_SERVER['REMOTE_ADDR'])) {
  * 
  * @link https://getcomposer.org/
  */
+
 require_once( __DIR__ . '/vendor/autoload.php' );
 
 $config = new \Contexis\Core\Config(get_template_directory() . "/config/");
