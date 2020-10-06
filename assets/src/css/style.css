@@ -33,7 +33,7 @@
   @apply my-8;
 }
 
-.input-text input, .input-name input, .input-user_email input, .input-country select, .input-select select {
+.input-text input, .input-user-field input, .input-name input, .input-user_email input, .input-country select, .input-select select {
   
   outline: none !important;
   width: 100%;
@@ -48,7 +48,7 @@
   padding-bottom: 7px;
 }
 
-.input-country select, .input-select select {
+.input-country select, .dbem_country select, .input-select select {
   padding-left: 15px;
 }
 
@@ -62,7 +62,7 @@ input[type="submit"] {
   @apply rounded-br-sm;
 }
 
-.input-text label, .input-name label, .input-user_email label, .input-select label, .input-country label {
+.input-text label, .input-user-field input, .input-name label, .input-user_email label, .input-select label, .input-country label {
   margin-top: -10px;
   @apply inline-block;
   height: max-content;
