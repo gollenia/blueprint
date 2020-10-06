@@ -22173,7 +22173,7 @@ input[type="submit"] {
   border-bottom-right-radius: 5px;
 }
 
-.input-text label, .input-user-field input, .input-name label, .input-user_email label, .input-select label, .input-country label {
+.input-text label, .input-user-field label, .input-name label, .input-user_email label, .input-select label, .input-country label {
   margin-top: -10px;
   display: inline-block;
   height: -webkit-max-content;
