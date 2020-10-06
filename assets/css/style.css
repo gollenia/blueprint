@@ -22143,13 +22143,13 @@ h5 {
   margin-bottom: 2rem;
 }
 
-.input-text input, .input-user-field input, .input-name input, .input-user_email input, .input-country select, .input-select select {
+.input-text input, .input-user-field input, .input-name input, .input-user_email input, .input-dbem_country select, .input-country select, .input-select select {
   outline: none !important;
   width: 100%;
   border-width: 2px;
   border-color: var(--lightgray);
-  border-top-left-radius: 20px;
-  border-bottom-right-radius: 20px;
+  border-top-left-radius: 10px;
+  border-bottom-right-radius: 10px;
   background-color: var(--white);
   padding-left: 18px;
   padding-right: 18px;
@@ -22169,12 +22169,12 @@ input[type="submit"] {
   background-color: var(--blue);
   color: var(--white);
   font-weight: 700;
-  border-top-left-radius: 20px;
-  border-bottom-right-radius: 20px;
+  border-top-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 
 .input-text label, .input-user-field label, .input-name label, .input-user_email label, .input-select label, .input-country label {
-  margin-top: -10px;
+  margin-top: -12px;
   display: inline-block;
   height: -webkit-max-content;
   height: -moz-max-content;
