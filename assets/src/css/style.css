@@ -29,7 +29,7 @@
   @apply flex-col;
 }
 
-.input-group, .input-name, .input-user_email {
+.input-group, .input-name, .input-user_email, .input-user-field {
   @apply my-8;
 }
 
@@ -39,8 +39,8 @@
   width: 100%;
   @apply border-2;
   @apply border-lightgray;
-  @apply rounded-tl-sm;
-  @apply rounded-br-sm;
+  @apply rounded-tl-md;
+  @apply rounded-br-md;
   @apply bg-white;
   padding-left: 18px;
   padding-right: 18px;
@@ -48,7 +48,7 @@
   padding-bottom: 7px;
 }
 
-.input-country select, .dbem_country select, .input-select select {
+.input-country select, .dbem_country select, .input-dbem_country select, .input-select select {
   padding-left: 15px;
 }
 
@@ -58,8 +58,8 @@ input[type="submit"] {
   @apply bg-blue;
   @apply text-white;
   @apply font-bold;
-  @apply rounded-tl-sm;
-  @apply rounded-br-sm;
+  @apply rounded-tl-md;
+  @apply rounded-br-md;
 }
 
 .input-text label, .input-user-field label, .input-name label, .input-user_email label, .input-select label, .input-country label {

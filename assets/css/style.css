@@ -22138,7 +22138,7 @@ h5 {
   flex-direction: column;
 }
 
-.input-group, .input-name, .input-user_email {
+.input-group, .input-name, .input-user_email, .input-user-field {
   margin-top: 2rem;
   margin-bottom: 2rem;
 }
@@ -22148,8 +22148,8 @@ h5 {
   width: 100%;
   border-width: 2px;
   border-color: var(--lightgray);
-  border-top-left-radius: 5px;
-  border-bottom-right-radius: 5px;
+  border-top-left-radius: 20px;
+  border-bottom-right-radius: 20px;
   background-color: var(--white);
   padding-left: 18px;
   padding-right: 18px;
@@ -22157,7 +22157,7 @@ h5 {
   padding-bottom: 7px;
 }
 
-.input-country select, .dbem_country select, .input-select select {
+.input-country select, .dbem_country select, .input-dbem_country select, .input-select select {
   padding-left: 15px;
 }
 
@@ -22169,8 +22169,8 @@ input[type="submit"] {
   background-color: var(--blue);
   color: var(--white);
   font-weight: 700;
-  border-top-left-radius: 5px;
-  border-bottom-right-radius: 5px;
+  border-top-left-radius: 20px;
+  border-bottom-right-radius: 20px;
 }
 
 .input-text label, .input-user-field label, .input-name label, .input-user_email label, .input-select label, .input-country label {
