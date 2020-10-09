@@ -79,8 +79,12 @@ $columns = $EM_Tickets->get_ticket_collumns(); //array of column type => title
 			</tr>		
 			<?php do_action('em_booking_form_tickets_loop_footer', $EM_Ticket); //do not delete ?>
 		<?php endif; ?>
-	<?php endforeach;
-	echo '<tr><td class="font-bold" colspan="2">Gesamtpreis</td><td class="text-right"><span class="inline-block text-right font-bold" x-text="(';
+	<?php endforeach; ?>
+	
+
+</table>
+<?php
+echo '<div class="mt-4 pt-4 border-t-4 justify-between border-dotted border-gray flex"><div class="font-bold" colspan="2">Gesamtpreis</div><div class="text-right"><span class="inline-block text-right font-bold" x-text="(';
 		$firstLoop = true;
 		foreach( $EM_Tickets->tickets as $key => $EM_Ticket ) {
 			
@@ -90,8 +94,6 @@ $columns = $EM_Tickets->get_ticket_collumns(); //array of column type => title
 			echo '(ticketCount' . $EM_Ticket->ticket_id . ' * ' . $EM_Ticket->get_price(false) . ')';
 			$firstLoop = false;
 		}
-		echo ').toFixed(2)"></span></td></tr>'
+		echo ').toFixed(2)"></span></div></div>'
 	
 	?>
-
-</table>
