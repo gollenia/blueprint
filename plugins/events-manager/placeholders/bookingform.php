@@ -44,13 +44,13 @@ $EM_Tickets = $EM_Event->get_bookings()->get_tickets();
         ?>
 		<?php if( $tickets_count > 0) : ?>
 			
-			<div class="max-w-screen-xl mt-20 mx-auto flex flex-col content-center">
+			<div class="max-w-screen-xl mt-4 mx-auto flex flex-col content-center">
             <div>
-                <h2><?php echo __("Booking for", "em-pro") . " " . $EM_Event->name; ?></h2>
+                <h2 class="pl-8"><?php echo __("Booking for", "em-pro") . " " . $EM_Event->name; ?></h2>
             </div>
-            <form class="em-booking-form grid lg:grid-cols-2 gap-8" name='booking-form' method='post' action='<?php echo apply_filters('em_booking_form_action_url',''); ?>#em-booking'>
+            <form class="em-booking-form grid lg:grid-cols-2 mt-16 gap-8" name='booking-form' method='post' action='<?php echo apply_filters('em_booking_form_action_url',''); ?>#em-booking'>
                 <div class="bg-white p-8">
-                    <h4 class="font-script"><?php _e("Select your tickets first", "em-pro") ?></h4>
+                    <h3 class="font-script"><?php _e("Select your tickets first", "em-pro") ?></h4>
                     <?php do_action('em_booking_form_header', $EM_Event); ?>
                     <input type='hidden' name='action' value='booking_add'/>
                     <input type='hidden' name='event_id' value='<?php echo $EM_Event->get_bookings()->event_id; ?>'/>
@@ -71,7 +71,7 @@ $EM_Tickets = $EM_Event->get_bookings()->get_tickets();
                 </div>
 				
                 <div class='em-booking-form-details bg-white p-8'>
-                <h4 class="font-script"><?php _e("Tell us, who you are", "em-pro") ?></h4>
+                <h3 class="font-script"><?php _e("Tell us, who you are", "em-pro") ?></h4>
                     <?php
                         do_action('em_booking_form_before_user_details', $EM_Event);
                         do_action('em_booking_form_custom', $EM_Event); //do not delete
