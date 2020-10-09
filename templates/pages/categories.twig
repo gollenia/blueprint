@@ -1,26 +1,26 @@
 {% extends "master.twig" %}
 
 {% block content %}
-<header class="no-background-image" style="padding-top: 20vh;">
-    <div class="uk-container">
-    <div class="caption">
-        <h1 class="uk-margin-remove">{{category}}</h1>
+<header class="" style="padding-top: 20vh;">
+    <div class="">
+    <div class="">
+        <h1 class="">{{category}}</h1>
     </div>
 </div>
 </header>
     
-        <div class="uk-section">
-            <div class="uk-container">
-                <div class="uk-grid-large uk-child-width-1-1@s uk-child-width-1-3@m " uk-grid="masonry: true">
+        <div class="">
+            <div class="">
+                <div class="grid-cols">
                     {% for child in posts %}
                         <div>
-                        <a class="uk-card uk-card-hover" href="{{child.link}}">
-                            <div class="uk-card-media-top">
+                        <a class="" href="{{child.link}}">
+                            <div class="">
                                 <img src="{{ Image(child._thumbnail_id).src}}">
                             </div>
-                            <div class="uk-card-body">
-                                <h3 class="uk-card-title">{{child.post_title}}</h3>
-                                <span class="uk-text-muted">{{child.post_date|date("j. F Y")}}</span>
+                            <div class="">
+                                <h3 class="">{{child.post_title}}</h3>
+                                <span class="">{{child.post_date|date("j. F Y")}}</span>
                                 <p>{{child.post_excerpt|excerpt(10, "...")}}</p>
                             </div>
                         </a>

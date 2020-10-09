@@ -1,16 +1,17 @@
 
     {% for item in events %}
-        <a class="uk-link-reset ctx-post-item uk-margin-bottom uk-flex uk-flex-middle {% for term in item.get_terms() %}{{term.slug}} {% endfor %}" href="/aktuell/{{item.post_name}}">
-            <div class="uk-margin-right uk-flex-none">
-                <img src="{{ item.thumbnail.src('qsmall') }}" width="100px" class="uk-border-circle">
+        <a class="mb-8 grid grid-cols-3 gap-4 {% for term in item.get_terms() %}{{term.slug}} {% endfor %}" href="{{item.link}}">
+            <div class="">
+                <img src="{{ item.thumbnail.src('qmedium') }}" class="rounded-tl-md rounded-br-md">
             </div>
-        
-            <div>
-                <h5 class="uk-text-bold uk-margin-remove">{{item.title}}</h5>
+    
+            <div class="col-span-2">
+                <h5 class="">{{item.title}}</h5>
+                <span class="">{{item.post_date|date("j. F Y")}}</span>
                 {% if item.post_excerpt is not empty %}
                     <span>{{item.post_excerpt|excerpt(10, "...")}}</span><br/>
                 {% endif %}
-                <span class="uk-text-muted">{{item.post_date|date("j. F Y")}}</span>
+                
                 
                 
             </div>

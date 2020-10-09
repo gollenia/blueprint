@@ -1,9 +1,9 @@
 {% if menu %}
-<ul class="uk-nav-sub">
+<ul class="">
     {% for item in menu %}
-        <li class="{{item.class}} {% if (item.current or item.current_item_ancestor) %}uk-active{% endif %}">
+        <li class="{{item.class}} {% if (item.current or item.current_item_ancestor) %}{% endif %}">
             <a href="{{item.get_link}}">
-                {{item.title}}
+                {{item.title}} Pimmel
             </a>
         </li>
     {% endfor %}

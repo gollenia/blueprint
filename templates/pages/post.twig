@@ -1,56 +1,32 @@
 {% extends "master.twig" %}
 
 {% block content %}
-    <header>
-        <div class="uk-container">
-            <div uk-grid>
-                <div class="uk-width-1-2@m">
-                    <h5 class="uk-margin-remove">{{post.subtitle}}</h5>
-                    <h2 class="uk-margin-remove">{{post.title}}</h2>
-                    <h5 class="uk-margin-remove">{{post.post_excerpt}}</h5>
-                </div>
-                <div class="uk-width-1-2@m">
-                    
-                </div>
-            </div>
-            
-        </div>
-        
-    </header>
-    <article>
-        <div class="uk-container">
-        <div uk-grid>
-            <div class="uk-width-1-2@m">
-                <div class="uk-text-muted uk-margin-top">
-                    <h5 class="uk-text-bold uk-text-muted">Verfasser</h5>
-                    <div class="ctx-post-date uk-flex uk-flex-middle uk-flex-left">
-                    <img src="{{ site.theme.uri }}/assets/dist/img/boy-icon.svg" width="20" class="uk-margin-right" uk-svg>
-                    <span>{{author}}</span>
-                    </div>
-                    <h5 class="uk-text-bold uk-text-muted">Datum</h5>
-                    <div class="ctx-post-date uk-flex uk-flex-middle uk-flex-left">
-                        <img src="{{ site.theme.uri }}/assets/dist/img/calendar-icon.svg" width="20" class="uk-margin-right" uk-svg>
-                        <span>{{ post.post_date|date("j. F Y") }}</span>
-                    </div>
-                </div>
+{% include "partials/header.twig" with {'post': post, 'headerimage': true} %}
+<article class="bg-default px-4 md:px-8 lg:px-0  py-8">
+    <div class="max-w-screen-xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-16">
+            <div class="lg:col-span-2">           
                 {{ function( 'apply_filters', 'the_content', post.content ) }}
-                <div class="latest-news uk-hidden@m">
-                    <h4>Weitere Nachrichten</h4>
+            </div>
+        
+            <aside class="">
+                <div class="p-8 bg-lightgray">
+                    <div class="flex items-center">
+                        {{source(site.theme_root ~ '/assets/img/icons/boy.svg')}}
+                        <span class="ml-2 inline-block">{{author}}</span>
+                    </div>
+                    <div class="flex items-center">
+                        {{source(site.theme_root ~ '/assets/img/icons/calendar.svg')}}
+                        <span class="ml-2 inline-block">{{ post.post_date|date("j. F Y") }}</span>
+                    </div>
+                </div>
+                <div class="">
+                    <h4 class="mt-8 mb-6">Weitere Nachrichten</h4>
                     {% include "partials/posts-latest.twig" with {'latest_posts': latest_posts} %}
                 </div>
-            </div>
-            <div class="uk-width-1-2@m ctx-post-side uk-flex-first uk-flex-last@m">
-                <div class="ctx-post-image">
-                    <span>{{post.thumbnail.caption}}</span>
-                    <img src="{{ post.thumbnail.src('large') }}" class="ctx-round-edges" alt="Image for {{ post.title }}" />
-                </div>
-                <div class="latest-news uk-visible@m">
-                    <h4>Weitere Nachrichten</h4>
-                    {% include "partials/posts-latest.twig" with {'latest_posts': latest_posts} %}
-                </div>
-            </div>
+            </aside>
         </div>
     </div>
-        
-    </article>
+    
+</article>
 {% endblock %}
