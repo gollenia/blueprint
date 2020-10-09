@@ -12,7 +12,7 @@ $EM_Tickets = $EM_Event->get_bookings()->get_tickets(); //already instantiated, 
  */
 $columns = $EM_Tickets->get_ticket_collumns(); //array of column type => title
 ?>
-<table class="em-tickets w-full bg-default-darker" cellspacing="0" cellpadding="0">
+<table class="em-tickets mt-4 w-full bg-default-darker" cellspacing="0" cellpadding="0">
 	<tr>
 		<?php 
 		foreach($columns as $type => $name) {
@@ -37,9 +37,13 @@ $columns = $EM_Tickets->get_ticket_collumns(); //array of column type => title
 							<?php
 							break;
 						case 'price':
-							?>
-							<td class="py-2 em-bookings-ticket-table-price text-right "><?php echo $EM_Ticket->get_price(true); ?></td>
-							<?php
+								// dirty hack, but since we need only 2 currencies at the moment, it's ok
+								$currency = (get_option('dbem_bookings_currency') == "EUR") ? "€" : "Fr.";
+								
+								echo '<td class="py-2 em-bookings-ticket-table-price text-right ">';
+								echo '<span>' . $currency . ' </span><span class="inline-block" x-text="(ticketCount' . $EM_Ticket->ticket_id . ' * ' . $EM_Ticket->get_price(false) . ').toFixed(2)"></span>';
+								echo '</td>';
+							
 							break;
 						case 'spaces':
 							?>
@@ -75,5 +79,19 @@ $columns = $EM_Tickets->get_ticket_collumns(); //array of column type => title
 			</tr>		
 			<?php do_action('em_booking_form_tickets_loop_footer', $EM_Ticket); //do not delete ?>
 		<?php endif; ?>
-	<?php endforeach; ?>
+	<?php endforeach;
+	echo '<tr><td class="font-bold" colspan="2">Gesamtpreis</td><td class="text-right"><span class="inline-block text-right font-bold" x-text="(';
+		$firstLoop = true;
+		foreach( $EM_Tickets->tickets as $key => $EM_Ticket ) {
+			
+			if(!$firstLoop) {
+			  echo ' + ';	
+			}
+			echo '(ticketCount' . $EM_Ticket->ticket_id . ' * ' . $EM_Ticket->get_price(false) . ')';
+			$firstLoop = false;
+		}
+		echo ').toFixed(2)"></span></td></tr>'
+	
+	?>
+
 </table>
