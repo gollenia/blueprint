@@ -21,6 +21,10 @@
   </div>
 {% endif %}
 
+{% if image.subtype == 'svg+xml' %}
+  {{ source(function('wp_get_original_image_path', image.id)) }}
+{% else %}
+
 <div style="margin-top: {{marginShift}}" class="relative overflow-hidden" x-data="{showOverlay : false}" @mouseover="showOverlay = true" @mouseout="showOverlay = false">
     {% if hasOverlay %}
         <div 
@@ -45,3 +49,4 @@
     
     {{ hasLightbox ? "</a>" : "" }}
 </div>
+{% endif %}
