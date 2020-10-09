@@ -27,7 +27,7 @@ class Site extends \Timber\Site {
 	 */
 	private Config $config;
 
-	private string $theme_root;
+	public string $theme_root;
 
 	/**
 	 * Constructor loads config and parent constructor
@@ -43,6 +43,7 @@ class Site extends \Timber\Site {
 		$this->add_timber_functions();
 		$this->custom_functions();
 		parent::__construct();
+		$this->theme_root = get_theme_root() . "/kids-team";
 		add_action( 'init', [$this, 'add_taxonomies_to_pages'] );
 		if( WP_DEBUG ) {
 			$this->development_functions();
