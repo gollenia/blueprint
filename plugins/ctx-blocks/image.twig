@@ -22,7 +22,7 @@
 {% endif %}
 
 {% if image.subtype == 'svg+xml' %}
-  {{ source(function('wp_get_original_image_path', image.id)) }}
+  {{ source(function('wp_get_original_image_path', image.id), ignore_missing = true) }}
 {% else %}
 
 <div style="margin-top: {{marginShift}}" class="relative overflow-hidden" x-data="{showOverlay : false}" @mouseover="showOverlay = true" @mouseout="showOverlay = false">
