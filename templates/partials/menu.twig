@@ -1,18 +1,32 @@
-<div class="fixed w-full bg-white z-40 pt-6">
-	<div x-data="{ open: false }" class="flex flex-col md:items-end md:justify-between md:flex-row md:px-6">
-		<div class="flex flex-row items-end justify-between py-1 md:ml-20 md:pl-4">
-			<a href="#" class="invisible md:visible font-semibold  text-gray-900">...damit Kinder ihr Vertrauen auf Gott setzen</a>
-			<button class="md:hidden focus:outline-none pr-4" @click="open = !open">
-				<svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
-					<path x-show="!open" fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z" clip-rule="evenodd"></path>
-					<path x-show="open" fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-				</svg>
-			</button>
+<div class="sticky top-0 bg-white z-40 right-0 left-0 pt-4">
+	<div x-data="{ open: false }" class="flex flex-col md:items-end md:justify-between md:flex-row">
+		
+		<div class="flex justify-between md:items-end flex-row py-1">
+			<div class="-mb-5 ml-4 md:ml-8"><a href="/">{{ source( theme_root ~ 'assets/img/logo.svg', ignore_missing = true) }}</a></div>
+			<a href="#" class="pl-4 hidden md:inline-block font-semibold  text-gray-900">...damit Kinder ihr Vertrauen auf Gott setzen</a>
+			<a class="md:hidden align-end pt-5 pr-2" @click="open = !open">
+				{% include "icons/hamburger.twig" %}
+			</a>
 		</div>
-	<nav :class="{'flex': open, 'hidden': !open}" class="flex-col flex-grow hidden pb-4 ml-6 md:ml-0 mt-8 md:mt-2 md:md-0 md:pb-0 md:flex md:justify-end md:flex-row">
+		<nav :class="{'flex': open, 'hidden': !open}" class="h-full md:h-auto flex-col flex-grow hidden pb-4 ml-6 md:ml-0 mt-8 md:mt-0 md:md-0 md:pb-0 md:flex md:justify-end md:flex-row">
+
+			{% if menu %}
+	
+				{% for item in menu.get_items %}
 		
-			{% include "partials/menu-desktop.twig" with {'menu': menu.get_items} %}
+					{% if item.has_child_class %}
+						{% include "partials/menu-dropdown.twig" with {'menu': item} %}
+					{% else %}
+						<a href="{{item.get_link}}" class="text-xl md:text-base rounded-tl rounded-br hover:bg-lightgray px-4 py-1 font-semibold md:mt-0 {% if (item.current or item.current_item_ancestor) %}bg-lightgray{% endif %}" href="">
+							{{item.title}}
+						</a>
 		
-	</nav>
-</div>
+					{% endif %}
+	
+				{% endfor %}
+	
+			{% endif %}
+				
+		</nav>
+	</div>
 </div>
