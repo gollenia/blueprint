@@ -22131,6 +22131,72 @@ h5 {
           animation: bounce 1s infinite;
 }
 
+.bg-primary {
+  background-color: var(--primary);
+}
+
+.bg-primary-light {
+  background-color: var(--primary-light);
+}
+
+.bg-primary-dark {
+  background-color: var(--primary-dark);
+}
+
+.fill-primary {
+  fill: var(--primary);
+}
+
+.bg-blur {
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+}
+
+.text-primary {
+  color: var(--primary);
+}
+
+.text-primary-contrast {
+  color: var(--primary-contrast);
+}
+
+.bg-primary-transparent {
+  background: var(--primary-transparent);
+}
+
+.hover\:bg-primary:hover {
+  background-color: var(--primary);
+}
+
+.hover\:bg-primary-light:hover {
+  background-color: var(--primary-light);
+}
+
+.hover\:bg-primary-dark:hover {
+  background-color: var(--primary-dark);
+}
+
+.hover\:fill-primary:hover {
+  fill: var(--primary);
+}
+
+.hover\:bg-blur:hover {
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+}
+
+.hover\:text-primary:hover {
+  color: var(--primary);
+}
+
+.hover\:text-primary-contrast:hover {
+  color: var(--primary-contrast);
+}
+
+.hover\:bg-primary-transparent:hover {
+  background: var(--primary-transparent);
+}
+
 /* breaks the utilities-first rule... */
 
 .equalizer > div {
@@ -22240,39 +22306,6 @@ input-textarea textarea {
 }
 
 /* Set primary color for each country / city */
-
-.bg-primary {
-  background-color: var(--primary);
-}
-
-.bg-primary-light {
-  background-color: var(--primary-light);
-}
-
-.bg-primary-dark {
-  background-color: var(--primary-dark);
-}
-
-.fill-primary {
-  fill: var(--primary);
-}
-
-.bg-blur {
-  -webkit-backdrop-filter: blur(5px);
-          backdrop-filter: blur(5px);
-}
-
-.text-primary {
-  color: var(--primary);
-}
-
-.text-primary-contrast {
-  color: var(--primary-contrast);
-}
-
-.bg-primary-transparent {
-  background: var(--primary-transparent);
-}
 
 .de-AT {
   --primary: var(--blue);

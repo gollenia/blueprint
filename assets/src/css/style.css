@@ -133,8 +133,9 @@ select:invalid {
   @apply flex-1;
 }
 
-/* Set primary color for each country / city */
-  .bg-primary {
+@layer utilities {
+  @variants hover {
+    .bg-primary {
       background-color: var(--primary);
   }
 
@@ -165,6 +166,11 @@ select:invalid {
    .bg-primary-transparent {
     background: var(--primary-transparent);
    }
+  }
+}
+
+/* Set primary color for each country / city */
+  
 
   .de-AT {
     --primary: var(--blue);
