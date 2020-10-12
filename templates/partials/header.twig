@@ -1,7 +1,7 @@
 <header class="bg-cover bg-primary-light" style="padding-top: {{post.headerheight ? post.headerheight : 20}}vh; background-position: {{post.headerimageorientation ? post.headerimageorientation : 'center'}}; {% if headerimage %}background-image: url('{{ post.thumbnail.src('xlarge') }}'){% endif %}">
     {% include "partials/breadcrumbs.twig" with {'breadcrumbs': breadcrumbs} %}
     <div class="max-w-screen-xl mx-auto">
-        <div class="relative inline-block bg-blue-transparent bg-opacity-75 bg-blur  rounded-tr-lg text-white text-right" style="margin-left: -2000px; padding: 50px 50px 50px 2000px;">
+        <div class="relative inline-block bg-primary-transparent bg-opacity-75 bg-blur  rounded-tr-lg text-white text-right" style="margin-left: -2000px; padding: 50px 50px 50px 2000px;">
             
             <h1 class="ml-4 md:ml-8 xl:mr-0 font-script">{{post.title}}</h1>
             <h3 class="ml-4 md:ml-8 xl:mr-0">{{post.subtitle}}</h3>
