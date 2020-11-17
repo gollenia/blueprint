@@ -1,17 +1,7 @@
 {% extends "master.twig" %}
 
 {% block content %}
-<header  class="bg-cover" style="background-position: {{post.headerimageorientation}}; background-image: url('{{ post.thumbnail.src('xlarge') }}')">
-    {% include "partials/breadcrumbs.twig" with {'breadcrumbs': breadcrumbs} %}
-    <div  style="margin-top: 30vh;"  class="max-w-screen-xl mx-auto">
-        <div class="relative inline-block bg-primary-transparent bg-opacity-75 bg-blur  rounded-tr-lg text-white text-right" style="margin-left: -2000px; padding: 50px 50px 50px 2000px;">
-            <h1 class="ml-4 md:ml-8 xl:ml-0 font-script">{{post.post_title}}</h1>
-            <h3 class="ml-4 md:ml-8 xl:ml-0">{{post.subtitle}}</h3>
-            {%if post.headerurl %}<a target="{{post.headerurl.target}}" href="{{ post.headerurl.url }}" class="absolute right-0 rounded-tl-md rounded-br-md mr-8 top-0 -mt-4 px-4 py-2 text-xl bg-primary-dark ctx-icon ctx-icon-arrow-forward">{{ post.headerurl.title }}</a>{% endif %}
-        </div>
-    </div>
-    
-</header>     
+{% include "partials/header.twig" with {'post': post, 'headerimage': true} %}    
     
     <article class="bg-default px-4 md:px-8 lg:px-0  py-8 ">
         <div class="max-w-screen-xl mx-auto grid grid-cols-1 lg:grid-cols-3 my-20 md:gap-10">
