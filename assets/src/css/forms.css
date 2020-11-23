@@ -1,0 +1,174 @@
+
+/* ########## CF7-Plugin ########## */
+
+.wpcf7 br {
+    display: none;
+}
+
+.wpcf7 span.wpcf7-form-control-wrap {
+    position: initial;
+}
+
+.wpcf7 .input-text {
+    margin-bottom: 30px;
+}
+
+/* ########## EVENT-Plugin ########## */
+
+.input-group, .input-name, .input-user_email, .input-user-field {
+    @apply my-8;
+  }
+  
+.input-text input, .input-user-field input, .input-name input, .input-user_email input, .input-dbem_country select, .input-country select, .input-select select {
+    outline: none !important;
+    width: 100%;
+    @apply border-2;
+    @apply border-lightgray; 
+    @apply rounded-tl;
+    @apply rounded-br;
+    @apply bg-white;
+    padding-left: 18px;
+    padding-right: 18px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    @apply duration-300;
+    @apply transition-all;
+    @apply ease-in-out;
+    color: #222222;
+}
+
+.input-country select, .dbem_country select, .input-dbem_country select, .input-select select {
+    padding-left: 15px;
+}
+
+.input-checkbox {
+    margin-bottom: 30px;
+    margin-top: 20px;
+}
+
+.error-message {
+    @apply text-red;
+    @apply text-xs;
+    padding-left: 18px;
+    display: block;
+}
+
+input[type="checkbox"] {
+    display:none;
+}
+
+input[type="checkbox"] + span::before {
+    width: 20px;
+    height: 20px;
+    @apply rounded-tl-sm;
+    @apply rounded-br-sm;
+    @apply border-2;
+    @apply border-lightgray;
+    background-color: #fff;
+    @apply duration-300;
+    @apply transition-all;
+    @apply ease-in-out;
+    display: block;
+    content: "";
+    float: left;
+    margin-right: 5px;
+  }
+  input[type="checkbox"]:checked+span::before {
+    box-shadow: inset 0px 0px 0px 3px #fff;
+    background-color: var(--blue);
+    @apply border-blue;
+  }
+
+  span.wpcf7-list-item {
+    display: inline-block;
+     margin: 0 0 0 0 !important; 
+}
+
+input[type="submit"] {
+    @apply px-4;
+    @apply py-2;
+    @apply bg-blue;
+    @apply text-white;
+    @apply font-bold;
+    @apply rounded-tl;
+    @apply rounded-br;  
+    @apply cursor-pointer;
+    @apply outline-none;
+}
+
+.input-textarea label, .input-text label, .input-user-field label, .input-name label, .input-user_email label, .input-select label, .input-country label {
+    margin-top: -12px;
+    @apply inline-block;
+    height: max-content;
+    margin-left: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-right: 10px;
+    @apply rounded-tl-sm;
+    @apply rounded-br-sm;
+    white-space: nowrap;
+    @apply absolute;
+    @apply bg-lightgray;
+    @apply text-black;
+    @apply text-sm;
+    @apply duration-300;
+    @apply transition-all;
+    @apply ease-in-out;
+}
+  
+  
+  
+.error input {
+   @apply text-red;
+   @apply border-red;
+}
+  
+select:invalid {
+    @apply text-gray;
+}
+  
+  
+.error label {
+    @apply bg-red;
+    @apply text-white
+}
+  
+.input-textarea {
+    flex-flow: column;
+}
+  
+.input-textarea label {
+    width: max-content;
+    margin-top: 0px;
+}
+
+.input-textarea textarea {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    width: 100%;
+    @apply border-2;
+    @apply border-lightgray;
+    @apply rounded-tl;
+    @apply rounded-br;
+    @apply bg-white;
+    padding-left: 18px;
+    padding-right: 10px;
+    padding-top: 6px;
+    /*margin-left: 20px;*/
+    /*margin-right: 20px;*/
+    margin-top: 12px;
+    outline: none !important;
+  }
+    
+
+  .wpcf7-response-output {
+    margin-left: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-right: 10px;
+    @apply rounded-tl;
+    @apply rounded-br;
+    @apply bg-red;
+    @apply text-white;
+    border: 0px !important;
+  }

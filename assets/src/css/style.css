@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Gochi+Hand&display=swap');
 
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -29,101 +31,13 @@
   @apply flex-col;
 }
 
-.input-group, .input-name, .input-user_email, .input-user-field {
-  @apply my-8;
+.equalizer .card {
+  height: 100%;
 }
 
-.input-text input, .input-user-field input, .input-name input, .input-user_email input, .input-dbem_country select, .input-country select, .input-select select {
-  
-  outline: none !important;
-  width: 100%;
-  @apply border-2;
-  @apply border-lightgray;
-  @apply rounded-tl;
-  @apply rounded-br;
-  @apply bg-white;
-  padding-left: 18px;
-  padding-right: 18px;
-  padding-top: 7px;
-  padding-bottom: 7px;
-}
-
-.input-country select, .dbem_country select, .input-dbem_country select, .input-select select {
-  padding-left: 15px;
-}
-
-input[type="submit"] {
-  @apply px-4;
-  @apply py-2;
-  @apply bg-blue;
-  @apply text-white;
-  @apply font-bold;
-  @apply rounded-tl;
-  @apply rounded-br;
-}
-
-.input-text label, .input-user-field label, .input-name label, .input-user_email label, .input-select label, .input-country label {
-  margin-top: -12px;
-  @apply inline-block;
-  height: max-content;
-  margin-left: 10px;
-  padding-left: 10px;
-  padding-right: 10px;
-  margin-right: 10px;
-  @apply rounded-tl-sm;
-  @apply rounded-br-sm;
-  white-space: nowrap;
-  @apply absolute;
-  @apply bg-lightgray;
-  @apply text-black;
-  @apply text-sm;
-}
-
-.input-checkbox label {
-  background-color: #fff !important;
-}
+@import "forms.css";
 
 
-
-.invalid input {
-   @apply text-red;
-   @apply border-red;
-}
-
-select:invalid {
-  @apply text-gray;
-}
-
-
-.invalid label {
-    
-    @apply bg-red;
-    @apply text-white
-  }
- 
-
- 
-
-
-  input-textarea {
-    flex-flow: column;
-  }
-
-  input-textarea label {
-    width: max-content;
-  }
-
-  input-textarea textarea {
-    margin-top: 0px;
-    margin-bottom: 0px;
-    height: 228px;
-    /* width: 100%; */
-    margin-left: 20px;
-    margin-right: 20px;
-    margin-top: 10px;
-    outline: none !important;
-}
-  
 
 .script {
   font-family: "Gochi Hand";
@@ -172,7 +86,7 @@ select:invalid {
 /* Set primary color for each country / city */
   
 
-  .de-AT {
+.de-AT {
     --primary: var(--blue);
     --primary-transparent: var(--blue-transparent);
     --primary-light: var(--lightblue);
