@@ -118,6 +118,7 @@ class Site extends \Timber\Site {
 	private function custom_functions() {
 		\Contexis\Wordpress\Plugins\ContactForm7::add_custom_attribute("booking");
 		\Contexis\Wordpress\Plugins\ContactForm7::add_required_to_wpcf7();
+		\Contexis\Wordpress\Plugins\ContactForm7::remove_span_wrap();
 	}
 	
 }
