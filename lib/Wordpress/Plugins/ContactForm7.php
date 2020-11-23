@@ -36,5 +36,18 @@ Class ContactForm7 {
 			return str_replace('aria-required="true"', 'required aria-required="true"', $content);
 		});
 	}
+
+	/**
+	 * Remove <span ...>[]</span> from every input field for easier validity-check
+	 * 
+	 * @since 1.0.0
+	 */
+	public static function remove_span_wrap() {
+		add_filter('wpcf7_form_elements', function($content) {
+			$content = preg_replace('/<(span).*?class="\s*(?:.*\s)?wpcf7-form-control-wrap(?:\s[^"]+)?\s*"[^\>]*>(.*)<\/\1>/i', '\2', $content);
+			$content = str_replace('<br />', '', $content);
+			return $content;
+		});
+	}
     
 }
