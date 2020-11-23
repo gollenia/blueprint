@@ -1,6 +1,7 @@
 <?php
 /**
- * Shortcode Class for displaying upcoming events
+ * Example Shortcode Class for displaying upcoming events
+ * 
  * 
  * @since 1.0.0
  */
@@ -22,7 +23,7 @@ class UpcomingEvents extends \Contexis\Wordpress\Shortcode {
         'tags' => false,
         'limit' => 12,
         'tags' => '',
-        'order' => 'desc',
+        'order' => 'asc',
         'largecolumns' => 1,
         'mediumcolumns' => 1,
         'smallcolumns' => 1,
@@ -99,18 +100,19 @@ class UpcomingEvents extends \Contexis\Wordpress\Shortcode {
 
     private function get_template() {
         return <<<EOD
-            <div class="uk-child-width-1-{{attributes.smallcolumns}}@s uk-child-width-1-{{attributes.mediumcolumns}}@m uk-child-width-1-{{attributes.largecolumns}}@l" uk-grid>
+            <div class="grid grid-cols-{{attributes.smallcolumns}} md:grid-cols-{{attributes.mediumcolumns}} xl:grid-cols-{{attributes.largecolumns}}">
                 {% for item in events %}
-                    <a class="uk-link-reset ctx-post-item uk-margin-bottom uk-flex uk-flex-middle {% for term in item.get_terms() %}{{term.slug}} {% endfor %}" href="/aktuell/{{item.post_name}}">
-                        <div class="uk-margin-right uk-flex-none">
-                            <img src="{{ item.thumbnail.src('qsmall') }}" width="100px" class="uk-border-circle">
-                        </div>
-                        <div>
-                            <h5 class="uk-text-bold uk-margin-remove">{{item.title}}</h5>
+                    <a class="mb-4 flex {% for term in item.get_terms() %}{{term.slug}} {% endfor %}" href="/aktuell/{{item.post_name}}">
+                        
+                        <img src="{{ item.thumbnail.src('qsmall') }}" width="100px" class="rounded-tl-md rounded-br-md w-24 h-24">
+                        
+                        <div class="pl-4">
+                            <h5 class="text-bold">{{item.title}}</h5>
+                            <div class="text-gray">{{item._event_start_date|date("j. F Y")}}</div>
                             {% if item.post_excerpt is not empty %}
-                                <span>{{item.post_excerpt}}</span><br/>
+                                <span>{{item.post_excerpt|excerpt(20)}}</span><br/>
                             {% endif %}
-                            <span class="uk-text-muted">{{item.post_date|date("j. F Y")}}</span>
+                            
                         </div>
                     </a>
                 {% endfor %}
