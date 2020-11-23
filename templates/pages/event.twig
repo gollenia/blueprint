@@ -4,7 +4,7 @@
 {% include "partials/header.twig" with {'post': post, 'headerimage': true} %}    
     
     <article class="bg-default px-4 md:px-8 lg:px-0  py-8 ">
-        <div class="max-w-screen-xl mx-auto grid grid-cols-1 lg:grid-cols-3 my-20 md:gap-10">
+        <div class="max-w-screen-xl mx-auto grid grid-cols-1 lg:grid-cols-3 lg:my-20 md:gap-10">
 
             <div class="col-span-2 ">
                 
@@ -12,16 +12,16 @@
                 <div class="py-8 border-b-4 border-gray border-dotted">{{post.post_content}}</div>
                 
                 {% if bookings > 0 %}
-                    <div x-data="" class="py-8"><a @click="$dispatch('booking-modal')" class="rounded-tl rounded-br px-6 py-3 bg-primary text-primary-contrast button" href="#">Zur Anmeldung</a></div>  
+                    <div x-data="" class="my-10"><a @click="$dispatch('booking-modal')" class="rounded-tl rounded-br px-6 py-3 bg-primary text-primary-contrast button" href="#">Zur Anmeldung</a></div>  
                 {{ booking }}
                             
                 {% endif %}
                 
             </div>
-            <div class="">
+            <div class="order-first lg:order-last ">
                 <div class="bg-lightgray p-10 rounded-tl-md rounded-br-md">
                     <div class="py-2 flex flex-row items-center">
-                        
+                        <img src="{{ site.theme.uri }}/assets/img/icons/boy.svg" width="24" class="mr-3">
                         <span class="">{{post.get_terms('audience')|first}}</span>
                     </div>
                     <div class="py-2  flex flex-row items-center">
