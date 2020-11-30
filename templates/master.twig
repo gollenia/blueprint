@@ -8,7 +8,7 @@
         {% include "partials/stylesheet.twig" with {'config': config} %}
     </head>
 
-    <body class="font-body antialiased mr-4 lg:mr-10 {{body_class}} {{site.language}} {{post.slug}} {{post.pagecolor}} {% for term in post.get_terms() %}{{term.slug}} {% endfor %}">
+    <body class="font-body antialiased mr-4 lg:mr-10 lg:text-xl {{body_class}} {{site.language}} {{post.slug}} {{post.pagecolor}} {% for term in post.get_terms() %}{{term.slug}} {% endfor %}">
         
         {% include "partials/search.twig" with {'menu': menu} %}
         <div class="body">
