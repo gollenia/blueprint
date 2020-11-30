@@ -7,23 +7,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-    h1 {
-      @apply text-5xl;
-    }
-    h2 {
-      @apply text-4xl;
-    }
-    h4 {
-        @apply text-lg;
-    }
-    h3 {
-        @apply text-2xl;
-    }
-    h5 {
-        @apply font-bold;
-    }
-  }
+
 
 /* breaks the utilities-first rule... */
 .equalizer > div {
@@ -36,6 +20,7 @@
 }
 
 @import "forms.css";
+@import "blocks.css";
 
 
 
