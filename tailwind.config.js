@@ -19,7 +19,14 @@ module.exports = {
         DEFAULT: "var(--black)",
         darker: "var(--black-darker)",
       },
-      white: "#fff",
+      white: {
+        contrast: "var(--white-contrast)",
+        transparent: "var(--white-transparent)",
+        contrastsoft: "var(--white-soft-contrast)",
+        lighter: "var(--white-lighter)",
+        DEFAULT: "var(--white)",
+        darker: "var(--white-darker)",
+      },
       gray: {
         contrast: "var(--gray-contrast)",
         transparent: "var(--gray-transparent)",
@@ -196,6 +203,6 @@ module.exports = {
     borderRadius: ['responsive', 'last', 'first', 'hover', 'focus'],
   },
   plugins: [
-    
+    require('@tailwindcss/typography'),
   ]
 }
