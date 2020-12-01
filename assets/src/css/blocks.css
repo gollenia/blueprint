@@ -51,3 +51,11 @@ footer h4 {
     @apply font-bold;
     @apply py-4;
 }
+
+.grid > .grid-column:first-child > .card, .grid > .grid-column:first-child > .card img {
+    @apply rounded-tl-lg
+}
+
+.grid > .grid-column:last-child > .card {
+    @apply rounded-br-lg
+}
