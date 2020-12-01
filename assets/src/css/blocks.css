@@ -35,7 +35,7 @@ p.core-block {
 
 ul.core-block {
     @apply list-disc;
-    @apply list-inside;
+    @apply pl-8;
     @apply py-2;
 }
 
