@@ -108,7 +108,7 @@ class UpcomingEvents extends \Contexis\Wordpress\Shortcode {
                         
                         <div class="pl-4">
                             <h5 class="font-bold">{{item.title}}</h5>
-                            <div class="text-mediumgray">{{item._event_start_date|date("j. F Y")}}</div>
+                            <div class="text-gray">{{item._event_start_date|date("j. F Y")}}</div>
                             {% if item.post_excerpt is not empty %}
                                 <span>{{item.post_excerpt|excerpt(20)}}</span><br/>
                             {% endif %}
