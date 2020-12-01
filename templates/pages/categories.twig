@@ -1,15 +1,9 @@
 {% extends "master.twig" %}
 
 {% block content %}
-<header class="" style="padding-top: 20vh;">
-    <div class="">
-    <div class="">
-        <h1 class="">{{category}}</h1>
-    </div>
-</div>
-</header>
+{% include "partials/header.twig" with {'post': post, 'headerimage': true} %}  
     
-        <div class="">
+        <article>
             <div class="">
                 <div class="grid-cols">
                     {% for child in posts %}
