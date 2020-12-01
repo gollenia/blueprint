@@ -1,6 +1,6 @@
 {
   "name": "kids-team",
-  "version": "2.0.0",
+  "version": "1.0.0",
   "description": "Theme for kids-team Sites",
   "main": "index.js",
   "directories": {
@@ -31,7 +31,5 @@
     "vue-template-compiler": "^2.6.12"
   },
   "dependencies": {
-    "@tailwindcss/typography": "^0.3.1",
-    "tailwindcss-filters": "^3.0.0"
   }
 }
