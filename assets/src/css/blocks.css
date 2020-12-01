@@ -41,8 +41,8 @@ ul.core-block {
 
 ol.core-block {
     @apply list-decimal;
-    @apply list-inside;
     @apply py-2;
+    @apply pl-8;
 }
 
 footer h4 {
