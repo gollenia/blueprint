@@ -1,11 +1,12 @@
 module.exports = {
   purge: {
-    mode: 'all',
     content: [
       "./templates/*.twig",
       "./templates/**/*.twig",
-      "./plugins/*.twig",
-      "./../../plugins/ctx-blocks/templates/*.twig"
+      "./plugins/**/*.twig",
+      "./../../plugins/ctx-blocks/templates/*.twig",
+      "./../../plugins/events-manager-pro/templates/*.php",
+      "./assets/purge.html"
     ]
   },
   theme: {
@@ -201,8 +202,5 @@ module.exports = {
   },
   variants: {
     borderRadius: ['responsive', 'last', 'first', 'hover', 'focus'],
-  },
-  plugins: [
-    require('@tailwindcss/typography'),
-  ]
+  }
 }
