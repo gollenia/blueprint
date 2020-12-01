@@ -107,8 +107,8 @@ class UpcomingEvents extends \Contexis\Wordpress\Shortcode {
                         <img src="{{ item.thumbnail.src('qsmall') }}" width="100px" class="rounded-tl-md rounded-br-md w-24 h-24">
                         
                         <div class="pl-4">
-                            <h5 class="text-bold">{{item.title}}</h5>
-                            <div class="text-gray">{{item._event_start_date|date("j. F Y")}}</div>
+                            <h5 class="font-bold">{{item.title}}</h5>
+                            <div class="text-mediumgray">{{item._event_start_date|date("j. F Y")}}</div>
                             {% if item.post_excerpt is not empty %}
                                 <span>{{item.post_excerpt|excerpt(20)}}</span><br/>
                             {% endif %}
