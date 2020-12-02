@@ -12,8 +12,8 @@ class="card flex
     {{imagePosition == "bottom" ? "flex-col-reverse"}} 
     {{imagePosition == "left" ? "flex-row items-center"}} 
     {{imagePosition == "right" ? "flex-row-reverse items-center"}} 
-    {{ isFirst ? " is-first"}}
-    {{ isLast ? " is-last"}}
+    {{ isFirst ? " is-first rounded-tl-lg"}}
+    {{ isLast ? " is-last rounded-br-lg"}}
     bg-{{backgroundColor}}{{transparent ? "-transparent bg-blur"}} {{hover ? "hover:shadow-2xl" : ""}}
     "
 >
@@ -54,7 +54,8 @@ class="card flex
                     {{image.sizes.large.url}} {{image.sizes.large.width}}w"
                     sizes = "(min-width: 1600px) 1200px, (min-width: 1400px) 1100px, (min-width:1000px) 900px, 100vw"
                     width="{{imageWidth =="99" ? "100" : imageWidth}}%"
-                    class="{{imageWidth == "100" ? "m-0" : "px-4 lg:px-6"}} {{imageWidth != "100" and imagePosition =="top" ? "mt-4 lg:mt-6"}}"
+                    class="{{imageWidth == "100" ? "m-0" : "px-4 lg:px-6"}} {{imageWidth != "100" and imagePosition =="top" ? "mt-4 lg:mt-6"}} {{ isFirst ? " rounded-tl-lg"}}
+    {{ isLast ? " rounded-br-lg"}}"
                     >
                 {% endif %}
             {% endif %}
