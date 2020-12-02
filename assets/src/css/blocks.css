@@ -52,10 +52,10 @@ footer h4 {
     @apply py-4;
 }
 
-.grid > .grid-column:first-child > .card, .grid > .grid-column:first-child > .card img:not(".rounded-full") {
+.card.is-first, .card.card.is-first img:not(".rounded-full") {
     @apply rounded-tl-lg
 }
 
-.grid > .grid-column:last-child > .card {
+.card.is-last, .card.card.is-last img:not(".rounded-full"){
     @apply rounded-br-lg
 }
