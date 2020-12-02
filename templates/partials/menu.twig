@@ -17,7 +17,7 @@
 					{% if item.has_child_class %}
 						{% include "partials/menu-dropdown.twig" with {'menu': item} %}
 					{% else %}
-						<a href="{{item.get_link}}" class="lg:text-xl rounded-tl rounded-br hover:bg-lightgray px-4 py-1 font-semibold md:mt-0 {% if (item.current or item.current_item_ancestor) %}bg-lightgray{% endif %}" href="">
+						<a href="{{item.get_link}}" class="lg:text-lg rounded-tl rounded-br hover:bg-lightgray px-4 py-1 font-semibold md:mt-0 {% if (item.current or item.current_item_ancestor) %}bg-lightgray{% endif %}" href="">
 							{{item.title}}
 						</a>
 		

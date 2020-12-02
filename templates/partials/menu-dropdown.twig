@@ -1,6 +1,6 @@
 {% if menu %}
 	<div @click.away="open = false" class="relative" x-data="{ open: false }">
-		<a @click="open = !open" :class="{'bg-lightgray': open}" class="xl:text-xl active:outline-none flex flex-row items-center w-full px-4 py-1 font-semibold text-left bg-transparent rounded-tl md:rounded-br hover:bg-primary hover:text-primary-contrast md:w-auto md:inline-block md:mt-0 md:ml-4 cursor-pointer">
+		<a @click="open = !open" :class="{'bg-lightgray': open}" class="xl:text-lg active:outline-none flex flex-row items-center w-full px-4 py-1 font-semibold text-left bg-transparent rounded-tl md:rounded-br hover:bg-primary hover:text-primary-contrast md:w-auto md:inline-block md:mt-0 md:ml-4 cursor-pointer">
 			<span>{{item.title}}</span>
 			<svg fill="currentColor" viewBox="0 0 20 20" :class="{'rotate-180': open, 'rotate-0': !open}" class="inline w-4 h-4 mt-1 ml-1 transition-transform duration-200 transform md:-mt-1"><path fill-rule="evenodd" d="m 5,7 5,5 5,-5 z" clip-rule="evenodd"></path></svg>
 		</a>
