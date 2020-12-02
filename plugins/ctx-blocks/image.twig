@@ -22,9 +22,10 @@
 {% endif %}
 
 {% if image.subtype == 'svg+xml' %}
+  <figure style="width: {{width}}%; {{alignment == "center" ? "margin: auto"}}">
   {{ source(function('wp_get_original_image_path', image.id), ignore_missing = true) }}
+  </figure>
 {% else %}
-
 <div style="margin-top: {{marginShift}}" class="{{alignment == "center" ? "m-auto"}} image relative overflow-hidden" x-data="{showOverlay : false}" @mouseover="showOverlay = true" @mouseout="showOverlay = false">
     {% if hasOverlay %}
         <div 
