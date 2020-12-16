@@ -4,6 +4,7 @@ module.exports = {
       "./templates/*.twig",
       "./templates/**/*.twig",
       "./plugins/**/*.twig",
+      "./plugins/**/*.php",
       "./../../plugins/ctx-blocks/templates/*.twig",
       "./../../plugins/events-manager-pro/templates/*.php",
       "./assets/purge.html"
