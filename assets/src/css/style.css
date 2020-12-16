@@ -22,7 +22,9 @@
 @import "forms.css";
 @import "blocks.css";
 
-
+body {
+  font-variant-ligatures: none;
+}
 
 .script {
   font-family: "Gochi Hand";
