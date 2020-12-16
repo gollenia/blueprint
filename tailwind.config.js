@@ -22,7 +22,7 @@ module.exports = {
         darker: "var(--black-darker)",
       },
       white: {
-        contrast: "var(--white-contrast)",
+        contrast: "var(--black)",
         transparent: "var(--white-transparent)",
         contrastsoft: "var(--white-soft-contrast)",
         lighter: "var(--white-lighter)",
