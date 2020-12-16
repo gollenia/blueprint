@@ -52,6 +52,11 @@ footer h4 {
     @apply py-4;
 }
 
+.wp-block-quote {
+    @apply border-dotted border-l-4;
+    border-color: var(--primary);
+}
+
 .card.is-first, .card.is-first img:not(".rounded-full") {
     @apply rounded-tl-lg
 }
