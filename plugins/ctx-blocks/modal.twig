@@ -1,7 +1,7 @@
 
 
 <div x-data="{'showModal': false}" @keydown.escape="showModal = false" class="my-4">
-    <div x-show="showModal" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 transform" x-transition:enter-end="opacity-100 transform scale-100" x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100 transform" x-on:click.away="imgModalSrc = ''" class="p-2 transition-all fixed lg:w-full h-100 mt-18 lg:mt-0 inset-0 z-1 overflow-hidden mr-4 lg:mr-0 lg:flex lg:justify-center bg-blur items-center bg-white z-50 lg:bg-black-transparent">
+    <div style="display: none" x-show="showModal" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 transform" x-transition:enter-end="opacity-100 transform scale-100" x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100 transform" x-on:click.away="imgModalSrc = ''" class="p-2 transition-all fixed lg:w-full h-100 mt-18 lg:mt-0 inset-0 z-1 mr-4 lg:mr-0 lg:flex lg:justify-center bg-blur items-center bg-white z-50 lg:bg-black-transparent">
         <div class="mt-5 top-0 z-50 left-0 lg:hidden ml-4 fixed"><a href="/">{{ source( theme_root ~ 'assets/img/logo.svg', ignore_missing = true) }}</a></div>
         <button @click="showModal = false" class="text-black flex fixed lg:hidden top-0 right-0 pt-6 pr-0 outline-none focus:outline-none">
                 <svg
