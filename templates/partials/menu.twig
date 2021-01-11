@@ -3,7 +3,7 @@
 		
 		<div class="flex justify-between md:items-end flex-row py-1">
 			<div class="-mb-5 ml-4 md:ml-8 z-40"><a href="/">{{ source( theme_root ~ 'assets/img/logo.svg', ignore_missing = true) }}</a></div>
-			<a href="#" class="pl-4 hidden md:inline-block font-semibold  text-gray-900">&hellip; damit Kinder ihr Vertrauen auf Gott setzen</a>
+			<a href="#" class="pl-4 hidden md:inline-block font-semibold  text-gray-900">{{ site.description }}</a>
 			<a class="md:hidden align-end pt-5 pr-2" @click="open = !open">
 				{% include "icons/hamburger.twig" %}
 			</a>
