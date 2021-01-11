@@ -1,0 +1,129 @@
+[
+    {
+        "color": "#eeeeee",
+        "name": "Standard",
+        "slug": "default",
+        "dark": false  
+    },
+    {
+        "color": "#dddddd",
+        "name": "Hellgrau",
+        "slug": "lightgray",
+        "dark": false  
+    },
+    {
+        "color": "#999999",
+        "name": "Mittelgrau",
+        "slug": "gray",
+        "dark": false  
+    },
+    {
+        "color": "#333333",
+        "name": "Dunkelgrau",
+        "slug": "darkgray",
+        "dark": true  
+    },
+    {
+        "color": "#ffffff",
+        "name": "Weiß",
+        "slug": "white",
+        "dark": false
+        
+    },
+    {
+        "color": "#009cd9",
+        "name": "Blau",
+        "slug": "blue",
+        "dark": true
+    },
+    {
+        "color": "#AFE9FF",
+        "name": "Hellblau",
+        "slug": "lightblue",
+        "dark": false
+    },
+    {
+        "color": "#020182",
+        "name": "Dunkelblau",
+        "slug": "darkblue",
+        "dark": true
+    },
+    {
+        "color": "#faba00",
+        "name": "Orange",
+        "slug": "orange",
+        "dark": false
+    },
+    {
+        "color": "#FFD894",
+        "name": "Hell Orange",
+        "slug": "lightorange",
+        "dark": false
+    },
+    {
+        "color": "#8a2000",
+        "name": "Dunkel Orange",
+        "slug": "darkorange",
+        "dark": true
+    },
+    {
+        "color": "#AAC74E",
+        "name": "Grün",
+        "slug": "green",
+        "dark": true
+    },
+    {
+        "color": "#D4E3A6",
+        "name": "Grün",
+        "slug": "lightgreen",
+        "dark": false
+    },
+    {
+        "color": "#374215",
+        "name": "Dunkelgrün",
+        "slug": "darkgreen",
+        "dark": true
+    },
+    {
+        "color": "#8E53C0",
+        "name": "Lila",
+        "slug": "purple",
+        "dark": true
+    },
+    {
+        "color": "#D3BCE6",   
+        "name": "Lila",
+        "slug": "lightpurple",
+        "dark": false
+    },
+    {
+        "color": "#491675",   
+        "name": "Dunkel-Lila",
+        "slug": "darkpurple",
+        "dark": true
+    },
+    {
+        "color": "#e63749",
+        "name": "Rot",
+        "slug": "red",
+        "dark": true
+    },
+    {
+        "color": "#ffb4bb",
+        "name": "Hell-Rot",
+        "slug": "lightred",
+        "dark": false
+    },
+    {
+        "color": "#59031e",
+        "name": "Dunkel-Rot",
+        "slug": "darkred",
+        "dark": true
+    },
+    {
+        "color": "#000000",
+        "name": "Schwarz",
+        "slug": "black",
+        "dark": true
+    }
+]

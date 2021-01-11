@@ -9,6 +9,7 @@
 namespace Contexis\Core;
 
 use Contexis\Core\Config;
+use Contexis\Core\Color;
 use Contexis\Wordpress\Plugins\Fields;
 use Contexis\Wordpress\{
 	ThemeSupport,
@@ -17,7 +18,7 @@ use Contexis\Wordpress\{
 	Assets,
 	Taxonomy,
 	Shortcode,
-	Block,
+	Block
 };
 
 class Site extends \Timber\Site {
@@ -26,6 +27,8 @@ class Site extends \Timber\Site {
 	 * Must be a \Contexis\Core\Config object
 	 */
 	private Config $config;
+
+	private $color_palette =[];
 
 	public string $theme_root;
 
@@ -45,9 +48,6 @@ class Site extends \Timber\Site {
 		parent::__construct();
 		$this->theme_root = get_theme_root() . "/kids-team";
 		add_action( 'init', [$this, 'add_taxonomies_to_pages'] );
-		if( WP_DEBUG ) {
-			$this->development_functions();
-		}
 	}
 
 	/**
@@ -74,9 +74,7 @@ class Site extends \Timber\Site {
 		return $this->config->get();
 	}
 
-	private function development_functions() {
-		Assets::writeColorsToScss($this->config->get('theme_support.editor-color-palette'));
-	}
+
 
 	/**
 	 * Calls all Wordpress related functions
@@ -85,18 +83,23 @@ class Site extends \Timber\Site {
 	 */
 	private function add_wordpress_functions() {
 
-		ThemeSupport::register($this->config->get('theme_support'));
+		Fields::register($this->config->get('fields'));
 		Widgets::register($this->config->get('widgets'));
 		Mime::register($this->config->get('mimes'));
 		Assets::register($this->config->get('assets'));
-		
 		Taxonomy::register($this->config->get('taxonomies'));
 		Shortcode::register();
 		Block::register($this->config->get('blocks'));
+
+		$color = new Color($this->config->get('colors'));
+		$theme_colors = $color->get_theme_colors();
+		$theme_support = $this->config->get('theme_support');
+		$theme_support['editor-color-palette'] = $theme_colors;
+		$this->config->set('theme_support', $theme_support);
+		ThemeSupport::register($theme_support);
+
 		
-		if (function_exists ( "acf_add_local_field_group" )) {
-			Fields::register($this->config->get('fields'));
-		}
+		
 		
 		// remove automatic <p>-tags
 		remove_filter('the_content', 'wpautop');
