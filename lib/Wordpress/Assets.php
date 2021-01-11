@@ -70,19 +70,4 @@ Class Assets {
         });
     }
 
-    public static function writeColorsToScss($colors) {
-        if( !WP_DEBUG ) {
-            return;
-        }
-        $scss = array();
-        foreach($colors as $color) {
-            array_push($scss, "'" . $color['slug'] . "'");
-        }
-        $scss_string = "// Auto-generated list of colors. DO NOT EDIT!\n";
-        $scss_string .= "\$color-slugs: " . join(", ", $scss) . ";";
-        
-        //file_put_contents ( get_template_directory() . "/assets/src/scss/_colors.scss", $scss_string );
-        
-    }
-
 }
