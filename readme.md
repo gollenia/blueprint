@@ -8,9 +8,16 @@ This theme is created for the Wordpress-powered Website from kids-team.at/de/ch.
   * Tailwind is a utility-first CSS Framework. Don't write huge CSS files, but simply insert desired classes into your HTML.
   * alpine.js is Tailwind for JavaScript. Many common features can be coded with a few extra HTML Attributes
 
+## Install
+
+Clone into your Wordpress theme folder, cd into the directory and run
+
+    `composer install`
+
+
 ## Configuration
 
-Before digging into the code, you may want to have a look into the config Directory. Most common Wordpress features, such as Widgets, Theme-Support, MIME-Types, Taxonomies , etc. you can edit here. Even ACF-Fields can be set up.
+Before digging into any code, you may want to have a look into the config Directory. Most common Wordpress features, such as Widgets, Theme-Support, MIME-Types, Taxonomies, etc. you can edit here. Even ACF-Fields can be set up.
 
 ## twig Templates
 
