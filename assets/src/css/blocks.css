@@ -53,7 +53,7 @@ footer h4 {
 }
 
 .wp-block-quote {
-    @apply border-dotted border-l-4;
+    @apply border-dotted border-l-4 my-7;
     border-color: var(--primary);
 }
 
@@ -63,4 +63,12 @@ footer h4 {
 
 .card.is-last, .card.is-last img:not(".rounded-full"){
     @apply rounded-br-lg
+}
+
+.wpcf7 {
+    @apply pt-8;
+}
+
+.wpcf7-submit {
+    @apply pt-8;
 }
