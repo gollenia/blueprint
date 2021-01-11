@@ -31,7 +31,7 @@ Class Fields {
      * @param array $options Array with ACF Fields
      * @since 1.0.0
      */
-    private static function registerFields($fields) {
+    public static function registerFields($fields) {
       if (!function_exists ( "acf_add_local_field_group" )) {
         return;
       }
@@ -48,7 +48,7 @@ Class Fields {
      * @param array $options Array with ACF Pages
      * @since 1.0.0
      */
-    private static function registerPages($pages) {
+    public static function registerPages($pages) {
       if (!function_exists ( "acf_add_options_page" )) {
           return;
       }
