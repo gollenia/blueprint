@@ -123,3 +123,7 @@ body {
 .max-h-0 {
   max-height: 0;
 }
+
+div.input-required {
+  display: none !important;
+}
