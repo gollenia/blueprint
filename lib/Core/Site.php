@@ -97,14 +97,9 @@ class Site extends \Timber\Site {
 		$theme_support['editor-color-palette'] = $theme_colors;
 		$this->config->set('theme_support', $theme_support);
 		ThemeSupport::register($theme_support);
-
-		
-		
-		
+				
 		// remove automatic <p>-tags
 		remove_filter('the_content', 'wpautop');
-
-		//$this->add_required_to_wpcf7();
 		
 	}
 
@@ -118,10 +113,16 @@ class Site extends \Timber\Site {
 		add_filter( 'timber/twig', "\Contexis\Core\Color::add_twig_filter" );
 	}
 
+	/**
+	 * Call custom functions for plugins etc.
+	 * 
+	 * @since 1.0.0
+	 */
 	private function custom_functions() {
 		\Contexis\Wordpress\Plugins\ContactForm7::add_custom_attribute("booking");
 		\Contexis\Wordpress\Plugins\ContactForm7::add_required_to_wpcf7();
 		\Contexis\Wordpress\Plugins\ContactForm7::remove_span_wrap();
+		//define('EM_GUTENBERG', true);
 	}
 	
 }
