@@ -25,20 +25,17 @@ class Events extends \Contexis\Core\Controller {
     }
 
     private function getEvents() {
-        // Event Manager has it's own Class, but it doesn't return a thumbnail-ID :-(
-        // if (class_exists('EM_Events')) {
-        //     return \EM_Events::get();
-        // }
-        // return [];
+        
         return new \Timber\PostQuery([
             'post_type' => 'event',
             'orderby' => '_event_start_date',
             'order' => 'ASC',
+            'post_status' => array('publish'),
             'meta_query' => array(
                 array(
                   'key' => '_event_start_date',
                   'value' => date('Y-m-d'),
-                  'compare' => '>=',
+                  'compare' => '>='
                 )
               )
         ]);
