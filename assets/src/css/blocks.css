@@ -72,3 +72,7 @@ footer h4 {
 .wpcf7-submit {
     @apply pt-8;
 }
+
+.core-block a {
+    color: var(--primary);
+}
