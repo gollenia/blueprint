@@ -57,7 +57,7 @@
                     {% if event.location %}
                     <address class="py-2 flex flex-row items-start not-italic">  
                         <img src="{{ site.theme.uri }}/assets/img/icons/map.svg" width="24" class="mr-3">
-                        <span>{{event.location.location_name}}<br>{{event.location.address}}<br>{{event.location.postcode}} {{event.location.town}}</span>
+                        <a href="{{event.location.region}}">{{event.location.location_name}}<br>{{event.location.address}}<br>{{event.location.postcode}} {{event.location.town}}</a>
                     </address>
                     {% endif %}
                     {% if booking and bookings < 5 %}
@@ -67,7 +67,7 @@
                     </div>
                     {% endif %}
                 </div>
-                <div class="">
+                <div class="mt-20">
                     {% include "partials/similar-events.twig" with {'events': events} %}
                 </div>
             </div>
