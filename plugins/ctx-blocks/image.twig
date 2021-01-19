@@ -29,14 +29,15 @@
 <div style="margin-top: {{marginShift}}" class="{{alignment == "center" ? "m-auto"}} image relative overflow-hidden" x-data="{showOverlay : false}" @mouseover="showOverlay = true" @mouseout="showOverlay = false">
     {% if hasOverlay %}
         <div 
-            x-transition:enter-end="opacity-100 -translate-y-0 transform" 
+            x-transition:enter-end="opacity-100 transform" 
             x-transition:leave="transition ease-in duration-300" 
-            x-transition:enter-start="opacity-0 translate-y-full transform" 
+            x-transition:enter-start="opacity-0 transform" 
             x-transition:enter="transition ease-out duration-300" 
-            x-transition:leave-start="opacity-100 transform -translate-y-0" 
-            x-transition:leave-end="opacity-100 transform translate-y-full" 
-            class="absolute bg-blur bg-opacity-75 rounded-tr-md inset-x-0 mr-5 bottom-0 height  bg-{{overlayColor}}-500 px-5 py-5" 
+            x-transition:leave-start="opacity-100 transform" 
+            x-transition:leave-end="opacity-0 transform" 
+            class="absolute bg-blur bg-opacity-75 rounded-br-lg inset-x-0 bottom-0 height text bg-{{overlayColor}}-transparent px-5 py-5" 
             x-show="showOverlay"
+            style="color: var(--{{overlayColor}}-contrast"
         >
             {{overlayText}}
         </div>
