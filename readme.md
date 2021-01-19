@@ -4,7 +4,7 @@ This theme is created for the Wordpress-powered Website from kids-team.at/de/ch.
 
 ## Used Frameworks
 
-  * [I'm an inline-style link](https://www.google.com) is a Wordpress-Layer for the Twig PHP Template engine that improves code readability a lot. No more echos and PHP/HTML-Mixture.
+  * [Twig](https://www.google.com) is a Wordpress-Layer for the Twig PHP Template engine that improves code readability a lot. No more echos and PHP/HTML-Mixture.
   * Tailwind is a utility-first CSS Framework. Don't write huge CSS files, but simply insert desired classes into your HTML.
   * alpine.js is Tailwind for JavaScript. Many common features can be coded with a few extra HTML Attributes
 
