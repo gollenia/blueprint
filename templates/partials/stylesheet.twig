@@ -19,8 +19,18 @@
                     --{{colorset.slug}}-soft-contrast: {{colorset.color|shade(80)}};
                     --{{colorset.slug}}-contrast: #000000;
                 {% endif %}
+                
         {% endfor %}
     }
+    {% for colorset in attribute(config.theme_support, 'editor-color-palette') %}
+        .has-{{colorset.slug}}-color.has-text-color {
+           color: {{colorset.color}};
+        }
+        .text-{{colorset.slug}}-soft-contrast {
+            color: var(--{{colorset.slug}}-soft-contrast);
+        }
+    {% endfor %}
+    
    
     
 </style>
