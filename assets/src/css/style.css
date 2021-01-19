@@ -119,6 +119,52 @@ body {
     --primary-dark: var(--darkorange);
 }
 
+
+.page-orange {
+  --primary: var(--orange);
+  --primary-transparent: var(--orange-transparent);
+  --primary-light: var(--lightorange);
+  --primary-light-transparent: var(--lightorange-transparent);
+  --primary-dark: var(--darkorange);
+}
+
+.page-red {
+  --primary: var(--red);
+  --primary-light: var(--lightred);
+  --primary-transparent: var(--red-transparent);
+  --primary-light-transparent: var(--lightred-transparent);
+  --primary-soft-contrast: var(--red-soft-contrast);
+  --primary-dark: var(--darkred);
+}
+
+.page-blue {
+  --primary: var(--blue);
+  --primary-transparent: var(--blue-transparent);
+  --primary-light: var(--lightblue);
+  --primary-contrast: var(--blue-contrast);
+  --primary-soft-contrast: var(--blue-soft-contrast);
+  --primary-light-transparent: var(--lightblue-transparent);
+  --primary-dark: var(--darkblue);
+}
+
+.page-green {
+  --primary: var(--green);
+  --primary-transparent: var(--green-transparent);
+  --primary-light-transparent: var(--lightgreen-transparent);
+  --primary-soft-contrast: var(--green-soft-contrast);
+  --primary-light: var(--lightgreen);
+  --primary-dark: var(--darkgreen);
+}
+
+.page-violett {
+  --primary: var(--purple);
+  --primary-light: var(--lightpurple);
+  --primary-transparent: var(--purple-transparent);
+  --primary-light-transparent: var(--lightpurple-transparent);
+  --primary-soft-contrast: var(--purple-soft-contrast);
+  --primary-dark: var(--darkpurple);
+}
+
 /* Make the accordion work */
 .max-h-0 {
   max-height: 0;
