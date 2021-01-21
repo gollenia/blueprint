@@ -1,5 +1,5 @@
 export default function validateInput (event) {
-    var errorMessage = this.querySelector(".error-message");
+    var errorMessage = event.target.parentElement.querySelector(".error-message");
     if(errorMessage != undefined) {
         errorMessage.remove();
     }
@@ -14,8 +14,13 @@ export default function validateInput (event) {
     event.target.parentElement.classList.add("error");
 
     let span = document.createElement("span");
-    span.classList.add("error-message")
+    span.classList.add("error-message");
+    
     span.innerText = event.target.validationMessage;
+    if(event.target.getAttribute("data-text-error")) {
+        span.innerText = event.target.getAttribute("data-text-error");
+    }
+    
     event.target.parentNode.append(span);
     return;
 }
