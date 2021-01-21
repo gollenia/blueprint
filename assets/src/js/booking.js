@@ -19,7 +19,7 @@ export default (function() {
             cancelable: true,
             detail: { message: message },
         });
-        console.log(event);
+        
         window.dispatchEvent(event);
     });
 
@@ -29,7 +29,7 @@ export default (function() {
             cancelable: true,
             detail: { message: message },
         });
-        console.log(event);
+        
         window.dispatchEvent(event);
         //UIkit.notification(EM.bb_booked, {status:'success'});
     });
