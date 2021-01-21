@@ -24,6 +24,7 @@ $EM_Tickets = $EM_Event->get_bookings()->get_tickets();
     @bookingsuccess.window="bookingSuccess = true"
     :class="{'bg-lightgray-lighter overflow-y-auto': !bookingSuccess, 'bg-green text-white': bookingSuccess }"
     class="fixed lg:place-items-center inset-0 mr-4 pt-20 lg:mr-10 bg-lightgray-lighter em-booking"
+    style="display: none"
     <?php 
         echo ' x-data="{bookingSuccess: false, showModal: false, ';
             foreach( $EM_Tickets->tickets as $EM_Ticket ) {
