@@ -68,6 +68,7 @@
                     {% endif %}
                 </div>
                 <div class="mt-20">
+                    <h3 class="mb-6 text-bold core-block">{{site.language == "fr_FR" ? "D'autres évènements" : "Weitere Veranstaltungen"}}</h3>
                     {% include "partials/similar-events.twig" with {'events': events} %}
                 </div>
             </div>
