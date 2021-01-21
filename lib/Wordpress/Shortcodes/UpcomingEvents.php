@@ -27,6 +27,7 @@ class UpcomingEvents extends \Contexis\Wordpress\Shortcode {
         'largecolumns' => 1,
         'mediumcolumns' => 1,
         'smallcolumns' => 1,
+        'title' => "Kommende Termine"
     ];
 
     public function __construct() {
