@@ -107,7 +107,7 @@ class UpcomingEvents extends \Contexis\Wordpress\Shortcode {
                 {% for item in events %}
                     <a class="mb-4 flex {% for term in item.get_terms() %}{{term.slug}} {% endfor %}" href="/aktuell/{{item.post_name}}">
                         
-                        <img src="{{ item.thumbnail.src('qsmall') }}" width="100px" class="rounded-tl-md rounded-br-md {{ abstract.imagetop ? "" : "w-24 h-24" }}">
+                        <img src="{{ item.thumbnail.src('qsmall') }}" width="100px" class=" {{ abstract.imagetop ? "" : "rounded-tl-md rounded-br-md w-24 h-24" }}">
                         
                         <div class="pl-4">
                             <h5 class="font-bold">{{item.title}}</h5>
