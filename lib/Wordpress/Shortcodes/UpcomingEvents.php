@@ -29,7 +29,7 @@ class UpcomingEvents extends \Contexis\Wordpress\Shortcode {
         'largecolumns' => 1,
         'mediumcolumns' => 1,
         'smallcolumns' => 1,
-        'title' => "Kommende Termine"
+        'title' => ""
     ];
 
     public function __construct() {
@@ -103,6 +103,8 @@ class UpcomingEvents extends \Contexis\Wordpress\Shortcode {
 
     private function get_template() {
         return <<<EOD
+            {% if attributes.title is not empty and events is not empty %}
+            <h4 class="core-block">{{attributes.title}}</h4>
             <div class="grid gap-8 grid-cols-{{attributes.smallcolumns}} md:grid-cols-{{attributes.mediumcolumns}} xl:grid-cols-{{attributes.largecolumns}}">
                 {% for item in events %}
                     <a class="mb-4 flex {% for term in item.get_terms() %}{{term.slug}} {% endfor %}" href="/aktuell/{{item.post_name}}">
