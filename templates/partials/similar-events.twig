@@ -6,7 +6,7 @@
             </div>
     
             <div class="col-span-2">
-                <h5 class="">{{item.title}}</h5>
+                <h5 class="font-bold text-bold">{{item.title}}</h5>
                 <div class="text-gray">{{item._event_start_date|date("j. F Y")}}</div>
                 {% if item.post_excerpt is not empty %}
                     <span>{{item.post_excerpt|excerpt(10, "...")}}</span><br/>
