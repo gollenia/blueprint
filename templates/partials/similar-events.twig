@@ -7,7 +7,7 @@
     
             <div class="col-span-2">
                 <h5 class="">{{item.title}}</h5>
-                <span class="text-mediumgray text-sm">{{item._start_date|date("j. F Y")}}</span>
+                <span class="text-mediumgray text-sm">{{item._event_start_date|date("j. F Y")}}</span>
                 {% if item.post_excerpt is not empty %}
                     <span>{{item.post_excerpt|excerpt(10, "...")}}</span><br/>
                 {% endif %}
