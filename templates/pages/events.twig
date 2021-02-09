@@ -26,7 +26,7 @@
     <div class="">{{ function( 'apply_filters', 'the_content', post.content ) }}</div>
 
 
-    <article class="gap-20 max-w-screen-xl mx-auto grid grid-cols-1 lg:grid-cols-3 py-20">        
+    <article class="gap-12 max-w-screen-xl mx-auto grid grid-cols-1 lg:grid-cols-3 py-20">        
         {% for event in events %}
             <section 
                 x-show="filter == '' || [{% for term in event.get_terms('event-categories') %}'{{term.slug}}'{% endfor %}].includes(filter)" 
