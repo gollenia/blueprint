@@ -8,13 +8,13 @@
             <div class="col-span-2">
                 <h5 class="font-bold text-bold">{{item.title}}</h5>
                 <div class="text-gray">
-                {% if post._event_start_date == post._event_end_date %}
-                                {{ post._event_start_date|date("j. F Y") }} 
+                {% if item._event_start_date == item._event_end_date %}
+                                {{ item._event_start_date|date("j. F Y") }} 
                             {% else %}
-                                {% if post._event_start_date|date("F") == post._event_end_date|date("F") %}
-                                    {{ post._event_start_date|date("j.") }} bis {{ post._event_end|date("j. F Y") }}
+                                {% if item._event_start_date|date("F") == item._event_end_date|date("F") %}
+                                    {{ item._event_start_date|date("j.") }} bis {{ item._event_end|date("j. F Y") }}
                                 {% else %}
-                                    {{ post._event_start_date|date("j. F") }} bis {{ post._event_end|date("j. F Y") }}
+                                    {{ item._event_start_date|date("j. F") }} bis {{ item._event_end|date("j. F Y") }}
                                 {% endif %}
                             {% endif %}
                 </div>
