@@ -19,7 +19,9 @@ class UpcomingEvents extends \Contexis\Wordpress\Shortcode {
 
     public array $attributes = [
         'categories' => false,
+        'abstract' => true,
         'audience' => false,
+        'imagetop' => false,
         'tags' => false,
         'limit' => 12,
         'tags' => '',
@@ -105,12 +107,12 @@ class UpcomingEvents extends \Contexis\Wordpress\Shortcode {
                 {% for item in events %}
                     <a class="mb-4 flex {% for term in item.get_terms() %}{{term.slug}} {% endfor %}" href="/aktuell/{{item.post_name}}">
                         
-                        <img src="{{ item.thumbnail.src('qsmall') }}" width="100px" class="rounded-tl-md rounded-br-md w-24 h-24">
+                        <img src="{{ item.thumbnail.src('qsmall') }}" width="100px" class="rounded-tl-md rounded-br-md {{ abstract.imagetop ? "" : "w-24 h-24" }}">
                         
                         <div class="pl-4">
                             <h5 class="font-bold">{{item.title}}</h5>
                             <div class="text-gray">{{item._event_start_date|date("j. F Y")}}</div>
-                            {% if item.post_excerpt is not empty %}
+                            {% if item.post_excerpt is not empty and attributes.abstract %}
                                 <span>{{item.post_excerpt|excerpt(20)}}</span><br/>
                             {% endif %}
                             
