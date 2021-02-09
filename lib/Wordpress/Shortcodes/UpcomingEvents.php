@@ -105,6 +105,7 @@ class UpcomingEvents extends \Contexis\Wordpress\Shortcode {
         return <<<EOD
             {% if attributes.title is not empty and events is not empty %}
             <h4 class="core-block">{{attributes.title}}</h4>
+            {% endif %}
             <div class="grid gap-8 grid-cols-{{attributes.smallcolumns}} md:grid-cols-{{attributes.mediumcolumns}} xl:grid-cols-{{attributes.largecolumns}}">
                 {% for item in events %}
                     <a class="mb-4 flex {% for term in item.get_terms() %}{{term.slug}} {% endfor %}" href="/aktuell/{{item.post_name}}">
