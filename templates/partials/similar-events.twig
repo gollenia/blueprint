@@ -7,7 +7,17 @@
     
             <div class="col-span-2">
                 <h5 class="font-bold text-bold">{{item.title}}</h5>
-                <div class="text-gray">{{item._event_start_date|date("j. F Y")}}</div>
+                <div class="text-gray">
+                {% if post._event_start_date == post._event_end_date %}
+                                {{ post._event_start_date|date("j. F Y") }} 
+                            {% else %}
+                                {% if post._event_start_date|date("F") == post._event_end_date|date("F") %}
+                                    {{ post._event_start_date|date("j.") }} bis {{ post._event_end|date("j. F Y") }}
+                                {% else %}
+                                    {{ post._event_start_date|date("j. F") }} bis {{ post._event_end|date("j. F Y") }}
+                                {% endif %}
+                            {% endif %}
+                </div>
                 {% if item.post_excerpt is not empty %}
                     <span>{{item.post_excerpt|excerpt(10, "...")}}</span><br/>
                 {% endif %}
