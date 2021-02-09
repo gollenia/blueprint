@@ -46,7 +46,7 @@
                             {% if post._event_start_date == post._event_end_date %}
                                 Von {{ post._event_start_time|date("G:i") }} Bis {{ post._event_end_time|date("G:i") }} Uhr
                              {% else %}
-                                Anreise um {{ post._event_start_time|date("G:i") }} Uhr,<br>Abreise um {{ post._event_end_time|date("G:i") }} Uhr
+                                Anreise um {{ post._event_start_time|date("G:i") }} Uhr<br>Abreise um {{ post._event_end_time|date("G:i") }} Uhr
                             {% endif %}
                         </span>
                     </div>
