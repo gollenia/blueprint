@@ -1,32 +1,8 @@
 {% extends "master.twig" %}
 
 {% block content %}
-{% include "partials/header.twig" with {'post': post, 'headerimage': true} %}
-<article class="bg-default px-4 md:px-8 lg:px-0  py-8">
-    <div class="max-w-screen-xl mx-auto">
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-16">
-            <div class="lg:col-span-2">           
-                {{ function( 'apply_filters', 'the_content', post.content ) }}
-            </div>
-        
-            <aside class="">
-                <div class="p-8 bg-lightgray">
-                    <div class="flex items-center">
-                        {{source(site.theme_root ~ '/assets/img/icons/boy.svg')}}
-                        <span class="ml-2 inline-block">{{author}}</span>
-                    </div>
-                    <div class="flex items-center">
-                        {{source(site.theme_root ~ '/assets/img/icons/calendar.svg')}}
-                        <span class="ml-2 inline-block">{{ post.post_date|date("j. F Y") }}</span>
-                    </div>
-                </div>
-                <div class="">
-                    <h4 class="mt-8 mb-6">Weitere Nachrichten</h4>
-                    {% include "partials/posts-latest.twig" with {'latest_posts': latest_posts} %}
-                </div>
-            </aside>
-        </div>
-    </div>
-    
-</article>
+    {% include "partials/header.twig" with {'post': post, 'headerimage': true} %}
+    <article class="bg-default">
+        {{ post.content }}
+    </article>
 {% endblock %}
