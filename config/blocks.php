@@ -30,7 +30,6 @@ return [
         "ctx-blocks/description-item",
         "ctx-blocks/accordion-collection",
         "ctx-blocks/accordion-item",
-        "ctx-blocks/",
         "core/file",
         "core/more",
         "core/list",
