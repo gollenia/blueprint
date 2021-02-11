@@ -29,6 +29,26 @@ return [
             'query_var'         => true,
             'rewrite' => ['slug' => 'audience']
         ]
+        ],
+    "event_category" => [
+        "object_type" => EM_POST_TYPE_EVENT,
+        "options" => [
+            'hierarchical' => true,
+            'labels' => [
+                'name' => "Veranstaltungsart",
+                'singular_name' => "Veranstaltungsart",
+                'all_items' => "Alle Veranstaltungsarten",
+                'add_new_item' => "Neue Veranstaltungsart erstellen",
+                'not_found' => "Keine Veranstaltungsart gefunden",
+            ],
+            'show_ui' => true,
+            'show_in_rest' => true,
+            'description' => "Art der Veranstaltung",
+            'show_admin_column' => true,
+            'query_var'         => true,
+            'rewrite' => ['slug' => 'event_category'],
+            'show_admin_column' => true
+        ]
     ]
     
 ];
