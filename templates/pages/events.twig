@@ -6,16 +6,16 @@
 {% include "partials/header.twig" with {'post': post, 'headerimage': true} %}     
    
 <div x-data="{filter: ''}" class="bg-default">
-    <div class="bg-primary-light">
-        <div class="flex flex-col md:flex-row items-center max-w-screen-xl mx-auto py-20">
+    <div class="bg-lightgray">
+        <div class="flex flex-col md:flex-row items-center max-w-screen-xl mx-auto pt-10">
             
             <ul class="">
                 <li class="inline-block">
-                    <span :class="{'bg-primary text-primary-contrast': filter === ''}" 
-                    class="px-3 py-2 rounded-tl bg-lightgray inline-block" @click="filter = ''" href="#">Alle</span>
+                    <span :class="{'bg-default text-primary-contrast': filter === ''}" 
+                    class="px-5 cursor-pointer py-2 rounded-t inline-block" @click="filter = ''" href="#">Alle</span>
                 </li>
                 {% for term in terms %}
-                    <li class="inline-block"><span :class="{'bg-primary text-primary-contrast': filter === '{{term.slug}}'}" class="ml-4 cursor-pointer px-3 py-2 bg-lightgray inline-block {{ loop.last ? "rounded-br" }}" @click="filter = '{{term.slug}}'">{{term.name}}</span></li>
+                    <li class="inline-block"><span :class="{'bg-default text-primary-contrast': filter === '{{term.slug}}'}" class="ml-2 cursor-pointer px-5 py-2 inline-block rounded-t" @click="filter = '{{term.slug}}'">{{term.name}}</span></li>
                 {% endfor %}
             </ul>
         </div>
@@ -23,7 +23,7 @@
 
 
    
-    <div class="">{{ function( 'apply_filters', 'the_content', post.content ) }}</div>
+    
 
 
     <article class="gap-12 max-w-screen-xl mx-auto grid grid-cols-1 lg:grid-cols-3 py-20">        
@@ -63,6 +63,8 @@
             </section>
         {% endfor %}
     </article>
+
+    <div class="">{{ function( 'apply_filters', 'the_content', post.content ) }}</div>
 
     </div>
 </div>  
