@@ -1,0 +1,3 @@
+.em-booking-message-error {
+    @apply p-8 bg-red text-white mb-8 rounded-tl-lg rounded-br-lg;
+}
