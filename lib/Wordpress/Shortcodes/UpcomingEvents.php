@@ -59,7 +59,7 @@ class UpcomingEvents extends \Contexis\Wordpress\Shortcode {
         $taxonomy = array();
         if($categories) {
             array_push($taxonomy, [
-                'taxonomy' => 'event-categories',
+                'taxonomy' => 'event_category',
                 'field' => 'slug',
                 'terms' => $categories
             ]);
