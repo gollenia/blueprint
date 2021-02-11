@@ -21,6 +21,7 @@
 
 @import "forms.css";
 @import "blocks.css";
+@import "plugins.css";
 
 body {
   font-variant-ligatures: none;
