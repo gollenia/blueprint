@@ -100,6 +100,8 @@ class Site extends \Timber\Site {
 				
 		// remove automatic <p>-tags
 		remove_filter('the_content', 'wpautop');
+
+		$this->enable_event_gutenberg();
 		
 	}
 
@@ -123,6 +125,13 @@ class Site extends \Timber\Site {
 		\Contexis\Wordpress\Plugins\ContactForm7::add_required_to_wpcf7();
 		\Contexis\Wordpress\Plugins\ContactForm7::remove_span_wrap();
 		//define('EM_GUTENBERG', true);
+	}
+
+	private function enable_event_gutenberg() {
+		
+		if(get_field('emp_gutenberg', 'option')) {
+			define('EM_GUTENBERG', true);
+		}
 	}
 	
 }
