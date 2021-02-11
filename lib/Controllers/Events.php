@@ -43,8 +43,8 @@ class Events extends \Contexis\Core\Controller {
 
     private function getTerms() {
         return get_terms( array(
-            'taxonomy' => 'event-categories',
-            'hide_empty' => true,
+            'taxonomy' => 'event_category',
+            'hide_empty' => false,
         ) );
     }
 
