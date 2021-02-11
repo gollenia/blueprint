@@ -44,9 +44,9 @@ class="card flex
                 {% if imagePosition == "left" or imagePosition == "right" %}
                     <div style="width: {{imageWidth}}%; background-image: url('{{image.url}}')" class="self-stretch bg-cover bg-center {{ isLast ? " rounded-br-lg"}}"></div>
                 {% elseif imagePosition == "top" or imagePosition == "bottom" %}
-                    <img class="object-cover h-64 w-full" src="{{image.sizes.medium.url}}"
+                    <img src="{{image.sizes.medium.url}}"
                     width="{{imageWidth =="99" ? "100" : imageWidth}}%"
-                    class="{{imageWidth == "100" ? "m-0" : "px-4 lg:px-6"}} {{imageWidth != "100" and imagePosition =="top" ? "mt-4 lg:mt-6"}} {{ isFirst ? " rounded-tl-lg"}}
+                    class="{{imageWidth == "100" ? "m-0" : "px-4 lg:px-6"}} {{imageWidth != "100" and imagePosition =="top" ? "mt-4 lg:mt-6"}} {{ isFirst ? " rounded-tl-lg"}} object-cover h-64 w-full"
                     
                     >
                 {% endif %}
