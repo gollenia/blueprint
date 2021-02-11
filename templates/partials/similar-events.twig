@@ -14,7 +14,7 @@
                                 {% if item._event_start_date|date("F") == item._event_end_date|date("F") %}
                                     {{ item._event_start_date|date("j.") }} bis {{ item._event_end|date("j. F Y") }}
                                 {% else %}
-                                    {{ item._event_start_date|date("j. F") }} bis {{ item._event_end|date("j. F Y") }}
+                                    {{ item._event_start_date|date("j. D.") }} bis {{ item._event_end|date("j. F Y") }}
                                 {% endif %}
                             {% endif %}
                 </div>
