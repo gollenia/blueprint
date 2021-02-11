@@ -1,7 +1,6 @@
 <?php
 
 // BETA Code. This Code will be removed, when Site is complete
-
 // Debug-Hack. Kommt später weg
 $url =  'http://' . $_SERVER['SERVER_NAME'];
 $url = explode(".", parse_url($url, PHP_URL_HOST));
