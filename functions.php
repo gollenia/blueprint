@@ -14,8 +14,8 @@ if($url === "ch") {
 }
 
 if(!get_transient( $_SERVER['REMOTE_ADDR']) && ( $url == "de" || $url == "at")) {
-    header("Location: http://www.kids-team.com/" . $url);
-    exit();
+   header("Location: http://www.kids-team.com/" . $url);
+   exit();
 }
 
 /**
