@@ -21,6 +21,7 @@
 
 @import "forms.css";
 @import "blocks.css";
+@import "plugins.css";
 
 body {
   font-variant-ligatures: none;
@@ -84,7 +85,7 @@ body {
 }
 
 
-.de-DE, .innsbruck {
+.de-DE, .wien {
     --primary: var(--green);
     --primary-transparent: var(--green-transparent);
     --primary-light-transparent: var(--lightgreen-transparent);
@@ -102,7 +103,7 @@ body {
     --primary-dark: var(--darkpurple);
 }
 
-.wien {
+.innsbruck {
     --primary: var(--red);
     --primary-light: var(--lightred);
     --primary-transparent: var(--red-transparent);

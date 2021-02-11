@@ -41,9 +41,10 @@ return [
                     "type" => "select",
                     'choices' => array(
                         '' => 'Standard',
-                        'page-orange'	=> 'Orange',
-                        'page-green'	=> 'Grün',
                         'page-blue'	=> 'Blau',
+                        'page-green'	=> 'Grün',
+                        'page-orange'	=> 'Orange',
+                        'page-red'	=> 'Rot',
                         'page-violett'	=> 'Violett',
                         'page-grey'	=> 'Grau',
                     ),
@@ -113,14 +114,21 @@ return [
                         "operator" => "==",
                         "value" => "page"
                     ]
-                    ],
+                ],
+                [
                     [
-                        [
-                            "param" => "post_type",
-                            "operator" => "==",
-                            "value" => "page"
-                        ]
+                        "param" => "post_type",
+                        "operator" => "==",
+                        "value" => "post"
+                ]
+                ],
+                [
+                    [
+                        "param" => "post_type",
+                        "operator" => "==",
+                        "value" => "event"
                     ]
+                ]
             ],
             'menu_order' => 0,
             'position' => 'side',
@@ -181,23 +189,23 @@ return [
             "title" => "Branding-Optionen",
             "fields" => [
                 [
-                    "key" => "Claim",
-                    "label" => "claim",
-                    "name" => "claim",
-                    "type" => "text",
-                    'prefix' => '',
-                    'instructions' => '',
-                    'default_value' => '',
-                    'placeholder' => '... Damit Kinder ihr Vertrauen auf Gott setzen'
-                ],
-                [
                     "key" => "logo",
-                    "label" => "logo",
+                    "label" => "Dateiname für Logo",
                     "name" => "logo",
                     "type" => "text",
-                    'instructions' => '',
-                    'placeholder' => 'logo.svg'
-                ]
+                    'default_value' => 'logo',
+                    'instructions' => 'Hier kann man eine alternative twig-template-file für ein Logo angeben. Dieses Template muss ein SVG enthalten!',
+                    'placeholder' => 'logo'
+                ],
+                [
+                    "key" => "emp_gutenberg",
+                    "label" => "Block-Editor in Veranstaltungen aktivieren",
+                    "name" => "emp_gutenberg",
+                    "type" => "true_false",
+                    
+                    'instructions' => 'Achtung: Diesen Schalter nur betätigen, wenn du genau weißt, was du tust!',
+                    'message' =>"Block-Editor in Veranstaltungen aktivieren"
+                ],
             ],
             "location" => [
                 [
