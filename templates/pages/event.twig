@@ -9,7 +9,7 @@
             <div class="col-span-2 ">
                 
                 <div class="py-8 border-b-4 border-gray border-dotted">{{post.post_excerpt}}</div>
-                <div class="py-8 border-b-4 border-gray border-dotted">{{post.post_content}}</div>
+                <div class="py-8 border-b-4 border-gray border-dotted">{{content}}</div>
                 
                 {% if bookings > 0 %}
                     <div x-data="" class="my-10"><a @click="$dispatch('booking-modal')" class="rounded-tl rounded-br px-6 py-3 bg-primary text-primary-contrast button" href="#">Zur Anmeldung</a></div>  

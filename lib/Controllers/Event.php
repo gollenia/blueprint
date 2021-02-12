@@ -44,6 +44,7 @@ class Event extends \Contexis\Core\Controller {
             "event" => EM_Events::get(['post_id' => $post->id])[0],
             "bookings" => $this->remaining_spaces(),
             "breadcrumbs" => Breadcrumbs::generate(),
+            "content" => do_blocks($post->post_content)
         ]);
     }
 
@@ -52,8 +53,11 @@ class Event extends \Contexis\Core\Controller {
 
     private function get_booking_form() {
         $post = Timber::get_post();
-        $content = apply_filters( 'the_content', $post->content );
+        
+        $content = apply_filters( 'the_content', $post->post_content );
+        
         return $content;
+        
     }
 
     private function remaining_spaces() {
