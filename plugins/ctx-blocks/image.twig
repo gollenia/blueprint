@@ -27,7 +27,7 @@
   </figure>
 {% else %}
 
-<div style="margin-top: {{marginShift}}" class="{{alignment == "center" ? "text-center"}} {{alignment == "shadow" ? "shadow-md"}} {{alignment == "border" ? "border-4 border-white"}} image relative overflow-hidden" x-data="{showOverlay : false}" @mouseover="showOverlay = true" @mouseout="showOverlay = false">
+<div style="margin-top: {{marginShift}}" class="{{alignment == "center" ? "text-center"}} image relative overflow-hidden" x-data="{showOverlay : false}" @mouseover="showOverlay = true" @mouseout="showOverlay = false">
     {% if hasOverlay %}
         <div 
             x-transition:enter-end="opacity-100 transform" 
@@ -46,7 +46,7 @@
     {% if hasLightbox %}
     <a @click="$dispatch('img-modal', {  imgModalSrc: '{{image.url}}', imgModalDesc: '{{lightboxText}}' })" class="cursor-pointer">
     {% endif %}
-        <img style="width: {{width}}%;" alt="{{image.description}}" class="{{alignment == "shadow" ? "shadow-md"}} {{alignment == "border" ? "border-4 border-white"}} object-fit inline-block {{round ? "rounded-full" : "rounded-tl-md rounded-br-md lg:rounded-tl-lg lg:rounded-br-lg"}}" src="{{round ? image.sizes.qlarge.url : image.url}}">
+        <img style="width: {{width}}%;" alt="{{image.description}}" class="{{shadow ? "shadow-md"}} {{border ? "border-4 border-white"}} object-fit inline-block {{round ? "rounded-full" : "rounded-tl-md rounded-br-md lg:rounded-tl-lg lg:rounded-br-lg"}}" src="{{round ? image.sizes.qlarge.url : image.url}}">
     {{ hasLightbox ? "</a>" : "" }}
 </div>
 {% endif %}
