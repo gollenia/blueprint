@@ -53,11 +53,8 @@ class Event extends \Contexis\Core\Controller {
 
     private function get_booking_form() {
         $post = Timber::get_post();
-        
         $content = apply_filters( 'the_content', $post->post_content );
-        
         return $content;
-        
     }
 
     private function remaining_spaces() {
