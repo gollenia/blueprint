@@ -1,10 +1,4 @@
-
-
-{% if url %}
-<a href="{{url}}" 
-{% else %}
-<div 
-{% endif %}
+<{{ url ? "a href='" ~ url ~ "'" : "div"}}
 class="card flex 
     {{textAlign == "center" ? "items-center text-center"}} 
     {{textAlign == "right" ? "items-end text-right"}}
@@ -14,7 +8,7 @@ class="card flex
     {{imagePosition == "right" ? "flex-row-reverse items-center"}} 
     {{ isFirst ? " is-first rounded-tl-lg"}}
     {{ isLast ? " is-last rounded-br-lg"}}
-    bg-{{backgroundColor}}{{transparent ? "-transparent bg-blur"}} {{hover ? "hover:shadow-2xl" : ""}}
+    bg-{{backgroundColor}}{{transparent ? "-transparent bg-blur"}} {{hover ? "hover:shadow-2xl"}}
     "
 >
 
@@ -30,35 +24,21 @@ class="card flex
                 {{ source(function('wp_get_original_image_path', image.id), ignore_missing = true) }}
             </div>
         {% else %}
-            {% if imageRound %}
-            <img class="rounded-full 
-                    {{imagePosition == "top" ? "mb-0 m-4 lg:m-6"}} 
-                    {{imagePosition == "bottom" ? "mt-0 m-4 lg:m-6"}} 
-                    {{imagePosition == "left" ? "mr-0 ml-4 lg:ml-6 my-4 lg:my-6"}} 
-                    {{imagePosition == "right" ? "ml-0 mr-4 lg:mr-6 my-4 lg:my-6"}} 
-                    " 
-                src="{{image.sizes.qlarge.url}}"
-                style="width: {{imageWidth}}%;"
-            >
-            {% else %}
+            
+            
                 {% if imagePosition == "left" or imagePosition == "right" %}
                     <div style="width: {{imageWidth}}%; background-image: url('{{image.url}}')" class="self-stretch bg-cover bg-center {{ isLast ? " rounded-br-lg"}}"></div>
                 {% elseif imagePosition == "top" or imagePosition == "bottom" %}
                     <img src="{{image.sizes.medium.url}}"
-                    width="{{imageWidth =="99" ? "100" : imageWidth}}%"
-                    class="{{imageWidth == "100" ? "m-0" : "px-4 lg:px-6"}} {{imageWidth != "100" and imagePosition =="top" ? "mt-4 lg:mt-6"}} {{ isFirst ? " rounded-tl-lg"}} object-cover h-64 w-full"
+                    
+                    class="m-0 {{ isFirst ? " rounded-tl-lg"}} object-cover h-64 w-full"
                     
                     >
                 {% endif %}
-            {% endif %}
+           
         {% endif %}
     {% endif %}
 
     <div class="flex flex-col flex-grow p-4 md:p-6 text-{{backgroundColor}}-contrast">{{content|raw}}</div>
 
-    
-{% if url %}
-</a>
-{% else %}
-</div> 
-{% endif %}
+{{ url ? "</a>" : "</div>"}}
