@@ -46,7 +46,7 @@
     {% if hasLightbox %}
     <a @click="$dispatch('img-modal', {  imgModalSrc: '{{image.url}}', imgModalDesc: '{{lightboxText}}' })" class="cursor-pointer">
     {% endif %}
-        <img style="width: {{width}}%; {{shadow ? "box-shadow: 0px 1px 6px rgba(0,0,0,0.3)"}}" alt="{{image.description}}" class="{{border ? "border-8 border-white"}} object-fit inline-block {{round ? "rounded-full" : "rounded-tl-md rounded-br-md lg:rounded-tl-lg lg:rounded-br-lg"}}" src="{{round ? image.sizes.qlarge.url : image.url}}">
+        <img style="width: {{width}}%; {{shadow ? "box-shadow: 0px 1px 6px rgba(0,0,0,0.3)"}}" alt="{{image.description}}" class="{{border ? "border-8 border-white"}} object-fit inline-block {{round ? "rounded-full"}} {{roundCorners ? "rounded-tl-md rounded-br-md lg:rounded-tl-lg lg:rounded-br-lg" }}" src="{{round ? image.sizes.qlarge.url : image.url}}">
     {{ hasLightbox ? "</a>" : "" }}
 </div>
 {% endif %}
