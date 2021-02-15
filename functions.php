@@ -9,11 +9,7 @@ if (isset($_GET['dev']) ) {
     set_transient( $_SERVER['REMOTE_ADDR'], "yes", 60*60*12 );
 }
 
-if($url === "ch") {
-    $url = "ch-de";
-}
-
-if(!get_transient( $_SERVER['REMOTE_ADDR']) && ( $url == "de" || $url == "at")) {
+if(!get_transient( $_SERVER['REMOTE_ADDR']) && ( $url == "de" )) {
    header("Location: http://www.kids-team.com/" . $url);
    exit();
 }
