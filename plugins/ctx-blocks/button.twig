@@ -1,6 +1,6 @@
 <div class="mt-auto text-{{buttonAlignment}} py-4">
 {% if outline %}
-<a class="{{fullWidth ? "width-full"}} rounded-tl rounded-br inline-block bg-none hover:border-{{buttonColor}} hover:bg-{{buttonColor}} text-{{buttonColor}} border border-{{buttonColor}} hover:border-{{buttonColor}} hover:text-{{buttonColor}}-contrast
+<a class="{{fullWidth ? "width-full"}} rounded-tl rounded-br inline-block bg-none {% if url is not empty %} hover:border-{{buttonColor}} hover:bg-{{buttonColor}} hover:border-{{buttonColor}} hover:text-{{buttonColor}}-contrast {% else %} cursor-text {% endif %} text-{{buttonColor}} border border-{{buttonColor}}
     {{ size == "small" ? "px-2 py-1 text-xs" }}
     {{ size ?: "px-3 py-2" }}
     {{ size == "large" ? "px-4 py-3 text-lg" }} 
