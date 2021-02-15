@@ -206,6 +206,14 @@ return [
                     'instructions' => 'Achtung: Diesen Schalter nur betätigen, wenn du genau weißt, was du tust!',
                     'message' =>"Block-Editor in Veranstaltungen aktivieren"
                 ],
+                [
+                    "key" => "error_page",
+                    "label" => "Fehler-Seite",
+                    "name" => "error_page",
+                    "type" => "post_object",
+                    'instructions' => 'Achtung: Diesen Schalter nur betätigen, wenn du genau weißt, was du tust!',
+                    'message' =>"Block-Editor in Veranstaltungen aktivieren"
+                ]
             ],
             "location" => [
                 [
