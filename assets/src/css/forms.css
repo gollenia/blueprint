@@ -103,6 +103,10 @@ input[type="submit"] {
     @apply outline-none;
 }
 
+.donation p {
+    @apply my-8
+}
+
 .input-textarea label, .input-text label, .input-date label, .input-user-field label, .input-name label, .input-user_email label, .input-select label, .input-country label, .donation label {
     margin-top: -12px;
     @apply inline-block;
