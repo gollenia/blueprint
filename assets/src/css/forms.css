@@ -187,5 +187,15 @@ select:invalid {
   }
 
   .donation label.radio {
-      display: block !important;
+    display: flex;
+    position: initial;
+    margin-bottom: 20px;
+    margin-top: 0px;
+    background: transparent;
+    justify-items: center;
+    align-items: center;
+  }
+
+  .donation label.radio input, .donation label.radio img  {
+    margin-right: 10px;
   }
