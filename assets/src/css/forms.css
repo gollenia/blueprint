@@ -25,7 +25,7 @@ form:invalid input[type="submit"] {
     @apply my-8;
   }
   
-.input-text input, .input-date input, .input-user-field input, .input-name input, .input-user_email input, .input-dbem_country select, .input-country select, .input-select select, .donation input[type="text"], .donation input[type="email"] {
+.input-text input, .input-date input, .input-user-field input, .input-name input, .input-user_email input, .input-dbem_country select, .input-country select, .input-select select, .donation input[type="text"], .donation input[type="email"], .donation select {
     outline: none !important;
     width: 100%;
     @apply border-2;
@@ -43,7 +43,9 @@ form:invalid input[type="submit"] {
     color: #222222;
 }
 
-.input-country select, .dbem_country select, .input-dbem_country select, .input-select select {
+
+
+.input-country select, .dbem_country select, .input-dbem_country select, .input-select select, .donstion select {
     padding-left: 15px;
 }
 
@@ -182,4 +184,8 @@ select:invalid {
     @apply bg-red;
     @apply text-white;
     border: 0px !important;
+  }
+
+  .donation label.radio {
+      display: block !important;
   }
