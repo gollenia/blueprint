@@ -25,7 +25,7 @@ form:invalid input[type="submit"] {
     @apply my-8;
   }
   
-.input-text input, .input-date input, .input-user-field input, .input-name input, .input-user_email input, .input-dbem_country select, .input-country select, .input-select select {
+.input-text input, .input-date input, .input-user-field input, .input-name input, .input-user_email input, .input-dbem_country select, .input-country select, .input-select select, .donation input[type="text"] {
     outline: none !important;
     width: 100%;
     @apply border-2;
@@ -103,7 +103,7 @@ input[type="submit"] {
     @apply outline-none;
 }
 
-.input-textarea label, .input-text label, .input-date label, .input-user-field label, .input-name label, .input-user_email label, .input-select label, .input-country label {
+.input-textarea label, .input-text label, .input-date label, .input-user-field label, .input-name label, .input-user_email label, .input-select label, .input-country label .donation label {
     margin-top: -12px;
     @apply inline-block;
     height: max-content;
