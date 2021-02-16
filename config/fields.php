@@ -23,16 +23,6 @@ return [
                     "label" => "Untertitel",
                     "name" => "subtitle",
                     "type" => "text",
-                    'prefix' => '',
-                    'instructions' => '',
-                    'required' => 0,
-                    'conditional_logic' => 0,
-                    'wrapper' => [
-                        'width' => '',
-                        'class' => '',
-                        'id' => '',
-                    ],
-                    'default_value' => '',
                 ],
                 [
                     "key" => "pagecolor",
@@ -47,17 +37,7 @@ return [
                         'page-red'	=> 'Rot',
                         'page-violett'	=> 'Violett',
                         'page-grey'	=> 'Grau',
-                    ),
-                    'prefix' => '',
-                    'instructions' => '',
-                    'required' => 0,
-                    'conditional_logic' => 0,
-                    'wrapper' => [
-                        'width' => '',
-                        'class' => '',
-                        'id' => '',
-                    ],
-                    'default_value' => '',
+                    )
                 ],
                 [
                     "key" => "headerheight",
@@ -67,12 +47,7 @@ return [
                     "min" => 1,
                     "max" => 100,
                     'instructions' => 'Angabe in Prozent der Bildschirmhöhe',
-                    'wrapper' => [
-                        'width' => '',
-                        'class' => '',
-                        'id' => '',
-                    ],
-                    'default_value' => '10',
+                    'default_value' => '30',
                 ],
                 [
                     "key" => 'headerurl',
@@ -80,9 +55,7 @@ return [
                     "name" => "headerurl",
                     "type" => "link",
                     "instructions" => "Wenn ausgefüllt, wird ein entsprechender Button im Header angezeigt",
-                    "required" => 0,
                     "return_format" => "array",
-                    "conditional_logic" => 0
                 ],
                 [
                     "key" => "headerimageorientation",
@@ -95,17 +68,14 @@ return [
                         'center'	=> 'Mitte',
                         'bottom'	=> 'Unten',
                     ),
-                    'prefix' => '',
-                    'instructions' => '',
-                    'required' => 0,
-                    'conditional_logic' => 0,
-                    'wrapper' => [
-                        'width' => '',
-                        'class' => '',
-                        'id' => '',
-                    ],
-                    'default_value' => '',
                 ],
+                [
+                    "key" => "flippageimage",
+                    'message' =>"Bild spiegeln",
+                    "name" => "flippageimage",
+                    "type" => "true_false"
+                ],
+
             ],
             "location" => [
                 [
@@ -202,7 +172,6 @@ return [
                     "label" => "Block-Editor in Veranstaltungen aktivieren",
                     "name" => "emp_gutenberg",
                     "type" => "true_false",
-                    
                     'instructions' => 'Achtung: Diesen Schalter nur betätigen, wenn du genau weißt, was du tust!',
                     'message' =>"Block-Editor in Veranstaltungen aktivieren"
                 ],
