@@ -108,16 +108,13 @@ class UpcomingEvents extends \Contexis\Wordpress\Shortcode {
             {% endif %}
             <div class="grid gap-8 grid-cols-{{attributes.smallcolumns}} md:grid-cols-{{attributes.mediumcolumns}} xl:grid-cols-{{attributes.largecolumns}}">
                 {% for item in events %}
-                    <a class="mb-4 flex {% for term in item.get_terms() %}{{term.slug}} {% endfor %}" href="/aktuell/{{item.post_name}}">
+                    <a class="mb-4 flex bg-white hover:shadow-md {{ loop.first ? 'rounded-tl-md' }} {{ loop.last ? 'rounded-br-md' }} " href="/termine/{{item.post_name}}">
                         
-                        <img src="{{ item.thumbnail.src('qsmall') }}" width="100px" class=" {{ abstract.imagetop ? "" : "rounded-tl-md rounded-br-md w-24 h-24" }}">
+                        <img src="{{ item.thumbnail.src('qsmall') }}" width="100px" class=" {{ abstract.imagetop ? "" : "rounded-tl-md w-24 h-24" }}">
                         
                         <div class="pl-4">
                             <h5 class="font-bold">{{item.title}}</h5>
                             <div class="text-gray">{{item._event_start_date|date("j. F Y")}}</div>
-                            {% if item.post_excerpt is not empty and attributes.abstract %}
-                                <span>{{item.post_excerpt|excerpt(20)}}</span><br/>
-                            {% endif %}
                             
                         </div>
                     </a>
