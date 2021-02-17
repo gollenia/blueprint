@@ -112,7 +112,7 @@ class UpcomingEvents extends \Contexis\Wordpress\Shortcode {
                         
                         <img src="{{ item.thumbnail.src('qsmall') }}" width="100px" class=" {{ abstract.imagetop ? "" : "rounded-tl-md w-24 h-24" }}">
                         
-                        <div class="pl-4">
+                        <div class="pl-4 self-center">
                             <h5 class="font-bold">{{item.title}}</h5>
                             <div class="text-gray">{{item._event_start_date|date("j. F Y")}}</div>
                             
