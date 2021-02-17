@@ -29,7 +29,7 @@ return [
             'query_var'         => true,
             'rewrite' => ['slug' => 'audience']
         ]
-        ],
+    ],
     "event_category" => [
         "object_type" => EM_POST_TYPE_EVENT,
         "options" => [
@@ -46,14 +46,13 @@ return [
             'description' => "Art der Veranstaltung",
             'show_admin_column' => true,
             'query_var'         => true,
-            'rewrite' => ['slug' => 'event_category'],
-            'show_admin_column' => true
+            'rewrite' => ['slug' => 'event_category']
         ]
     ],
     "event_tag" => [
         "object_type" => EM_POST_TYPE_EVENT,
         "options" => [
-            'hierarchical' => true,
+            'hierarchical' => false,
             'labels' => [
                 'name' => "Schlagwort",
                 'singular_name' => "Schlagworte",
@@ -66,8 +65,7 @@ return [
             'description' => "Schlagworte, um Veranstaltungen besser zu kategorisieren",
             'show_admin_column' => true,
             'query_var'         => true,
-            'rewrite' => ['slug' => 'event_tag'],
-            'show_admin_column' => true
+            'rewrite' => ['slug' => 'event_tag']
         ]
     ]
     
