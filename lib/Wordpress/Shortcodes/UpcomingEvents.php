@@ -110,7 +110,7 @@ class UpcomingEvents extends \Contexis\Wordpress\Shortcode {
                 {% for item in events %}
                     <a class="mb-4 flex bg-white hover:shadow-md {{ loop.first ? 'rounded-tl-md' }} {{ loop.last ? 'rounded-br-md' }} " href="/termine/{{item.post_name}}">
                         
-                        <img src="{{ item.thumbnail.src('qsmall') }}" width="100px" class=" {{ abstract.imagetop ? "" : "rounded-tl-md w-24 h-24" }}">
+                        <img src="{{ item.thumbnail.src('qsmall') }}" width="100px" class="{{ loop.first ? 'rounded-tl-md' }} {{ abstract.imagetop ? "" : "w-24 h-24" }}">
                         
                         <div class="pl-4 self-center">
                             <h5 class="font-bold">{{item.title}}</h5>
