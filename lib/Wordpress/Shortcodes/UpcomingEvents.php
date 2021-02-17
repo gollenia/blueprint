@@ -106,7 +106,7 @@ class UpcomingEvents extends \Contexis\Wordpress\Shortcode {
             {% if attributes.title is not empty and events is not empty %}
             <h4 class="core-block">{{attributes.title}}</h4>
             {% endif %}
-            <div class="grid gap-8 grid-cols-{{attributes.smallcolumns}} md:grid-cols-{{attributes.mediumcolumns}} xl:grid-cols-{{attributes.largecolumns}}">
+            <div class="grid gap-4 grid-cols-{{attributes.smallcolumns}} md:grid-cols-{{attributes.mediumcolumns}} xl:grid-cols-{{attributes.largecolumns}}">
                 {% for item in events %}
                     <a class="mb-4 flex bg-white hover:shadow-md {{ loop.first ? 'rounded-tl-md' }} {{ loop.last ? 'rounded-br-md' }} " href="/termine/{{item.post_name}}">
                         
