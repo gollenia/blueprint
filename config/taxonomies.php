@@ -49,6 +49,26 @@ return [
             'rewrite' => ['slug' => 'event_category'],
             'show_admin_column' => true
         ]
+    ],
+    "event_tag" => [
+        "object_type" => EM_POST_TYPE_EVENT,
+        "options" => [
+            'hierarchical' => true,
+            'labels' => [
+                'name' => "Schlagwort",
+                'singular_name' => "Schlagworte",
+                'all_items' => "Alle Schlagworte",
+                'add_new_item' => "Neues Schlagwort erstellen",
+                'not_found' => "Keine Schlagworte gefunden",
+            ],
+            'show_ui' => true,
+            'show_in_rest' => true,
+            'description' => "Schlagworte, um Veranstaltungen besser zu kategorisieren",
+            'show_admin_column' => true,
+            'query_var'         => true,
+            'rewrite' => ['slug' => 'event_tag'],
+            'show_admin_column' => true
+        ]
     ]
     
 ];
