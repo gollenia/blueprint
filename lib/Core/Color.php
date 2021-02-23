@@ -103,6 +103,7 @@ class Color {
 
     public function __construct($colors) {
         $this->colors = $colors;
+        $this->colors = $this->get_theme_colors($this->colors);
         foreach($this->colors as $color) {
             array_push($this->color_fields["fields"], $this->create_color_field($color));
             $this->page_color["fields"][0]["choices"][$color["slug"]] = '<div style="display: flex; align-items: center"> <span style="display: inline-block; margin-right: 5px; height: 16px; width: 16px; background-color: ' . $color["color"] . ';" class=""></span> ' . $color["name"] . "</div>";
