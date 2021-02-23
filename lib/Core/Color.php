@@ -48,6 +48,7 @@ class Color {
                     "label" => "Primärfarbe",
                     "name" => "pagecolor",
                     'type' => 'select',
+                    'ui' => 1,
                     'choices' => [
                         "" => "Standard"
                     ]
@@ -57,6 +58,7 @@ class Color {
                     "label" => "Sekundärfarbe",
                     "name" => "secondarycolor",
                     "type" => "select",
+                    'ui' => 1,
                     'choices' => [
                         "" => "Standard"
                     ]
@@ -103,8 +105,8 @@ class Color {
         $this->colors = $colors;
         foreach($this->colors as $color) {
             array_push($this->color_fields["fields"], $this->create_color_field($color));
-            $this->page_color["fields"][0]["choices"][$color["slug"]] = $color["name"];
-            $this->page_color["fields"][1]["choices"][$color["slug"]] = $color["name"];
+            $this->page_color["fields"][0]["choices"][$color["slug"]] = '<div style="display: flex; align-items: center"> <span style="display: inline-block; margin-right: 5px; height: 16px; width: 16px; background-color: ' . $color["color"] . ';" class=""></span> ' . $color["name"] . "</div>";
+            $this->page_color["fields"][1]["choices"][$color["slug"]] = '<div style="display: flex; align-items: center"> <span style="display: inline-block; margin-right: 5px; height: 16px; width: 16px; background-color: ' . $color["color"] . ';" class=""></span> ' . $color["name"] . "</div>";
         }
        
         \Contexis\Wordpress\Plugins\Fields::registerPages($this->color_page);
@@ -140,6 +142,8 @@ class Color {
                 "brightness" => $this->get_brightness($hex_value) < 170 ? "dark" : "light",
                 "transparent" => $hex_value . "aa"
             ];
+
+            
 
             array_push($colors, $new_color);
         }
