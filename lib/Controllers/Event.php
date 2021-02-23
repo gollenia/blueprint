@@ -22,7 +22,7 @@ use EM_Bookings;
 class Event extends \Contexis\Core\Controller {
 
     
-    private EM_Event $event;
+    private $event;
 
     /**
     * construct function collects information for page rendering
