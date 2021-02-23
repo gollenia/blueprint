@@ -38,15 +38,79 @@ class Color {
             'parent_slug' => 'options-general.php',
          ]
         ];
+    
+    private $page_color = [
+        "key" => "page_colors",
+            "title" => "Farbeinstellungen",
+            "fields" => [
+                [
+                    "key" => "primarycolor",
+                    "label" => "Primärfarbe",
+                    "name" => "pagecolor",
+                    'type' => 'select',
+                    'choices' => [
+                        "" => "Standard"
+                    ]
+                ],
+                [
+                    "key" => "secondarycolor",
+                    "label" => "Sekundärfarbe",
+                    "name" => "secondarycolor",
+                    "type" => "select",
+                    'choices' => [
+                        "" => "Standard"
+                    ]
+                ]
+            ],
+            "location" => [
+                [
+                    [
+                        "param" => "post_type",
+                        "operator" => "==",
+                        "value" => "page"
+                    ]
+                ],
+                [
+                    [
+                        "param" => "post_type",
+                        "operator" => "==",
+                        "value" => "post"
+                ]
+                ],
+                [
+                    [
+                        "param" => "post_type",
+                        "operator" => "==",
+                        "value" => "event"
+                    ]
+                ],
+                [
+                    [
+                        'param' => 'options_page',
+                        "operator" => "==",
+                        "value" => "theme-settings"
+                    ]
+                ]
+            ],
+            'menu_order' => 0,
+            'position' => 'side',
+            'label_placement' => 'top',
+            'instruction_placement' => 'label',
+            'hide_on_screen' => '',
+        ];
 
     public function __construct($colors) {
         $this->colors = $colors;
         foreach($this->colors as $color) {
             array_push($this->color_fields["fields"], $this->create_color_field($color));
+            $this->page_color["fields"][0]["choices"][$color["slug"]] = $color["name"];
+            $this->page_color["fields"][1]["choices"][$color["slug"]] = $color["name"];
         }
-        
+       
         \Contexis\Wordpress\Plugins\Fields::registerPages($this->color_page);
         \Contexis\Wordpress\Plugins\Fields::registerFields(array($this->color_fields));
+        \Contexis\Wordpress\Plugins\Fields::registerFields(array($this->page_color));
+
         
     }
 
@@ -64,20 +128,52 @@ class Color {
     public function get_theme_colors () {
         $colors = [];
         foreach($this->colors as $color) {
-            $new_color = [
-                "slug" => $color['slug'],
-                "name" => $color['name']
-            ];
             
             $hex_value = get_field('theme_color_' . $color['slug'], "options");
             
-            $new_color["color"] = $hex_value;
             $hex = new Hex($hex_value);
-            $hex->isDark() ? $new_color["dark"] = true : $new_color["dark"] = false;
+
+            $new_color = [
+                "slug" => $color['slug'],
+                "name" => $color['name'],
+                "color" => $hex_value,
+                "brightness" => $this->get_brightness($hex_value) < 170 ? "dark" : "light",
+                "transparent" => $hex_value . "aa"
+            ];
+
             array_push($colors, $new_color);
         }
         return $colors;
+        
     }
+
+    public static function  get_color_by_slug($slug) {
+        $color = [];
+        
+        $colors = get_theme_support('editor-color-palette');
+        //var_dump($colors);
+        foreach ($colors[0] as $set) {
+            //var_dump($set);
+            if($set['slug'] === $slug) {
+                $color = $set;
+                break;
+            }
+        }
+
+        return $color;
+    }
+
+
+    function get_brightness($hex) { 
+        // returns brightness value from 0 to 255 
+        // strip off any leading # 
+        $hex = str_replace('#', '', $hex); 
+        $c_r = hexdec(substr($hex, 0, 2)); 
+        $c_g = hexdec(substr($hex, 2, 2)); 
+        $c_b = hexdec(substr($hex, 4, 2)); 
+        
+        return intval((($c_r * 299) + ($c_g * 587) + ($c_b * 114)) / 1000);
+      }
 
     public static function add_twig_filter($twig)
     {
@@ -105,8 +201,24 @@ class Color {
             $hex = new Hex($color);
             return $hex->isDark();
         } ) );
+        $twig->addFunction( new \Timber\Twig_Function( 'editor-color-palette', function( $slug ) {
+            $color = [];
+        
+            $colors = get_theme_support('editor-color-palette');
+            //var_dump($colors);
+            foreach ($colors[0] as $set) {
+                //var_dump($set);
+                if($set['slug'] === $slug) {
+                    $color = $set;
+                    break;
+                }
+            }
+
+            return $color;
+        } ) );
 
         return $twig;
     }
+
 
 }
