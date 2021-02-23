@@ -22,8 +22,8 @@ $EM_Tickets = $EM_Event->get_bookings()->get_tickets();
 	@booking-modal.window="showModal = true" 
     x-on:keydown.escape="showModal = false"
     @bookingsuccess.window="bookingSuccess = true"
-    :class="{'bg-lightgray-lighter overflow-y-auto': !bookingSuccess, 'bg-green text-white': bookingSuccess }"
-    class="fixed lg:place-items-center inset-0 mr-4 pt-20 lg:mr-10 bg-lightgray-lighter em-booking"
+    :class="{'bg-gray-100 overflow-y-auto': !bookingSuccess, 'bg-green text-white': bookingSuccess }"
+    class="fixed lg:place-items-center inset-0 mr-4 pt-20 lg:mr-10 bg-gray-200 em-booking"
     style="display: none"
     <?php 
         echo ' x-data="{bookingSuccess: false, showModal: false, ';
@@ -51,7 +51,7 @@ $EM_Tickets = $EM_Event->get_bookings()->get_tickets();
                 <div :class="{'px-4 lg:px-8': !bookingSuccess }" class="text-2xl py-8 lg:text-5xl"><?php echo __("Booking for", "em-pro") . " " . $EM_Event->name; ?></div>
             </div>
             <form class="em-booking-form grid lg:grid-cols-2 gap-8" name='booking-form' method='post' action='<?php echo apply_filters('em_booking_form_action_url',''); ?>#em-booking'>
-                <div class="lg:bg-white p-4 lg:p-8">
+                <div class="lg:bg-white p-4 rounded-tl-lg lg:p-8">
                     <h3 class="py-3"><?php _e("Select your tickets first", "em-pro") ?></h4>
                     <?php do_action('em_booking_form_header', $EM_Event); ?>
                     <input type='hidden' name='action' value='booking_add'/>
@@ -72,7 +72,7 @@ $EM_Tickets = $EM_Event->get_bookings()->get_tickets();
                     ?>
                 </div>
 				
-                <div class='em-booking-form-details lg:bg-white p-4 lg:p-8'>
+                <div class='em-booking-form-details rounded-br-lg lg:bg-white p-4 lg:p-8'>
                 <h3 class="py-3"><?php _e("Tell us, who you are", "em-pro") ?></h4>
                     <?php
                         do_action('em_booking_form_before_user_details', $EM_Event);
@@ -81,7 +81,7 @@ $EM_Tickets = $EM_Event->get_bookings()->get_tickets();
                     ?>
                     <?php do_action('em_booking_form_footer', $EM_Event); //do not delete ?>
                     <div class="text-right em-booking-buttons">
-                        <input  x-ref="submitButton" type="submit" class="invalid <?php if(is_admin()) echo 'button-primary '; ?>em-booking-submit" id="em-booking-submit" value="<?php echo esc_attr(get_option('dbem_bookings_submit_button')); ?>" />							
+                        <input  x-ref="submitButton" type="submit" class="invalid <?php if(is_admin()) echo 'button bg-primary '; ?>em-booking-submit" id="em-booking-submit" value="<?php echo esc_attr(get_option('dbem_bookings_submit_button')); ?>" />							
                     </div>
                     <?php do_action('em_booking_form_footer_after_buttons', $EM_Event); //do not delete ?>
                 </div>

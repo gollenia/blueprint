@@ -55,13 +55,13 @@ $columns = $EM_Tickets->get_ticket_collumns(); //array of column type => title
 									if($EM_Ticket->is_required()) { $min = 1; }
 									$default = !empty($_REQUEST['em_tickets'][$EM_Ticket->ticket_id]['spaces']) ? $_REQUEST['em_tickets'][$EM_Ticket->ticket_id]['spaces']:0;
 									$spaces_options = '<button 
-										:class="{\'bg-lightgray\': ticketCount' . $EM_Ticket->ticket_id . ' <= ' . $min . ', \'bg-blue text-white\': ticketCount' . $EM_Ticket->ticket_id . ' > ' . $min . '}" 
+										:class="{\'bg-gray-200\': ticketCount' . $EM_Ticket->ticket_id . ' <= ' . $min . ', \'bg-primary text-white\': ticketCount' . $EM_Ticket->ticket_id . ' > ' . $min . '}" 
 										class="rounded-tl-sm font-bold text-large py-1 px-4" 
 										x-bind:disabled="ticketCount' . $EM_Ticket->ticket_id . ' <= ' . $min . '" 
 										@click.prevent="ticketCount' . $EM_Ticket->ticket_id . '--">-</button>';
-									$spaces_options .= '<input class="w-8 p-1 bg-lightgray-lighter text-center" x-on:load="ticketCount' . $EM_Ticket->ticket_id . ' = ' . $min . '" type="text" min="' . $min . '" max="' . $max . '" name="em_tickets[' . $EM_Ticket->ticket_id . '][spaces]" class="em-ticket-select" x-model="ticketCount' . $EM_Ticket->ticket_id . '" id="em-ticket-spaces-' . $EM_Ticket->ticket_id . '">';
+									$spaces_options .= '<input class="w-8 p-1 bg-gray-100 text-center" x-on:load="ticketCount' . $EM_Ticket->ticket_id . ' = ' . $min . '" type="text" min="' . $min . '" max="' . $max . '" name="em_tickets[' . $EM_Ticket->ticket_id . '][spaces]" class="em-ticket-select" x-model="ticketCount' . $EM_Ticket->ticket_id . '" id="em-ticket-spaces-' . $EM_Ticket->ticket_id . '">';
 									$spaces_options .= '<button 
-										:class="{\'bg-lightgray\': ticketCount' . $EM_Ticket->ticket_id . ' >= ' . $max . ', \'bg-blue text-white\': ticketCount' . $EM_Ticket->ticket_id . ' < ' . $max . '}" 
+										:class="{\'bg-gray-200\': ticketCount' . $EM_Ticket->ticket_id . ' >= ' . $max . ', \'bg-primary text-white\': ticketCount' . $EM_Ticket->ticket_id . ' < ' . $max . '}" 
 										class="rounded-br-sm font-bold text-large py-1 px-4" 
 										x-bind:disabled="ticketCount' . $EM_Ticket->ticket_id . ' >= ' . $max . '" 
 										@click.prevent="ticketCount' . $EM_Ticket->ticket_id . '++">+</button>';
@@ -84,7 +84,7 @@ $columns = $EM_Tickets->get_ticket_collumns(); //array of column type => title
 
 </table>
 <?php
-echo '<div class="mt-4 pt-4 border-t-4 justify-between border-dotted border-gray flex"><div class="font-bold" colspan="2">Gesamtpreis</div><div class="text-right"><span class="inline-block text-right font-bold" x-text="(';
+echo '<div class="mt-4 pt-4 border-t-4 justify-between border-dotted border-gray-400 flex"><div class="font-bold" colspan="2">Gesamtpreis</div><div class="text-right"><span class="inline-block text-right font-bold" x-text="(';
 		$firstLoop = true;
 		foreach( $EM_Tickets->tickets as $key => $EM_Ticket ) {
 			
