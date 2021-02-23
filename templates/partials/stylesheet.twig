@@ -7,7 +7,7 @@
 
         --primary: {{primarycolor.color}};
         --primary-transparent: {{primarycolor.color}}aa;
-        --primary-light: {{primarycolor.color|lighten(20)}};
+        {% if primarycolor.color is not empty %}--primary-light: {{primarycolor.color|lighten(20)}};{% endif %}
         --primary-contrast: var(--blue-contrast);
         --primary-soft-contrast: var(--blue-soft-contrast);
         --primary-light-transparent: var(--lightblue-transparent);
@@ -15,7 +15,7 @@
 
         --secondary: {{secondarycolor.color}};
         --secondary-transparent: {{secondarycolor.color}}aa;
-        --secondary-light: {{secondarycolor.color|lighten(20)}};
+        {% if secondarycolor.color is not empty %}--primary-light: {{secondarycolor.color|lighten(20)}};{% endif %}
         --secondary-contrast: var(--blue-contrast);
         --secondary-soft-contrast: var(--blue-soft-contrast);
         --secondary-light-transparent: var(--lightblue-transparent);
