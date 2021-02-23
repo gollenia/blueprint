@@ -133,8 +133,6 @@ class Color {
         foreach($this->colors as $color) {
             
             $hex_value = get_field('theme_color_' . $color['slug'], "options");
-            
-            $hex = new Hex($hex_value);
 
             $new_color = [
                 "slug" => $color['slug'],
