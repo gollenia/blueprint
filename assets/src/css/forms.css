@@ -89,8 +89,10 @@ input[type="submit"] {
 
 .input-textarea label, .input-text label, .input-date label, .input-user-field label, .input-name label, .input-user_email label, .input-select label, .input-country label, .donation label {
     margin-top: -12px;
-    @apply inline-block p-4;
+    @apply inline-block px-2 ml-4;
     height: max-content;
+    padding-top: 1px;
+    padding-bottom: 1px;
     @apply rounded-tl-sm rounded-br-sm absolute bg-gray-200 text-black text-sm duration-300 transition-all ease-in-out whitespace-nowrap;
 }
   
@@ -117,7 +119,7 @@ select:invalid {
   
 .input-textarea label {
     width: max-content;
-    margin-top: 0px;
+    margin-top: 12px;
 }
 
 .input-textarea textarea {
