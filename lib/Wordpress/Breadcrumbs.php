@@ -33,10 +33,11 @@ Class Breadcrumbs {
             
             $slug = explode("/", ltrim(get_option("permalink_structure"), '/'))[0];
 
-            $breadcrumbs = [
-                ["title" => $post->terms[0]->name, "url" => $post->terms[0]->slug]
-            ];
+            $breadcrumbs = [];
 
+            if($post->terms) {
+                array_push($breadcrumbs, ["title" => $post->terms[0]->name, "url" => $post->terms[0]->slug]);
+            }
             
             while($term->parent) {
                 $term = new Term($term->parent);
