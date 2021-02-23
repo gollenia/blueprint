@@ -25,21 +25,6 @@ return [
                     "type" => "text",
                 ],
                 [
-                    "key" => "pagecolor",
-                    "label" => "Farbe",
-                    "name" => "pagecolor",
-                    "type" => "select",
-                    'choices' => array(
-                        '' => 'Standard',
-                        'page-blue'	=> 'Blau',
-                        'page-green'	=> 'Grün',
-                        'page-orange'	=> 'Orange',
-                        'page-red'	=> 'Rot',
-                        'page-violett'	=> 'Violett',
-                        'page-grey'	=> 'Grau',
-                    )
-                ],
-                [
                     "key" => "headerheight",
                     "label" => "Größe des Headers",
                     "name" => "headerheight",
@@ -183,6 +168,7 @@ return [
                     'instructions' => 'Achtung: Diesen Schalter nur betätigen, wenn du genau weißt, was du tust!',
                     'message' =>"Block-Editor in Veranstaltungen aktivieren"
                 ]
+                
             ],
             "location" => [
                 [
