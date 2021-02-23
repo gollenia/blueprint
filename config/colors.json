@@ -1,11 +1,5 @@
 [
     {
-        "color": "#eeeeee",
-        "name": "Standard",
-        "slug": "default",
-        "dark": false  
-    },
-    {
         "color": "#dddddd",
         "name": "Hellgrau",
         "slug": "lightgray",
