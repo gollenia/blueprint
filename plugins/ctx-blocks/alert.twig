@@ -1,4 +1,6 @@
-<div class="my-6 px-8 py-6 bg-{{alertColor}} rounded-tl-md rounded-br-md">
-    <h3 class="text-{{alertColor}}-soft-contrast">{{title}}</h3>
-    <p class="text-{{alertColor}}-soft-contrast">{{alertText}}</p>
+{% set bg = get_color_by_slug(alertColor) %}
+
+<div style="background: {{bg.color}};" class="{{bg.brightness}} alert">
+    <h3 class="core-block">{{title}}</h3>
+    <p class="core-block">{{alertText}}</p>
 </div>

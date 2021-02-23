@@ -1,12 +1,12 @@
-<li class="description-item flex py-2 items-center">
+<li class="description-item">
     {% if image.subtype == 'svg+xml' %}
-        <img class="h-16 w-16 rounded-full mx-0 mr-4" src="{{image.url}}">
+        <img src="{{image.url}}">
     {% else %}
-        <img class="h-16 w-16 rounded-full mx-0 mr-4" src="{{image.sizes.qmedium.url}}">
+        <img src="{{image.sizes.qmedium.url}}">
     {% endif %}
     <div class="">
-    <b>{{title}}</b>
-    <p>{{text}}</p>
+        <b>{{title}}</b>
+        <span>{{text}}</span>
     </div>
 </li>
 
