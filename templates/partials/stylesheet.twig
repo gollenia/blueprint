@@ -3,20 +3,25 @@
 <style>
     {# Damit die Farben aus der Theme-Configuration direkt im CSS butzbar sind, ohne sie doppelt zu definieren, werden sie hier per twig gerendert #}  
     :root {      
-        {% for colorset in attribute(config.theme_support, 'editor-color-palette') %}
-                --{{colorset.slug}}: {{colorset.color}};
-                --{{colorset.slug}}-lighter: {{colorset.color|lighten(10)}};
-                --{{colorset.slug}}-transparent: {{colorset.color}}aa;
-                --{{colorset.slug}}-darker: {{colorset.color|darken(10)}};
-                {% if colorset.dark %}
-                    --{{colorset.slug}}-soft-contrast: {{colorset.color|tint(80)}};
-                    --{{colorset.slug}}-contrast: #ffffff;
-                {% else %}
-                    --{{colorset.slug}}-soft-contrast: {{colorset.color|shade(80)}};
-                    --{{colorset.slug}}-contrast: #000000;
-                {% endif %}
-                
-        {% endfor %}
+        
+
+        --primary: {{primarycolor.color}};
+        --primary-transparent: {{primarycolor.color}}aa;
+        --primary-light: {{primarycolor.color|lighten(20)}};
+        --primary-contrast: var(--blue-contrast);
+        --primary-soft-contrast: var(--blue-soft-contrast);
+        --primary-light-transparent: var(--lightblue-transparent);
+        --primary-dark: var(--darkblue);
+
+        --secondary: {{secondarycolor.color}};
+        --secondary-transparent: {{secondarycolor.color}}aa;
+        --secondary-light: {{secondarycolor.color|lighten(20)}};
+        --secondary-contrast: var(--blue-contrast);
+        --secondary-soft-contrast: var(--blue-soft-contrast);
+        --secondary-light-transparent: var(--lightblue-transparent);
+        --secondary-dark: var(--darkblue);
+
+
     }
     {% for colorset in attribute(config.theme_support, 'editor-color-palette') %}
         .has-{{colorset.slug}}-color.has-text-color {

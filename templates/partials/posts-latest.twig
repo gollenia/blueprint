@@ -9,7 +9,7 @@
             {% if item.post_excerpt is not empty %}
                 <span>{{item.post_excerpt|excerpt(10, "...")}}</span><br/>
             {% endif %}
-            <span class="text-xs text-gray">{{item.post_date|date("j. F Y")}}</span>
+            <span class="text-xs text-gray-500">{{item.post_date|date("j. F Y")}}</span>
             
             
         </div>

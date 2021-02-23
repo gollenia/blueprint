@@ -23,7 +23,7 @@
 					{% if item.has_child_class %}
 						{% include "partials/menu-dropdown.twig" with {'menu': item} %}
 					{% else %}
-						<a href="{{item.get_link}}" class="lg:text-lg rounded-tl rounded-br hover:bg-lightgray px-4 py-1 font-semibold md:mt-0 {% if (item.current or item.current_item_ancestor) %}bg-lightgray{% endif %}" href="">
+						<a href="{{item.get_link}}" class="lg:text-lg rounded-tl rounded-br  px-4 py-1 font-semibold md:mt-0 {% if (item.current or item.current_item_ancestor) %} bg-gray-200 text-gray-600 hover:bg-gray-300 hover:text-gray-700 {% else %} hover:bg-primary hover:{{primarycolor.brightness}}{% endif %}" href="">
 							{{item.title}}
 						</a>
 		
