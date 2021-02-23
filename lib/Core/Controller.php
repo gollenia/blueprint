@@ -27,6 +27,8 @@ class Controller {
     /**
      * Constructor
      * 
+     * @todo This function is heavily overloaded!!!
+     * 
      * @param \Contexis\Core\Site $site A Site Object
      * @param string $template Twig template to be rendered
      * @since 1.0.0
@@ -40,6 +42,8 @@ class Controller {
         
         // Das Site-Objekt. 
         $this->context['site'] = $site;
+
+        
 
         $this->context['config'] = $site->getConfig();
 
@@ -55,6 +59,18 @@ class Controller {
             // Der aktuelle Post
             $this->context['post'] = new Post();
         }
+
+        $base = get_field('primarycolor', "options");
+        if(!empty($post->primarycolor)) {
+            $base=$post->pagecolor;
+        }
+        $this->context['primarycolor'] = \Contexis\Core\Color::get_color_by_slug($base);
+
+        $base = get_field('secondarycolor', "options");
+        if(!empty($post->secondarycolor)) {
+            $base=$post->secondarycolor;
+        }
+        $this->context['secondarycolor'] = \Contexis\Core\Color::get_color_by_slug($base);
 
         // Die Widgets
         $this->context['footer'] = Timber::get_widgets('footer_area');
