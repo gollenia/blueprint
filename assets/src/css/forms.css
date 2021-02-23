@@ -16,9 +16,7 @@
 /* ########## EVENT-Plugin ########## */
 
 form:invalid input[type="submit"] {
-    background-color: var(--lightgray) !important;
-    
-    color: var(--gray);
+    @apply bg-gray-300 text-gray-500 font-normal cursor-not-allowed;
 }
 
 .input-group, .input-name, .input-user_email, .input-user-field {
@@ -27,20 +25,7 @@ form:invalid input[type="submit"] {
   
 .input-text input, .input-date input, .input-user-field input, .input-name input, .input-user_email input, .input-dbem_country select, .input-country select, .input-select select, .donation input[type="text"], .donation input[type="email"], .donation select {
     outline: none !important;
-    width: 100%;
-    @apply border-2;
-    @apply border-lightgray; 
-    @apply rounded-tl;
-    @apply rounded-br;
-    @apply bg-white;
-    padding-left: 18px;
-    padding-right: 18px;
-    padding-top: 7px;
-    padding-bottom: 7px;
-    @apply duration-300;
-    @apply transition-all;
-    @apply ease-in-out;
-    color: #222222;
+    @apply w-full border-2 px-4 py-2 w-full border-gray-200 rounded-tl rounded-br bg-white duration-300 transition-all text-gray-900 ease-in-out;
 }
 
 
@@ -55,7 +40,7 @@ form:invalid input[type="submit"] {
 }
 
 .error-message {
-    @apply text-red;
+    @apply text-red-500;
     @apply text-xs;
     padding-left: 18px;
     display: block;
@@ -71,7 +56,7 @@ input[type="checkbox"] + span::before {
     @apply rounded-tl-sm;
     @apply rounded-br-sm;
     @apply border-2;
-    @apply border-lightgray;
+    @apply border-gray-200;
     background-color: #fff;
     @apply duration-300;
     @apply transition-all;
@@ -84,8 +69,8 @@ input[type="checkbox"] + span::before {
   }
   input[type="checkbox"]:checked+span::before {
     box-shadow: inset 0px 0px 0px 3px #fff;
-    background-color: var(--primary);
-    @apply border-blue;
+    @apply border-blue-400;
+    backgroud-color: var(--primary)
   }
 
   span.wpcf7-list-item {
@@ -94,15 +79,8 @@ input[type="checkbox"] + span::before {
 }
 
 input[type="submit"] {
-    @apply px-4;
-    @apply py-2;
-    @apply bg-blue;
-    @apply text-white;
-    @apply font-bold;
-    @apply rounded-tl;
-    @apply rounded-br;  
-    @apply cursor-pointer;
-    @apply outline-none;
+    @apply px-4 py-2 text-white font-bold rounded-tl rounded-br cursor-pointer outline-none;
+    backgroud-color: var(--primary)
 }
 
 .donation p {
@@ -111,38 +89,25 @@ input[type="submit"] {
 
 .input-textarea label, .input-text label, .input-date label, .input-user-field label, .input-name label, .input-user_email label, .input-select label, .input-country label, .donation label {
     margin-top: -12px;
-    @apply inline-block;
+    @apply inline-block p-4;
     height: max-content;
-    margin-left: 10px;
-    padding-left: 10px;
-    padding-right: 10px;
-    margin-right: 10px;
-    @apply rounded-tl-sm;
-    @apply rounded-br-sm;
-    white-space: nowrap;
-    @apply absolute;
-    @apply bg-lightgray;
-    @apply text-black;
-    @apply text-sm;
-    @apply duration-300;
-    @apply transition-all;
-    @apply ease-in-out;
+    @apply rounded-tl-sm rounded-br-sm absolute bg-gray-200 text-black text-sm duration-300 transition-all ease-in-out whitespace-nowrap;
 }
   
   
   
 .error input, .error select {
-   @apply text-red;
-   @apply border-red;
+   @apply text-red-500;
+   @apply border-red-500;
 }
   
 select:invalid {
-    @apply text-gray;
+    @apply text-gray-500;
 }
   
   
 .error label {
-    @apply bg-red;
+    @apply bg-red-500;
     @apply text-white
 }
   
@@ -156,20 +121,9 @@ select:invalid {
 }
 
 .input-textarea textarea {
-    margin-top: 0px;
-    margin-bottom: 0px;
     width: 100%;
-    @apply border-2;
-    @apply border-lightgray;
-    @apply rounded-tl;
-    @apply rounded-br;
-    @apply bg-white;
-    padding-left: 18px;
-    padding-right: 10px;
+    @apply border-2 border-gray-200 rounded-tl rounded-br bg-white my-0 px-4 mt-6;
     padding-top: 6px;
-    /*margin-left: 20px;*/
-    /*margin-right: 20px;*/
-    margin-top: 12px;
     outline: none !important;
   }
     
@@ -181,7 +135,7 @@ select:invalid {
     margin-right: 10px;
     @apply rounded-tl;
     @apply rounded-br;
-    @apply bg-red;
+    @apply bg-red-500;
     @apply text-white;
     border: 0px !important;
   }

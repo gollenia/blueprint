@@ -1,13 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Gochi+Hand&display=swap');
 
-
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-
 
 /* breaks the utilities-first rule... */
 .equalizer > div {
@@ -19,9 +15,7 @@
   height: 100%;
 }
 
-@import "forms.css";
-@import "blocks.css";
-@import "plugins.css";
+
 
 body {
   font-variant-ligatures: none;
@@ -37,20 +31,20 @@ body {
 
 @layer utilities {
   @variants hover {
-    .bg-primary {
+  .bg-primary {
       background-color: var(--primary);
   }
 
-  .bg-primary-light {
-    background-color: var(--primary-light);
+  .bg-secondary {
+    background-color: var(--secondary);
 }
-
-  .bg-primary-dark {
-    background-color: var(--primary-dark);
-    }
 
   .fill-primary {
     fill: var(--primary);
+  }
+
+  .fill-secondary {
+    fill: var(--secondary);
   }
 
   .bg-blur {
@@ -61,110 +55,45 @@ body {
     color: var(--primary);
    }
 
-   .text-primary-contrast {
-    color: var(--primary-contrast);
+   .text-secondary {
+    color: var(--secondary);
    }
+
+   .border-secondary {
+     border-color: var(--secondary);
+   }
+
+   .border-primary {
+    border-color: var(--primary);
+  }
 
    .bg-primary-transparent {
     background: var(--primary-transparent);
    }
+
+   .bg-secondary-transparent {
+    background: var(--secondary-transparent);
+   }
+
+   .dark { 
+    color: #ffffff;
+    color: #ffffffdd;
+    fill: #ffffffdd
+    }
+  .light { 
+    color: #000000;
+    color: #000000dd;
+     fill: #000000dd;
+   }
+
+   
   }
 }
 
 /* Set primary color for each country / city */
   
 
-.de-AT {
-    --primary: var(--blue);
-    --primary-transparent: var(--blue-transparent);
-    --primary-light: var(--lightblue);
-    --primary-contrast: var(--blue-contrast);
-    --primary-soft-contrast: var(--blue-soft-contrast);
-    --primary-light-transparent: var(--lightblue-transparent);
-    --primary-dark: var(--darkblue);
-}
 
-
-.de-DE, .wien {
-    --primary: var(--green);
-    --primary-transparent: var(--green-transparent);
-    --primary-light-transparent: var(--lightgreen-transparent);
-    --primary-soft-contrast: var(--green-soft-contrast);
-    --primary-light: var(--lightgreen);
-    --primary-dark: var(--darkgreen);
-}
-
-.graz {
-    --primary: var(--purple);
-    --primary-light: var(--lightpurple);
-    --primary-transparent: var(--purple-transparent);
-    --primary-light-transparent: var(--lightpurple-transparent);
-    --primary-soft-contrast: var(--purple-soft-contrast);
-    --primary-dark: var(--darkpurple);
-}
-
-.innsbruck {
-    --primary: var(--red);
-    --primary-light: var(--lightred);
-    --primary-transparent: var(--red-transparent);
-    --primary-light-transparent: var(--lightred-transparent);
-    --primary-soft-contrast: var(--red-soft-contrast);
-    --primary-dark: var(--darkred);
-}
-
-.de-CH, .fr-FR {
-    --primary: var(--orange);
-    --primary-transparent: var(--orange-transparent);
-    --primary-light: var(--lightorange);
-    --primary-light-transparent: var(--lightorange-transparent);
-    --primary-dark: var(--darkorange);
-}
-
-
-.page-orange {
-  --primary: var(--orange);
-  --primary-transparent: var(--orange-transparent);
-  --primary-light: var(--lightorange);
-  --primary-light-transparent: var(--lightorange-transparent);
-  --primary-dark: var(--darkorange);
-}
-
-.page-red {
-  --primary: var(--red);
-  --primary-light: var(--lightred);
-  --primary-transparent: var(--red-transparent);
-  --primary-light-transparent: var(--lightred-transparent);
-  --primary-soft-contrast: var(--red-soft-contrast);
-  --primary-dark: var(--darkred);
-}
-
-.page-blue {
-  --primary: var(--blue);
-  --primary-transparent: var(--blue-transparent);
-  --primary-light: var(--lightblue);
-  --primary-contrast: var(--blue-contrast);
-  --primary-soft-contrast: var(--blue-soft-contrast);
-  --primary-light-transparent: var(--lightblue-transparent);
-  --primary-dark: var(--darkblue);
-}
-
-.page-green {
-  --primary: var(--green);
-  --primary-transparent: var(--green-transparent);
-  --primary-light-transparent: var(--lightgreen-transparent);
-  --primary-soft-contrast: var(--green-soft-contrast);
-  --primary-light: var(--lightgreen);
-  --primary-dark: var(--darkgreen);
-}
-
-.page-violett {
-  --primary: var(--purple);
-  --primary-light: var(--lightpurple);
-  --primary-transparent: var(--purple-transparent);
-  --primary-light-transparent: var(--lightpurple-transparent);
-  --primary-soft-contrast: var(--purple-soft-contrast);
-  --primary-dark: var(--darkpurple);
-}
 
 /* Make the accordion work */
 .max-h-0 {
@@ -174,3 +103,10 @@ body {
 div.input-required {
   display: none !important;
 }
+
+
+
+@import "base.css";
+@import "forms.css";
+@import "blocks.css";
+@import "plugins.css";
