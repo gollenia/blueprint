@@ -7,7 +7,7 @@
                 overflow-hidden
                 {% if dropShadow %}hover {% endif %}
                 {% if function("get_the_ID") == item.ID %}text-blue{% endif %} 
-                block flex flex-col bg-white items-center 
+                card items-center 
                 {{ style == "list" ? "flex-row" : "flex-col" }}
                 {{loop.first ? "rounded-tl-lg"}}
                 {{loop.last ? "rounded-br-lg"}}
