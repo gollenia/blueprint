@@ -1,6 +1,6 @@
 {% if image.subtype == 'svg+xml' %}
   <figure style="width: {{width}}%; {{alignment == "center" ? "margin: auto"}}">
-  {{ source(function('wp_get_original_image_path', image.id), ignore_missing = true) }}
+    {{ source(function('wp_get_original_image_path', image.id), ignore_missing = true) }}
   </figure>
 {% else %}
 <div x-data="{}" style="{{ flip ? 'transform: scaleX(-1);' }}" class="text-{{alignment}} image relative">
