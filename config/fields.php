@@ -202,6 +202,7 @@ return [
             'capability'    => 'edit_posts',
             'redirect'      => false,
             'parent_slug' => 'options-general.php',
-         ]
+        ]
+        
     ]
 ];
