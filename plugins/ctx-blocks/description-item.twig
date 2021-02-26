@@ -1,12 +1,14 @@
 <li class="description-item">
     {% if image.subtype == 'svg+xml' %}
-        <img src="{{image.url}}">
+        <figure>
+        {{ source(function('wp_get_original_image_path', image.id), ignore_missing = true) }}
+        </figure>
     {% else %}
         <img src="{{image.sizes.qmedium.url}}">
     {% endif %}
     <div class="">
         <b>{{title}}</b>
-        <span>{{text}}</span>
+        <span class="block">{{text}}</span>
     </div>
 </li>
 
