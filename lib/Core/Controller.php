@@ -60,16 +60,10 @@ class Controller {
             $this->context['post'] = new Post();
         }
 
-        $base = get_field('primarycolor', "options");
-        if(!empty($post->primarycolor)) {
-            $base=$post->pagecolor;
-        }
+        $base = $post->primarycolor ?: get_field('primarycolor', "options");
         $this->context['primarycolor'] = \Contexis\Core\Color::get_color_by_slug($base);
 
-        $base = get_field('secondarycolor', "options");
-        if(!empty($post->secondarycolor)) {
-            $base=$post->secondarycolor;
-        }
+        $base = $post->secondarycolor ?: get_field('secondarycolor', "options");
         $this->context['secondarycolor'] = \Contexis\Core\Color::get_color_by_slug($base);
 
         // Die Widgets
