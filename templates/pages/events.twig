@@ -40,7 +40,7 @@
             >
                 {% if event.get_terms('event_category') %}<span class="absolute top-64 -mt-4 -pl-2 px-3 py-1 bg-secondary {{secondarycolor.brightness}} rounded-tl rounded-br ml-8">{{event.get_terms('event_category')|first}}</span>{% endif %}
                 <div class="overflow-hidden">
-                        <img src="{{ event.thumbnail.src('medium') }}" class="{{ loop.first ? "rounded-tl-lg" }} object-cover h-80 w-full">      
+                        <img src="{{ event.thumbnail.src('medium') }}" class="{{ loop.first ? "rounded-tl-lg" }} object-cover h-64 w-full">      
                 </div>
                 <div class="p-10 flex flex-col flex-grow">
                     <h4 class="core-block">{{event.post_title}}</h4>
