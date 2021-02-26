@@ -20,7 +20,7 @@ return [
              'dependencies' => [
                  'wp-api-fetch'
              ],
-            'version' => false,
+            'version' => true,
             'in_footer' => true
         ],
     ],
@@ -30,7 +30,7 @@ return [
             'handle' => 'theme_style',
             'url' => get_template_directory_uri() . '/assets/dist/style.css',
             'dependencies' => [],
-            'version' => false,
+            'version' => true,
             'media' => 'all'
         ]
     ],
