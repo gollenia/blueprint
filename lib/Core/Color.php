@@ -48,7 +48,7 @@ class Color {
                 [
                     "key" => "primarycolor",
                     "label" => "Primärfarbe",
-                    "name" => "pagecolor",
+                    "name" => "primarycolor",
                     'type' => 'select',
                     'ui' => 1,
                     'choices' => [
