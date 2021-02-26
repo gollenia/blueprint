@@ -12,9 +12,11 @@ use OzdemirBurak\Iris\Color\Hex;
 class Color {
 
     private $colors = [];
+
     private $color_fields = [
         "key" => "color_fields",
-        "title" => "Farb-Einstellungen",
+        "title" => "Globale Farbpalette",
+        'instructions' => 'Hier können eigene Farbnuancen für die Seite eingestellt werden.',
         "fields" => [],
         "location" => [
             [
@@ -29,19 +31,19 @@ class Color {
     ];
 
     private $color_page = [
-        "theme_options" => [
-            'page_title'    => 'Theme-Farben',
-            'menu_title'    => 'Theme-Farben',
+        "theme_colors" => [
+            'page_title'    => 'Farb-Einstellungen',
+            'menu_title'    => 'Farb-Einstellungen',
             'menu_slug'     => 'theme-colors',
             'capability'    => 'edit_posts',
             'redirect'      => false,
             'parent_slug' => 'options-general.php',
          ]
-        ];
+    ];
     
     private $page_color = [
         "key" => "page_colors",
-            "title" => "Farbeinstellungen",
+            "title" => "Seitenbarbe",
             "fields" => [
                 [
                     "key" => "primarycolor",
@@ -90,34 +92,57 @@ class Color {
                     [
                         'param' => 'options_page',
                         "operator" => "==",
-                        "value" => "theme-settings"
+                        "value" => "theme-colors"
                     ]
                 ]
             ],
-            'menu_order' => 0,
             'position' => 'side',
-            'label_placement' => 'top',
-            'instruction_placement' => 'label',
-            'hide_on_screen' => '',
         ];
 
+
+    /**
+     * We have to iterace the colors twice, because we cannot call get_fields() before register_fields()
+     *
+     * @param array $colors
+     */
     public function __construct($colors) {
-        $this->colors = $colors;
-        //$this->colors = $this->get_theme_colors($this->colors);
-        foreach($this->colors as $color) {
+        foreach($colors as $color) {
             array_push($this->color_fields["fields"], $this->create_color_field($color));
-            $this->page_color["fields"][0]["choices"][$color["slug"]] = '<div style="display: flex; align-items: center"> <span style="display: inline-block; margin-right: 5px; height: 16px; width: 16px; background-color: ' . $color["color"] . ';" class=""></span> ' . $color["name"] . "</div>";
-            $this->page_color["fields"][1]["choices"][$color["slug"]] = '<div style="display: flex; align-items: center"> <span style="display: inline-block; margin-right: 5px; height: 16px; width: 16px; background-color: ' . $color["color"] . ';" class=""></span> ' . $color["name"] . "</div>";
+            $this->color_option_field($color);
         }
-       
+
         \Contexis\Wordpress\Plugins\Fields::registerPages($this->color_page);
         \Contexis\Wordpress\Plugins\Fields::registerFields(array($this->color_fields));
         \Contexis\Wordpress\Plugins\Fields::registerFields(array($this->page_color));
-
-        
+        $this->colors = $this->fetch_custom_colors($colors);
     }
 
-    
+
+    private function color_option_field($color) {
+        $field_label = '<div style="display: flex; align-items: center"> <span style="display: inline-block; border-radius: 100%;  margin-right: 5px; height: 16px; width: 16px; background-color: var(--' . $color['slug'] . ');" class=""></span> ' . $color["name"] . "</div>";
+        $this->page_color["fields"][0]["choices"][$color["slug"]] = $field_label;
+        $this->page_color["fields"][1]["choices"][$color["slug"]] = $field_label;
+    }
+
+    public function add_admin_color_css() { 
+        $stylesheet = ":root {";
+        foreach ($this->colors as $color) {
+            $stylesheet .= "--" . $color['slug'] . ": " . $color["color"] . ";";
+        }
+        $stylesheet .= "}";
+        add_action('admin_enqueue_scripts', function() use (&$stylesheet) {
+            wp_register_style( 'admin-custom-colors' , false );
+            wp_enqueue_style( 'admin-custom-colors' );
+            wp_add_inline_style('admin-custom-colors', $stylesheet);
+        });
+    }
+
+    /**
+     * Create fields for Theme-Color Page from color array
+     *
+     * @param [type] $color
+     * @return void
+     */
     private function create_color_field($color) {
         return [
             "key" => 'theme_color_' . $color['slug'],
@@ -128,26 +153,36 @@ class Color {
         ];
     }
 
-    public function get_theme_colors () {
-        $colors = [];
-        foreach($this->colors as $color) {
+    /**
+     * Iterate colors, get the custom field value if set and add some custom stuff
+     *
+     * @param [type] $colors
+     * @return void
+     */
+    public function fetch_custom_colors($colors) {
+        $color_sets = [];
+        foreach($colors as $color) {
             
-            $hex_value = get_field('theme_color_' . $color['slug'], "options");
-
+            $hex = get_field('theme_color_' . $color['slug'], "options") ?: $color["color"];
             $new_color = [
                 "slug" => $color['slug'],
                 "name" => $color['name'],
-                "color" => $hex_value,
-                "brightness" => $this->get_brightness($hex_value) < 170 ? "dark" : "light",
-                "transparent" => $hex_value . "aa"
+                "color" => $hex,
+                "brightness" => $this->get_brightness($hex) < 170 ? "dark" : "light",
+                "transparent" => $hex . "aa"
             ];
-
-            
-
-            array_push($colors, $new_color);
+            array_push($color_sets, $new_color);
         }
-        return $colors;
+        return $color_sets;
         
+    }
+
+    public function register_fields() {
+        
+    }
+
+    public function get() {
+        return $this->colors;
     }
 
     public static function  get_color_by_slug($slug) {
@@ -166,18 +201,17 @@ class Color {
         return $color;
     }
 
-
+    // To own Color Calss
     function get_brightness($hex) { 
-        // returns brightness value from 0 to 255 
-        // strip off any leading # 
         $hex = str_replace('#', '', $hex); 
         $c_r = hexdec(substr($hex, 0, 2)); 
         $c_g = hexdec(substr($hex, 2, 2)); 
         $c_b = hexdec(substr($hex, 4, 2)); 
         
         return intval((($c_r * 299) + ($c_g * 587) + ($c_b * 114)) / 1000);
-      }
+    }
 
+    //maybe we can get rid of these...
     public static function add_twig_filter($twig)
     {
         $twig->addFilter( new \Timber\Twig_Filter( 'darken', function( $color, $percent ) {
