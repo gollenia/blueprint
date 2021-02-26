@@ -5,7 +5,7 @@
             <a 
                 class="
                 overflow-hidden
-                {% if showDate %}hover:shadow-2xl {% endif %}
+                {% if dropShadow %}hover {% endif %}
                 {% if function("get_the_ID") == item.ID %}text-blue{% endif %} 
                 block flex flex-col bg-white items-center 
                 {{ style == "list" ? "flex-row" : "flex-col" }}
