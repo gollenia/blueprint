@@ -1,16 +1,16 @@
 [
     {
-        "color": "#dddddd",
+        "color": "#E5E7EB",
         "name": "Hellgrau",
         "slug": "lightgray" 
     },
     {
-        "color": "#999999",
+        "color": "#9CA3AF",
         "name": "Mittelgrau",
         "slug": "gray"
     },
     {
-        "color": "#333333",
+        "color": "#374151",
         "name": "Dunkelgrau",
         "slug": "darkgray"
     },
