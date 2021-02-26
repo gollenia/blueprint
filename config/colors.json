@@ -2,122 +2,101 @@
     {
         "color": "#dddddd",
         "name": "Hellgrau",
-        "slug": "lightgray",
-        "dark": false  
+        "slug": "lightgray" 
     },
     {
         "color": "#999999",
         "name": "Mittelgrau",
-        "slug": "gray",
-        "dark": false  
+        "slug": "gray"
     },
     {
         "color": "#333333",
         "name": "Dunkelgrau",
-        "slug": "darkgray",
-        "dark": true  
+        "slug": "darkgray"
     },
     {
         "color": "#ffffff",
         "name": "Weiß",
-        "slug": "white",
-        "dark": false
-        
+        "slug": "white"        
     },
     {
         "color": "#009cd9",
         "name": "Blau",
-        "slug": "blue",
-        "dark": true
+        "slug": "blue"
     },
     {
         "color": "#AFE9FF",
         "name": "Hellblau",
-        "slug": "lightblue",
-        "dark": false
+        "slug": "lightblue"
     },
     {
         "color": "#020182",
         "name": "Dunkelblau",
-        "slug": "darkblue",
-        "dark": true
+        "slug": "darkblue"
     },
     {
         "color": "#faba00",
         "name": "Orange",
-        "slug": "orange",
-        "dark": false
+        "slug": "orange"
     },
     {
         "color": "#FFD894",
         "name": "Hell Orange",
-        "slug": "lightorange",
-        "dark": false
+        "slug": "lightorange"
     },
     {
         "color": "#8a2000",
         "name": "Dunkel Orange",
-        "slug": "darkorange",
-        "dark": true
+        "slug": "darkorange"
     },
     {
         "color": "#AAC74E",
         "name": "Grün",
-        "slug": "green",
-        "dark": true
+        "slug": "green"
     },
     {
         "color": "#D4E3A6",
         "name": "Hellgrün",
-        "slug": "lightgreen",
-        "dark": false
+        "slug": "lightgreen"
     },
     {
         "color": "#374215",
         "name": "Dunkelgrün",
-        "slug": "darkgreen",
-        "dark": true
+        "slug": "darkgreen"
     },
     {
         "color": "#8E53C0",
         "name": "Lila",
-        "slug": "purple",
-        "dark": true
+        "slug": "purple"
     },
     {
         "color": "#D3BCE6",   
         "name": "Hell-Lila",
-        "slug": "lightpurple",
-        "dark": false
+        "slug": "lightpurple"
     },
     {
         "color": "#491675",   
         "name": "Dunkel-Lila",
-        "slug": "darkpurple",
-        "dark": true
+        "slug": "darkpurple"
     },
     {
         "color": "#e63749",
         "name": "Rot",
-        "slug": "red",
-        "dark": true
+        "slug": "red"
     },
     {
         "color": "#ffb4bb",
         "name": "Hell-Rot",
-        "slug": "lightred",
-        "dark": false
+        "slug": "lightred"
     },
     {
         "color": "#59031e",
         "name": "Dunkel-Rot",
-        "slug": "darkred",
-        "dark": true
+        "slug": "darkred"
     },
     {
         "color": "#000000",
         "name": "Schwarz",
-        "slug": "black",
-        "dark": true
+        "slug": "black"
     }
 ]
