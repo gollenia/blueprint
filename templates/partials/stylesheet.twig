@@ -21,15 +21,18 @@
         --secondary-light-transparent: var(--lightblue-transparent);
         --secondary-dark: var(--darkblue);
 
+        {% for colorset in attribute(config.theme_support, 'editor-color-palette') %}
+        --{{colorset.slug}}: {{colorset.color}};
+        }
+        
+        {% endfor %}
 
     }
     {% for colorset in attribute(config.theme_support, 'editor-color-palette') %}
         .has-{{colorset.slug}}-color.has-text-color {
            color: {{colorset.color}};
         }
-        .text-{{colorset.slug}}-soft-contrast {
-            color: var(--{{colorset.slug}}-soft-contrast);
-        }
+        
     {% endfor %}
     
    
