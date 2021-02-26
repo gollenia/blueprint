@@ -43,6 +43,7 @@ class Site extends \Timber\Site {
 		$this->config = $config;
 		$this->theme_root = get_theme_root();
 		$this->add_wordpress_functions();
+		$this->add_theme_colors();
 		$this->add_timber_functions();
 		$this->custom_functions();
 		parent::__construct();
@@ -90,19 +91,33 @@ class Site extends \Timber\Site {
 		Taxonomy::register($this->config->get('taxonomies'));
 		Shortcode::register();
 		Block::register($this->config->get('blocks'));
-
-		$color = new Color($this->config->get('colors'));
-		$theme_colors = $color->get_theme_colors();
+		$colors = new Color($this->config->get('colors'));
+		$this->colors = $colors;
+		$theme_colors = $colors->get();
 		$theme_support = $this->config->get('theme_support');
+		// inject custom colors into theme support
 		$theme_support['editor-color-palette'] = $theme_colors;
 		$this->config->set('theme_support', $theme_support);
 		ThemeSupport::register($theme_support);
-				
+		$colors->add_admin_color_css();
+		
 		// remove automatic <p>-tags
 		remove_filter('the_content', 'wpautop');
 
 		$this->enable_event_gutenberg();
 		
+	}
+
+	private function add_theme_colors() {
+		$colors = new Color($this->config->get('colors'));
+		$this->colors = $colors;
+		$theme_colors = $colors->get();
+		$theme_support = $this->config->get('theme_support');
+		// inject custom colors into theme support
+		$theme_support['editor-color-palette'] = $theme_colors;
+		$this->config->set('theme_support', $theme_support);
+		ThemeSupport::register($theme_support);
+		$colors->add_admin_color_css();
 	}
 
 	/**
@@ -128,7 +143,6 @@ class Site extends \Timber\Site {
 	}
 
 	private function enable_event_gutenberg() {
-		
 		if(get_field('emp_gutenberg', 'option')) {
 			define('EM_GUTENBERG', true);
 		}
