@@ -69,8 +69,8 @@ input[type="checkbox"] + span::before {
   }
   input[type="checkbox"]:checked+span::before {
     box-shadow: inset 0px 0px 0px 3px #fff;
-    @apply border-blue-400;
-    backgroud-color: var(--primary)
+    border-color: var(--primary);
+    background-color: var(--primary);
   }
 
   span.wpcf7-list-item {
@@ -80,7 +80,7 @@ input[type="checkbox"] + span::before {
 
 input[type="submit"] {
     @apply px-4 py-2 text-white font-bold rounded-tl rounded-br cursor-pointer outline-none;
-    backgroud-color: var(--primary)
+    background-color: var(--primary)
 }
 
 .donation p {
