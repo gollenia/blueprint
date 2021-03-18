@@ -9,8 +9,8 @@
                 {% if function("get_the_ID") == item.ID %}text-blue{% endif %} 
                 card items-center bg-white
                 {{ style == "list" ? "flex-row" : "flex-col" }}
-                {{loop.first ? "rounded-tl-lg"}}
-                {{loop.last ? "rounded-br-lg"}}
+                {{loop.first ? "rounded-tl-3xl"}}
+                {{loop.last ? "rounded-br-3xl"}}
                 "            
                 href="{{ function("get_permalink", item.ID) }}"
             >

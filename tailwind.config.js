@@ -1,3 +1,4 @@
+const colors = require('tailwindcss/colors');
 module.exports = {
   purge: {
     content: [
@@ -13,6 +14,32 @@ module.exports = {
   theme: {
     
     extend: {},
+    colors: {
+      "primary": {
+        contrast: "var(--primary-contrast)",
+        transparent: "var(--primary-transparent)",
+        contrastsoft: "var(--primary-soft-contrast)",
+        lighter: "var(--primary-lighter)",
+        DEFAULT: "var(--primary)",
+        darker: "var(--primary-darker)",
+      },
+      "secondary": {
+        contrast: "var(--secondary-contrast)",
+        transparent: "var(--secondary-transparent)",
+        contrastsoft: "var(--secondary-soft-contrast)",
+        lighter: "var(--secondary-lighter)",
+        DEFAULT: "var(--secondary)",
+        darker: "var(--secondary-darker)",
+      },
+      transparent: 'transparent',
+      current: 'currentColor',
+      black: colors.black,
+      white: colors.white,
+      gray: colors.trueGray,
+      blue: colors.blue,
+      red: colors.rose,
+      green: colors.green,
+    },
     fontFamily: {
       display: ['"Exo 2"', 'sans-serif'],
       body: ['"Exo 2"', 'sans-serif'],
@@ -23,16 +50,6 @@ module.exports = {
       'blur': 'blur(10px)',
       'blur-20': 'blur(20px)',
       'blur-5': 'blur(5px)',
-    },
-    borderRadius: {
-      'none': '0',
-       'sm': '5px',
-       DEFAULT: '0.25rem',
-       DEFAULT: '10px',
-       'md': '20px',
-       'lg': '50px',
-       'full': '9999px',
-       'large': '12px',
     }
   },
   future: {

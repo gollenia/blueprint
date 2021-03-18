@@ -18,7 +18,8 @@ use Contexis\Wordpress\{
 	Assets,
 	Taxonomy,
 	Shortcode,
-	Block
+	Block,
+	Security
 };
 
 class Site extends \Timber\Site {
@@ -103,6 +104,14 @@ class Site extends \Timber\Site {
 		
 		// remove automatic <p>-tags
 		remove_filter('the_content', 'wpautop');
+
+		Security::disable_feed();
+		Security::disable_xmlrpc();
+		Security::clean_header();
+		//Security::limit_login_attempts(5);
+
+		remove_action('wp_head', 'wlwmanifest_link');
+		remove_action('wp_head', 'rsd_link');
 
 		$this->enable_event_gutenberg();
 		

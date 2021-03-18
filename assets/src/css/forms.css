@@ -34,10 +34,7 @@ form:invalid input[type="submit"] {
     padding-left: 15px;
 }
 
-.input-checkbox {
-    margin-bottom: 30px;
-    margin-top: 20px;
-}
+
 
 .error-message {
     @apply text-red-500;
@@ -47,31 +44,25 @@ form:invalid input[type="submit"] {
 }
 
 input[type="checkbox"] {
-    opacity: 0;
+    @apply appearance-none h-6 w-6 border-2 bg-white border-gray-200 rounded-tl-md rounded-br-md focus:outline-none transition-all;
 }
 
-input[type="checkbox"] + span::before {
-    width: 20px;
-    height: 20px;
-    @apply rounded-tl-sm;
-    @apply rounded-br-sm;
-    @apply border-2;
-    @apply border-gray-200;
-    background-color: #fff;
-    @apply duration-300;
-    @apply transition-all;
-    @apply ease-in-out;
-    display: block;
-    content: "";
-    float: left;
-    margin-right: 12px;
-    margin-top: 5px;
-  }
-  input[type="checkbox"]:checked+span::before {
-    box-shadow: inset 0px 0px 0px 3px #fff;
-    border-color: var(--primary);
-    background-color: var(--primary);
-  }
+input[type="checkbox"]:checked {
+    @apply border-primary;
+    box-shadow: inset 0px 0px 0px 2px #fff;
+}
+
+input[type="checkbox"]::after {
+    content: "\2714";
+    @apply text-white transition-all font-bold absolute transform scale-y-0;
+    font-size: 19px;
+    margin-top: -4px;
+    margin-left: 2px;
+}
+
+input[type="checkbox"]:checked:after {
+    @apply text-primary scale-y-100;
+}
 
   span.wpcf7-list-item {
     display: inline-block;

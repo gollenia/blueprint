@@ -47,7 +47,7 @@ $columns = $EM_Tickets->get_ticket_collumns(); //array of column type => title
 							break;
 						case 'spaces':
 							?>
-							<td class="py-2 text-right em-bookings-ticket-table-spaces">
+							<td class="py-2 text-right em-bookings-ticket-table-spaces flex justify-end">
 								<?php 
 									$min=0;
 									$max = ($EM_Ticket->ticket_max > 0) ? $EM_Ticket->ticket_max:get_option('dbem_bookings_form_max');
@@ -56,15 +56,15 @@ $columns = $EM_Tickets->get_ticket_collumns(); //array of column type => title
 									$default = !empty($_REQUEST['em_tickets'][$EM_Ticket->ticket_id]['spaces']) ? $_REQUEST['em_tickets'][$EM_Ticket->ticket_id]['spaces']:0;
 									$spaces_options = '<button 
 										:class="{\'bg-gray-200\': ticketCount' . $EM_Ticket->ticket_id . ' <= ' . $min . ', \'bg-primary text-white\': ticketCount' . $EM_Ticket->ticket_id . ' > ' . $min . '}" 
-										class="rounded-tl-sm font-bold text-large py-1 px-4" 
+										class="rounded-tl-xl rounded-br-none font-bold text-large py-1 px-2" 
 										x-bind:disabled="ticketCount' . $EM_Ticket->ticket_id . ' <= ' . $min . '" 
-										@click.prevent="ticketCount' . $EM_Ticket->ticket_id . '--">-</button>';
+										@click.prevent="ticketCount' . $EM_Ticket->ticket_id . '--"><i class="material-icons">remove</i></button>';
 									$spaces_options .= '<input class="w-8 p-1 bg-gray-100 text-center" x-on:load="ticketCount' . $EM_Ticket->ticket_id . ' = ' . $min . '" type="text" min="' . $min . '" max="' . $max . '" name="em_tickets[' . $EM_Ticket->ticket_id . '][spaces]" class="em-ticket-select" x-model="ticketCount' . $EM_Ticket->ticket_id . '" id="em-ticket-spaces-' . $EM_Ticket->ticket_id . '">';
 									$spaces_options .= '<button 
 										:class="{\'bg-gray-200\': ticketCount' . $EM_Ticket->ticket_id . ' >= ' . $max . ', \'bg-primary text-white\': ticketCount' . $EM_Ticket->ticket_id . ' < ' . $max . '}" 
-										class="rounded-br-sm font-bold text-large py-1 px-4" 
+										class="rounded-br-xl rounded-tl-none font-bold text-large py-1 px-2" 
 										x-bind:disabled="ticketCount' . $EM_Ticket->ticket_id . ' >= ' . $max . '" 
-										@click.prevent="ticketCount' . $EM_Ticket->ticket_id . '++">+</button>';
+										@click.prevent="ticketCount' . $EM_Ticket->ticket_id . '++"><i class="material-icons">add</i></button>';
 									echo ( $spaces_options ) ? $spaces_options:"<strong>".__('N/A','events-manager')."</strong>";
 								?>
 							</td>
