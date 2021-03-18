@@ -12,19 +12,19 @@
                 <div class="py-8 border-b-4 border-gray-400 border-dotted">{{content}}</div>
                 
                 {% if bookings > 0 %}
-                    <div x-data="" class="my-10"><a @click="$dispatch('booking-modal')" class="rounded-tl rounded-br px-6 py-3 bg-primary {{primarycolor.brightness}} button" href="#">Zur Anmeldung</a></div>  
+                    <div x-data="" class="my-10"><a @click="$dispatch('booking-modal')" class="rounded-tl-xl rounded-br-xl px-6 py-3 bg-primary {{primarycolor.brightness}} button" href="#">Zur Anmeldung</a></div>  
                     {{ booking }}  
                 {% endif %}
                 
             </div>
             <div class="order-first lg:order-last ">
-                <div class="bg-gray-200 p-10 rounded-tl-md rounded-br-md">
+                <div class="bg-gray-200 p-10 rounded-tl-3xl rounded-br-3xl">
                     <div class="py-2 flex flex-row items-center">
-                        <img src="{{ site.theme.uri }}/assets/img/icons/boy.svg" width="24" class="mr-3">
+                        <i class="text-gray-700 material-icons mr-3">face</i>
                         <span class="">{{post.get_terms('audience')|first}}</span>
                     </div>
                     <div class="py-2  flex flex-row items-center">
-                        <img src="{{ site.theme.uri }}/assets/img/icons/calendar.svg" width="24" class="mr-3">
+                        <i class="text-gray-700 material-icons mr-3">event</i>
                         <span class="">
                             {% if post._event_start_date == post._event_end_date %}
                                 {{ post._event_start_date|date("j. F Y") }} 
@@ -40,7 +40,7 @@
                     </div>
                     {% if event.event_all_day != 1 %}
                     <div class="py-2 flex flex-row items-center">
-                        <img src="{{ site.theme.uri }}/assets/img/icons/time.svg" width="24" class="mr-3">
+                        <i class="text-gray-700 material-icons mr-3">schedule</i>
                         <span class="">
                             {% if post._event_start_date == post._event_end_date %}
                                 Von {{ post._event_start_time|date("G:i") }} Bis {{ post._event_end_time|date("G:i") }} Uhr
@@ -55,13 +55,13 @@
                     
                     {% if event.location %}
                     <address class="py-2 flex flex-row items-start not-italic">  
-                        <img src="{{ site.theme.uri }}/assets/img/icons/map.svg" width="24" class="mr-3">
+                        <i class="text-gray-700 material-icons mr-3">place</i>
                         <a href="{{event.location.region}}">{{event.location.location_name}}<br>{{event.location.address}}<br>{{event.location.postcode}} {{event.location.town}}</a>
                     </address>
                     {% endif %}
                     {% if booking and bookings < 5 %}
                     <div class="py-2 flex flex-row items-center"></p>
-                        <img src="{{ site.theme.uri }}/assets/img/icons/warning.svg" width="24" class="mr-3">
+                        <i class="text-red material-icons mr-3">warning</i>
                         <span class="ctx-icon ctx-icon-warning text-red">Nur noch wenige Plätze frei</span>
                     </div>
                     {% endif %}

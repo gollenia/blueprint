@@ -2,7 +2,7 @@
     {% for item in events %}
         <a class="mb-8 grid grid-cols-3 gap-4 {% for term in item.get_terms() %}{{term.slug}} {% endfor %}" href="{{item.link}}">
             <div class="">
-                <img src="{{ item.thumbnail.src('qmedium') }}" class="rounded-tl-md rounded-br-md">
+                <img src="{{ item.thumbnail.src('qmedium') }}" class="rounded-tl-xl rounded-br-xl">
             </div>
     
             <div class="col-span-2">
@@ -21,9 +21,7 @@
                 {% if item.post_excerpt is not empty %}
                     <span>{{item.post_excerpt|excerpt(10, "...")}}</span><br/>
                 {% endif %}
-                
-                
-                
+                                
             </div>
     </a>
     {% endfor %}
