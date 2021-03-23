@@ -59,10 +59,16 @@
                         <a href="{{event.location.region}}">{{event.location.location_name}}<br>{{event.location.address}}<br>{{event.location.postcode}} {{event.location.town}}</a>
                     </address>
                     {% endif %}
-                    {% if booking and bookings < 5 %}
+                    {% if booking and bookings < 5 and bookings > 0 %}
                     <div class="py-2 flex flex-row items-center"></p>
                         <i class="text-red material-icons mr-3">warning</i>
                         <span class="ctx-icon ctx-icon-warning text-red">Nur noch wenige Plätze frei</span>
+                    </div>
+                    {% endif %}
+                    {% if booking and bookings < 5 and bookings == 0 %}
+                    <div class="py-2 flex flex-row items-center"></p>
+                        <i class="text-red material-icons mr-3">block</i>
+                        <span class="ctx-icon ctx-icon-warning text-red">Ausgebucht</span>
                     </div>
                     {% endif %}
                 </div>
