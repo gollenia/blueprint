@@ -24,16 +24,6 @@ return [
             'in_footer' => true
         ],
     ],
-    "styles" => [
-        
-        [
-            'handle' => 'theme_style',
-            'url' => get_template_directory_uri() . '/assets/dist/style.css',
-            'dependencies' => [],
-            'version' => true,
-            'media' => 'all'
-        ]
-    ],
     "admin_styles" => [
         [
             'handle' => 'admin_style',
