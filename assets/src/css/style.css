@@ -123,3 +123,8 @@ div.input-required {
   color: #000000dd;
    fill: #000000dd;
  }
+
+
+ .grecaptcha-badge { 
+  visibility: hidden;
+}

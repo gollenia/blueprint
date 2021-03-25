@@ -16,9 +16,6 @@ $columns = $EM_Tickets->get_ticket_collumns(); //array of column type => title
 	<tr>
 		<?php 
 		foreach($columns as $type => $name) {
-			
-			
-			
 			echo '<th class="text-' . ($type == 'type' ? 'left' : 'right') . ' em-bookings-ticket-table-' . $type . '">' . $name . '</th>';
 		}
 		?>
@@ -30,16 +27,21 @@ $columns = $EM_Tickets->get_ticket_collumns(); //array of column type => title
 				<?php foreach( $columns as $type => $name ): ?>
 					<?php
 					//output column by type, or call a custom action 
+					
 					switch($type){
 						case 'type':
 							?>
-							<td class="py-2 em-bookings-ticket-table-type"><?php echo wp_kses_data($EM_Ticket->ticket_name); ?><?php if(!empty($EM_Ticket->ticket_description)) :?><br><span class="ticket-desc"><?php echo wp_kses($EM_Ticket->ticket_description,$allowedposttags); ?></span><?php endif; ?></td>
+							<td class="py-2 em-bookings-ticket-table-type"><?php echo wp_kses_data($EM_Ticket->ticket_name); ?><?php if(!empty($EM_Ticket->ticket_description)) :?><br><span class="ticket-desc"><?php echo wp_kses($EM_Ticket->ticket_description,$allowedposttags); ?></span><?php endif; 
+							if($EM_Ticket->get_price(false) == 0) {
+								echo '<span class="bg-green-500 text-white px-2 py-1 rounded-tl-lg rounded-br-lg ml-4">gratis</span>';
+							}
+							
+							?></td>
 							<?php
 							break;
 						case 'price':
 								// dirty hack, but since we need only 2 currencies at the moment, it's ok
 								$currency = (get_option('dbem_bookings_currency') == "EUR") ? "€" : "Fr.";
-								
 								echo '<td class="py-2 em-bookings-ticket-table-price text-right ">';
 								echo '<span>' . $currency . ' </span><span class="inline-block" x-text="(ticketCount' . $EM_Ticket->ticket_id . ' * ' . $EM_Ticket->get_price(false) . ').toFixed(2)"></span>';
 								echo '</td>';
@@ -48,7 +50,7 @@ $columns = $EM_Tickets->get_ticket_collumns(); //array of column type => title
 						case 'spaces':
 							?>
 							<td class="py-2 text-right em-bookings-ticket-table-spaces flex justify-end">
-								<?php 
+							<?php							 
 									$min=0;
 									$max = ($EM_Ticket->ticket_max > 0) ? $EM_Ticket->ticket_max:get_option('dbem_bookings_form_max');
 									if( $EM_Ticket->get_event()->event_rsvp_spaces > 0 && $EM_Ticket->get_event()->event_rsvp_spaces < $max ) $max = $EM_Ticket->get_event()->event_rsvp_spaces;
@@ -72,6 +74,7 @@ $columns = $EM_Tickets->get_ticket_collumns(); //array of column type => title
 							break;
 						default:
 							do_action('em_booking_form_tickets_col_'.$type, $EM_Ticket, $EM_Event);
+							
 							break;
 					}
 					?>
@@ -84,10 +87,11 @@ $columns = $EM_Tickets->get_ticket_collumns(); //array of column type => title
 
 </table>
 <?php
+
 echo '<div class="mt-4 pt-4 border-t-4 justify-between border-dotted border-gray-400 flex"><div class="font-bold" colspan="2">Gesamtpreis</div><div class="text-right"><span class="inline-block text-right font-bold" x-text="(';
 		$firstLoop = true;
 		foreach( $EM_Tickets->tickets as $key => $EM_Ticket ) {
-			
+					
 			if(!$firstLoop) {
 			  echo ' + ';	
 			}

@@ -28,23 +28,23 @@ foreach( $collumns as $type => $name ): ?>
 			if( $EM_Ticket->get_available_spaces() > 1 && ( empty($EM_Ticket->ticket_max) || $EM_Ticket->ticket_max > 1 ) ): //more than one space available ?>				
 				<div class="flex justify-between">
 					<label for='em_tickets'><?php echo $name; ?></label>
-					<div class="inline-block">
+					<div class="py-2 text-right em-bookings-ticket-table-spaces flex justify-end">
 					<?php 
 						$min=0;
 						$max = ($EM_Ticket->ticket_max > 0) ? $EM_Ticket->ticket_max:get_option('dbem_bookings_form_max');
 						if( $EM_Ticket->get_event()->event_rsvp_spaces > 0 && $EM_Ticket->get_event()->event_rsvp_spaces < $max ) $max = $EM_Ticket->get_event()->event_rsvp_spaces;
 						if($EM_Ticket->is_required()) { $min = 1; }
 						$default = !empty($_REQUEST['em_tickets'][$EM_Ticket->ticket_id]['spaces']) ? $_REQUEST['em_tickets'][$EM_Ticket->ticket_id]['spaces']:0;
-						$spaces_options = '<button :class="{\'bg-gray-200 border-gray-200\': ticketCount' . $EM_Ticket->ticket_id . ' <= ' . $min . '}" class="rounded-tl-sm font-bold border-2 border-gray-200 text-large py-1 px-4 bg-gray-200" x-bind:disabled="ticketCount' . $EM_Ticket->ticket_id . ' <= ' . $min . '" @click.prevent="ticketCount' . $EM_Ticket->ticket_id . '--">-</button>';
+						$spaces_options = '<button :class="{\'bg-primary border-gray-200\': ticketCount' . $EM_Ticket->ticket_id . ' <= ' . $min . '}" class="rounded-tl-xl rounded-br-none font-bold text-large py-1 px-2 border-gray-200 text-large bg-gray-200" x-bind:disabled="ticketCount' . $EM_Ticket->ticket_id . ' <= ' . $min . '" @click.prevent="ticketCount' . $EM_Ticket->ticket_id . '--"><i class="material-icons">remove</i></button>';
 						$spaces_options .= '<input class="w-8 p-1 border-2 border-gray-100 bg-gray-100 text-center" x-on:load="ticketCount' . $EM_Ticket->ticket_id . ' = ' . $min . '" type="text" min="' . $min . '" max="' . $max . '" name="em_tickets[' . $EM_Ticket->ticket_id . '][spaces]" class="em-ticket-select" x-model="ticketCount' . $EM_Ticket->ticket_id . '" id="em-ticket-spaces-' . $EM_Ticket->ticket_id . '">';
-						$spaces_options .= '<button class="rounded-br-sm font-bold border-2 border-gray-200 text-large py-1 px-4 bg-gray-200" x-bind:disabled="ticketCount' . $EM_Ticket->ticket_id . ' >= ' . $max . '" @click.prevent="ticketCount' . $EM_Ticket->ticket_id . '++">+</button>';
+						$spaces_options .= '<button class="rounded-br-xl rounded-tl-none font-bold text-large py-1 px-2 text-large py-1 px-2 bg-gray-200" x-bind:disabled="ticketCount' . $EM_Ticket->ticket_id . ' >= ' . $max . '" @click.prevent="ticketCount' . $EM_Ticket->ticket_id . '++"><i class="material-icons">add</i></button>';
 						echo ( $spaces_options ) ? $spaces_options:"<strong>".__('N/A','events-manager')."</strong>";
 					?>
 					</div>
 				</div>
 				<div class="flex justify-between"> 
 					<?php
-					echo '<span class="inline-block">' . __('Endprice') . '</span><span class="inline-block" x-text="(ticketCount' . $EM_Ticket->ticket_id . ' * ' . $EM_Ticket->get_price(false) . ').toFixed(2)"></span>';
+					echo '<span class="inline-block">' . __('Endprice') . '</span><span class="inline-block" x-text="(ticketCount' . $EM_Ticket->ticket_id . ' * ' . $EM_Ticket->get_price(false) ? $EM_Ticket->get_price(false) : "0" . ').toFixed(2)"></span>';
 					?>
 				</div>
 				<?php do_action('em_booking_form_ticket_spaces', $EM_Ticket); //do not delete ?>
