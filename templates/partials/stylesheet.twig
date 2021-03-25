@@ -8,21 +8,17 @@
         --primary: {{primarycolor.color}};
         --primary-transparent: {{primarycolor.color}}aa;
         {% if primarycolor.color is not empty %}--primary-light: {{primarycolor.color|lighten(20)}};{% endif %}
-        --primary-contrast: var(--blue-contrast);
-        --primary-soft-contrast: var(--blue-soft-contrast);
-        --primary-light-transparent: var(--lightblue-transparent);
-        --primary-dark: var(--darkblue);
+        --primary-contrast: {% if primarycolor.brightness == "dark" %}{{primarycolor.color|lighten(90)}}; {% else %}{{primarycolor.color|darken(90)}}{% endif %}
+        --primary-soft-contrast: {% if primarycolor.brightness == "dark" %} {{primarycolor.color|lighten(60)}}; {% else %}{{primarycolor.color|darken(60)}}{% endif %}
 
         --secondary: {{secondarycolor.color}};
         --secondary-transparent: {{secondarycolor.color}}aa;
-        {% if secondarycolor.color is not empty %}--primary-light: {{secondarycolor.color|lighten(20)}};{% endif %}
-        --secondary-contrast: var(--blue-contrast);
-        --secondary-soft-contrast: var(--blue-soft-contrast);
-        --secondary-light-transparent: var(--lightblue-transparent);
-        --secondary-dark: var(--darkblue);
+        {% if secondarycolor.color is not empty %}--secondary-light: {{secondarycolor.color|lighten(20)}};{% endif %}
+        --secondary-contrast: {% if secondarycolor.brightness == "dark" %}{{secondarycolor.color|lighten(90)}}; {% else %}{{secondarycolor.color|darken(90)}}{% endif %}
+        --secondary-soft-contrast: {% if secondarycolor.brightness == "dark" %} {{secondarycolor.color|lighten(60)}}; {% else %}{{secondarycolor.color|darken(60)}}{% endif %}
 
         {% for colorset in attribute(config.theme_support, 'editor-color-palette') %}
-        --{{colorset.slug}}: {{colorset.color}};
+            --{{colorset.slug}}: {{colorset.color}};
         }
         
         {% endfor %}
