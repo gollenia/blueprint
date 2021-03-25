@@ -11,12 +11,12 @@ Class Assets {
 
     public static function register($assets) {
         if (!$assets) {return;}
-        if ($assets['scripts'] !== null) { self::addScripts($assets['scripts']); }
-        if ($assets['styles'] !== null) { self::addStyles($assets['styles']); }
-        if ($assets['remove_scripts'] !== null) { self::removeScripts($assets['remove_scripts']); }
-        if ($assets['admin_styles'] !== null) { self::adminStyles($assets['admin_styles']); }
-        if ($assets['admin_scripts'] !== null) { self::adminScripts($assets['admin_scripts']); }
-        if ($assets['remove_styles'] !== null) { self::removeStyles($assets['remove_styles']); }
+        if (isset($assets['scripts'])) { self::addScripts($assets['scripts']); }
+        if (isset($assets['styles'])) { self::addStyles($assets['styles']); }
+        if (isset($assets['remove_scripts'])) { self::removeScripts($assets['remove_scripts']); }
+        if (isset($assets['admin_styles'])) { self::adminStyles($assets['admin_styles']); }
+        if (isset($assets['admin_scripts'])) { self::adminScripts($assets['admin_scripts']); }
+        if (isset($assets['remove_styles'])) { self::removeStyles($assets['remove_styles']); }
     }
 
     private static function addScripts($scripts) {
@@ -28,6 +28,9 @@ Class Assets {
     }
 
     private static function addStyles($styles) {
+        if(!$styles) {
+            return;
+        }
         add_action('wp_print_styles', function() use (&$styles) {
             foreach($styles as $style) {
                 wp_enqueue_style( $style['handle'], $style['url'], $style['dependencies'], $style['version'], $style['media'] );
