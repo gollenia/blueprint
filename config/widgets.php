@@ -15,7 +15,7 @@ return [
             "description" => 'Widget-Bereich ganz unten auf der Seite',
             "before_widget"=> '<div>',
             "after_widget"=> '</div>',
-            "before_title"=> '<h4>',
+            "before_title"=> '<h4 class="border-b-2 border-dotted border-grey-200 mb-4">',
             "after_title"=> '</h4>'
         ]
     ];
