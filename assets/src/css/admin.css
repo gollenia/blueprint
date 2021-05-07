@@ -22,3 +22,9 @@
     border-top-left-radius: 5px;
     border-bottom-right-radius: 5px;
 }
+
+.editor-styles-wrapper {
+  background-color: #eee;
+  cursor: text;
+  background: #eee;
+}
