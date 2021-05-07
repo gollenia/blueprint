@@ -43,7 +43,7 @@ class Color {
     
     private $page_color = [
         "key" => "page_colors",
-            "title" => "Seitenbarbe",
+            "title" => "Seitenfarbe",
             "fields" => [
                 [
                     "key" => "primarycolor",
