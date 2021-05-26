@@ -22,7 +22,7 @@ use Timber\{
 class Controller {
 
     protected array $context = [];
-    protected array $templates = [];
+    protected array $templates = [ 'pages/page.twig' ];
 
     /**
      * Constructor
@@ -33,7 +33,7 @@ class Controller {
      * @param string $template Twig template to be rendered
      * @since 1.0.0
      */
-    public function __construct(Site $site, string $template = "") {
+    public function __construct(Site $site, string|null $template = null) {
 
         global $wp_customize;
         
@@ -86,12 +86,11 @@ class Controller {
      * @return bool Returns false, if key already exists. If key already exists and $force is false, the functio returns false, else true.
      * 
      */
-    protected function setTemplate(string $template) {
-        if ($template === "") {
-            $this->templates = array( 'pages/page.twig' );    
-        }
+    protected function setTemplate(string|null $template) {  
+        if($template) {
+            array_unshift($this->templates, $template);
+        }      
         
-        $this->templates = [$template, 'pages/page.twig'];
     }
 
     public function addToContext(array $context) {
@@ -134,7 +133,7 @@ class Controller {
     }
 
     /**
-     *  Return Contetn as JSON
+     *  Return content as JSON
      * 
      *  For AJAX calls, it may come in handy to return a JSON Object
      * 
