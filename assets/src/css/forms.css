@@ -70,7 +70,7 @@ input[type="checkbox"]:checked:after {
 }
 
 input[type="submit"] {
-    @apply px-4 py-2 text-white font-bold rounded-tl rounded-br cursor-pointer outline-none;
+    @apply px-4 py-2 text-white font-bold rounded-tl-xl rounded-br-xl cursor-pointer outline-none;
     background-color: var(--primary)
 }
 
