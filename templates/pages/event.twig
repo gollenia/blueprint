@@ -62,19 +62,19 @@
                     {% if booking and bookings < 5 and bookings > 0 %}
                     <div class="py-2 flex flex-row items-center"></p>
                         <i class="text-red material-icons mr-3">warning</i>
-                        <span class="ctx-icon ctx-icon-warning text-red">Nur noch wenige Plätze frei</span>
+                        <span class="ctx-icon ctx-icon-warning text-red-500">Nur noch wenige Plätze frei</span>
                     </div>
                     {% endif %}
                     {% if booking and bookings < 5 and bookings == 0 %}
                     <div class="py-2 flex flex-row items-center"></p>
                         <i class="text-red material-icons mr-3">block</i>
-                        <span class="ctx-icon ctx-icon-warning text-red">Ausgebucht</span>
+                        <span class="ctx-icon ctx-icon-warning text-red-500">Ausgebucht</span>
                     </div>
                     {% endif %}
                     {% if bookings and event.bookings.tickets.tickets|first.price|number_format == 0 %}
                     <div class="py-2 flex flex-row items-center"></p>
                         <i class="text-red material-icons mr-3">savings</i>
-                        <span class="ctx-icon ctx-icon-warning text-red">Preis: Gratis</span>
+                        <span class="ctx-icon ctx-icon-warning text-green-500">Preis: Gratis</span>
                     </div>
                     {% endif %}
                     
