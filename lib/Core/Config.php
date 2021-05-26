@@ -65,13 +65,13 @@ class Config {
      * @return mixed Config value
      * @since 1.0.0
      */
-    public function get( $string = "")
+    public function get(string $key = "")
     {
-        if ($string === "") {
+        if ($key === "") {
             return $this->config;
         }
 
-        $keys = explode( '.', strval( $string ) );
+        $keys = explode( '.', strval( $key ) );
         $movingTarget = $this->config;
         
         foreach ( $keys as $key )
@@ -94,7 +94,7 @@ class Config {
      * @todo ability to add values at subkey with dot-notation
      * @since 1.0.0
      */
-    public function set($key, $value) {
+    public function set(string $key, $value) {
         $this->config[$key] = $value;
     }
 
@@ -102,7 +102,6 @@ class Config {
     public static function load(string $file) {
         
         $config_path = get_template_directory() . "/config/";
-
 
         if (file_exists ( $config_path . $file . ".json" )) {
             $json = file_get_contents($config_path . $file);
