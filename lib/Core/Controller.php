@@ -33,7 +33,7 @@ class Controller {
      * @param string $template Twig template to be rendered
      * @since 1.0.0
      */
-    public function __construct(Site $site, string|null $template = null) {
+    public function __construct(Site $site, $template = null) {
 
         global $wp_customize;
         
@@ -42,8 +42,6 @@ class Controller {
         
         // Das Site-Objekt. 
         $this->context['site'] = $site;
-
-        
 
         $this->context['config'] = $site->getConfig();
 
@@ -86,7 +84,7 @@ class Controller {
      * @return bool Returns false, if key already exists. If key already exists and $force is false, the functio returns false, else true.
      * 
      */
-    protected function setTemplate(string|null $template) {  
+    protected function setTemplate($template) {  
         if($template) {
             array_unshift($this->templates, $template);
         }      
