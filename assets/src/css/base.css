@@ -79,7 +79,7 @@ button, .button { @apply transition duration-300 ease-in-out relative rounded-tl
 .section .content { @apply max-w-screen-xl mx-4 md:mx-8 lg:mx-8 xl:mx-auto }
 
 .menu-item {
-    @apply  text-white md:text-gray-900 text-xl md:text-lg flex flex-row items-center w-full px-4 py-4 md:py-1 font-semibold text-left bg-transparent md:rounded-tl-xl md:rounded-br-xl md:hover:bg-primary md:hover:text-primary-contrast md:w-auto md:flex md:mt-0 md:ml-4 cursor-pointer;
+    @apply  text-white lg:text-gray-900 text-xl lg:text-lg flex flex-row items-center w-full px-4 py-4 lg:py-1 font-semibold text-left bg-transparent lg:rounded-tl-xl lg:rounded-br-xl lg:hover:bg-primary lg:hover:text-primary-contrast lg:w-auto lg:flex lg:mt-0 lg:ml-4 cursor-pointer;
 }
 
 .menu-item .open {
