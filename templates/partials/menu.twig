@@ -1,8 +1,8 @@
 <nav class="fixed top-0 bg-white z-40 right-0 left-0 mr-4 lg:mr-10 h-20">
-	<div x-data="{ open: false }" class="flex flex-col h-full md:items-end md:justify-between md:flex-row">
+	<div x-data="{ open: false }" class="flex flex-col h-full lg:items-end lg:justify-between lg:flex-row">
 		
 		<div class="flex justify-between h-full items-end flex-row py-1">
-			<div class="-mb-5 ml-4 md:ml-8 z-50"><a href="/">
+			<div class="-mb-5 ml-4 lg:ml-8 z-50"><a href="/">
 			{% if fields.logo is not empty %}
 				{% include "icons/" ~ fields.logo ~ ".twig" with {'size': 70, 'fill': 'fill-primary'} %}
 			{% else %}
@@ -10,7 +10,7 @@
 			{% endif %}
 			</a></div>
 			<a href="/" class="pl-4 hidden whitespace-nowrap 2xl:inline-block font-semibold text-gray-900">{{ site.description }}</a>
-			<div class="md:hidden flex-1 text-right align-end pt-5 pr-2" >
+			<div class="lg:hidden flex-1 text-right align-end pt-5 pr-2" >
 				<button @click="open = !open" :class="{'is-active': open}" class="hamburger hamburger--collapse hamburger--3dx" type="button">
 				<span class="hamburger-box">
 					<span class="hamburger-inner"></span>
@@ -18,8 +18,8 @@
 				</button>
 			</div>
 		</div>
-		<div :class="{'flex': open, 'hidden md:flex': !open}" class="w-full h-screen bg-opacity-90 bg-gray-600 py-12 px-4 mt-20 md:mt-0 md:p-0 bg-blur md:bg-white absolute md:static md:h-auto flex-col md:flex-row">
-			<nav :class="{'flex': open, 'hidden': !open}" class="flex-col flex-grow pb-4 md:p-0 md:ml-6 md:ml-0 md:mt-0 md:pb-0 md:flex md:justify-end md:flex-row flex">
+		<div :class="{'flex': open, 'hidden lg:flex': !open}" class="w-full h-screen bg-opacity-90 bg-gray-600 py-12 px-4 mt-20 lg:mt-0 lg:p-0 bg-blur lg:bg-white absolute lg:static lg:h-auto flex-col lg:flex-row">
+			<nav :class="{'flex': open, 'hidden': !open}" class="flex-col flex-grow pb-4 lg:p-0 lg:ml-6 lg:ml-0 lg:mt-0 lg:pb-0 lg:flex lg:justify-end lg:flex-row flex">
 
 				{% if menu %}
 		
@@ -29,7 +29,7 @@
 							{% include "partials/menu-dropdown.twig" with {'menu': item} %}
 						{% else %}
 							<a href="{{item.get_link}}" class="menu-item {% if (item.current or item.current_item_ancestor) %} bg-gray-200 text-gray-600 hover:bg-gray-300 hover:text-gray-700 {% else %} hover:bg-primary hover:{{primarycolor.contrast}}{% endif %}" href="">
-								{%if item.post_excerpt %}<i class="md:hidden material-icons w-8 mr-2">{{item.post_excerpt}}</i>{% else %}<span class="md:hidden inline-block w-8 mr-2"></span>{% endif %}
+								{%if item.post_excerpt %}<i class="lg:hidden material-icons w-8 mr-2">{{item.post_excerpt}}</i>{% else %}<span class="lg:hidden inline-block w-8 mr-2"></span>{% endif %}
 								{{item.title}}
 							</a>
 			
