@@ -53,8 +53,16 @@ footer h4 {
 }
 
 .wp-block-quote {
-    @apply border-dotted border-l-4 my-7;
-    border-color: var(--primary);
+    border-style: dotted !important;
+    border-left-width: 4px !important;
+    margin-top: 1.75rem !important;
+    margin-bottom: 1.75rem !important;
+    border-color: var(--primary) !important;
+}
+
+.wp-block-quote cite {
+    color: rgba(115, 115, 115, var(--tw-text-opacity)) !important;
+    font-style: italic !important;
 }
 
 .card.is-first, .card.is-first img:not(".rounded-full") {
