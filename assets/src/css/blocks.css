@@ -84,3 +84,22 @@ footer h4 {
 .core-block a {
     color: var(--primary);
 }
+
+
+ul.core-block {
+    padding-left: 0px !important
+}
+
+ul.core-block li {
+    @apply list-none content-center ml-12;
+}
+
+ul.core-block li:before {
+    content: "\e892";
+    display: inline-block;
+    font-family: 'Material Icons';
+    padding-top: 1px;
+    @apply -ml-12 text-gray-400 absolute;
+    font-size: 24px;
+    
+}
