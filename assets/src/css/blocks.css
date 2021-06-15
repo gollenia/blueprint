@@ -91,7 +91,7 @@ ul.core-block {
 }
 
 ul.core-block li {
-    @apply list-none content-center ml-12;
+    @apply list-none content-center ml-8 break-words;
 }
 
 ul.core-block li:before {
@@ -99,7 +99,6 @@ ul.core-block li:before {
     display: inline-block;
     font-family: 'Material Icons';
     padding-top: 1px;
-    @apply -ml-12 text-gray-400 absolute;
+    @apply -ml-8 text-gray-400 absolute;
     font-size: 24px;
-    
 }
