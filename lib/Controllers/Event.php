@@ -70,7 +70,7 @@ class Event extends \Contexis\Core\Controller {
      */
     private function get_events(Post $post, int $limit = 5) {
 
-        $categories = $post->terms('event_category');
+        $categories = $post->terms('event_categories');
 
         if(empty($categories)) {
             return false;
@@ -85,7 +85,7 @@ class Event extends \Contexis\Core\Controller {
             'post__not_in' => [$post->ID],
             'tax_query' => array(
                 array (
-                    'taxonomy' => 'event_category',
+                    'taxonomy' => 'event_categories',
                     'field' => 'slug',
                     'terms' => $categories[0]->slug,
                 )
