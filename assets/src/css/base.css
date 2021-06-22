@@ -76,7 +76,7 @@ button, .button { @apply transition duration-300 ease-in-out relative rounded-tl
 .description-item figure { @apply h-16 w-16 mx-0 mr-4}
 
 .section {}
-.section .content { @apply max-w-screen-xl mx-4 md:mx-8 lg:mx-8 xl:mx-auto }
+.section .content { @apply max-w-screen-xl mx-4 sm:mx-8 lg:mx-8 2xl:mx-auto }
 
 .menu-item {
     @apply  text-white lg:text-gray-900 text-xl lg:text-lg flex flex-row items-center w-full px-4 py-4 lg:py-1 font-semibold text-left bg-transparent lg:rounded-tl-xl lg:rounded-br-xl lg:hover:bg-primary lg:hover:text-primary-contrast lg:w-auto lg:flex lg:mt-0 lg:ml-4 cursor-pointer;

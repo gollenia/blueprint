@@ -91,7 +91,7 @@ ul.core-block {
 }
 
 ul.core-block li {
-    @apply list-none content-center ml-8 break-words;
+    @apply list-none content-center ml-8;
 }
 
 ul.core-block li:before {
