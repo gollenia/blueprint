@@ -30,14 +30,14 @@ class Events extends \Contexis\Core\Controller {
             'post_type' => 'event',
             'orderby' => '_event_start_date',
             'order' => 'ASC',
-            'post_status' => array('publish'),
-            'meta_query' => array(
-                array(
+            'post_status' => ['publish'],
+            'meta_query' => [
+                [
                   'key' => '_event_start_date',
                   'value' => date('Y-m-d'),
                   'compare' => '>='
-                )
-              )
+                ]
+            ]
         ]);
     }
 
