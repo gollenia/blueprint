@@ -1,6 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Gochi+Hand&display=swap');
 
+@import "base.css";
+@import "forms.css";
+@import "blocks.css";
+@import "plugins.css";
+@import "hamburger.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -106,11 +112,7 @@ div.input-required {
 
 
 
-@import "base.css";
-@import "forms.css";
-@import "blocks.css";
-@import "plugins.css";
-@import "hamburger.css";
+
 
 
 .dark { 
