@@ -19,7 +19,7 @@ return [
 
     "Event" => is_singular('event'),        // Seite ist ein einzelnes Event
 
-    "Events" => is_page(get_option("dbem_cp_events_slug")),          // Seite beinhaltet eine Eventliste
+    "Events" => get_option("dbem_cp_events_slug") ? is_page(get_option("dbem_cp_events_slug")) : false,          // Seite beinhaltet eine Eventliste
 
     "Post" => is_single(),
 
