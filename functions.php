@@ -4,15 +4,21 @@
 // Debug-Hack. Kommt später weg
 $url =  'http://' . $_SERVER['SERVER_NAME'];
 $url = explode(".", parse_url($url, PHP_URL_HOST));
-$url = end($url);
+$tld = end($url);
 if (isset($_GET['dev']) ) {
     set_transient( $_SERVER['REMOTE_ADDR'], "yes", 60*60*12 );
 }
 
-if(!get_transient( $_SERVER['REMOTE_ADDR']) && ( $url == "de" )) {
-   header("Location: http://www.kids-team.com/" . $url);
+if(!get_transient( $_SERVER['REMOTE_ADDR']) && ( $tld == "de" )) {
+   header("Location: http://www.kids-team.com/" . $tld);
    exit();
 }
+
+$servername =  $url[0];
+if(!get_transient( $_SERVER['REMOTE_ADDR']) && ( $servername == "kleinekids" )) {
+    header("Location: https://downloads.kids-team.at/programme/kleinekids");
+    exit();
+ }
 
 /**
  * First we need to load the Composer Autoload which is responsinble for making Classes available
