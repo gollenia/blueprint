@@ -45,7 +45,7 @@
                             {% if post._event_start_date == post._event_end_date %}
                                 Von {{ post._event_start_time|date("G:i") }} Bis {{ post._event_end_time|date("G:i") }} Uhr
                              {% else %}
-                                Anreise um {{ post._event_start_time|date("G:i") }} Uhr<br>Abreise um {{ post._event_end_time|date("G:i") }} Uhr
+                                Beginn um {{ post._event_start_time|date("G:i") }} Uhr<br>Ende um {{ post._event_end_time|date("G:i") }} Uhr
                             {% endif %}
                         </span>
                     </div>
@@ -62,22 +62,27 @@
                     {% if booking and bookings < 5 and bookings > 0 %}
                     <div class="py-2 flex flex-row items-center"></p>
                         <i class="text-red material-icons mr-3 text-red-500">warning</i>
-                        <span class="ctx-icon ctx-icon-warning text-red-500">Nur noch wenige Plätze frei</span>
+                        <span class="text-red-500">Nur noch wenige Plätze frei</span>
                     </div>
                     {% endif %}
                     {% if booking and bookings < 5 and bookings == 0 %}
                     <div class="py-2 flex flex-row items-center"></p>
                         <i class="text-red material-icons mr-3 text-red-500">block</i>
-                        <span class="ctx-icon ctx-icon-warning text-red-500">Ausgebucht</span>
+                        <span class="text-red-500">{{site.language == "fr_FR" ? "" : "réservé jusqu'à"}}</span>
                     </div>
                     {% endif %}
-                    {% if bookings and event.bookings.tickets.tickets|first.price|number_format == 0 %}
+                    {% if bookings and price == 0 %}
                     <div class="py-2 flex flex-row items-center"></p>
                         <i class="text-red material-icons mr-3 text-green-500">savings</i>
-                        <span class="ctx-icon ctx-icon-warning text-green-500">Preis: Gratis</span>
+                        <span class="text-green-500">{{site.language == "fr_FR" ? "Prix: gratis" : "Preis: gratis"}} </span>
+                    </div>
+                    {% elseif bookings and price != 0 %}
+                    <div class="py-2 flex flex-row items-center"></p>
+                        <i class="text-red material-icons mr-3 text-gray-700">payments</i>
+                        <span class="">{{site.language == "fr_FR" ? "Prix: à partir de" : "Preis: ab"}} {{price}} {{site.language == "de_CH" or site.language == "fr_FR" ? "Fr" : "€"}} </span>
                     </div>
                     {% endif %}
-                    
+                  
                 </div>
                 <div class="mt-20">
                     <h3 class="mb-6 text-bold core-block">{{site.language == "fr_FR" ? "D'autres évènements" : "Weitere Veranstaltungen"}}</h3>

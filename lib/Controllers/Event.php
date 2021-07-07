@@ -40,6 +40,7 @@ class Event extends \Contexis\Core\Controller {
             "booking" => $this->get_booking_form(),
             "events" => $this->get_related_events($post),
             "event" => $this->event,
+            "price" =>$this->lowest_price(),
             "bookings" => $this->remaining_spaces(),
             "breadcrumbs" => Breadcrumbs::generate(),
             "content" => do_blocks($post->post_content)
@@ -71,7 +72,22 @@ class Event extends \Contexis\Core\Controller {
             return 0;
         }
         $booking = new \EM_Bookings($this->event);
+        
         return $booking->get_available_spaces();
+        
+    }
+
+    private function lowest_price() {
+        $booking = new \EM_Bookings($this->event);
+        $tickets = $booking->get_tickets();
+        $price_array = [];
+        foreach($tickets as $ticket) {
+            array_push($price_array, floatval($ticket->ticket_price));
+        }
+        if(max($price_array) == 0) {
+            return 0;
+        }
+        return min($price_array);
     }
 
     /**
