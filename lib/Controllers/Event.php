@@ -40,6 +40,7 @@ class Event extends \Contexis\Core\Controller {
             "booking" => $this->get_booking_form(),
             "events" => $this->get_related_events($post),
             "event" => $this->event,
+            'currency' => $this->get_currency(),
             "price" =>$this->lowest_price(),
             "bookings" => $this->remaining_spaces(),
             "breadcrumbs" => Breadcrumbs::generate(),
@@ -75,6 +76,14 @@ class Event extends \Contexis\Core\Controller {
         
         return $booking->get_available_spaces();
         
+    }
+
+    private function get_currency() {
+        $currency = get_option("dbem_bookings_currency");
+        if ($currency == "EUR") {
+            return "€";
+        }
+        return $currency;
     }
 
     private function lowest_price() {
