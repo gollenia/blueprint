@@ -25,7 +25,7 @@ form:invalid input[type="submit"] {
   
 .input-text input, .input-date input, .input-user-field input, .input-name input, .input-user_email input, .input-dbem_country select, .input-country select, .input-select select, .donation input[type="text"], .donation input[type="email"], .donation select {
     outline: none !important;
-    @apply w-full border-2 px-4 py-2 w-full border-gray-200 rounded-tl rounded-br bg-white duration-300 transition-all text-gray-900 ease-in-out;
+    @apply w-full border-2 px-4 py-2 w-full border-gray-200 rounded-tl-xl rounded-br-xl bg-white duration-300 transition-all text-gray-900 ease-in-out;
 }
 
 
@@ -44,7 +44,7 @@ form:invalid input[type="submit"] {
 }
 
 input[type="checkbox"] {
-    @apply appearance-none h-6 w-6 border-2 bg-white border-gray-200 rounded-tl-md rounded-br-md focus:outline-none transition-all;
+    @apply appearance-none h-6 w-6 border-2 bg-white border-gray-200 rounded-tl-xl rounded-br-xl focus:outline-none transition-all;
 }
 
 input[type="checkbox"]:checked {
@@ -84,7 +84,7 @@ input[type="submit"] {
     height: max-content;
     padding-top: 1px;
     padding-bottom: 1px;
-    @apply rounded-tl-sm rounded-br-sm absolute bg-gray-200 text-black text-sm duration-300 transition-all ease-in-out whitespace-nowrap;
+    @apply rounded-tl-lg rounded-br-lg absolute bg-gray-200 text-black text-sm duration-300 transition-all ease-in-out whitespace-nowrap;
 }
   
   
@@ -115,7 +115,7 @@ select:invalid {
 
 .input-textarea textarea {
     width: 100%;
-    @apply border-2 border-gray-200 rounded-tl rounded-br bg-white my-0 px-4 mt-6;
+    @apply border-2 border-gray-200 rounded-tl-xl rounded-br-xl bg-white my-0 px-4 mt-6;
     padding-top: 6px;
     outline: none !important;
   }
