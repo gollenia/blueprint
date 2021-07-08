@@ -12,7 +12,7 @@
             <ul class="">
                 <li class="inline-block">
                     <span :class="{'bg-gray-100': filter === ''}" 
-                    class="px-5 cursor-pointer py-2 rounded-t-xl inline-block" @click="filter = ''" href="#">Alle</span>
+                    class="px-5 cursor-pointer py-2 rounded-t-xl inline-block" @click="filter = ''" href="#">{{ __("All", "ctx-theme") }}</span>
                 </li>
                 {% for term in terms %}
                     <li class="inline-block"><span :class="{'bg-gray-100': filter === '{{term.slug}}'}" class="ml-2 cursor-pointer px-5 py-2 inline-block rounded-txl" @click="filter = '{{term.slug}}'">{{term.name}}</span></li>
@@ -48,10 +48,9 @@
                         
                         <span class="text-gray-500">
                             {% if event._event_start_date == event._event_end_date %}
-                            {{ event._event_start_date|date("j. F Y") }} von {{ event._event_start_time|date("G:i") }} bis {{ event._event_end_time|date("G:i") }} Uhr
+                            {{ event._event_start_date|date("j. F Y") }} {{ __("from", "ctx-theme") }} {{ event._event_start_time|date("G:i") }} {{ __("to", "ctx-theme") }} {{ event._event_end_time|date("G:i") }} {{ __("o'clock", "ctx-theme") }}
                             {% else %}
-                            {{ event._event_start_date|date("j. F") }} bis {{ event._event_end|date("j. F Y") }}
-                                
+                            {{ event._event_start_date|date("j. F") }} {{ __("to", "ctx-theme") }} {{ event._event_end|date("j. F Y") }}  
                             {% endif %}
                         </span>
                     </div>

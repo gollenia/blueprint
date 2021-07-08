@@ -12,7 +12,7 @@
                 <div class="py-8 border-b-4 border-gray-400 border-dotted">{{content}}</div>
                 
                 {% if bookings > 0 %}
-                    <div x-data="" class="my-10"><a @click="$dispatch('booking-modal')" class="rounded-tl-xl rounded-br-xl px-6 py-3 bg-primary {{primarycolor.brightness}} button" href="#">Zur Anmeldung</a></div>  
+                    <div x-data="" class="my-10"><a @click="$dispatch('booking-modal')" class="rounded-tl-xl rounded-br-xl px-6 py-3 bg-primary {{primarycolor.brightness}} button" href="#">{{ __("Book this event", "ctx-theme") }}</a></div>  
                     {{ booking }}  
                 {% endif %}
                 
@@ -30,9 +30,9 @@
                                 {{ post._event_start_date|date("j. F Y") }} 
                             {% else %}
                                 {% if post._event_start_date|date("F") == post._event_end_date|date("F") %}
-                                    {{ post._event_start_date|date("j.") }} bis {{ post._event_end|date("j. F Y") }}
+                                    {{ post._event_start_date|date("j.") }} {{ __("to", "ctx-theme") }} {{ post._event_end|date("j. F Y") }}
                                 {% else %}
-                                    {{ post._event_start_date|date("j. F") }} bis {{ post._event_end|date("j. F Y") }}
+                                    {{ post._event_start_date|date("j. F") }} {{ __("to", "ctx-theme") }} {{ post._event_end|date("j. F Y") }}
                                 {% endif %}
                             {% endif %}
                         </span>
@@ -43,9 +43,9 @@
                         <i class="text-gray-700 material-icons mr-3">schedule</i>
                         <span class="">
                             {% if post._event_start_date == post._event_end_date %}
-                                Von {{ post._event_start_time|date("G:i") }} Bis {{ post._event_end_time|date("G:i") }} Uhr
+                                {{ __("from", "ctx-theme") }} {{ post._event_start_time|date("G:i") }} {{ __("to", "ctx-theme") }} {{ post._event_end_time|date("G:i") }} {{ __("o'clock", "ctx-theme") }}
                              {% else %}
-                                Beginn um {{ post._event_start_time|date("G:i") }} Uhr<br>Ende um {{ post._event_end_time|date("G:i") }} Uhr
+                                {{ __("Starts at", "ctx-theme") }} {{ post._event_start_time|date("G:i") }} {{ __("o'clock", "ctx-theme") }}<br>{{ __("Ends at", "ctx-theme") }} {{ post._event_end_time|date("G:i") }} {{ __("o'clock", "ctx-theme") }}
                             {% endif %}
                         </span>
                     </div>
@@ -62,30 +62,24 @@
                     {% if booking and bookings < 5 and bookings > 0 %}
                     <div class="py-2 flex flex-row items-center"></p>
                         <i class="text-red material-icons mr-3 text-red-500">warning</i>
-                        <span class="text-red-500">Nur noch wenige Plätze frei</span>
-                    </div>
-                    {% endif %}
-                    {% if booking and bookings < 5 and bookings == 0 %}
-                    <div class="py-2 flex flex-row items-center"></p>
-                        <i class="text-red material-icons mr-3 text-red-500">block</i>
-                        <span class="text-red-500">{{site.language == "fr_FR" ? "" : "réservé jusqu'à"}}</span>
+                        <span class="text-red-500">{{ __("Only few spaces left", "ctx-theme") }}</span>
                     </div>
                     {% endif %}
                     {% if bookings and price == 0 %}
                     <div class="py-2 flex flex-row items-center"></p>
                         <i class="text-red material-icons mr-3 text-green-500">savings</i>
-                        <span class="text-green-500">{{site.language == "fr_FR" ? "Prix: gratis" : "Preis: gratis"}} </span>
+                        <span class="text-green-500">{{ __("Price: free", "ctx-theme")}} </span>
                     </div>
                     {% elseif bookings and price != 0 %}
                     <div class="py-2 flex flex-row items-center"></p>
                         <i class="text-red material-icons mr-3 text-gray-700">payments</i>
-                        <span class="">{{site.language == "fr_FR" ? "Prix: à partir de" : "Preis: ab"}} {{price}} {{site.language == "de_CH" or site.language == "fr_FR" ? "Fr" : "€"}} </span>
+                        <span class="">{{ __("Price:", "ctx-theme")}} {{price}} {{currency}} </span>
                     </div>
                     {% endif %}
                   
                 </div>
                 <div class="mt-20">
-                    <h3 class="mb-6 text-bold core-block">{{site.language == "fr_FR" ? "D'autres évènements" : "Weitere Veranstaltungen"}}</h3>
+                    <h3 class="mb-6 text-bold core-block">{{ __("Similar events", "ctx-theme")}}</h3>
                     {% include "partials/similar-events.twig" with {'events': events} %}
                 </div>
             </div>

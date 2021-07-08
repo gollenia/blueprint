@@ -101,6 +101,7 @@ class Site extends \Timber\Site {
 		$this->config->set('theme_support', $theme_support);
 		ThemeSupport::register($theme_support);
 		$colors->add_admin_color_css();
+		$this->add_languages();
 		
 		// remove automatic <p>-tags
 		remove_filter('the_content', 'wpautop');
@@ -127,6 +128,11 @@ class Site extends \Timber\Site {
 		$this->config->set('theme_support', $theme_support);
 		ThemeSupport::register($theme_support);
 		$colors->add_admin_color_css();
+	}
+
+	private function add_languages() {
+		$lang = get_template_directory() . '/lang';
+		load_theme_textdomain('ctx-theme', $lang);
 	}
 
 	/**
