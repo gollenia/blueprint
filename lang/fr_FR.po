@@ -1,0 +1,61 @@
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2017-05-13 12:42:28+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/2.3.1\n"
+"Language: fr\n"
+"Project-Id-Version: kids-team Theme\n"
+
+msgid "All"
+msgstr "Tout"
+
+msgid "Book this event"
+msgstr "Inscription"
+
+msgid "Data protection"
+msgstr "Protection des données"
+
+msgid "Ends at"
+msgstr "Fin:"
+
+msgid "Home"
+msgstr "Page d'accueil"
+
+msgid "Imprint"
+msgstr "Imprimer"
+
+msgid "Only few spaces left"
+msgstr "Il ne reste que quelques places"
+
+msgid "Price:"
+msgstr "Prix:"
+
+msgid "Price: free"
+msgstr "Prix: gratis"
+
+msgid "Privacy Policy"
+msgstr "Politique de confidentialité"
+
+msgid "Similar events"
+msgstr "événements similaires"
+
+msgid "Starts at"
+msgstr "Début:"
+
+msgid "Terms of Service"
+msgstr "Conditions d'utilisation"
+
+msgid "This website is protected by reCaptcha. See the"
+msgstr "Ce site est protégé par reCaptcha. Voir le"
+
+msgid "aswell as the"
+msgstr "aussi bien que"
+
+msgid "from"
+msgstr "de"
+
+msgid "to"
+msgstr "à"
