@@ -59,3 +59,7 @@ msgstr "de"
 
 msgid "to"
 msgstr "à"
+
+# breadcrumbs.twig
+msgid "No places left"
+msgstr "réservé jusqu'à"
