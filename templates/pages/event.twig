@@ -65,6 +65,12 @@
                         <span class="text-red-500">{{ __("Only few spaces left", "ctx-theme") }}</span>
                     </div>
                     {% endif %}
+                    {% if booking and not bookings %}
+                    <div class="py-2 flex flex-row items-center"></p>
+                        <i class="text-red material-icons mr-3 text-red-500">block</i>
+                        <span class="text-red-500">{{ __("No places left", "ctx-theme") }}</span>
+                    </div>
+                    {% endif %}
                     {% if bookings and price == 0 %}
                     <div class="py-2 flex flex-row items-center"></p>
                         <i class="text-red material-icons mr-3 text-green-500">savings</i>
