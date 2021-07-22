@@ -14,11 +14,6 @@ if(!get_transient( $_SERVER['REMOTE_ADDR']) && ( $tld == "de" )) {
    exit();
 }
 
-$servername =  $url[0];
-if(!get_transient( $_SERVER['REMOTE_ADDR']) && ( $servername == "kleinekids" )) {
-    header("Location: https://downloads.kids-team.at/programme/kleinekids");
-    exit();
- }
 
 /**
  * First we need to load the Composer Autoload which is responsinble for making Classes available
