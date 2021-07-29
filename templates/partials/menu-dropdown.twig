@@ -13,7 +13,7 @@
 				x-transition:leave="transition ease-in duration-75" 
 				x-transition:leave-start="transform opacity-100 scale-100" 
 				x-transition:leave-end="transform opacity-0 scale-95" 
-				class="lg:absolute lg:right-0 w-full lg:mt-2 origin-top-right rounded-lg lg:shadow-lg lg:w-48 z-30">
+				class="lg:absolute lg:right-0 w-full lg:mt-2 origin-top-right rounded-lg lg:shadow-lg lg:w-auto whitespace-nowrap z-30">
 			<div class="pl-4 lg:pl-0 lg:bg-white lg:rounded-tl rounded-br">
 				{% for child in item.children %}
 				<a href="{{child.get_link}}" class="
