@@ -14,7 +14,7 @@ Class Block {
 
       if($post_types === null) { return; }
         
-		add_filter('allowed_block_types', function() use (&$post_types){
+		add_filter('allowed_block_types_all', function() use (&$post_types){
 			foreach ($post_types as $post_type => $allowed_blocks) {
                 global $post;
                 if($post->post_type == $post_type) {
