@@ -102,6 +102,8 @@ class Site extends \Timber\Site {
 		ThemeSupport::register($theme_support);
 		$colors->add_admin_color_css();
 		$this->add_languages();
+
+		add_filter('block_editor_settings_all', [$this, 'removeCorePatterns']);
 		
 		// remove automatic <p>-tags
 		remove_filter('the_content', 'wpautop');
@@ -117,6 +119,14 @@ class Site extends \Timber\Site {
 		$this->enable_event_gutenberg();
 		
 	}
+
+	// remove Block patterns, which only generate errors in the console.
+	public function removeCorePatterns(array $settings): array
+	{
+		$settings['__experimentalBlockPatterns'] = [];
+		return $settings;
+	}
+
 
 	private function add_theme_colors() {
 		$colors = new Color($this->config->get('colors'));
