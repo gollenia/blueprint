@@ -109,7 +109,7 @@ class Site extends \Timber\Site {
 		Security::disable_feed();
 		Security::disable_xmlrpc();
 		Security::clean_header();
-		Security::limit_login_attempts(5);
+		//Security::limit_login_attempts(5);
 
 		remove_action('wp_head', 'wlwmanifest_link');
 		remove_action('wp_head', 'rsd_link');
