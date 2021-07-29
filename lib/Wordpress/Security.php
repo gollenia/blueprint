@@ -59,17 +59,17 @@ Class Security {
     }
 
     public static function limit_login_attempts($attempts = 5) {
-        add_filter( 'authenticate', 'check_attempted_login', 30, 3 ); 
+        add_filter( 'authenticate', [__CLASS__,'check_attempted_login'], 30, 3 ); 
         add_action( 'wp_login_failed', [__CLASS__,'login_failed'], 10, 1 ); 
     }
 
+
+
     public static function login_failed( $username ) {
-        if ( get_transient( $username . '_attempted_login' ) ) {
-            $datas = get_transient( $username . '_attempted_login' );
+        $datas = get_transient( $username . '_attempted_login' );
+        if ( $datas ) {
             $datas['tried']++;
-    
-            if ( $datas['tried'] <= 5 )
-                set_transient( $username . '_attempted_login', $datas , HOUR_IN_SECONDS );
+            set_transient( $username . '_attempted_login', $datas , HOUR_IN_SECONDS );
         } else {
             $datas = ['tried' => 1];
             set_transient( $username . '_attempted_login', $datas , HOUR_IN_SECONDS );
@@ -80,8 +80,12 @@ Class Security {
     public static function check_attempted_login( $user, $username, $password ) {
         if ( get_transient( $username . '_attempted_login' ) ) {
             $datas = get_transient( $username . '_attempted_login' );
-
-            return new WP_Error( 'too_many_tried',  sprintf( __( '<strong>ERROR</strong>: You have reached authentication limit. I won\'t tell you whenn you can try it again' ) ) );
+            if ( $datas['tried'] > 5 ) {
+                return new \WP_Error( 'too_many_tried',  sprintf( __( 'You have reached authentication limit. This incidence will be reported.', "ctx-theme" ) ) );
+                wp_mail( get_bloginfo('admin_email'), __( 'Too many login attempts by user ', "ctx-theme" ) . $username, __( 'There have been more than five wrong login attempts. Maybe this is interesting for you.', "ctx-theme" ));
+                die();    
+            }
+            var_dump($datas);
         }
         return $user;
     }
