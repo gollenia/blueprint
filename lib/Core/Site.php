@@ -90,7 +90,7 @@ class Site extends \Timber\Site {
 		Mime::register($this->config->get('mimes'));
 		Assets::register($this->config->get('assets'));
 		Taxonomy::register($this->config->get('taxonomies'));
-		Shortcode::register();
+		
 		Block::register($this->config->get('blocks'));
 		$colors = new Color($this->config->get('colors'));
 		$this->colors = $colors;
@@ -109,7 +109,7 @@ class Site extends \Timber\Site {
 		Security::disable_feed();
 		Security::disable_xmlrpc();
 		Security::clean_header();
-		//Security::limit_login_attempts(5);
+		Security::limit_login_attempts(5);
 
 		remove_action('wp_head', 'wlwmanifest_link');
 		remove_action('wp_head', 'rsd_link');
