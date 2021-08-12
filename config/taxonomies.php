@@ -12,7 +12,7 @@
 return [
     
     "audience" => [
-        "object_type" => "EM_POST_TYPE_EVENT",
+        "object_type" => EM_POST_TYPE_EVENT,
         "options" => [
             'hierarchical' => false,
             'labels' => [
