@@ -7,26 +7,25 @@
 
 namespace Contexis\Controllers;
 
-use Contexis\Wordpress\Breadcrumbs;
+use Timber\Timber;
 
 class Events extends \Contexis\Core\Controller {
 
+    public string $template = 'pages/events.twig';
     
-    public function __construct($site, $template = false) {
-        parent::__construct($site);
-        $this->addToContext([
-            'events' => $this->getEvents(),
-            'terms' => $this->getTerms(),
+    public function __construct($template = false) {
+        parent::__construct();
+        $this->add_to_context([
+            'events' => $this->get_events(),
+            'terms' => $this->get_event_terms(),
             'slug' => get_option("dbem_cp_events_slug"),
-            "breadcrumbs" => Breadcrumbs::generate(),
         ]);
         
-        $this->setTemplate('pages/events.twig');
     }
 
-    private function getEvents() {
+    private function get_events() {
         
-        return new \Timber\PostQuery([
+        $args = [
             'post_type' => 'event',
             'orderby' => '_event_start_date',
             'order' => 'ASC',
@@ -38,10 +37,12 @@ class Events extends \Contexis\Core\Controller {
                   'compare' => '>='
                 ]
             ]
-        ]);
+        ];
+
+        return Timber::get_posts( $args );
     }
 
-    private function getTerms() {
+    private function get_event_terms() {
         return get_terms( array(
             'taxonomy' => 'event-categories',
             'hide_empty' => true,

@@ -7,34 +7,33 @@
 
 namespace Contexis\Controllers;
 
-use Contexis\Wordpress\Breadcrumbs;
-use Timber\PostQuery;
+use Timber\Timber;
 
 
 
 class Post extends \Contexis\Core\Controller {
 
+    public string $template = 'pages/post.twig';
     
-    public function __construct(\Contexis\Core\Site $site, $template = false) {
-        parent::__construct($site);
+    public function __construct($template = false) {
+        parent::__construct();
 
-        $this->addToContext([
+        $this->add_to_context([
             "author" => $this->getAuthor(),
             "latest_posts" => $this->getLatestPosts(5),
-            "breadcrumbs" => Breadcrumbs::generate(),
         ]);
         
-        $this->setTemplate('pages/post.twig');
     }
 
     private function getLatestPosts(int $limit = 5) {
-        return new PostQuery([
+        $args = [
             'post_type' => 'post',
             'post__not_in' => [$this->context['post']->id],
             'limit' => 5,
             'orderby' => 'date',
             'order' => 'DESC'
-        ]);
+        ];
+        return Timber::get_posts( $args );
     }
 
     private function getAuthor()

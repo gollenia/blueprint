@@ -8,21 +8,18 @@
 namespace Contexis\Core;
 
 use Contexis\Core\{
-    Site,
     Utilities
 };
 
 use Timber\{
-    Timber,
-    Menu,
-    Post
+    Timber
 };
 
 
 class Controller {
 
     protected array $context = [];
-    protected array $templates = [ 'pages/page.twig' ];
+    protected string $template = 'pages/page.twig';
 
     /**
      * Constructor
@@ -33,89 +30,53 @@ class Controller {
      * @param string $template Twig template to be rendered
      * @since 1.0.0
      */
-    public function __construct(Site $site, $template = null) {
-
-        global $wp_customize;
-        
-        // Diese Variable sollte eigentlich in den Post-Intalt
-        $this->context['body_class'] = implode(' ', get_body_class());
-        
-        // Das Site-Objekt. 
-        $this->context['site'] = $site;
-
-        $this->context['config'] = $site->getConfig();
+    public function __construct() {
+ 
+        $this->context = \Timber\Timber::context();
 
         // Advanced Custom Field Plugin
         if (function_exists('get_fields')) {
             $this->context['fields'] = get_fields('option');
         }
 
-        $post = Timber::get_post();
-
-        if($post) {
-            $this->context['categories'] = $post->terms( 'category' );
-            // Der aktuelle Post
-            $this->context['post'] = new Post();
-        }
-
-        $base = $post->primarycolor ?: get_field('primarycolor', "options");
-        $this->context['primarycolor'] = \Contexis\Core\Color::get_color_by_slug($base);
-
-        $base = $post->secondarycolor ?: get_field('secondarycolor', "options");
-        $this->context['secondarycolor'] = \Contexis\Core\Color::get_color_by_slug($base);
+        $this->get_colors();
+        
+        
 
         // Die Widgets
         $this->context['footer'] = Timber::get_widgets('footer_area');
-
+        
         // Das Menü
-        $this->context['menu'] = new Menu();
-
-        $this->setTemplate($template);
+        $this->context['menu'] = Timber::get_menu();
 
     }
-    
+
     /**
-     *  Set Template file
+     *  Add data to context
      * 
      * @since 1.0.0
      * 
-     * @param string $key How should this content item be available in twig?
+     * @param array $context How should this content item be available in twig?
      * 
      * @return bool Returns false, if key already exists. If key already exists and $force is false, the functio returns false, else true.
      * 
      */
-    protected function setTemplate($template) {  
-        if($template) {
-            array_unshift($this->templates, $template);
-        }      
-        
-    }
-
-    public function addToContext(array $context) {
+    public function add_to_context(array $context) {
         foreach($context as $key => $value) {
             $this->context[$key] = $value;
         }
     }
 
-    /**
-     *  Get context (mainly fpr debugging)
-     * 
-     * @since 1.0.0
-     * 
-     * @param string $key which key of the context to return?
-     * 
-     * @return mixed return Data stored in context.
-     * 
-     */
-    public function get_context($key = false) {
-        if (!$key) {
-            return $this->context;
-        }
-
-        return $this->context[$key];
+    public function get_colors() {
+        
+            $primarycolor = array_key_exists('post', $this->context) ? ($this->context['post']->primarycolor ?: get_field('primarycolor', "options")) : get_field('primarycolor', "options");
+            $secondarycolor = array_key_exists('post', $this->context) ? ($this->context['post']->secondarycolor ?: get_field('secondarycolor', "options")) : get_field('secondarycolor', "options");
+            $this->context['primarycolor'] = \Contexis\Core\Color::get_color_by_slug($primarycolor);
+            $this->context['secondarycolor'] = \Contexis\Core\Color::get_color_by_slug($secondarycolor);
+            return;
+        
     }
-
-    
+   
     /**
      *  Render page with twig/timber
      * 
@@ -127,7 +88,8 @@ class Controller {
         if( WP_DEBUG === true ) { 
             Utilities::debug($this->context);
         }
-        Timber::render( $this->templates, $this->context );
+        Utilities::debug($this->context);
+        Timber::render( $this->template, $this->context );
     }
 
     /**
