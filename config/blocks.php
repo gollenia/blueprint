@@ -44,8 +44,6 @@ return [
     "page" => [
         "core/paragraph",
         "core/heading",
-        "core/audio",
-        "core/latest-posts",
         "core/archives",
         "core/embed",
         "core-embed/twitter",
@@ -70,7 +68,11 @@ return [
         "ctx-blocks/accordion-item",
         "events-manager/upcoming",
         "core/file",
+        "core/audio",
+        "core/video",
         "core/list",
+        "core/separator",
+        "core/file",
         "core/table",
         "core/subhead",
         "core/shortcode",
@@ -79,5 +81,6 @@ return [
         "core/quote",
         "core/cover",
         "core/code",
+        "ctx-products/shop"
     ]
 ];
