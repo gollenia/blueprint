@@ -16,7 +16,7 @@
 				class="lg:absolute lg:right-0 w-full lg:mt-2 origin-top-right rounded-lg lg:shadow-lg lg:w-auto whitespace-nowrap z-30">
 			<div class="pl-4 lg:pl-0 lg:bg-white lg:rounded-tl rounded-br">
 				{% for child in item.children %}
-				<a href="{{child.get_link}}" class="
+				<a href="{{child.url}}" class="
 					{% if (child.current or child.current_item_ancestor) %} bg-gray-200 text-gray-600 hover:bg-gray-300 hover:text-gray-700 
 					{% else %} hover:bg-primary hover:{{primarycolor.brightness}}{% endif %}
 					{{ loop.first ? "rounded-tl "}}
