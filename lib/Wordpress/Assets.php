@@ -33,7 +33,13 @@ Class Assets {
         }
         add_action('wp_print_styles', function() use (&$styles) {
             foreach($styles as $style) {
-                wp_enqueue_style( $style['handle'], $style['url'], $style['dependencies'], $style['version'], $style['media'] );
+                wp_enqueue_style( 
+                    $style['handle'], 
+                    $style['url'], 
+                    isset($style['dependencies']) ? $style['dependencies'] : "", 
+                    isset($style['version']) ? $style['version'] : false, 
+                    isset($style['media']) ? $style['media'] : "all", 
+                );
             }
         });
 
@@ -42,7 +48,13 @@ Class Assets {
     private static function adminScripts($scripts) {
         add_action('admin_enqueue_scripts', function() use (&$scripts) {
             foreach($scripts as $script) {
-                wp_enqueue_script( $script['handle'], $script['url'], $script['dependencies'], $script['version'], $script['in_footer'] );
+                wp_enqueue_script( 
+                    $script['handle'], 
+                    $script['url'], 
+                    isset($style['dependencies']) ? $style['dependencies'] : "",  
+                    isset($style['version']) ? $style['version'] : false, 
+                    isset($style['in_footer']) ? $style['in_footer'] : false, 
+                );
             }
         });
     }
@@ -50,7 +62,13 @@ Class Assets {
     private static function adminStyles($styles) {
         add_action('admin_head', function() use (&$styles) {
             foreach($styles as $style) {
-                wp_enqueue_style( $style['handle'], $style['url'], $style['dependencies'], $style['version'], $style['media'] );
+                wp_enqueue_style( 
+                    $style['handle'], 
+                    $style['url'], 
+                    isset($style['dependencies']) ? $style['dependencies'] : "", 
+                    isset($style['version']) ? $style['version'] : false, 
+                    isset($style['media']) ? $style['media'] : all, 
+                );
             }
         });
 
