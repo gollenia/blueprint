@@ -6,46 +6,46 @@
  */
 namespace Contexis\Controllers;
 
+use Timber\Timber;
 
-use Timber\{
-    Timber,
-    Post,
-    PostQuery
-};
-
-use Contexis\Wordpress\Breadcrumbs;
-
+use WP_Error;
 
 class Event extends \Contexis\Core\Controller {
 
     private $event = false;
+    private $booking;
+
+    public string $template = 'pages/event.twig';
 
     /**
     * construct function collects information for page rendering
     * 
-    * @param \Contexis\Core\Site $site Object
-    * @param string $template 
     * @since 1.0.0
     */
-    public function __construct($site, $template = false) {
-        parent::__construct($site);
-        $this->setTemplate('pages/event.twig'); 
-        $post = Timber::get_post();
-
-        if(class_exists("\EM_Events")) {
-            $this->event = \EM_Events::get(['post_id' => $post->id])[0];    
+    public function __construct() {
+        
+        if(!class_exists("\EM_Events") || !class_exists("\EM_Bookings")) {
+            return new WP_Error( 'broke', __( "Event Manager Plugin not installed", "kids-team" ) );
         }
         
-        $this->addToContext([
+        parent::__construct();
+        $this->event = \EM_Events::get(['post_id' => $this->context['post']->id])[0];    
+        $this->booking = new \EM_Bookings($this->event);
+
+        
+
+        $this->add_to_context([
             "booking" => $this->get_booking_form(),
-            "events" => $this->get_related_events($post),
+            "events" => $this->get_related_events(),
+            "location" => $this->event->location_id != null ? \EM_Locations::get($this->event->location_id)[0] : false,
             "event" => $this->event,
-            'currency' => $this->get_currency(),
+            'currency' => em_get_currency_symbol(true,get_option("dbem_bookings_currency")),
             "price" =>$this->lowest_price(),
-            "bookings" => $this->remaining_spaces(),
-            "breadcrumbs" => Breadcrumbs::generate(),
-            "content" => do_blocks($post->post_content)
+            "bookings" => $this->booking->get_available_spaces(),
+            "has_tickets" => $this->event->get_bookings()->get_available_tickets()
+            
         ]);
+        
     }
 
     
@@ -57,38 +57,23 @@ class Event extends \Contexis\Core\Controller {
      * @since 1.0.0
      */
     private function get_booking_form() {
-        $post = Timber::get_post();
-        $content = apply_filters( 'the_content', $post->post_content );
-        return $content;
+        ob_start();
+        em_locate_template('placeholders/bookingform.php', true, array('EM_Event'=>$this->event));
+        return ob_get_clean();
     }
 
     /**
-     * Retrive remaining booking spaces for event
+     * Get lowest price
      * 
-     * @return integer
+     * @return float Price
      * @since 1.2.0
      */
-    private function remaining_spaces() {
-        if(!class_exists("\EM_Bookings")) {
+    private function lowest_price() {
+        $tickets = $this->booking->get_tickets();
+        if(empty($tickets->tickets)) {
             return 0;
         }
-        $booking = new \EM_Bookings($this->event);
-        
-        return $booking->get_available_spaces();
-        
-    }
 
-    private function get_currency() {
-        $currency = get_option("dbem_bookings_currency");
-        if ($currency == "EUR") {
-            return "€";
-        }
-        return $currency;
-    }
-
-    private function lowest_price() {
-        $booking = new \EM_Bookings($this->event);
-        $tickets = $booking->get_tickets();
         $price_array = [];
         foreach($tickets as $ticket) {
             array_push($price_array, floatval($ticket->ticket_price));
@@ -102,25 +87,24 @@ class Event extends \Contexis\Core\Controller {
     /**
      * Collect events from the same category as the current event 
      * 
-     * @param Post $post current Post determines category and exclusion
      * @param int $limit max posts to fetch
-     * @return PostQuery Object containing events
+     * @return Object containing events
      * @since 1.0.0
      */
-    private function get_related_events(Post $post, int $limit = 5) {
+    private function get_related_events(int $limit = 5) {
 
-        $categories = $post->terms('event-categories');
+        $categories = $this->context['post']->terms('event-categories');
 
         if(empty($categories)) {
             return false;
         }
 
-        return new PostQuery([
+        $args = [
             'post_type' => 'event',
             'orderby' => '_event_start_date',
             'order' => 'ASC',
             'posts_per_page' => $limit,
-            'post__not_in' => [$post->ID],
+            'post__not_in' => [$this->context['post']->ID],
             'tax_query' => [
                 [
                     'taxonomy' => 'event-categories',
@@ -135,7 +119,10 @@ class Event extends \Contexis\Core\Controller {
                   'compare' => '>=',
                 ]
             ]
-        ]);
+        ];
+
+        return Timber::get_posts( $args );
+        
     }
 
 }
