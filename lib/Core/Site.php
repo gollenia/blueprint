@@ -17,20 +17,13 @@ use Contexis\Wordpress\{
 	Mime,
 	Assets,
 	Taxonomy,
-	Shortcode,
 	Block,
 	Security
 };
 
 class Site extends \Timber\Site {
 
-	/**
-	 * Must be a \Contexis\Core\Config object
-	 */
 	private Config $config;
-
-	private $color_palette =[];
-
 	public string $theme_root;
 
 	/**
@@ -42,7 +35,6 @@ class Site extends \Timber\Site {
 	 */
 	public function __construct(Config $config) {
 		$this->config = $config;
-		$this->theme_root = get_theme_root();
 		$this->add_wordpress_functions();
 		$this->add_theme_colors();
 		$this->add_timber_functions();
