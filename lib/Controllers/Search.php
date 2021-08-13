@@ -16,7 +16,7 @@ class Search extends \Contexis\Core\Controller{
     private $results = [];
     private $search_term = "";
 
-    public function __construct($site, $template = false) {
+    public function __construct() {
         header('Content-Type: application/json');
         $this->search_term = $_GET['ctx_search'];
         $this->getSearchResults();
