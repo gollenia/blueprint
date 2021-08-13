@@ -5,7 +5,7 @@
         
 {% include "partials/header.twig" with {'post': post, 'headerimage': true} %}     
    
-<div x-data="{filter: ''}" class="bg-gray-100">
+<div x-data="{filter: window.location.hash.substring(1)}" class="bg-gray-100">
     <div class="bg-gray-200">
         <div class="flex flex-col md:flex-row items-center max-w-screen-xl mx-auto pt-10">
             
@@ -44,18 +44,19 @@
                 </div>
                 <div class="p-10 flex flex-col flex-grow">
                     <h4 class="core-block">{{event.post_title}}</h4>
-                    <div class="flex flex-row items-center">
-                        
-                        <span class="text-gray-500">
-                            {% if event._event_start_date == event._event_end_date %}
-                            {{ event._event_start_date|date("j. F Y") }} {{ __("from", "ctx-theme") }} {{ event._event_start_time|date("G:i") }} {{ __("to", "ctx-theme") }} {{ event._event_end_time|date("G:i") }} {{ __("o'clock", "ctx-theme") }}
-                            {% else %}
-                            {{ event._event_start_date|date("j. F") }} {{ __("to", "ctx-theme") }} {{ event._event_end|date("j. F Y") }}  
-                            {% endif %}
+                    
+                    <p class="mb-4">{{event.post_excerpt|excerpt(20)}}</p>
+
+                    <span class="text-gray-500 text-xs flex items-center mt-auto">
+                        <i class="material-icons text-xs mr-2 ">event</i>
+                        <span>
+                        {% if event._event_start_date == event._event_end_date %}
+                        {{ event._event_start_date|date("j. F Y") }} {{ __("from", "ctx-theme") }} {{ event._event_start_time|date("G:i") }} {{ __("to", "ctx-theme") }} {{ event._event_end_time|date("G:i") }} {{ __("o'clock", "ctx-theme") }}
+                        {% else %}
+                        {{ event._event_start_date|date("j. F") }} {{ __("to", "ctx-theme") }} {{ event._event_end|date("j. F Y") }}  
+                        {% endif %}
                         </span>
-                    </div>
-                   
-                    <p class="my-4">{{event.post_excerpt|excerpt(20)}}</p>
+                    </span>
                     
                 </div>
                    
