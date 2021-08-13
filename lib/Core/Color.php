@@ -214,31 +214,37 @@ class Color {
     //maybe we can get rid of these...
     public static function add_twig_filter($twig)
     {
-        $twig->addFilter( new \Timber\Twig_Filter( 'darken', function( $color, $percent ) {
+        $twig->addFilter( new \Twig\TwigFilter( 'darken', function( $color, $percent ) {
+            if(!$color) {return;}
             $hex = new Hex($color);
             return $hex->darken($percent);
         } ) );
-        $twig->addFilter( new \Timber\Twig_Filter( 'lighten', function( $color, $percent ) {
+        $twig->addFilter( new \Twig\TwigFilter( 'lighten', function( $color, $percent ) {
+            if(!$color) {return;}
             $hex = new Hex($color);
             return $hex->lighten($percent);
         } ) );
-        $twig->addFilter( new \Timber\Twig_Filter( 'tint', function( $color, $percent ) {
+        $twig->addFilter( new \Twig\TwigFilter( 'tint', function( $color, $percent ) {
+            if(!$color) {return;}
             $hex = new Hex($color);
             return $hex->tint($percent);
         } ) );
-        $twig->addFilter( new \Timber\Twig_Filter( 'shade', function( $color, $percent ) {
+        $twig->addFilter( new \Twig\TwigFilter( 'shade', function( $color, $percent ) {
+            if(!$color) {return;}
             $hex = new Hex($color);
             return $hex->shade($percent);
         } ) );
-        $twig->addFunction( new \Timber\Twig_Function( 'isLight', function( $color ) {
+        $twig->addFunction( new \Twig\TwigFunction( 'isLight', function( $color ) {
+            if(!$color) {return;}
             $hex = new Hex($color);
             return $hex->isLight();
         } ) );
-        $twig->addFunction( new \Timber\Twig_Function( 'isDark', function( $color ) {
+        $twig->addFunction( new \Twig\TwigFunction( 'isDark', function( $color ) {
+            if(!$color) {return;}
             $hex = new Hex($color);
             return $hex->isDark();
         } ) );
-        $twig->addFunction( new \Timber\Twig_Function( 'editor-color-palette', function( $slug ) {
+        $twig->addFunction( new \Twig\TwigFunction( 'editor-color-palette', function( $slug ) {
             $color = [];
         
             $colors = get_theme_support('editor-color-palette');
