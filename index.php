@@ -10,12 +10,12 @@
 // $config_array = ["site", "theme_support", "fields", "mimes", "assets", "routes", "widgets"];
 
 
-$route = new \Contexis\Core\Router($config->load('routes'));
+$route = new \Contexis\Core\Router(\Contexis\Core\Config::load('routes'));
 
 $controller = 'Contexis\\Controllers\\' . $route->get();
 
 if (class_exists($controller)) {
-    $pageObject = new $controller($site);
+    $pageObject = new $controller();
     $pageObject->render();
 }
 else {
