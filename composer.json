@@ -24,8 +24,13 @@
             "role": "Manager"
         }
     ],
+    "config": {
+        "platform":{
+            "php":"7.0"
+        }
+    },
     "require": {
-        "timber/timber": "^1.18.2",
+        "timber/timber": "^2.0.0-alpha.2",
         "ozdemirburak/iris": "^2.2"
     },
     "autoload": {
