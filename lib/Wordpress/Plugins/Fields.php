@@ -20,6 +20,7 @@ Class Fields {
     public static function register($options) {
       
       if ($options === null) { return; }
+      
       if ($options['fields'] !== null) { self::registerFields($options['fields']); }   
       if ($options['pages'] !== null) { self::registerPages($options['pages']); }   
 		

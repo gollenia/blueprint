@@ -19,8 +19,6 @@
 
         {% for colorset in attribute(config.theme_support, 'editor-color-palette') %}
             --{{colorset.slug}}: {{colorset.color}};
-        }
-        
         {% endfor %}
 
     }
