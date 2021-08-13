@@ -6,12 +6,14 @@
 @import "blocks.css";
 @import "plugins.css";
 @import "hamburger.css";
+@import "components.css";
+
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* breaks the utilities-first rule... */
+
 .equalizer > div {
   @apply flex;
   @apply flex-col;
@@ -20,8 +22,6 @@
 .equalizer .card {
   height: 100%;
 }
-
-
 
 body {
   font-variant-ligatures: none;
@@ -41,8 +41,16 @@ body {
       background-color: var(--primary);
   }
 
+  .bg-primary-light {
+    background-color: var(--primary-light);
+}
+
   .bg-secondary {
     background-color: var(--secondary);
+}
+
+.bg-secondary-light {
+    background-color: var(--secondary-light);
 }
 
   .fill-primary {
@@ -55,6 +63,10 @@ body {
 
   .bg-blur {
       backdrop-filter: blur(5px);;
+  }
+
+  .shift-right {
+    @apply mr-4 lg:mr-10;
   }
 
   .text-primary {
@@ -79,6 +91,10 @@ body {
 
    .bg-secondary-transparent {
     background: var(--secondary-transparent);
+   }
+
+   .pseudo-content {
+        content: "";
    }
 
    .dark { 
