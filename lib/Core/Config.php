@@ -20,9 +20,10 @@ class Config {
      * @param array $files Instead of scanning the directory, only use the files given in this array
      * @since 1.0.0
      */
-    public function __construct(string $config_path, array $files = []) {
+    public function __construct(string $config_path = "", array $files = []) {
 
-        
+        $config_path = $config_path ?? get_template_directory() . "/config/";
+
         if (empty($files)) {
             
             $files = scandir($config_path);
@@ -98,13 +99,20 @@ class Config {
         $this->config[$key] = $value;
     }
 
-
-    public static function load(string $file) {
+    /**
+     * Load single config file and return as Array
+     * 
+     * @param string $file
+     * @param string $config_path
+     * @return array 
+     * @since 1.4.0
+     */
+    public static function load(string $file, string $config_path = "") {
         
-        $config_path = get_template_directory() . "/config/";
-
+        $config_path = $config_path ? $config_path : get_template_directory() . "/config/";
+        
         if (file_exists ( $config_path . $file . ".json" )) {
-            $json = file_get_contents($config_path . $file);
+            $json = file_get_contents($config_path . $file .".json");
             return json_decode($json, true);
         }
 
@@ -112,7 +120,7 @@ class Config {
             return include($config_path . $file . ".php");
         }
 
-        
+        return [];
     }
 
 }
