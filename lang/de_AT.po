@@ -75,3 +75,7 @@ msgstr "Startseite"
 # breadcrumbs.twig
 msgid "No places left"
 msgstr "Ausgebucht"
+
+# event.php
+msgid "Event Manager Plugin not installed"
+msgstr "Event Manager nicht installiert"
