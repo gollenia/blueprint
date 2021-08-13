@@ -4,7 +4,7 @@
 {% if post.thumbnail.src('xlarge') %}
                 <img class="object-{{post.headerimageorientation}} absolute inset-0 object-cover w-full h-full" style="{{post.flippageimage ? 'transform: scaleX(-1);'}}" src="{{post.thumbnail.src('xlarge')}}">
             {% endif %} 
-    {% include "partials/breadcrumbs.twig" with {'breadcrumbs': breadcrumbs} %}
+    {% include "partials/breadcrumbs.twig" with {'breadcrumbs': breadcrumbs()} %}
     <div class="max-w-screen-xl mx-auto">
         <div class="relative inline-block bg-primary-transparent bg-opacity-75 bg-blur rounded-tr-3xl text-white text-right" style="margin-left: -2000px; padding: 50px 50px 50px 2000px;">
             
