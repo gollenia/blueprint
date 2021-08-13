@@ -1,0 +1,81 @@
+/*
+*
+*   Card component
+*
+*/
+
+.card { @apply shadow flex transition transform overflow-hidden m-0; }
+
+/*
+*   Image positioning
+*/
+.card.image-left { @apply flex-row items-center; }
+.card.image-right { @apply flex-row-reverse items-center; }
+.card.image-top { @apply flex-col; }
+.card.image-bottom { @apply flex-col-reverse; }
+.card.image-top img.card-image, .card.image-bottom img.card-image { @apply object-cover h-64 w-full; }
+.card.image-left img.card-image, .card-image-right img.card-image { @apply object-cover w-64 self-stretch; }
+.card-content  { @apply flex flex-col h-full w-full flex-grow p-4 md:p-6; }
+
+
+/*
+*   Firs and last card styling
+*/
+
+.card.first { @apply rounded-tl-3xl; }
+.card.last { @apply rounded-br-3xl; }
+
+
+/* 
+*   Fancy animations
+*/
+
+.card.zoom-rotate {
+    @apply transition duration-300 transition-transform;
+    &:hover {
+        @apply scale-105 rotate-3;
+    }
+}
+
+.card.hover, .card.zoom { @apply hover:shadow-2xl hover:scale-105; } /* hover for legacy reasons */
+
+@keyframes ctx-wobble-bottom {
+  16.65% {
+    
+    transform: skew(-6deg);
+  }
+  33.3% {
+    
+    transform: skew(4deg);
+  }
+  49.95% {
+    
+    transform: skew(-3deg);
+  }
+  66.6% {
+    
+    transform: skew(2deg);
+  }
+  83.25% {
+    
+    transform: skew(-1deg);
+  }
+  100% {
+    
+    transform: skew(0);
+  }
+}
+
+.card.wobble-bottom {
+  @apply origin-top;
+  &:hover {
+    -webkit-animation-name: ctx-wobble-bottom;
+    animation-name: ctx-wobble-bottom;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-timing-function: ease-in-out;
+    animation-timing-function: ease-in-out;
+    -webkit-animation-iteration-count: 1;
+    animation-iteration-count: 1;
+  }
+}

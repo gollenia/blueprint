@@ -1,0 +1,9 @@
+.alert {
+    @apply relative;
+    .close:before, .close:after {
+        @apply absolute w-0.5 top-0 pseudo-content;
+    }
+    .close { @apply relative; }
+    .close:before { transform: rotate(-45deg); }
+    .close:after { transform: rotate(45deg); }
+}

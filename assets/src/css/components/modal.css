@@ -1,0 +1,68 @@
+/*
+*
+*   Modal component
+*
+*/
+
+.modal {
+    @apply transition-all;
+    overflow-x: hidden;
+    overflow-y: auto;
+    @apply bg-gray-100 shift-right fixed inset-0 h-full;
+    z-index: 999;
+    background: rgba(0,0,0,0.6);
+    .close:before, .close:after {
+        @apply absolute w-0.5 top-0 pseudo-content;
+    }
+    .close { @apply relative; }
+    .close:before { transform: rotate(-45deg); }
+    .close:after { transform: rotate(45deg); }
+}
+
+/*
+*   Window mode
+*/
+
+.modal.window {
+    @apply grid place-content-center;
+    .modal-dialog { @apply bg-gray-100 rounded-br-3xl rounded-tl-3xl; }
+    .dialog-header {
+        @apply flex items-center bg-primary h-16 px-6 py-4;
+    }
+    .dialog-content { @apply max-w-screen-md px-6 py-4; }
+    .close { @apply h-4 w-4; }
+    .close:before, .close:after { @apply bg-primary-contrast h-4 left-2; }
+    .dialog-title { @apply flex-1; }
+    .dialog-title h2 { @apply text-primary-contrast; }
+}
+
+
+/*
+*   Fullscreen mode
+*/
+
+.modal.fullscreen {
+    @apply bg-white h-full;
+    .modal-dialog { @apply bg-gray-100 pb-16 mb-8 rounded-br-3xl; }
+    .dialog-content { @apply max-w-screen-xl mx-6 sm:mx-8 lg:mx-8 2xl:mx-auto; }
+    .dialog-header {
+        @apply relative mt-20 mb-20 bg-primary-light;
+        min-height: 150px;
+    }
+    .close:before, .close:after { @apply bg-black h-8 left-4 ; }
+    .dialog-title { @apply absolute left-0 right-0 bottom-0 -mb-16 max-w-screen-xl mx-6 sm:mx-8 lg:mx-8 2xl:mx-auto; }
+    .dialog-title h2 { @apply mt-10 bg-primary text-primary-contrast text-white p-4 rounded-tl-3xl rounded-br-3xl inline-block font-bold text-xl xl:text-5xl mb-4; }
+    .close { @apply absolute top-0 right-0 -mt-10 h-8 w-8; }
+}
+
+/*
+*   Animations - require additional JS!
+*/
+
+.modal {
+    .enter { @apply transition ease-out duration-300; }
+    .enter-start { @apply opacity-0 transform; } 
+    .enter-end { @apply opacity-100 transform scale-100; } 
+    .leave { @apply transition ease-in duration-300; } 
+    .leave-start { @apply opacity-100 transform; }
+}

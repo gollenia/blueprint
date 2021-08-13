@@ -1,0 +1,17 @@
+/*
+*
+*   List for eg. contacts or shopping carts
+*
+*/
+
+.item-list .item .control { @apply flex-1 text-right flex items-center justify-end; }
+.item-list .item { @apply py-4 flex items-center; }
+.item-list .item:not(:last-child) { @apply border-gray-400 border-b-4 border-dotted; }
+.item-list .item img { @apply object-cover h-20 h-20 md:h-16 md:w-16 mr-4 rounded-full; }
+.item-list .item .text { @apply flex flex-col md:flex-row flex-grow; }
+
+
+
+.item-list .item .title {
+    @apply flex flex-col;
+}
