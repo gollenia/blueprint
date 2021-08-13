@@ -3,8 +3,8 @@
 namespace Contexis\Wordpress;
 
 use Timber\{
-    Post,
-    Term
+    Term,
+    Timber
 };
 
 /**
@@ -13,77 +13,93 @@ use Timber\{
  * @since 1.0.0
  */
 Class Breadcrumbs {
-    public static function generate() {
-    
-        if ( is_home() && is_front_page() || is_paged() ) {
-            return false;
-        }
-    
-        $post = new Post();
 
-        $breadcrumbs = [];
+    private array $breadcrumbs = [];
+
+    private $post;
+
+    public static function generate(bool $add_current_page = true) {
+
+        $instance = new static();
+
+        $instance->post = Timber::context()['post'];
+
+        if(method_exists($instance, 'generate_' . $instance->post->post_type)) {
+            call_user_func([$instance, 'generate_' . $instance->post->post_type]);
+        }
+
+        if (!$add_current_page || is_front_page()) {
+            return $instance->breadcrumbs;
+        }
         
-        if ( is_category()) {
-            $breadcrumbs = get_ancestors($post->ID);
+        array_push($instance->breadcrumbs, [
+            "title" => $instance->post->post_title,
+            "url" => $instance->post->slug
+        ]);
+
+        return $instance->breadcrumbs;
+    } 
+
+    static function get_terms($post) {
+        $term = $post->terms ? $post->terms[0] : false;
+        while($term->parent) {
+            $term = new Term($term->parent);
+            array_unshift($breadcrumbs, ["title" => $term->name,"url" => $term->slug]);
+        }
+    }
+
+    function generate_event() {
+        $this->breadcrumbs = [
+            [
+                "title" => ucFirst(get_option("dbem_cp_events_slug")),
+                "url" => "/" . get_option("dbem_cp_events_slug")
+            ]
+        ];
+
+        if($this->post->terms) {
+            array_push($this->breadcrumbs, [
+                "title" => $this->post->terms[0]->name,
+                "url" => "/" . get_option("dbem_cp_events_slug") . "/#" . $this->post->terms[0]->slug
+            ]);
+        }
+    }
+
+    function generate_page() {
+        if ( is_front_page() ) {
+            return;
+        }
+    
+        if ( !$this->post->parent ) 
+        {
+            return;
         }
 
-    
+        $parent = $this->post->parent;
+        
+        while ($parent) {
+            array_unshift($this->breadcrumbs, ["title" => $parent->title,"url" => $parent->link]);
+            $parent = $parent->parent;
+        }
+        
+    }
+
+    function generate_post() {
         if ( is_single() ) {
-            $term = $post->terms[0];
             
             $slug = explode("/", ltrim(get_option("permalink_structure"), '/'))[0];
-
-            $breadcrumbs = [];
-
-            if($post->terms) {
-                array_push($breadcrumbs, ["title" => $post->terms[0]->name, "url" => $post->terms[0]->slug]);
+            if($this->post->terms) {
+                array_push($this->breadcrumbs, ["title" => $this->post->terms[0]->name, "url" => get_category_link($this->post->terms[0]->id)]);
             }
             
-            while($term->parent) {
-                $term = new Term($term->parent);
-                array_unshift($breadcrumbs, ["title" => $term->name,"url" => $term->slug]);
-            }
-
-            array_unshift($breadcrumbs, ["title" => ucfirst($slug),"url" => $slug]);
-                       
-
-            array_push($breadcrumbs, ["title" => $post->name, "url" => $post->link]);
+            array_unshift($this->breadcrumbs, ["title" => ucfirst($slug),"url" => $slug]);
         }
-        if ( is_page() && !$post->parent ) 
-        {
-            $breadcrumbs = [[
-                "title" => $post->title,
-                "url" => $post->link
-            ]];
-        } 
         
-        if ( is_page() && $post->post_parent ) {
-            $parent = $post->parent;
+    }
 
-            $breadcrumbs = [[
-                "title" => $post->title,
-                "url" => $post->link
-            ]];
-            
-            while ($parent) {
-                array_unshift($breadcrumbs, ["title" => $parent->title,"url" => $parent->link]);
-                $parent = $parent->parent;
-            }
+    function generate_category() {   
+        if ( is_category()) {
+            $this->breadcrumbs = get_ancestors($this->post->ID);
         }
-
-        if( is_singular('event') ) {
-            $breadcrumbs = [
-                [
-                    "title" => ucFirst(get_option("dbem_cp_events_slug")),
-                    "url" => "/" . get_option("dbem_cp_events_slug")
-                ],
-                [
-                    "title" => $post->title,
-                    "url" => $post->link
-                ]
-            ];
-        }
-
-        return $breadcrumbs;
-    } 
+        
+    }
 }
