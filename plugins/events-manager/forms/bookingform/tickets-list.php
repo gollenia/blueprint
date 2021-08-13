@@ -10,7 +10,7 @@ $EM_Tickets = $EM_Event->get_bookings()->get_tickets(); //already instantiated, 
  * This variable can be overridden, by hooking into the em_booking_form_tickets_cols filter and adding your columns into this array.
  * Then, you should create a em_booking_form_tickets_col_arraykey action for your collumn data, which will pass a ticket and event object.
  */
-$columns = $EM_Tickets->get_ticket_collumns(); //array of column type => title
+$columns = $EM_Tickets->get_ticket_columns(); //array of column type => title
 ?>
 <table class="em-tickets mt-4 w-full bg-default-darker" cellspacing="0" cellpadding="0">
 	<tr>
