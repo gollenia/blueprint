@@ -9,9 +9,9 @@
             <div class="col-span-2 ">
                 
                 <div class="py-8 border-b-4 border-gray-400 border-dotted">{{post.post_excerpt}}</div>
-                <div class="py-8 border-b-4 border-gray-400 border-dotted">{{content}}</div>
+                <div class="py-8 border-b-4 border-gray-400 border-dotted">{{post.content}}</div>
                 
-                {% if bookings > 0 %}
+                {% if has_tickets %}
                     <div x-data="" class="my-10"><a @click="$dispatch('booking-modal')" class="rounded-tl-xl rounded-br-xl px-6 py-3 bg-primary {{primarycolor.brightness}} button" href="#">{{ __("Book this event", "ctx-theme") }}</a></div>  
                     {{ booking }}  
                 {% endif %}
@@ -53,19 +53,19 @@
 
 
                     
-                    {% if event.location %}
+                    {% if location %}
                     <address class="py-2 flex flex-row items-start not-italic">  
                         <i class="text-gray-700 material-icons mr-3">place</i>
-                        <a href="{{event.location.region}}">{{event.location.location_name}}<br>{{event.location.address}}<br>{{event.location.postcode}} {{event.location.town}}</a>
+                        <a href="{{location.region}}">{{location.location_name}}<br>{{location.address}}<br>{{location.postcode}} {{location.town}}</a>
                     </address>
                     {% endif %}
-                    {% if booking and bookings < 5 and bookings > 0 %}
+                    {% if bookings and bookings < 5 and bookings > 0 %}
                     <div class="py-2 flex flex-row items-center"></p>
                         <i class="text-red material-icons mr-3 text-red-500">warning</i>
                         <span class="text-red-500">{{ __("Only few spaces left", "ctx-theme") }}</span>
                     </div>
                     {% endif %}
-                    {% if booking and not bookings %}
+                    {% if bookings and not bookings %}
                     <div class="py-2 flex flex-row items-center"></p>
                         <i class="text-red material-icons mr-3 text-red-500">block</i>
                         <span class="text-red-500">{{ __("No places left", "ctx-theme") }}</span>
