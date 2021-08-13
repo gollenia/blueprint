@@ -10,12 +10,11 @@ namespace Contexis\Controllers;
 
 class Page extends \Contexis\Core\Controller{
 
-    public function __construct($site, $template = false) {
+    public string $template = "pages/page.twig";
 
-        parent::__construct($site);
-        $this->addToContext([
-            "breadcrumbs" => \Contexis\Wordpress\Breadcrumbs::generate(),
-        ]);
+    public function __construct() {
+
+        parent::__construct();
 
     }
     
