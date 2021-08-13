@@ -9,25 +9,21 @@
 
 namespace Contexis\Controllers;
 
-use Timber\{
-    Timber,
-    Post,
-    PostQuery
-};
+use Timber\Timber;
 
-class Error extends \Contexis\Core\Controller{
+class Error extends \Contexis\Core\Controller {
 
-    public function __construct($site, $template = "pages/405.twig") { 
-        parent::__construct($site);
-        $this->setTemplate('pages/404.twig');
-        $this->addToContext([
-            "error_page" => $this->getErrorPage()
+    public string $template = "pages/404.twig";
+
+    public function __construct() { 
+        parent::__construct();
+        $this->add_to_context([
+            "error_page" => $this->get_error_page()
         ]);
         
     }
 
-
-    private function getErrorPage($page = "error") {
+    private function get_error_page($page = "error") {
         $field = get_field("error_page", "options");
         
         if($field) {
