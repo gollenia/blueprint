@@ -1,42 +1,39 @@
 
-<div class="posts gap-12 grid grid-cols-{{columnsSmall}} md:grid-cols-{{columnsMedium}} lg:grid-cols-{{columnsLarge}}">
+<div class="card-collection posts">
     {% for item in posts %}
-            
             <a 
                 class="
-                overflow-hidden
                 {% if dropShadow %}hover {% endif %}
                 {% if function("get_the_ID") == item.ID %}text-blue{% endif %} 
-                card items-center bg-white
-                {{ style == "list" ? "flex-row" : "flex-col" }}
-                {{loop.first ? "rounded-tl-3xl"}}
-                {{loop.last ? "rounded-br-3xl"}}
+                card bg-white
+                {{ style == "list" ? "image-left" : "image-top" }}
+                {{loop.first ? "first"}}
+                {{loop.last ? "last"}}
                 "            
                 href="{{ function("get_permalink", item.ID) }}"
             >
             {% if showImages %}
-                <img width="{{imageSize}}%" class="{{roundImages ? "rounded-full" : "object-cover h-64 w-full" }}" src="{{roundImages ? item.thumbnail.src('qlarge') : item.thumbnail.src('qlarge') }}" />
+                <img class="card-image"  src="{{ item.thumbnail.src('large') }}" />
                 {% if showDate and style == "cards" %}
-                    <div class="text-primary-contrast absolute bg-primary rounded-full h-12 w-12 right-4 top-4">
-                        <span class="block font-bold text-lg text-gray text-center -mb-2">{{item.post_date|date("j")}}</span>
-                        <span class="block text-sm text-gray text-center">{{item.post_date|date("M")}}</span>
+                    <div class="text-primary-contrast bg-primary card-badge">
+                        <div class="font-bold text-lg text-gray -mb-2">{{item.post_date|date("j")}}</div>
+                        <div class="description">{{item.post_date|date("M")}}</div>
                     </div>
                 {% endif %}
             {% endif %}
             
-                <div class="flex flex-grow relative pb-8 px-8 flex-col  w-full">
-                    <span class="absolute rounded-tl-md rounded-br-md -mt-4 -ml-2 px-2 bg-primary text-primary-contrast">
+                <div class="card-content">
+                    <span class="card-label bg-primary text-primary-contrast">
                         {{item.category}}
                     </span>
-                    <span class="block font-bold text-primary pt-8 inline-block">{{item.post_title}}</span>
-                    {% if showDate and style == "list" %}<span class="block text-gray">{{item.post_date|date("j. M. Y")}}</span>{% endif %}
-                    <p class="pt-2 text-black">
+                    <h4 class="card-title text-primary">{{item.post_title}}</h4>
+                    {% if showDate and style == "list" %}<div class="text-gray">{{item.post_date|date("j. M. Y")}}</div>{% endif %}
+                    <p class="card-text text-black">
                         {{item.post_excerpt|excerpt(excerptLength)}}
                     </p>
-                    <span class="mt-auto text-xs pt-2 text-gray-500">
-                        {{item.tags|first}} | {{item.post_date|date("j. M. Y")}}
+                    <span class="card-footer">
+                        <span class="description">{{item.tags|first}} | {{item.post_date|date("j. M. Y")}}</span>
                     </span>
-                    
                 </div>
             </a>
         
