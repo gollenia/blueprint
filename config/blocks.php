@@ -12,36 +12,6 @@
 */ 
 
 return [
-    "post" => [
-        "core/paragraph",
-        "core/heading",
-        "ctx-blocks/image",
-        "ctx-blocks/alert",
-        "ctx-blocks/grid-row",
-        "ctx-blocks/grid-column",
-        "ctx-blocks/card",
-        "ctx-blocks/nav",
-        "ctx-blocks/button",
-        "ctx-blocks/modal",
-        "ctx-blocks/posts",
-        "ctx-blocks/progress",
-        "ctx-blocks/section",
-        "ctx-blocks/description-list",
-        "ctx-blocks/description-item",
-        "ctx-blocks/accordion-collection",
-        "ctx-blocks/accordion-item",
-        "event-manager/upcoming",
-        "core/file",
-        "core/more",
-        "core/list",
-        "core/table",
-        "core/shortcode",
-        "core/spacer",
-        "core/pullquote",
-        "core/quote",
-        "core/code"
-    ],
-    "page" => [
         "core/paragraph",
         "core/heading",
         "core/archives",
@@ -82,5 +52,4 @@ return [
         "core/cover",
         "core/code",
         "ctx-products/shop"
-    ]
 ];
