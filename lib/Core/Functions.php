@@ -77,6 +77,15 @@ class Functions {
 
 		remove_action('wp_head', 'wlwmanifest_link');
 		remove_action('wp_head', 'rsd_link');
+        
+        update_option( 'large_size_w', 1280 );
+        update_option( 'large_size_h', 900 );
+
+        update_option( 'medium_size_w', 640 );
+        update_option( 'large_size_h', 600 );
+
+        add_image_size( "huge", 2560, 1800 );
+
 	}
 
 	// remove Block patterns, which only generate errors in the console.
