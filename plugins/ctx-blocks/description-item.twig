@@ -4,11 +4,11 @@
         {{ source(function('wp_get_original_image_path', image.id), ignore_missing = true) }}
         </figure>
     {% else %}
-        <img src="{{image.sizes.qmedium.url}}">
+        <img src="{{image.sizes.medium.url}}">
     {% endif %}
     <div class="">
         <b>{{title}}</b>
-        <span class="block">{{text}}</span>
+        <div>{{text}}</div>
     </div>
 </li>
 
