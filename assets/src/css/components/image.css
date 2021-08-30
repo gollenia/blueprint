@@ -1,0 +1,22 @@
+.image {
+    @apply grid;
+    img { };
+    .image-round-corners { @apply rounded-tl-xl rounded-br-xl lg:rounded-tl-3xl lg:rounded-br-3xl}
+    .image-round { @apply rounded-full !important; }
+    .image-border { @apply border-8 border-white; }
+    .image-shadow { @apply shadow; }
+
+    .lightbox {
+        @apply fixed inset-0;
+        position: fixed;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        display: grid;
+        place-content: center;
+        background: #000;
+        z-index: 999;
+        margin-top: 20px;
+    }
+}

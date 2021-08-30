@@ -1,56 +1,4 @@
-h1.core-block {
-    @apply text-3xl;
-    @apply lg:text-5xl;
-    @apply font-bold;
-    @apply py-10;
-}
-h2.core-block {
-    @apply text-2xl;
-    @apply lg:text-4xl;
-    @apply font-bold;
-    @apply py-8;
-}
-h4.core-block {
-    @apply text-lg;
-    @apply lg:text-2xl;
-    @apply py-4;
-    @apply font-bold;
-}
-h3.core-block {
-    @apply text-xl;
-    @apply lg:text-3xl;
-    @apply font-bold;
-    @apply py-6;
-}
-h5.core-block {
-    @apply font-bold;
-    @apply lg:text-xl;
-    @apply font-bold;
-    @apply py-2;
-}
 
-p.core-block {
-    @apply py-2;
-}
-
-ul.core-block {
-    @apply list-disc;
-    @apply pl-8;
-    @apply py-2;
-}
-
-ol.core-block {
-    @apply list-decimal;
-    @apply py-2;
-    @apply pl-8;
-}
-
-footer h4 {
-    @apply text-lg;
-    @apply lg:text-2xl;
-    @apply font-bold;
-    @apply py-4;
-}
 
 .wp-block-quote {
     border-style: dotted !important;
@@ -66,7 +14,7 @@ footer h4 {
 }
 
 .card.is-first, .card.is-first img:not(".rounded-full") {
-    @apply rounded-tl-lg
+    @apply rounded-tl-lg;
 }
 
 .card.is-last, .card.is-last img:not(".rounded-full"){

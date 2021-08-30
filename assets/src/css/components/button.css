@@ -4,9 +4,9 @@
 *
 */
 
-.button { @apply box-border text-black bg-gray-200 relative rounded-tl-xl rounded-br-xl inline-block px-4 py-2 overflow-hidden inline-flex items-center; }
+.button { @apply box-border text-black bg-gray-200 relative rounded-tl-xl rounded-br-xl inline-block px-4 py-2 overflow-hidden inline-flex items-center cursor-pointer; }
 .button-sm, .button-xs { @apply px-2 py-1 text-xs; } 
-.button-lg, .button-xl { @apply px-6 py-3 text-lg rounded-tl-2xl rounded-br-2xl; } 
+.button-lg, .button-xl { @apply px-6 py-3 text-lg rounded-tl-2xl rounded-br-2xl } 
 .button.primary { @apply bg-primary text-primary-contrast; }
 .button.primary-light { @apply bg-primary-light text-black; }
 .button.secondary { @apply bg-secondary text-secondary-contrast; }
@@ -36,8 +36,8 @@
     -webkit-transform-origin: 0 100%;
     transform-origin: 0 100%;
     &:hover {
-        -webkit-transform: skew(-10deg);
-        transform: skew(-10deg);
+        -webkit-transform: skew(-8deg) translate(0.375rem);
+        transform: skew(-8deg) translate(0.375rem);
     }
 }
 
@@ -72,15 +72,6 @@
     animation-iteration-count: 1;
 }
 
-
-
-
-
-
-
-
-
-
 .button:not(.outline):hover::after {
     opacity: 1;
 }
@@ -100,3 +91,11 @@
 .button.outline.light:hover { color: #000000dd !important; }
 .button.outline.dark:hover { color: #ffffffdd !important; }
 
+.button-group {
+    @apply flex;
+    .button { @apply mr-4 }
+    &.right {
+        @apply justify-end;
+        .button { @apply ml-4 mr-0 }
+    }
+}

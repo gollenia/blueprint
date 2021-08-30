@@ -15,7 +15,13 @@
 .card.image-bottom { @apply flex-col-reverse; }
 .card.image-top img.card-image, .card.image-bottom img.card-image { @apply object-cover h-64 w-full; }
 .card.image-left img.card-image, .card-image-right img.card-image { @apply object-cover w-64 self-stretch; }
-.card-content  { @apply flex flex-col h-full w-full flex-grow p-4 md:p-6; }
+.card .card-content  { @apply flex flex-col h-full w-full flex-grow px-4 md:px-6 mb-4 md:mb-6; }
+.card .card-label { @apply absolute rounded-tl-md rounded-br-md -mt-4 -ml-2 px-2; }
+.card .card-title { @apply font-bold pt-8 text-xl; }
+.card .card-text { @apply pt-2; }
+.card .card-footer { @apply mt-auto pt-2; }
+.card .card-badge { @apply absolute rounded-full h-12 w-12 right-4 top-4 text-center; }
+.card .svg-container { @apply p-4 lg:p-6 grid place-items-center }
 
 
 /*
@@ -78,4 +84,8 @@
     -webkit-animation-iteration-count: 1;
     animation-iteration-count: 1;
   }
+}
+
+.card-collection {
+    @apply gap-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3
 }

@@ -7,6 +7,7 @@
 @import "plugins.css";
 @import "hamburger.css";
 @import "components.css";
+@import "formatting/text.css";
 
 
 @tailwind base;

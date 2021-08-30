@@ -43,6 +43,16 @@ form:invalid input[type="submit"] {
     display: block;
 }
 
+.input-checkbox { 
+    @apply flex items-center; 
+    input[type="checkbox"] {
+        @apply mr-4
+    }
+}
+
+
+
+
 input[type="checkbox"] {
     @apply appearance-none h-6 w-6 border-2 bg-white border-gray-200 rounded-tl-lg rounded-br-lg focus:outline-none transition-all;
 }
