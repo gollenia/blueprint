@@ -5,13 +5,7 @@ class="card {{bg.brightness}} image-{{imagePosition}} items-{{textAlign}} text-{
 
     {% if image.url %}
         {% if image.subtype == 'svg+xml' %}
-            <div style="height: {{imageWidth}}%; width: {{imageWidth}}%;" 
-                 class="{{ imageRound ? "rounded-full overflow-hidden m-4 lg:m-6"}} 
-                    {{imagePosition == "top" ? "mb-0"}} 
-                    {{imagePosition == "bottom" ? "mt-0"}} 
-                    {{imagePosition == "left" ? "mb-4 lg:m-6 mr-0"}} 
-                    {{imagePosition == "right" ? "mt-4 lg:m-6 ml-0"}} 
-            ">
+            <div class="svg-container" style="height: {{imageWidth}}%; width: {{imageWidth}}%;" >
                 {{ source(function('wp_get_original_image_path', image.id), ignore_missing = true) }}
             </div>
         {% else %}
