@@ -14,7 +14,7 @@
 .card.image-top { @apply flex-col; }
 .card.image-bottom { @apply flex-col-reverse; }
 .card.image-top img.card-image, .card.image-bottom img.card-image { @apply object-cover h-64 w-full; }
-.card.image-left img.card-image, .card-image-right img.card-image { @apply object-cover self-stretch h-full; width: 33%; }
+.card.image-left img.card-image, .card-image-right img.card-image { @apply object-cover self-stretch h-full; width: 33%; aspect-ratio: 1/1; }
 .card .card-content  { @apply relative flex flex-col h-full w-full flex-grow; padding: 1rem; }
 .card.image-top > .card-label { @apply ml-4; }
 .card.image-left .card-label { @apply mr-4; }
