@@ -27,7 +27,7 @@ return [
         "ctx-blocks/grid-column",
         "ctx-blocks/card",
         "ctx-blocks/nav",
-        "ctx-blocks/button",
+        "ctx-blocks/button-group",
         "ctx-blocks/modal",
         "ctx-blocks/posts",
         "ctx-blocks/progress",

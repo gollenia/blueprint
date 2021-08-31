@@ -5,22 +5,17 @@ namespace Contexis\Wordpress;
 /**
  * Load allowed Gutenberg blocks for page types from config
  * 
- * @param array $post_types 
+ * @param array $block_types 
  * @since 1.0.0
  */
 Class Block {
 
-    public static function register($post_types) {
+    public static function register($block_types) {
 
-      if($post_types === null) { return; }
+      if($block_types === null) { return; }
         
-		add_filter('allowed_block_types_all', function() use (&$post_types){
-			foreach ($post_types as $post_type => $allowed_blocks) {
-                global $post;
-                if($post->post_type == $post_type) {
-                    return $allowed_blocks;
-                }
-            }	
+		add_filter('allowed_block_types_all', function() use (&$block_types){
+			return $block_types;
 		});
     }
     
