@@ -2,7 +2,7 @@
 
 <div class="mt-auto text-{{buttonAlignment}} py-4">
 {% if outline %}
-<a style="border-color: {{bg.color}}; color: {{bg.color}};" 
+<a style="box-shadow: inset 0px 0px 2px 0px {{bg.color}}; color: {{bg.color}}; " 
     onmouseover="this.style.backgroundColor='{{bg.color}}';"
     onmouseout="this.style.backgroundColor='transparent'"
     class="outline {{bg.brightness}} button bg-transparent hover:text-{{buttonColor}}-contrast

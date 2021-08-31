@@ -15,9 +15,9 @@
 .button.link.primary { @apply text-primary bg-transparent; }
 .button.link.secondary { @apply text-secondary bg-transparent; }
 .button.link:hover, button.transparent:hover { @apply bg-gray-100; }
-.button.outline { @apply bg-transparent border-2 border-black; }
-.button.outline.primary { @apply border-primary bg-transparent; &::hover { @apply bg-primary; } }
-.button.outline.secondary { @apply border-secondary bg-transparent; &::hover { @apply bg-secondary; } }
+.button.outline { @apply bg-transparent; }
+.button.outline.primary { @apply text-primary border-primary bg-transparent; &::hover { @apply bg-primary text-primary-contrast; } }
+.button.outline.secondary { @apply text-secondary border-secondary bg-transparent; &::hover { @apply bg-secondary text-secondary-contrast; } }
 .button .material-icon { @apply mr-4; }
 
 

@@ -113,14 +113,14 @@ body {
    }
 
    .dark { 
-    color: #ffffff !important;
-    color: #ffffffdd !important;
-    fill: #ffffffdd !important;
+    color: #ffffff ;
+    color: #ffffffdd ;
+    fill: #ffffffdd ;
     }
   .light { 
-    color: #000000 !important;
-    color: #000000dd !important;
-     fill: #000000dd !important;
+    color: #000000 ;
+    color: #000000dd;
+     fill: #000000dd;
    }
 
    
