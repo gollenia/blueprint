@@ -17,7 +17,7 @@
                 {% if showDate and style == "cards" %}
                     <div class="text-primary-contrast bg-primary card-badge">
                         <div class="font-bold text-lg text-gray -mb-2">{{item.post_date|date("j")}}</div>
-                        <div class="description">{{item.post_date|date("M")}}</div>
+                        <div class="text-xs">{{item.post_date|date("M")}}</div>
                     </div>
                 {% endif %}
             {% endif %}
