@@ -1,0 +1,3 @@
+.description-item { @apply flex py-2 items-center }
+.description-item img { @apply h-16 w-16 rounded-full mx-0 mr-4}
+.description-item figure { @apply h-16 w-16 mx-0 mr-4}

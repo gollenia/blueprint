@@ -1,33 +1,34 @@
 .description {
     @apply text-xs text-gray-500;
 }
-h1.core-block {
-    @apply text-3xl;
-    @apply lg:text-5xl;
+h1 {
+    @apply text-3xl !important;
+    @apply lg:text-5xl !important;
     @apply font-bold;
     @apply py-10;
 }
-h2.core-block {
-    @apply text-2xl;
-    @apply lg:text-4xl;
+h2 {
+    @apply text-2xl !important;
+    @apply lg:text-4xl !important;
     @apply font-bold;
     @apply py-8;
 }
-h4.core-block {
-    @apply text-lg;
-    @apply lg:text-2xl;
+h4 {
+    @apply text-lg !important;
+    @apply lg:text-2xl !important;
     @apply py-4;
     @apply font-bold;
 }
-h3.core-block {
-    @apply text-xl;
-    @apply lg:text-3xl;
+h3 {
+    @apply text-xl !important;
+    @apply lg:text-3xl !important;
     @apply font-bold;
     @apply py-6;
 }
-h5.core-block {
+h5 {
     @apply font-bold;
-    @apply lg:text-xl;
+    @apply text-lg !important;
+    @apply lg:text-xl !important;
     @apply font-bold;
     @apply py-2;
 }

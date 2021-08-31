@@ -1,0 +1,21 @@
+ul.core-block {
+    padding-left: 0px !important
+}
+
+ul.core-block li {
+    @apply list-none content-center ml-8;
+}
+
+ul.core-block li:before {
+    content: "\e892";
+    display: inline-block;
+    font-family: 'Material Icons';
+    padding-top: 1px;
+    @apply -ml-8 absolute;
+    font-size: 24px;
+    color: rgba(0,0,0,0.4);
+}
+
+.dark ul.core-block li:before {
+    color: rgba(255,255,255,0.4);
+}

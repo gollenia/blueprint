@@ -1,0 +1,22 @@
+
+.number-picker {
+    @apply p-1 rounded-full inline-flex items-center md:bg-gray-200 mr-4;
+}
+
+.number-picker button {
+   @apply rounded-full bg-gray-600 md:bg-gray-700 text-white cursor-pointer bg-center bg-no-repeat w-5 h-5 md:w-7 md:h-7;
+   content: "add";
+}
+
+
+.number-picker button:first-child {
+   background-image: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20height%3D%2224px%22%20viewBox%3D%220%200%2024%2024%22%20width%3D%2224px%22%20fill%3D%22%23FFFFFF%22%3E%3Cpath%20d%3D%22M0%200h24v24H0V0z%22%20fill%3D%22none%22%2F%3E%3Cpath%20d%3D%22M19%2013H5v-2h14v2z%22%2F%3E%3C%2Fsvg%3E');
+}
+
+.number-picker button:last-child {
+   background-image: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20height%3D%2224px%22%20viewBox%3D%220%200%2024%2024%22%20width%3D%2224px%22%20fill%3D%22%23FFFFFF%22%3E%3Cpath%20d%3D%22M0%200h24v24H0V0z%22%20fill%3D%22none%22%2F%3E%3Cpath%20d%3D%22M19%2013h-6v6h-2v-6H5v-2h6V5h2v6h6v2z%22%2F%3E%3C%2Fsvg%3E');
+}
+
+.number-picker input {
+   @apply px-1 w-8 mx-1 text-center bg-transparent md:bg-gray-200;
+}

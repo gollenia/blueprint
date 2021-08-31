@@ -1,13 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Gochi+Hand&display=swap');
 
-@import "base.css";
-@import "forms.css";
-@import "blocks.css";
+
 @import "plugins.css";
-@import "hamburger.css";
-@import "components.css";
-@import "formatting/text.css";
+
+@import "./components/button.css";
+@import "./components/card.css";
+@import "./components/itemlist.css";
+@import "./components/modal.css";
+@import "./components/badge.css";
+@import "./components/image.css";
+@import "./components/input.css";
+@import "./components/quotes.css";
+@import "./components/numberpicker.css";
+@import "./components/lists.css";
+@import "./components/animations.css";
+@import "./components/section.css";
+@import "./components/descriptionlist.css";
+@import "./components/alert.css";
+@import "./components/navigation.css";
+
+
+@import "./formatting/text.css";
 
 
 @tailwind base;
@@ -146,4 +160,9 @@ div.input-required {
 
  .grecaptcha-badge { 
   visibility: hidden;
+}
+
+.super-center {
+    display: grid;
+    place-items: center;
 }

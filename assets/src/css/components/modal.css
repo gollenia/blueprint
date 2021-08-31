@@ -43,7 +43,9 @@
 
 .modal.fullscreen {
     @apply bg-white h-full;
-    .modal-dialog { @apply bg-gray-100 pb-16 mb-8 rounded-br-3xl; }
+    .modal-dialog { @apply bg-gray-100 pb-16 mb-8 rounded-br-3xl;
+        min-height: 90%;
+    }
     .dialog-content { @apply max-w-screen-xl mx-6 sm:mx-8 lg:mx-8 2xl:mx-auto; }
     .dialog-header {
         @apply relative mt-20 mb-20 bg-primary-light;
@@ -51,7 +53,7 @@
     }
     .close:before, .close:after { @apply bg-black h-8 left-4 ; }
     .dialog-title { @apply absolute left-0 right-0 bottom-0 -mb-16 max-w-screen-xl mx-6 sm:mx-8 lg:mx-8 2xl:mx-auto; }
-    .dialog-title h2 { @apply mt-10 bg-primary text-primary-contrast text-white p-4 rounded-tl-3xl rounded-br-3xl inline-block font-bold text-xl xl:text-5xl mb-4; }
+    .dialog-title h2 { @apply mt-10 bg-primary text-primary-contrast text-white p-4 rounded-tl-3xl rounded-br-3xl inline-block font-bold text-xl xl:text-5xl mb-8; }
     .close { @apply absolute top-0 right-0 -mt-10 h-8 w-8; }
 }
 
@@ -65,4 +67,15 @@
     .enter-end { @apply opacity-100 transform scale-100; } 
     .leave { @apply transition ease-in duration-300; } 
     .leave-start { @apply opacity-100 transform; }
+}
+
+.wait-overlay {
+    @apply absolute mt-20 inset-0 grid;
+    background: rgba(255,255,255,0.7);
+    place-items: center;
+    aside {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 }

@@ -1,3 +1,5 @@
 .section {
     @apply bg-cover bg-center;
 }
+
+.section .content { @apply max-w-screen-xl mx-6 sm:mx-8 lg:mx-8 2xl:mx-auto }

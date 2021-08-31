@@ -1,0 +1,10 @@
+.box {
+    padding: 1rem;
+    &.primary {
+        background-color: var(--primary);
+    }
+    &.light-gray {
+        background-color: #eee;
+    }
+}
+

@@ -7,3 +7,5 @@
     .close:before { transform: rotate(-45deg); }
     .close:after { transform: rotate(45deg); }
 }
+
+.alert { @apply my-6 p-4 md:p-6 rounded-tl-3xl rounded-br-3xl text-white }
