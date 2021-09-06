@@ -57,10 +57,9 @@ footer h4 {
 }
 
 hr {
-    width: 100%;
-    border-bottom-style: dotted;
-    /* border-radius: 4px; */
-    border-bottom-width: 4px;
+    width: 100% !important;
+    border-bottom-style: dotted !important;
+    border-bottom-width: 4px !important;;
     border-color: rgba(0,0,0,0.5);
 }
 
