@@ -55,3 +55,15 @@ footer h4 {
     @apply font-bold;
     @apply py-4;
 }
+
+hr {
+    width: 100%;
+    border-bottom-style: dotted;
+    /* border-radius: 4px; */
+    border-bottom-width: 4px;
+    border-color: rgba(0,0,0,0.5);
+}
+
+.dark hr {
+    border-color: rgba(255,255,255,0.5);
+}
