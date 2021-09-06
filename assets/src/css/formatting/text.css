@@ -61,7 +61,7 @@ hr.is-style-default {
     border-bottom-style: dotted !important;
     border-bottom-width: 4px !important;;
     border-color: rgba(0,0,0,0.5);
-    margin: 1rem 0;
+    margin: 1rem 0 !important;
 }
 
 .dark hr.is-style-default {
