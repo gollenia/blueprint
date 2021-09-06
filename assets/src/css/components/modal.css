@@ -70,7 +70,7 @@
 }
 
 .wait-overlay {
-    @apply absolute mt-20 inset-0 grid;
+    @apply fixed mt-20 inset-0 grid;
     background: rgba(255,255,255,0.7);
     place-items: center;
     aside {

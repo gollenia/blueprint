@@ -7,7 +7,6 @@
     .image-shadow { @apply shadow; }
 
     .lightbox {
-        @apply fixed inset-0;
         position: fixed;
         left: 0;
         top: 0;
@@ -18,5 +17,15 @@
         background: #000;
         z-index: 999;
         margin-top: 20px;
+        cursor: pointer;
+
+        img {
+            height: 100%;
+            width: 100%;
+        }
+    }
+
+    &.has-lightbox {
+        cursor: pointer;
     }
 }
