@@ -1,5 +1,5 @@
 <li class="description-item">
-{% if icon %}<i class="material-icons">{{icon}}{% else %}
+{% if icon %}<i class="material-icons">{{icon}}</i>{% else %}
     {% if image.subtype == 'svg+xml' %}
         <figure>
         {{ source(function('wp_get_original_image_path', image.id), ignore_missing = true) }}
