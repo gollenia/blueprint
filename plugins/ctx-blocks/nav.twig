@@ -7,8 +7,6 @@
                 class="
                     {% if function("get_the_ID") == item.ID %}text-primary{% endif %} 
                     {{ isPrimary ? "text-xl" }}
-                    block flex items-center px-2 py-1
-                    transform hover:scale-105 transition-transform duration-150 ease-in-out
                 "               
                 href="{{ function("get_permalink", item.ID) }}"
             >
@@ -25,8 +23,7 @@
 {% if dataType == "posts" %}
 <ul class="nav">
     {% for item in data %}
-        <li>
-            
+        <li> 
             <a 
                 class="
                     {% if function("get_the_ID") == item.ID %}text-primary{% endif %} 
