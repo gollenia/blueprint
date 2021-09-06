@@ -12,8 +12,8 @@ Class Block {
 
     public static function register($block_types) {
 
-      if($block_types === null) { return; }
-        
+        if($block_types === null) { return; }
+
 		add_filter('allowed_block_types_all', function() use (&$block_types){
 			return $block_types;
 		});
