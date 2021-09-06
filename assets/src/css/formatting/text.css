@@ -61,6 +61,7 @@ hr {
     border-bottom-style: dotted !important;
     border-bottom-width: 4px !important;;
     border-color: rgba(0,0,0,0.5);
+    margin: 1rem 0;
 }
 
 .dark hr {
