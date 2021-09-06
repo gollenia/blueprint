@@ -23,7 +23,7 @@
 
     }
     {% for colorset in attribute(config.theme_support, 'editor-color-palette') %}
-        .has-{{colorset.slug}}-color.has-text-color {
+        .has-{{colorset.slug}}-color {
            color: {{colorset.color}};
         }
         
