@@ -28,6 +28,7 @@ return [
         "ctx-blocks/card",
         "ctx-blocks/nav",
         "ctx-blocks/button-group",
+        "ctx-blocks/button",
         "ctx-blocks/modal",
         "ctx-blocks/posts",
         "ctx-blocks/progress",
