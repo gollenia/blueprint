@@ -43,7 +43,7 @@
     flex-direction: column;
     img.card-image {
         object-fit: cover;
-        height: 16rem;
+        aspect-ratio: 16/9;
         width: 100%;
     }
     .card-badge {
@@ -56,7 +56,7 @@
     flex-direction: column-reverse;
     img.card-image {
         object-fit: cover;
-        height: 16rem;
+        aspect-ratio: 16/9;
         width: 100%;
     }
 }
