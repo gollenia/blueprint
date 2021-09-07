@@ -22,7 +22,7 @@
         {% endfor %}
 
     }
-    {% for colorset in attribute(config.theme_support, 'editor-color-palette') %}
+    {% for colorset in colors %}
         .has-{{colorset.slug}}-color {
            color: {{colorset.color}};
         }

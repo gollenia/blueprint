@@ -39,6 +39,9 @@ class Controller {
             $this->context['fields'] = get_fields('option');
         }
 
+        // until better color management is found
+        $this->context['colors'] = Config::load('colors');
+
         $this->get_colors();
         
         
