@@ -4,7 +4,11 @@
 *
 */
 
-.card { @apply shadow flex transition transform m-0; }
+.card { @apply shadow flex transition transform m-0; 
+    div.mt-auto.wp-block-spacer {
+        height: 0px !important;
+    }
+}
 
 /*
 *   Image positioning
