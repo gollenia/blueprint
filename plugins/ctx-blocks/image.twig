@@ -9,15 +9,6 @@
             alt="{{image.description}}" 
             class="{{border ? 'image-border'}}  {{round ? "image-round"}} {{roundCorners and not rounded ? "image-round-corners" }}  {{shadow ? "image-shadow"}}" 
             src="{{ round ? image.url|resize(800,800) : image.url|resize(1200) }}"
-            {% if not round %}
-                srcset="
-                    {{image.url|resize(600)}} 600w, 
-                    {{image.url|resize(1200)}} 1200w,
-                    {{image.url|resize(2520)}} 2520w
-                
-                "
-                sizes="(min-width: 760px) 30vw, 100vw"
-            {% endif %}
         >
 {% if hasLightbox %}<div style="display:none" class="lightbox" x-show="imgModal" @click="imgModal = false"><div class="lightbox-inner"><div class="close">X</div><img @click.stop="imgModal = !imgModal" x-bind:src="imgModalSrc"></div></div>{% endif %}
 </div>
