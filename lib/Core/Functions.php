@@ -102,7 +102,6 @@ class Functions {
 		$theme_support['editor-color-palette'] = $theme_colors;
 		ThemeSupport::register($theme_support);
 		$colors->add_admin_color_css();
-        ThemeSupport::register($theme_support);
 	}
 
 
