@@ -8,18 +8,16 @@
         <img style="{{ flip ? 'transform: scaleX(-1);' }} width: {{width}}%;" 
             alt="{{image.description}}" 
             class="{{border ? 'image-border'}}  {{round ? "image-round"}} {{roundCorners and not rounded ? "image-round-corners" }}  {{shadow ? "image-shadow"}}" 
-            src="{{round ? image.url|resize(1200) : image.url|resize(600,600)}}"
-            srcset="
-            {% if round %}
-                {{image.url|resize(600,600)}} 600w, 
-                {{image.url|resize(1200,1200)}} 1200w,
-            {% else %}
-                {{image.url|resize(600)}} 600w, 
-                {{image.url|resize(1200)}} 1200w,
-                {{image.url|resize(2520)}} 2520w
+            src="{{round ? image.url|resize(1200) : image.url|resize(800,800)}}"
+            {% if not round %}
+                srcset="
+                    {{image.url|resize(600)}} 600w, 
+                    {{image.url|resize(1200)}} 1200w,
+                    {{image.url|resize(2520)}} 2520w
+                
+                "
+                sizes="(min-width: 760px) 30vw, 100vw"
             {% endif %}
-            "
-            sizes="(min-width: 760px) 30vw, 100vw"
         >
 {% if hasLightbox %}<div style="display:none" class="lightbox" x-show="imgModal" @click="imgModal = false"><div class="lightbox-inner"><div class="close">X</div><img @click.stop="imgModal = !imgModal" x-bind:src="imgModalSrc"></div></div>{% endif %}
 </div>
