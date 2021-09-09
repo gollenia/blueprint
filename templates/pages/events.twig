@@ -21,16 +21,11 @@
         </div>
     </div>
 
-
-   
-    
-
-
     <article class="gap-12 max-w-screen-xl mx-auto grid grid-cols-1 lg:grid-cols-3 py-20">        
         {% for event in events %}
             <a href="/{{slug}}/{{event.slug}}" 
-                x-show="filter == '' || [{% for term in event.get_terms('event-categories') %}'{{term.slug}}'{% endfor %}].includes(filter)" 
-                class="card relative image-top bg-white {{ loop.first ? "first" }} {{ loop.last ? "last" }} hover event {% for term in event.get_terms('event-categories') %}{{term.slug}}{% endfor %}"
+                x-show="filter == '' || [{% for term in event.terms('event-categories') %}'{{term.slug}}'{% endfor %}].includes(filter)" 
+                class="card image-top bg-white {{ loop.first ? "first" }} {{ loop.last ? "last" }} hover event {% for term in event.get_terms('event-categories') %}{{term.slug}}{% endfor %}"
                 x-transition:enter="transition ease-out duration-300"
                 x-transition:enter-start="opacity-0 transform scale-90"
                 x-transition:enter-end="opacity-100 transform scale-100"
@@ -38,7 +33,7 @@
                 x-transition:leave-start="opacity-100 transform scale-100"
                 x-transition:leave-end="opacity-0 transform scale-90"
             >
-                {% if event.get_terms('event-categories') %}<span class="absolute top-64 -mt-4 -pl-2 px-3 py-1 bg-secondary {{secondarycolor.brightness}} rounded-tl-xl rounded-br-xl ml-8">{{event.get_terms('event-categories')|first}}</span>{% endif %}
+                {% if event.terms('event-categories') %}<span class="absolute top-64 -mt-4 -pl-2 px-3 py-1 bg-secondary {{secondarycolor.brightness}} rounded-tl-xl rounded-br-xl ml-8">{{event.terms('event-categories')|first.name}}</span>{% endif %}
                 <div class="overflow-hidden">
                         <img src="{{ event.thumbnail.src('medium') }}" class="object-cover h-64 w-full">      
                 </div>

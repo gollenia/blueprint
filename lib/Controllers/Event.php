@@ -32,7 +32,7 @@ class Event extends \Contexis\Core\Controller {
         $this->event = \EM_Events::get(['post_id' => $this->context['post']->id])[0];    
         $this->booking = new \EM_Bookings($this->event);
 
-        
+    
 
         $this->add_to_context([
             "booking" => $this->get_booking_form(),
