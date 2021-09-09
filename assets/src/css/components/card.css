@@ -4,7 +4,7 @@
 *
 */
 
-.card { @apply shadow flex transition transform m-0; 
+.card { @apply flex transition transform m-0; 
     div.mt-auto.wp-block-spacer {
         height: 0px !important;
     }
@@ -124,7 +124,9 @@
     }
 }
 
-.card.hover, .card.zoom { @apply hover:shadow-2xl hover:scale-105; } /* hover for legacy reasons */
+.card.hover, .card.zoom { @apply hover:scale-105; } /* hover for legacy reasons */
+.card.shadow.hover { @apply hover:shadow-2xl  }
+
 
 @keyframes ctx-wobble-bottom {
   16.65% {
