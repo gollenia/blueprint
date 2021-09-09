@@ -8,12 +8,11 @@
         <img style="{{ flip ? 'transform: scaleX(-1);' }} width: {{width}}%;" 
             alt="{{image.description}}" 
             class="{{border ? 'image-border'}}  {{round ? "image-round"}} {{roundCorners and not rounded ? "image-round-corners" }}  {{shadow ? "image-shadow"}}" 
-            src="{{image.url|resize(1200)}}"
+            src="{{round ? image.url|resize(1200) : image.url|resize(600,600)}}"
             srcset="
             {% if round %}
                 {{image.url|resize(600,600)}} 600w, 
                 {{image.url|resize(1200,1200)}} 1200w,
-                {{image.url|resize(2520,2520)}} 2520w
             {% else %}
                 {{image.url|resize(600)}} 600w, 
                 {{image.url|resize(1200)}} 1200w,
