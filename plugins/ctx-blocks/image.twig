@@ -8,7 +8,7 @@
         <img style="{{ flip ? 'transform: scaleX(-1);' }} width: {{width}}%;" 
             alt="{{image.description}}" 
             class="{{border ? 'image-border'}}  {{round ? "image-round"}} {{roundCorners and not rounded ? "image-round-corners" }}  {{shadow ? "image-shadow"}}" 
-            src="{{round ? image.url|resize(1200) : image.url|resize(800,800)}}"
+            src="{{ round ? image.url|resize(800,800) : image.url|resize(1200) }}"
             {% if not round %}
                 srcset="
                     {{image.url|resize(600)}} 600w, 
