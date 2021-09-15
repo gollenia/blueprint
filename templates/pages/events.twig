@@ -46,7 +46,7 @@
                         <i class="material-icons text-xs mr-2 ">event</i>
                         <span>
                         {% if event._event_start_date == event._event_end_date %}
-                        {{ event._event_start_date|date("j. F Y") }} {{ __("from", "ctx-theme") }} {{ event._event_start_time|date("G:i") }} {{ __("to", "ctx-theme") }} {{ event._event_end_time|date("G:i") }} {{ __("o'clock", "ctx-theme") }}
+                        {{ event._event_start_date|date("j. F Y") }} {{ __("from", "ctx-theme") }} {{ event._event_start_time|date("G:i", false) }} {{ __("to", "ctx-theme") }} {{ event._event_end_time|date("G:i", false) }} {{ __("o'clock", "ctx-theme") }}
                         {% else %}
                         {{ event._event_start_date|date("j. F") }} {{ __("to", "ctx-theme") }} {{ event._event_end|date("j. F Y") }}  
                         {% endif %}
