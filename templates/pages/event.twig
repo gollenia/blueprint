@@ -9,7 +9,7 @@
             <div class="col-span-2 ">
                 
                 <div class="py-8 border-b-4 border-gray-400 border-dotted">{{post.post_excerpt}}</div>
-                <div class="py-8 border-b-4 border-gray-400 border-dotted">{{post.content}}</div>
+                <div class="py-8 border-b-4 border-gray-400 border-dotted">{{post.post_content}}</div>
                 
                 {% if has_tickets %}
                     <div x-data="" class="my-10"><a @click="$dispatch('booking-modal')" class="rounded-tl-xl rounded-br-xl px-6 py-3 bg-primary {{primarycolor.brightness}} button" href="#">{{ __("Book this event", "ctx-theme") }}</a></div>  
