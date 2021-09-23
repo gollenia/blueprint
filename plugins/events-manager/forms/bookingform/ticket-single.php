@@ -12,9 +12,11 @@ do_action('em_booking_form_ticket_header', $EM_Ticket); //do not delete
  * Then, you should create a em_booking_form_ticket_field_arraykey action for your collumn data, which will pass a ticket and event object.
  */
 
-$columns = $EM_Event->get_tickets()->get_ticket_columns(); //array of collumn type => title
+$columns = $EM_Event->get_tickets()->get_ticket_columns(); //array of column type => title
+
 foreach( $columns as $type => $name ): ?>
 	<?php
+    if(!$EM_Ticket) { continue; }
 	//output collumn by type, or call a custom action 
 	switch($type){
 		case 'type':
@@ -23,7 +25,7 @@ foreach( $columns as $type => $name ): ?>
 			}
 			break;
 		case 'price':
-			?><div class="flex justify-between"><label><?php echo $name; ?></label><strong><?php echo $EM_Ticket->get_price(true); ?></strong></div><?php
+			?><div class="flex justify-between"><label><?php echo $name; ?></label><strong><?php echo $EM_Ticket != false ? $EM_Ticket->get_price(true) : 0; ?></strong></div><?php
 			break;
 		case 'spaces':
 			if( $EM_Ticket->get_available_spaces() > 1 && ( empty($EM_Ticket->ticket_max) || $EM_Ticket->ticket_max > 1 ) ): //more than one space available ?>				
