@@ -20,13 +20,15 @@ $EM_Tickets = $EM_Event->get_bookings()->get_tickets();
 
 <div  
 	@booking-modal.window="showModal = true" 
-    x-on:keydown.escape="showModal = false"
+    @keyup.escape.window="showModal = false"
     @bookingsuccess.window="bookingSuccess = true"
-    :class="{'bg-gray-100 overflow-y-auto': !bookingSuccess, 'bg-green text-white': bookingSuccess }"
+    @bookingpending.window="bookingPending = true"
+    @bookingerror.window="bookingError = true"
+    :class="{'bg-gray-100 overflow-y-auto': !bookingSuccess, 'bg-red-500 text-white': bookingError,  }"
     class="fixed lg:place-items-center inset-0 mr-4 pt-20 lg:mr-10 bg-gray-200 em-booking"
     style="display: none"
     <?php 
-        echo ' x-data="{bookingSuccess: false, showModal: false, ';
+        echo ' x-data="{bookingPending: false, bookingError: false, bookingSuccess: false, showModal: false, ';
             foreach( $EM_Tickets->tickets as $EM_Ticket ) {
                 echo "ticketCount";
                 echo $EM_Ticket->ticket_id;
@@ -41,7 +43,7 @@ $EM_Tickets = $EM_Event->get_bookings()->get_tickets();
     ?>
     x-show="showModal" id="em-booking"
 >
-    <div :class="{'overflow-auto': !bookingSuccess }">
+    <div :class="{'overflow-auto': !bookingSuccess || !bookingError }">
 	
        
 		<?php if( $tickets_count > 0) : ?>
@@ -49,6 +51,9 @@ $EM_Tickets = $EM_Event->get_bookings()->get_tickets();
 			<div class="max-w-screen-xl px-2 lg:px-0 mt-20 lg:mt-5 mx-auto flex flex-col content-center">
             <div>
                 <div :class="{'px-4 lg:px-8': !bookingSuccess }" class="text-2xl py-8 lg:text-5xl"><?php echo __("Booking for", "em-pro") . " " . $EM_Event->name; ?></div>
+            </div>
+            <div x-show="bookingPending && !bookingSuccess" class="absolute inset-0" style="background: #ffffffbb">
+                Bite warten
             </div>
             <form class="em-booking-form grid lg:grid-cols-2 gap-8" name='booking-form' method='post' action='<?php echo apply_filters('em_booking_form_action_url',''); ?>#em-booking'>
                 <div class="lg:bg-white p-4 rounded-tl-lg lg:p-8">
@@ -76,19 +81,21 @@ $EM_Tickets = $EM_Event->get_bookings()->get_tickets();
                 <h3 class="py-3"><?php _e("Tell us, who you are", "em-pro") ?></h4>
                     <?php
                         do_action('em_booking_form_before_user_details', $EM_Event);
-                        do_action('em_booking_form_custom', $EM_Event); //do not delete
+                        apply_filters('em_booking_form_custom', $EM_Event); //do not delete
                         do_action('em_booking_form_after_user_details', $EM_Event);
                     ?>
                     <?php do_action('em_booking_form_footer', $EM_Event); //do not delete ?>
                     <div class="text-right em-booking-buttons">
-                        <input  x-ref="submitButton" type="submit" class="invalid <?php if(is_admin()) echo 'button bg-primary '; ?>em-booking-submit" id="em-booking-submit" value="<?php echo esc_attr(get_option('dbem_bookings_submit_button')); ?>" />							
+                        <input x-show="!bookingPending" x-ref="submitButton" type="submit" class="invalid <?php if(is_admin()) echo 'button bg-primary '; ?>em-booking-submit" id="em-booking-submit" value="<?php echo esc_attr(get_option('dbem_bookings_submit_button')); ?>" />							
+                        
                     </div>
                     <?php do_action('em_booking_form_footer_after_buttons', $EM_Event); //do not delete ?>
                 </div>
 				
 			</form>	
             </div>
-            <div class="text-right pt-10" x-show="bookingSuccess"><a href="#" @click="showModal = false" class="px-4 py-2 border-2 border-white text-white text-lg">Schließen</a></div>
+            <div class="text-right pt-10 mx-auto max-w-screen-xl" x-show="bookingSuccess"><a href="#" @click="showModal = false" class="px-4 py-2 border-2 border-white text-white text-lg">Schließen</a></div>
+            <div class="text-right pt-10 mx-auto max-w-screen-xl" x-show="bookingError"><a href="#" @click="showModal = false" class="px-4 py-2 border-2 border-white text-white text-lg">Schließen</a></div>
 
 		<?php endif; ?>
 
