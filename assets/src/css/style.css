@@ -98,11 +98,11 @@ body {
    }
 
    .text-secondary-contrast {
-    color: var(--secondary);
+    color: var(--secondary-contrast);
    }
 
    .border-secondary {
-     border-color: var(--secondary-contrast);
+     border-color: var(--secondary);
    }
 
    .border-primary {
