@@ -6,6 +6,7 @@
 /* @var $EM_Ticket EM_Ticket */
 /* @var $EM_Event EM_Event */
 global $allowedposttags;
+EM_Bookings::enqueue_js();
 do_action('em_booking_form_ticket_header', $EM_Ticket); //do not delete
 /*
  * This variable can be overridden, by hooking into the em_booking_form_tickets_cols filter and adding your collumns into this array.
