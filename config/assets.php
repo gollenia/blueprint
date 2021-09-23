@@ -54,6 +54,13 @@ return [
         ]
     ],
     "admin_scripts" => [
+        [
+            'handle' => 'admin_script',
+            'url' => get_template_directory_uri() . '/assets/dist/admin.js',
+            'dependencies' => [],
+            'version' => false,
+            'media' => 'all'
+        ]
 
     ],
     "remove_scripts" => [
