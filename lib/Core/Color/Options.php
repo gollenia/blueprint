@@ -125,6 +125,7 @@ class Options {
                     "contrast" => $brightness == "dark" ? "#ffffff" : "#000000"
             ]);
         }
+        
         return $colors;
     }
 }
