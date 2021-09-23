@@ -10,6 +10,7 @@ namespace Contexis\Core;
 
 use Contexis\Core\Config;
 use Contexis\Core\Color;
+use Contexis\Core\Color\PostType;
 use Contexis\Core\TwigExtensions;
 use Contexis\Wordpress\Plugins\Fields;
 use Contexis\Wordpress\{
@@ -96,12 +97,22 @@ class Functions {
 	}
 
 	private static function add_theme_colors() {
+        \Contexis\Core\Color\Color::register();
+        
 		$colors = new Color(Config::load('colors'));
 		$theme_colors = $colors->get();
 		$theme_support = Config::load('theme_support');
-		$theme_support['editor-color-palette'] = $theme_colors;
+        $new_colors = \Contexis\Core\Color\Color::get();
+		//$theme_support['editor-color-palette'] = $theme_colors;
+        $theme_support['editor-color-palette'] = $new_colors;
 		ThemeSupport::register($theme_support);
 		$colors->add_admin_color_css();
+        
+        add_filter( 'timber/context', function( $context ) use (&$new_colors) {
+            $context['colors'] = $new_colors;
+            return $context;
+        } );
+        //var_dump(\Contexis\Core\Color\ThemeColors::get());
 	}
 
 

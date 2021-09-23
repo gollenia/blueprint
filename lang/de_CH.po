@@ -75,3 +75,94 @@ msgstr "Startseite"
 # breadcrumbs.twig
 msgid "No places left"
 msgstr "Ausgebucht"
+
+# Color Management
+msgid "Base Colors"
+msgstr "Grundfarben"
+
+msgid "Here you can define the base colors of your theme."
+msgstr "Hier können die Grundfarben für das Theme festgeleg werden. "
+
+msgid "Primary Color"
+msgstr "Primärfarbe"
+
+msgid "Secondary Color"
+msgstr "Sekundärfarbe"
+
+msgid "Error Color"
+msgstr "Farbe für Fehler"
+
+msgid "Warning Color"
+msgstr "Warnfarbe"
+
+msgid "Success Color"
+msgstr "Farbe für Erfolg"
+
+msgid "Black Color"
+msgstr "Schwarz"
+
+msgid "White Color"
+msgstr "Weiss"
+
+msgid "Darkgray Color"
+msgstr "Dunkelgrau"
+
+msgid "Gray Color"
+msgstr "Grau"
+
+msgid "Lightgray Color"
+msgstr "Hellgrau"
+
+msgid "Main Colors"
+msgstr "Hauptfarben"
+
+msgid "Color Palette"
+msgstr "Farbpalette"
+
+msgid "Create new color"
+msgstr "Neue Farbe erstellen"
+
+msgid "Color"
+msgstr "Farbe"
+
+msgid "Edit color"
+msgstr "Farbe bearbeiten"
+
+msgid "Color Settings"
+msgstr "Farbeinstellungen"
+
+msgid "Color value"
+msgstr "Farbwert"
+
+msgid "Internal name"
+msgstr "Slug-Name"
+
+msgid "Custom Colors"
+msgstr "Eigene Farben"
+
+msgid "Brightness"
+msgstr "Helligkeit"
+
+msgid "No spaces or special chars. Used for internal identification"
+msgstr "Interner Name zur Identifizierung. Keine Leerzeichen oder Umlaute."
+
+msgid "Decides if text on this color should be white or black"
+msgstr "Beeinflusst, ob der Text über dieser Farbe schwarz oder weiss ist. Nur im Notfall ändern!"
+
+msgid "Dark"
+msgstr "Dunkel"
+
+msgid "Light"
+msgstr "Hell"
+
+msgid "Let System decide"
+msgstr "Automatisch"
+
+msgid "Back"
+msgstr "Zurück"
+
+msgid "Slug"
+msgstr "Slug"
+
+msgid "Error: The slug must not contain any of the base color names"
+msgstr "Fehler: Der Name darf keinem Namen einer Basis-Farbe entsprechen"

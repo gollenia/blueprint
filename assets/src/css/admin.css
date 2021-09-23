@@ -28,3 +28,54 @@
   cursor: text;
   background: #eee;
 }
+
+.ctx-color-badge {
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    padding-left: 6px;
+    height: 24px;
+    width: 80px;
+}
+
+.manage-column.column-color {
+    width: 150px;
+}
+
+.description.error {
+    color: #bb0000 !important;
+}
+
+.color-select {
+    margin-top: 20px;
+}
+
+.ctx-color-selector {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.ctx-color-selector-input {
+    margin-left: 10px;
+    margin-left: 10px;
+    padding: 0;
+    border: 0 !important;
+}
+
+.ctx-color-selector-button {
+    background-color: #3066be;
+    color: #ffffff;
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    border: 1px solid #bbb;
+    border-radius: 50%;
+}
+
+.ctx-color-selector-holder {
+    width: 16%;
+    display: grid;
+    place-items: center;
+    margin-bottom: 10px;
+}

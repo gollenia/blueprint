@@ -3,6 +3,7 @@
  * Additional twig-functions for working with colors. Utilizes OzdemirBuraks Color-Tools
  * 
  * @since 1.0.0
+ * @deprecated 1.5
  * @link https://github.com/ozdemirburak/iris
  */
 
@@ -116,7 +117,6 @@ class Color {
         \Contexis\Wordpress\Plugins\Fields::registerFields(array($this->page_color));
         $this->colors = $this->fetch_custom_colors($colors);
     }
-
 
     private function color_option_field($color) {
         $field_label = '<div style="display: flex; align-items: center"> <span style="display: inline-block; border-radius: 100%;  margin-right: 5px; height: 16px; width: 16px; background-color: var(--' . $color['slug'] . ');" class=""></span> ' . $color["name"] . "</div>";

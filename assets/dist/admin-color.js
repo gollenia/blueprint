@@ -1,0 +1,1 @@
+jQuery('.ctx-color-picker').wpColorPicker();

@@ -5,29 +5,21 @@
     :root {      
         
 
-        --primary: {{primarycolor.color}};
-        --primary-transparent: {{primarycolor.color}}aa;
-        {% if primarycolor.color is not empty %}--primary-light: {{primarycolor.color|lighten(20)}}{% endif %};
-        --primary-contrast: {% if primarycolor.brightness == "dark" %}{{primarycolor.color|lighten(90)}} {% else %}{{primarycolor.color|darken(90)}}{% endif %};
-        --primary-soft-contrast: {% if primarycolor.brightness == "dark" %} {{primarycolor.color|lighten(60)}} {% else %}{{primarycolor.color|darken(60)}}{% endif %};
-
-        --secondary: {{secondarycolor.color}};
-        --secondary-transparent: {{secondarycolor.color}}aa;
-        {% if secondarycolor.color is not empty %}--secondary-light: {{secondarycolor.color|lighten(20)}}{% endif %};
-        --secondary-contrast: {% if secondarycolor.brightness == "dark" %}{{secondarycolor.color|lighten(90)}} {% else %}{{secondarycolor.color|darken(90)}}{% endif %};
-        --secondary-soft-contrast: {% if secondarycolor.brightness == "dark" %} {{secondarycolor.color|lighten(60)}} {% else %}{{secondarycolor.color|darken(60)}}{% endif %};
-
-        {% for colorset in attribute(config.theme_support, 'editor-color-palette') %}
-            --{{colorset.slug}}: {{colorset.color}};
-        {% endfor %}
-
-    }
-    {% for colorset in colors %}
-        .has-{{colorset.slug}}-color {
-           color: {{colorset.color}};
-        }
+        {% for colorset in colors %}
+        
+        
+        --{{colorset.slug}}: {{colorset.color}}; 
+        --{{colorset.slug}}-transparent: {{colorset.color}}aa; 
+        --{{colorset.slug}}-contrast: {{colorset.contrast}}ee; 
+        
         
     {% endfor %}
+
+    }
+
+    
+
+    
     
    
     

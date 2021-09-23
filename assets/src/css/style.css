@@ -89,8 +89,16 @@ body {
     color: var(--primary);
    }
 
+   .text-primary-contrast {
+    color: var(--primary-contrast);
+   }
+
    .text-secondary {
     color: var(--secondary);
+   }
+
+   .text-secondary-contrast {
+    color: var(--secondary-contrast);
    }
 
    .border-secondary {

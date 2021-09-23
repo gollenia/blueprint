@@ -10,6 +10,7 @@ namespace Contexis\Wordpress;
 Class Assets {
 
     public static function register($assets) {
+        add_action( 'admin_enqueue_scripts', ['Contexis\Wordpress\Assets', 'enqueue_color_picker'] );
         if (!$assets) {return;}
         if (isset($assets['scripts'])) { self::addScripts($assets['scripts']); }
         if (isset($assets['styles'])) { self::addStyles($assets['styles']); }
@@ -25,6 +26,21 @@ Class Assets {
                 wp_enqueue_script( $script['handle'], $script['url'], $script['dependencies'], $script['version'], $script['in_footer'] );
             }
         });
+    }
+
+    public static function enqueue_color_picker( $hook_suffix ) {
+        //var_dump($hook_suffix);
+        //if(!in_array($hook_suffix, ['appearance_page_ctx-base-colors', 'post.php']));
+
+        if($hook_suffix == 'appearance_page_ctx-base-colors') {
+            wp_enqueue_script('wp-color-picker', admin_url(('js/color-picker.min.js'), array( 'wp-color-picker-js', 'jquery-ui-draggable', 'jquery-ui-slider', 'jquery-touch-punch' ), false, true));
+        }
+        
+        wp_enqueue_style( 'wp-color-picker' );
+        wp_enqueue_script( 'iris', admin_url( 'js/iris.min.js' ), array( 'wp-color-picker-js', 'jquery-ui-draggable', 'jquery-ui-slider', 'jquery-touch-punch' ), false, true );
+        wp_enqueue_script( 'ctx-color-picker', get_template_directory_uri() . '/assets/dist/admin-color.js', array('jquery'), '', true );
+
+        
     }
 
     private static function addStyles($styles) {

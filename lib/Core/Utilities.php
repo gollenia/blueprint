@@ -39,6 +39,16 @@ class Utilities {
 
     }
 
+    public static function debug_to_log($value = "nothing to debug", $in_header = true) {
+
+        if( WP_DEBUG !== true || wp_is_json_request() ) { 
+            return; 
+        }
+        
+        file_put_contents(ABSPATH . "../log/debug.log", print_r($value));
+
+    }
+
     public static function array_get(array $array, string $key, $default = false) {
 
           if (isset($array[$key])) return $array[$key];
