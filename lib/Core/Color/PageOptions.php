@@ -105,15 +105,13 @@ class PageOptions {
 
         $color_meta = [];
         
-        
-        file_put_contents(ABSPATH . "../log/debug.log", var_export($_POST, TRUE));
         if(key_exists('primary_color', $_POST)) {
         if(!empty($_POST['primary_color']) || $_POST['primary_color'] == $base_colors[0]['color'] ) {
             $color_meta['primary_color'] = sanitize_text_field( $_POST['primary_color'] );
             $color_meta['primar_color_brightness'] = \Contexis\Core\Color\Utils::get_brightness($color_meta['primary_color']) < 170 ? "dark" : "light";
         }
     }
-        if(empty($_POST['secondary_color']) || $base_colors[1]['color'] == $_POST['secondary_color'] ) {
+        if(!empty($_POST['secondary_color']) || $base_colors[1]['color'] == $_POST['secondary_color'] ) {
             $color_meta['secondary_color'] = sanitize_text_field( $_POST['secondary_color'] );
             $color_meta['secondary_color_brightness'] = \Contexis\Core\Color\Utils::get_brightness($color_meta['secondary_color']) < 170 ? "dark" : "light";
         }
@@ -152,7 +150,7 @@ class PageOptions {
             $colors[1]['contrast'] = $colors[1]['brightness'] == "dark" ? "#ffffff" : '#000000';
         }
 
-
+        //var_dump($color_meta);
         return $colors;
 
     }

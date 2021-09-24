@@ -36,6 +36,7 @@
     "autoload": {
         "psr-4": {
               "Contexis\\Core\\": "lib/Core",
+              "Contexis\\Core\\Color\\": "lib/Core/Color",
               "Contexis\\Wordpress\\": "lib/Wordpress",
               "Contexis\\Wordpress\\Shortcodes\\": "lib/Wordpress/Shortcodes",
               "Contexis\\Wordpress\\Plugins\\": "lib/Wordpress/Plugins",

@@ -3,7 +3,8 @@
     {% for item in posts %}
             <a 
                 class="
-                {% if dropShadow %}hover {% endif %}
+                {% if hover %}hover {% endif %}
+                {% if dropShadow %}shadow {% endif %}
                 {% if function("get_the_ID") == item.ID %}text-blue{% endif %} 
                 card bg-white
                 {{ style == "list" ? "image-left" : "image-top" }}
