@@ -6,6 +6,7 @@
  */
 namespace Contexis\Controllers;
 
+use Contexis\Core\Color\Utils;
 use Timber\Timber;
 
 use WP_Error;
@@ -32,14 +33,14 @@ class Event extends \Contexis\Core\Controller {
         $this->event = \EM_Events::get(['post_id' => $this->context['post']->id])[0];    
         $this->booking = new \EM_Bookings($this->event);
 
-    
+        \Contexis\Core\Utilities::debug($this->event);
 
         $this->add_to_context([
             "booking" => $this->get_booking_form(),
             "events" => $this->get_related_events(),
             "location" => $this->event->location_id != null ? \EM_Locations::get($this->event->location_id)[0] : false,
             "event" => $this->event,
-            'currency' => em_get_currency_symbol(true,get_option("dbem_bookings_currency")),
+            'currency' => em_get_currency_symbol(true,get_option("dbem_bookings_currency")),          
             "price" =>$this->lowest_price(),
             "bookings" => $this->booking->get_available_spaces(),
             "has_tickets" => $this->event->get_bookings()->get_available_tickets()
