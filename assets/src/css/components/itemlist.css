@@ -4,14 +4,45 @@
 *
 */
 
-.item-list .item .control { @apply flex-1 text-right flex items-center justify-end; }
-.item-list .item { @apply py-4 flex items-center; }
-.item-list .item:not(:last-child) { @apply border-gray-400 border-b-4 border-dotted; }
-.item-list .item img { @apply object-cover h-20 h-20 md:h-16 md:w-16 mr-4 rounded-full; }
-.item-list .item .text { @apply flex flex-col md:flex-row flex-grow; }
+.item-list .item .control { 
+    display: flex;
+    flex: 1;
+    text-align: right;
+    align-items: center;
+    border-top-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+}
+
+.item-list .item { 
+    padding: 1rem 0; 
+    display: flex;
+    align-items: center;
+}
+
+.item-list .item:not(:last-child) { 
+    border-bottom: 4px dotted var(--mediumgray);
+}
+
+.item-list .item img { 
+    object-fit: cover;
+    height: 4rem;
+    width: 4rem;
+    border-radius: 100%;
+    margin-right: 1rem;
+}
+
+.item-list .item .text { 
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    @media (min-width: 768px) {
+        flex-direction: row;
+    }
+}
 
 
 
 .item-list .item .title {
-    @apply flex flex-col;
+    display: flex;
+    flex-direction: column;
 }

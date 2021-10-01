@@ -1,11 +1,20 @@
 .alert {
-    @apply relative;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    padding-left: -1rem;
+    padding-right: -1rem;
+    display: relative;
     .close:before, .close:after {
-        @apply absolute w-0.5 top-0 pseudo-content;
+        position: absolute;
+        top: 0;
+        width: 1rem;
     }
-    .close { @apply relative; }
+    .close { position: relative; }
     .close:before { transform: rotate(-45deg); }
     .close:after { transform: rotate(45deg); }
 }
 
-.alert { @apply my-6 p-4 md:p-6 rounded-tl-3xl rounded-br-3xl text-white }
+.alert { 
+    border-top-left-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+    }

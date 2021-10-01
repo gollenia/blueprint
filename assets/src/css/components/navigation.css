@@ -1,5 +1,33 @@
 .menu-item {
-    @apply  text-white lg:text-gray-900 text-xl lg:text-lg flex flex-row items-center w-full px-4 py-4 lg:py-1 font-semibold text-left bg-transparent lg:rounded-tl-xl lg:rounded-br-xl lg:hover:bg-primary lg:hover:text-primary-contrast lg:w-auto lg:flex lg:mt-0 lg:ml-4 cursor-pointer;
+  color: var(--white);
+  font-size: 1.5rem;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  padding: 1rem;
+  font-weight: bold;
+  text-align: left;
+  background: transparent;
+  cursor: pointer;
+  @media (min-width: 1024px) {
+    color: var(--darkgray);
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    padding: 0.25rem 1rem;
+    border-top-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    width: auto;
+    margin-top: 0;
+    margin-left: 1rem;
+    &:hover {
+      background: var(--primary);
+      color: var(--primary-contrast);
+    }
+  }
+
 }
 
 .menu-item .open {
@@ -7,7 +35,14 @@
 }
 
 .hamburger {
-    @apply p-0 inline-block cursor-pointer bg-transparent m-0 border-0 duration-150 transition-all ease-in-out normal-case overflow-visible outline-none; 
+  padding: 0;
+  display: inline-block;
+  cursor: pointer;
+  background: transparent;
+  margin: 0;
+  border: 0;
+  transition: all 300ms ease-in-out;
+  overflow: visible;
     outline: none !important;
   }
 
