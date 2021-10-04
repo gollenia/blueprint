@@ -61,7 +61,7 @@ msgid "to"
 msgstr "à"
 
 msgid "o'clock"
-msgstr ""
+msgstr " "
 
 # breadcrumbs.twig
 msgid "No places left"
