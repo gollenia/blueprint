@@ -4,21 +4,85 @@
 *
 */
 
-.button { @apply box-border text-black bg-gray-200 relative rounded-tl-xl rounded-br-xl inline-block px-4 py-2 overflow-hidden inline-flex items-center cursor-pointer; }
-.button-sm, .button-xs { @apply px-2 py-1 text-xs; } 
-.button-lg, .button-xl { @apply px-6 py-3 text-lg rounded-tl-2xl rounded-br-2xl } 
-.button.primary { @apply bg-primary text-primary-contrast; }
-.button.primary-light { @apply bg-primary-light text-black; }
-.button.secondary { @apply bg-secondary text-secondary-contrast; }
-.button.error { @apply bg-red-500 text-white; }
-.button.link, button.transparent { @apply bg-transparent; }
-.button.link.primary { @apply text-primary bg-transparent; }
-.button.link.secondary { @apply text-secondary bg-transparent; }
-.button.link:hover, button.transparent:hover { @apply bg-gray-100; }
-.button.outline { @apply bg-transparent; }
-.button.outline.primary { @apply text-primary border-primary bg-transparent; &::hover { @apply bg-primary text-primary-contrast; } }
-.button.outline.secondary { @apply text-secondary border-secondary bg-transparent; &::hover { @apply bg-secondary text-secondary-contrast; } }
-.button .material-icon { @apply mr-4; }
+.button { 
+    align-items: center;
+    background-color: #bbb;
+    border-bottom-right-radius: 1rem;
+    border-top-left-radius: 1rem;
+    box-sizing: border-box;
+    color: 333;
+    cursor: pointer;
+    display: inline-flex;
+    overflow: hidden;
+    padding: .5rem 1rem;
+    position: relative;
+    &.small {
+        font-size: .75rem;
+        line-height: 1rem;
+        padding: .25rem .5rem; 
+        border-bottom-right-radius: .5rem;
+        border-top-left-radius: .5rem;
+    }
+    &.large {
+        font-size: 1.25rem;
+        line-height: 1.75rem;
+        padding: .75rem 1.5rem;
+    }
+    
+    &.primary {
+        background: var(--primary);
+        color: var(--primary-contrast);
+        &.link {
+            color: var(--primary);
+        }
+        &.outline {
+            color: var(--primary);
+            border: 2px solid var(--primary); 
+            &::hover { 
+                color: var(--primary-contrast);
+                background: var(--primary) !important;
+            }
+        }
+    }
+    &.secondary {
+        background: var(--secondary);
+        color: var(--secondary-contrast); 
+        &.link {
+            color: var(--secondary);
+        }
+        &.outline {
+            color: var(--secondary);
+            border: 2px solid var(--secondary); 
+            &::hover { 
+                color: var(--secondary-contrast);
+                background: var(--prisecondarymary) !important;
+            }
+        }
+    }
+    &.error {
+        background: var(--error);
+        color: var(--error-contrast); 
+        &.link {
+            color: var(--error);
+        }
+        &.outline {
+            color: var(--error);
+            border: 2px solid var(--error); 
+            &::hover { 
+                color: var(--error-contrast);
+                background: var(--error) !important;
+            }
+        }
+    }
+    &.link, &.outline {
+        background: transparent;
+    }
+
+    .material-icon { 
+        margin-right: 1rem;
+     }
+}
+
 
 
 /*
@@ -92,10 +156,18 @@
 .button.outline.dark:hover { color: #ffffffdd !important; }
 
 .button-group {
-    @apply flex;
-    .button { @apply mr-4 }
+    display: flex;
+    .button { margin-right: 1rem; }
     &.right {
-        @apply justify-end;
-        .button { @apply ml-4 mr-0 }
+        justify-content: flex-end;
+        .button { 
+            margin-right: 0;
+            margin-left: 1rem;
+         }
+    }
+    &.center {
+        justify-content: center;
+        margin-right: 0.5rem;
+        margin-left: 0.5rem;
     }
 }

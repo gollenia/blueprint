@@ -1,5 +1,15 @@
-.section {
-    @apply bg-cover bg-center;
+section, .section {
+    background-size: cover;
+    background-position:center;
 }
 
-.section .content { @apply max-w-screen-xl mx-6 sm:mx-8 lg:mx-8 2xl:mx-auto }
+section > div, .section .content { 
+    max-width: 1280px;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    @media (min-width: 1536px) { 
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+}

@@ -1,10 +1,13 @@
 .image {
-    @apply grid;
+    display: grid;
     img { };
-    .image-round-corners { @apply rounded-tl-xl rounded-br-xl lg:rounded-tl-3xl lg:rounded-br-3xl}
-    .image-round { @apply rounded-full !important; }
-    .image-border { @apply border-8 border-white; }
-    .image-shadow { @apply shadow; }
+    .image-round-corners {
+        border-top-left-radius: 2rem;
+        border-bottom-right-radius: 2rem;
+    }
+    .image-round { border-radius: 100% !important; }
+    .image-border { border: 8px solid #fff; }
+    .image-shadow { box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06); }
 
     .lightbox {
         position: fixed;

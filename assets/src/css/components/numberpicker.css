@@ -1,11 +1,28 @@
 
 .number-picker {
-    @apply p-1 rounded-full inline-flex items-center md:bg-gray-200 mr-4;
+   padding: 0.25rem;
+   border-radius: 100%;
+   display: inline-flex;
+   align-items: center;
+   margin-right: 1rem;
+   @media (min-width: 1024px) {
+      background: var(--lightgray);
+   }
 }
 
 .number-picker button {
-   @apply rounded-full bg-gray-600 md:bg-gray-700 text-white cursor-pointer bg-center bg-no-repeat w-5 h-5 md:w-7 md:h-7;
-   content: "add";
+   border-radius: 100%;
+   background: var(--mediumgray);
+   color: var(--white);
+   cursor: pointer;
+   background-position: center;
+   background-repeat: no-repeat;
+   width: 1.25rem;
+   height: 1.25rem;
+   @media (min-width: 1024px) {
+      width: 1.75rem;
+      height: 1.75rem;
+   }
 }
 
 
@@ -18,5 +35,12 @@
 }
 
 .number-picker input {
-   @apply px-1 w-8 mx-1 text-center bg-transparent md:bg-gray-200;
+   padding: 0 0.25rem;
+   width: 2rem;
+   margin: 0 0.25rem;
+   text-align: center;
+   background: transparent;
+   @media (min-width: 1024px) {
+      background: var(--lightgray);
+   }
 }

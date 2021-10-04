@@ -1,5 +1,7 @@
 .description {
-    @apply text-xs text-gray-500;
+    font-size: 0.75rem;
+    line-height: 1rem;
+    color: var(--mediumgray);
 }
 h1 {
     @apply text-3xl !important;
@@ -34,13 +36,7 @@ h5 {
 }
 
 p.core-block {
-    @apply py-2;
-}
-
-ul.core-block {
-    @apply list-disc;
-    @apply pl-8;
-    @apply py-2;
+    padding: 0 1rem;
 }
 
 ol.core-block {
@@ -50,10 +46,10 @@ ol.core-block {
 }
 
 footer h4 {
-    @apply text-lg;
-    @apply lg:text-2xl;
-    @apply font-bold;
-    @apply py-4;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    font-weight: bold;
+    padding: 1rem 0;
 }
 
 hr.is-style-default {

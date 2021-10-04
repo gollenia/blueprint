@@ -22,17 +22,17 @@
 
     
   .donation p {
-    @apply my-8
+    margin: 2rem 0;
 }
   .wpcf7-response-output {
     margin-left: 10px;
     padding-left: 10px;
     padding-right: 10px;
     margin-right: 10px;
-    @apply rounded-tl;
-    @apply rounded-br;
-    @apply bg-red-500;
-    @apply text-white;
+    border-top-left-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+    background: var(--error);
+    color: var(--white);
     border: 0px !important;
   }
 
@@ -53,11 +53,11 @@
 
 
 .wpcf7 {
-    @apply pt-8;
+    padding-top: 2rem;
 }
 
 .wpcf7-submit {
-    @apply pt-8;
+    padding-top: 2rem;
 }
 
 .core-block a {

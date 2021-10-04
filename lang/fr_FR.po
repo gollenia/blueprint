@@ -60,6 +60,9 @@ msgstr "de"
 msgid "to"
 msgstr "à"
 
+msgid "o'clock"
+msgstr ""
+
 # breadcrumbs.twig
 msgid "No places left"
 msgstr "réservé jusqu'à"

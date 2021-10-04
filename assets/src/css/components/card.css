@@ -4,10 +4,16 @@
 *
 */
 
-.card { @apply flex transition transform m-0; 
+.card { 
+    display: flex;
+    position: relative;
     div.mt-auto.wp-block-spacer {
         height: 0px !important;
     }
+}
+
+.card.shadow  {
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
 }
 
 /*
@@ -20,7 +26,11 @@
         top: 1rem;
     }
     img.card-image {
-        @apply object-cover self-stretch h-full; width: 33%; aspect-ratio: 1/1;
+        object-fit: cover;
+        align-self: stretch;
+        aspect-ratio: 1/1;
+        height: 100%;
+        width: 33%;
     }
     .card-label {
         right: 0;
@@ -35,7 +45,11 @@
         top: 1rem;
     }
     img.card-image {
-        @apply object-cover self-stretch h-full; width: 33%; aspect-ratio: 1/1;
+        object-fit: cover;
+        align-self: stretch;
+        aspect-ratio: 1/1;
+        height: 100%;
+        width: 33%;
     }
     .card-label {
         left: 0;
@@ -54,6 +68,10 @@
         right: 1rem;
         top: 1rem;
     }
+    label {
+        margin-top: -1rem;
+    }
+    
 }
 
 .card.image-bottom {
@@ -72,23 +90,32 @@
     width: 100%;
     height: 100%;
     flex-grow: 1;
-    padding: 1rem; 
+    padding: 1rem 1.5rem; 
 }
 
 .card.image-top > .card-label { margin-top: -1rem }
-.card .card-content > label { margin-top: -2rem }
 
-.card .card-label { 
-    position: absolute;
-    padding: 0 0.5rem;
-    top: 0;
-    @apply rounded-tl-md rounded-br-md }
+.card .card-content > label { margin-top: -2rem; left: 1rem; }
 
-.card .card-title { @apply font-bold text-xl py-0 block font-bold inline-block; }
+.card .card-title, .card h1, .card h2, .card h3 .card h4, .card h5 { 
+    font-weight: bold;
+    font-size: 1.5rem;
+    padding-top: 0;
+    padding-bottom: 0;
+    display: inline-block; 
+}
 
-.card .card-text { @apply pt-2; }
+.card .card-text, .card p { 
+    padding-top: 0.5rem;
+ }
 
-.card .card-footer { @apply mt-auto pt-2; }
+.card .card-footer { 
+    margin-top: auto;
+    padding-top: 0.5rem;
+    &::before {
+
+    }
+}
 
 .card .card-badge {
     aspect-ratio: 1/1;
@@ -101,16 +128,33 @@
     padding: 0 5px;
 }
 
-.card .svg-container { @apply p-4 lg:p-6 grid place-items-center; }
-.card label { @apply absolute rounded-tl-md rounded-br-md -mt-4 -ml-2 px-2; }
+.card .svg-container { 
+    padding: 1rem;
+    display: grid;
+    place-items: center;
+}
 
+.card label, .card .card-label { 
+    position: absolute;
+    border-top-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+    margin-top: -1rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+
+.card.no-image label { right: 1rem; left: auto; }
+.card.no-image b.card-badge {
+    margin-top: -1rem;
+    margin-left: -1rem;
+}
 
 /*
 *   Firs and last card styling
 */
 
-.card.first, card.first.image-top img.card-image, .card.first.image-left img.card-image { @apply rounded-tl-3xl; }
-.card.last, card.last.image-bottom img.card-image, .card.last.image-right img.card-image { @apply rounded-br-3xl; }
+.card.first, .card.first.image-top img.card-image, .card.first.image-left img.card-image { border-top-left-radius: 2rem; }
+.card.last, .card.last.image-bottom img.card-image, .card.last.image-right img.card-image { border-bottom-right-radius: 2rem; }
 
 
 /* 
@@ -118,14 +162,20 @@
 */
 
 .card.zoom-rotate {
-    @apply transition duration-300 transition-transform;
+    transition: all 300ms;
     &:hover {
-        @apply scale-105 rotate-3;
+        transform: scale(1.05) rotate(3deg);
     }
 }
 
-.card.hover, .card.zoom { @apply hover:scale-105; } /* hover for legacy reasons */
-.card.shadow.hover { @apply hover:shadow-2xl  }
+.card.hover, .card.zoom {
+    transition: all 300ms;
+    &:hover {
+        transform: scale(1.05);
+    }
+}
+
+.card.shadow.hover:hover { box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);  }
 
 
 @keyframes ctx-wobble-bottom {
@@ -156,7 +206,7 @@
 }
 
 .card.wobble-bottom {
-  @apply origin-top;
+  transform-origin: top;
   &:hover {
     -webkit-animation-name: ctx-wobble-bottom;
     animation-name: ctx-wobble-bottom;
@@ -170,5 +220,7 @@
 }
 
 .card-collection {
-    @apply gap-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3
+    display: grid;
+    gap: 3rem;
+    @apply grid-cols-1 md:grid-cols-2 lg:grid-cols-3
 }

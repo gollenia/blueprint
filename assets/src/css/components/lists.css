@@ -3,7 +3,9 @@ ul.core-block {
 }
 
 ul.core-block li {
-    @apply list-none content-center ml-8;
+    list-style-type: none;
+    margin-left: 2rem;
+    align-content: center;
 }
 
 ul.core-block li:before {
@@ -11,7 +13,8 @@ ul.core-block li:before {
     display: inline-block;
     font-family: 'Material Icons';
     padding-top: 1px;
-    @apply -ml-8 absolute;
+    margin-left: -2rem;
+    position: absolute;
     font-size: 24px;
     color: rgba(0,0,0,0.4);
 }
