@@ -1,0 +1,21 @@
+@each $key, $color in $themecolors {
+    bg-#{$key}, has-#{$key}-background  {
+        background-color: map.get($color, color);
+        color: map.get($color, contrast);
+    };
+    bg-#{$key}-transparent {
+        background-color: map.get($color, transparent);
+        color: map.get($color, contrast);
+    };
+    bg-#{$key}-light {
+        background-color: map.get($color, light);
+        color: map.get($color, contrast);
+    };
+    bg-#{$key}-dark {
+        background-color: map.get($color, dark);
+        color: #ffffffaa;
+    };
+    text-#{$key}, has-#{$key}-color {
+        color: map.get($color, color);
+    };
+}

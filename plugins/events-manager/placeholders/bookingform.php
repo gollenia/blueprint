@@ -25,7 +25,7 @@ $EM_Tickets = $EM_Event->get_bookings()->get_tickets();
     @bookingpending.window="bookingPending = true"
     @bookingerror.window="bookingError = true"
     :class="{'bg-gray-100 overflow-y-auto': !bookingSuccess, 'bg-red-500 text-white': bookingError,  }"
-    class="fixed lg:place-items-center inset-0 mr-4 pt-20 lg:mr-10 bg-gray-200 em-booking"
+    class="modal modal--fullscreen"
     style="display: none"
     <?php 
         echo ' x-data="{bookingPending: false, bookingError: false, bookingSuccess: false, showModal: false, ';
@@ -43,20 +43,22 @@ $EM_Tickets = $EM_Event->get_bookings()->get_tickets();
     ?>
     x-show="showModal" id="em-booking"
 >
-    <div :class="{'overflow-auto': !bookingSuccess || !bookingError }">
+    <div class="modal__dialog" :class="{'overflow-auto': !bookingSuccess || !bookingError }">
 	
        
 		<?php if( $tickets_count > 0) : ?>
 			
-			<div class="max-w-screen-xl px-2 lg:px-0 mt-20 lg:mt-5 mx-auto flex flex-col content-center">
-            <div>
-                <div :class="{'px-4 lg:px-8': !bookingSuccess }" class="text-2xl py-8 lg:text-5xl"><?php echo __("Booking for", "em-pro") . " " . $EM_Event->name; ?></div>
+			<div class="modal__header">
+                <button class="close" @click="showModal = false"></button>
+                <div class="modal__title">
+                    <h2 :class="{'px-4 lg:px-8': !bookingSuccess }" class="text-2xl py-8 lg:text-5xl"><?php echo __("Booking for", "em-pro") . " " . $EM_Event->name; ?></h2>
+                </div>
             </div>
             <div x-show="bookingPending && !bookingSuccess" class="absolute inset-0" style="background: #ffffffbb">
                 Bite warten
             </div>
-            <form class="em-booking-form grid lg:grid-cols-2 gap-8" name='booking-form' method='post' action='<?php echo apply_filters('em_booking_form_action_url',''); ?>#em-booking'>
-                <div class="lg:bg-white p-4 rounded-tl-lg lg:p-8">
+            <form class="modal__content em-booking-form grid xl:grid--columns-2 gap-12" name='booking-form' method='post' action='<?php echo apply_filters('em_booking_form_action_url',''); ?>#em-booking'>
+                <div class="bg-white p-4 rounded-tl-lg lg:p-8">
                     <h3 class="py-3"><?php _e("Select your tickets first", "em-pro") ?></h4>
                     <?php do_action('em_booking_form_header', $EM_Event); ?>
                     <input type='hidden' name='action' value='booking_add'/>
@@ -77,7 +79,7 @@ $EM_Tickets = $EM_Event->get_bookings()->get_tickets();
                     ?>
                 </div>
 				
-                <div class='em-booking-form-details rounded-br-lg lg:bg-white p-4 lg:p-8'>
+                <div class='em-booking-form-details bg-white p-4 lg:p-8'>
                 <h3 class="py-3"><?php _e("Tell us, who you are", "em-pro") ?></h4>
                     <?php
                         do_action('em_booking_form_before_user_details', $EM_Event);
@@ -102,5 +104,4 @@ $EM_Tickets = $EM_Event->get_bookings()->get_tickets();
 	<?php
 	do_action('em_booking_form_bottom', $EM_Event);
 	?>
-</div>
 </div>

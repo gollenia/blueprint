@@ -3,17 +3,18 @@
 <style>
     {# Damit die Farben aus der Theme-Configuration direkt im CSS butzbar sind, ohne sie doppelt zu definieren, werden sie hier per twig gerendert #}  
     :root {      
-        
-
         {% for colorset in colors %}
-        
-        
         --{{colorset.slug}}: {{colorset.color}}; 
         --{{colorset.slug}}-transparent: {{colorset.color}}aa; 
         --{{colorset.slug}}-contrast: {{colorset.contrast}}ee; 
-        
-        
-    {% endfor %}
+        --{{colorset.slug}}-dark: {{colorset.color|shade(70)}}; 
+        --{{colorset.slug}}-light: {{colorset.color|tint(70)}}; 
+        --{{colorset.slug}}-light-transparent: {{colorset.color|tint(70)}}cc; 
+        {% endfor %}
+        {% for colorset in grayscale %}
+        --{{colorset.slug}}: {{colorset.color}}; 
+        --{{colorset.slug}}-contrast: {{colorset.brightness == "dark" ? "var(--white)" : "var(--black)"}};
+        {% endfor %}
 
     }
 

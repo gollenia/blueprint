@@ -34,10 +34,26 @@ class Utils {
         return intval((($c_r * 299) + ($c_g * 587) + ($c_b * 114)) / 1000);
     }
 
+    public static function get_grayscale($hex) { 
+        if(!preg_match('/#(?:[0-9a-fA-F]{6})/', $hex)) {
+            return false;
+        }
+
+        
+        $steps = ["0", "f1f1f1", "eeeeee", "e1e1e1", "dddddd", "999999", "777777", "555555", "333333", "111111"];
+        $grayscale = [];
+        for ($i=0; $i < 10; $i++) { 
+            $scale = $steps[$i];
+            array_push($grayscale, [
+                
+                "color" => "#" . $scale,
+                "brightness" => $i < 5 ? "light" : "dark",
+                "slug" => "gray-" . $i . "00",
+            ]);
+        }
+        
+        return $grayscale;
+    }
+
 	
 }
-    
-
-    
-	
-

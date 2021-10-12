@@ -1,5 +1,5 @@
 {% for item in latest_posts %}
-    <a class="mb-8 grid grid-cols-3 gap-4 {% for term in item.get_terms() %}{{term.slug}} {% endfor %}" href="{{item.link}}">
+    <a class="card-collection {% for term in item.get_terms() %}{{term.slug}} {% endfor %}" href="{{item.link}}">
         <div class="">
             <img src="{{ item.thumbnail.src('qmedium') }}" class="rounded-tl-xl rounded-br-xl">
         </div>

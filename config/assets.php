@@ -18,13 +18,14 @@ return [
             'handle' => 'material_icons',
             'url' => 'https://fonts.googleapis.com/icon?family=Material+Icons',
             'version' => false,
-        ],
+        ]
+        /*,
         [
             'handle' => 'style',
             'url' => get_template_directory_uri() . '/assets/dist/style.css',
             'version' => filesize ( get_template_directory() . "/assets/dist/style.css" ),
             'media' => 'all',
-        ]
+        ] */
     ],
     "scripts" => [
         [

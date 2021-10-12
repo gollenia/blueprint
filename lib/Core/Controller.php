@@ -42,9 +42,10 @@ class Controller {
         // until better color management is found
         //$this->context['colors'] = Config::load('colors');
 
-        $this->get_colors();
+        
 
         $this->context['colors'] = \Contexis\Core\Color\PageOptions::get_page_colors($this->context['colors']);
+        $this->context['grayscale'] = \Contexis\Core\Color\Utils::get_grayscale($this->context['colors'][7]['color']);
 
         // Die Widgets
         $this->context['footer'] = Timber::get_widgets('footer_area');
@@ -68,27 +69,6 @@ class Controller {
         foreach($context as $key => $value) {
             $this->context[$key] = $value;
         }
-    }
-
-    /**
-     *  Add data to context
-     * 
-     * @since 1.2.0
-     * @deprecated 1.5
-     * 
-     * @param array $context How should this content item be available in twig?
-     * 
-     * @return bool Returns false, if key already exists. If key already exists and $force is false, the functio returns false, else true.
-     * 
-     */
-    public function get_colors() {
-        
-            $primarycolor = array_key_exists('post', $this->context) ? ($this->context['post']->primarycolor ?: get_field('primarycolor', "options")) : get_field('primarycolor', "options");
-            $secondarycolor = array_key_exists('post', $this->context) ? ($this->context['post']->secondarycolor ?: get_field('secondarycolor', "options")) : get_field('secondarycolor', "options");
-            $this->context['primarycolor'] = \Contexis\Core\Color::get_color_by_slug($primarycolor);
-            $this->context['secondarycolor'] = \Contexis\Core\Color::get_color_by_slug($secondarycolor);
-            return;
-        
     }
    
     /**

@@ -1,0 +1,75 @@
+$spacer: 1rem;
+$spacers: (
+    0: 0,
+    1: $spacer * 0.25,
+    2: $spacer * 0.5,
+    4: $spacer,
+    5: $spacer * 1.25,
+    6: $spacer * 1.5,
+    8: $spacer * 2,
+    12: $spacer * 3,
+    16: $spacer * 4,
+    32: $spacer * 8,
+    64: $spacer * 16,
+);
+
+
+$screens: (
+    'xs': 0,
+    'sm': '640px',
+    'md': '768px',
+    'lg': '1024px',
+    'xl': '1280px',
+    '2xl': '1536px',
+);
+
+
+$themecolors: (
+    primary: (
+        'color': var(--primary),
+        'contrast': var(--primary-contrast),
+        'transparent': var(--primary-transparent),
+        'light': var(--primary-light),
+        'dark': var(--primary-dark),
+    ),
+    secondary: (
+        'color': var(--secondary),
+        'contrast': var(--secondary-contrast)
+        'transparent': var(--secondary-transparent),
+        'light': var(--secondary-light),
+        'dark': var(--secondary-dark),
+    ),
+    success: (
+        'color': var(--success),
+        'contrast': var(--success-contrast)
+        'transparent': var(--secondary-transparent),
+        'light': var(--secondary-light),
+        'dark': var(--secondary-dark),
+    )
+    warning: (
+        'color': var(--warning),
+        'contrast': var(--warning-contrast)
+        'transparent': var(--secondary-transparent),
+        'light': var(--secondary-light),
+        'dark': var(--secondary-dark),
+    )
+    error: (
+        'color': var(--error),
+        'contrast': var(--error-contrast)
+        'transparent': var(--secondary-transparent),
+        'light': var(--secondary-light),
+        'dark': var(--secondary-dark),
+    )
+);
+
+$graytones: (
+    'gray-100': var(--gray-100)
+    'gray-200': var(--gray-200)
+    'gray-300': var(--gray-300)
+    'gray-400': var(--gray-400)
+    'gray-500': var(--gray-500)
+    'gray-600': var(--gray-600)
+    'gray-700': var(--gray-700)
+    'gray-800': var(--gray-800)
+    'gray-900': var(--gray-900)
+)

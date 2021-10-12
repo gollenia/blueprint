@@ -1,17 +1,18 @@
-<header class="bg-cover bg-primary-light relative" style="
-    padding-top: {{post.headerheight ? post.headerheight : 30}}vh;     
-">  
-{% if post.thumbnail.src('xlarge') %}
-                <img class="object-{{post.headerimageorientation}} absolute inset-0 object-cover w-full h-full" style="{{post.flippageimage ? 'transform: scaleX(-1);'}}" src="{{post.thumbnail.src('xlarge')}}">
-            {% endif %} 
+<header class="header" style="padding-top: {{post.headerheight ? post.headerheight : 30}}vh; ">  
+    {% if post.thumbnail.src('xlarge') %}
+        <img style="{{post.flippageimage ? 'transform: scaleX(-1);'}}" src="{{post.thumbnail.src('xlarge')}}">
+    {% endif %} 
     {% include "partials/breadcrumbs.twig" with {'breadcrumbs': breadcrumbs()} %}
-    <div class="max-w-screen-xl mx-auto">
-        <div class="relative inline-block bg-primary-transparent bg-opacity-75 bg-blur rounded-tr-3xl text-white text-right" style="margin-left: -2000px; padding: 50px 50px 50px 2000px;">
+    <div class="content">
+        <div class="header__title" style="margin-left: -2000px; padding: 50px 50px 50px 2000px;">
             
-            <div class="text-3xl ml-4 md:ml-8 lg:text-5xl xl:mr-0 font-script">{{post.title}}</div>
-            <span class="ml-4 xl:mr-0">{{post.subtitle}}</span>
-            {%if post.headerurl %}<a target="{{post.headerurl.target}}" href="{{ post.headerurl.url }}" class="
-                absolute right-0 button secondary text-secondary-contrast button-xl skew mr-12 top-0 -mt-4">{{ post.headerurl.title }}</a>{% endif %}
+            <h1 class="font-script">{{post.title}}</h1>
+            <h4 class="ml-4 xl:mr-0">{{post.subtitle}}</h4>
+            {%if post.headerurl %}<a target="{{post.headerurl.target}}" href="{{ post.headerurl.url }}" class="button secondary large skew">{{ post.headerurl.title }}</a>{% endif %}
         </div>
     </div>
 </header>
+
+{% for item in items %}
+    dsfsdf
+{% endfor %}

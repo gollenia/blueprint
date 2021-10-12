@@ -3,27 +3,30 @@
 {% block content %}
 {% include "partials/header.twig" with {'post': post, 'headerimage': true} %}    
     
-    <article class="bg-gray-100 px-4 md:px-8 lg:px-0  py-8 ">
-        <div class="max-w-screen-xl mx-auto grid grid-cols-1 lg:grid-cols-3 lg:my-20 md:gap-10">
+    <article class="bg-gray-100">
+        <div class="content grid grid--columns-1 xl:grid--columns-3 grid--gap-12 py-16">
 
-            <div class="col-span-2 ">
+            <div class="xl:grid__column--span-2 ">
                 
-                <div class="py-8 border-b-4 border-gray-400 border-dotted">{{post.post_excerpt}}</div>
-                <div class="py-8 border-b-4 border-gray-400 border-dotted">{{post.post_content}}</div>
+                {% if post.post_excerpt %}<div class="pb-16 border-b-4 border-gray-400 border-dotted">{{post.post_excerpt}}</div><hr>{% endif %}
+                <div class="pb-16 border-b-4 border-gray-400 border-dotted">{{post.post_content}}</div>
+
                 
                 {% if has_tickets %}
-                    <div x-data="" class="my-10"><a @click="$dispatch('booking-modal')" class="rounded-tl-xl rounded-br-xl px-6 py-3 bg-primary {{primarycolor.brightness}} button" href="#">{{ __("Book this event", "ctx-theme") }}</a></div>  
+                    <hr>
+                    <div x-data="" class="my-10"><a @click="$dispatch('booking-modal')" class="button button--primary" href="#">{{ __("Book this event", "ctx-theme") }}</a></div>  
                     {{ booking }}  
                 {% endif %}
                 
             </div>
             <div class="">
-                <div class="bg-gray-200 p-10 rounded-tl-3xl rounded-br-3xl">
-                    <div class="py-2 flex flex-row items-center">
+
+                <div class="description p-4 bg-gray-300">
+                    <div class="description__item">
                         <i class="text-gray-700 material-icons mr-3">face</i>
                         <span class="">{{post.get_terms('audience')|first}}</span>
                     </div> 
-                    <div class="py-2  flex flex-row items-center">
+                    <div class="description__item">
                         <i class="text-gray-700 material-icons mr-3">event</i>
                         <span class="">
                             {% if post._event_start_date == post._event_end_date %}
@@ -39,7 +42,7 @@
                         
                     </div>
                     {% if event.event_all_day != 1 %}
-                    <div class="py-2 flex flex-row items-center">
+                    <div class="description__item">
                         <i class="text-gray-700 material-icons mr-3">schedule</i>
                         <span class="">
                             {% if post._event_start_date == post._event_end_date %}
@@ -54,30 +57,30 @@
 
                     
                     {% if location %}
-                    <address class="py-2 flex flex-row items-start not-italic">  
+                    <address class="description__item">  
                         <i class="text-gray-700 material-icons mr-3">place</i>
                         <a href="{{location.region}}">{{location.location_name}}<br>{{location.address}}<br>{{location.postcode}} {{location.town}}</a>
                     </address>
                     {% endif %}
                     {% if bookings and bookings < 5 and bookings > 0 %}
-                    <div class="py-2 flex flex-row items-center"></p>
+                    <div class="description__item"></p>
                         <i class="text-red material-icons mr-3 text-red-500">warning</i>
                         <span class="text-red-500">{{ __("Only few spaces left", "ctx-theme") }}</span>
                     </div>
                     {% endif %}
                     {% if bookings and not bookings %}
-                    <div class="py-2 flex flex-row items-center"></p>
+                    <div class="description__item"></p>
                         <i class="text-red material-icons mr-3 text-red-500">block</i>
                         <span class="text-red-500">{{ __("No places left", "ctx-theme") }}</span>
                     </div>
                     {% endif %}
                     {% if bookings and price == 0 %}
-                    <div class="py-2 flex flex-row items-center"></p>
+                    <div class="description__item"></p>
                         <i class="text-red material-icons mr-3 text-green-500">savings</i>
                         <span class="text-green-500">{{ __("Price: free", "ctx-theme")}} </span>
                     </div>
                     {% elseif bookings and price != 0 %}
-                    <div class="py-2 flex flex-row items-center"></p>
+                    <div class="description__item"></p>
                         <i class="text-red material-icons mr-3 text-gray-700">payments</i>
                         <span class="">{{ __("Price:", "ctx-theme")}} {{price}} {{currency}} </span>
                     </div>
