@@ -1,11 +1,10 @@
-# Kids Team Theme for Wordpress
+# Base Theme for Wordpress
 
 This theme is created for the Wordpress-powered Website from kids-team.at/de/ch. This document may be a guideline for anyone who works on the page.
 
 ## Used Frameworks
-
+  * Timber
   * [Twig](https://www.google.com) is a Wordpress-Layer for the Twig PHP Template engine that improves code readability a lot. No more echos and PHP/HTML-Mixture.
-  * Tailwind is a utility-first CSS Framework. Don't write huge CSS files, but simply insert desired classes into your HTML.
   * alpine.js is Tailwind for JavaScript. Many common features can be coded with a few extra HTML Attributes
 
 ## Install
