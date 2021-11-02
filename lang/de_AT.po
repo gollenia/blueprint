@@ -170,3 +170,25 @@ msgstr "Slug"
 
 msgid "Error: The slug must not contain any of the base color names"
 msgstr "Fehler: Der Name darf keinem Namen einer Basis-Farbe entsprechen"
+
+msgid "Page Header"
+msgstr "Seitenkopf"
+
+msgid "Header Height"
+msgstr "Höhe des Bildes"
+
+msgid "Page height in percent"
+msgstr "Angabe in Prozent der Fensterhöhe"
+
+msgid "Header Subtitle"
+msgstr "Untertitel"
+
+msgid "Header Link"
+msgstr "Link"
+
+msgid "Add link"
+msgstr "Link hinzufügen"
+
+msgid "Header Image"
+msgstr "Bildausrichtung"
+
