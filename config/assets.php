@@ -52,6 +52,11 @@ return [
             'dependencies' => [],
             'version' => false,
             'media' => 'all'
+        ],
+        [
+            'handle' => 'material_icons_admin',
+            'url' => 'https://fonts.googleapis.com/icon?family=Material+Icons',
+            'version' => false,
         ]
     ],
     "admin_scripts" => [
