@@ -2,13 +2,9 @@
 
 		<a href="/" class="top-bar__logo">
 			<figure>
-				{% if fields.logo is not empty %}
-					{% include "icons/" ~ fields.logo ~ ".twig" with {'size': 70, 'fill': 'fill-primary'} %}
-				{% else %}
-					{% include "icons/logo.twig" with {'size': 70, 'fill': 'fill-primary'} %}
-				{% endif %}
+					{{ source(logo(), ignore_missing = true) }} 
 			</figure>
-			<span class="claim">{{ site.description }}</span>
+			<span class="top-bar__claim">{{ site.description }}</span>
 		</a>
 
 		<div class="top-bar__hamburger" id="hamburger">
@@ -26,7 +22,7 @@
 				{% for item in menu.get_items %}
 		
 						<li class="menu__item {{ item.has_child_class ? "menu__item--has-dropdown" }} {{ item.current or item.current_item_ancestor ? 'menu__item--active' }}">
-							<a href="{{item.has_child_class ? '#' : item.url }}">
+							<a href="{{item.has_child_class ? '#/' : item.url }}">
 								{%if item.post_excerpt %}<i class="menu__icon material-icons">{{item.post_excerpt}}</i>{% endif %}
 								{{item.title}}
 							</a>

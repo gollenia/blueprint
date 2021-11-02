@@ -17,7 +17,7 @@
             <div class="text-xs mr-2 hidden md:block"><span>© kids-team</span></div>
             <div class="text-xs mr-2"><a href="/impressum">{{ __("Imprint", "ctx-theme") }}</a></div>
             <div class="text-xs mr-2"><a href="/datenschutzerklaerung">{{ __("Data protection", "ctx-theme") }}</a></div>
-            <div class="">{% include "icons/" ~ fields.logo ~ ".twig" with {'size': 20, 'fill': 'fill-primary'} %}</div>
+            <div class="bottom__logo"><figure>{{ source(logo(), ignore_missing = true) }}</figure></div>
         </div>
     
 </div>

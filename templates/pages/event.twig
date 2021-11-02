@@ -3,34 +3,45 @@
 {% block content %}
 {% include "partials/header.twig" with {'post': post, 'headerimage': true} %}    
     
-    <article class="bg-gray-100">
-        <div class="content grid grid--columns-1 xl:grid--columns-3 grid--gap-12 py-16">
-
-            <div class="xl:grid__column--span-2 ">
-                
-                {% if post.post_excerpt %}<div class="pb-16 border-b-4 border-gray-400 border-dotted">{{post.post_excerpt}}</div><hr>{% endif %}
-                <div class="pb-16 border-b-4 border-gray-400 border-dotted">{{post.post_content}}</div>
-
-                
-                {% if has_tickets %}
-                    <hr>
-                    <div x-data="" class="my-10"><a @click="$dispatch('booking-modal')" class="button button--primary" href="#">{{ __("Book this event", "ctx-theme") }}</a></div>  
-                    {{ booking }}  
+<article class="bg-gray-100">
+    <div class="content grid grid--columns-1 xl:grid--columns-3 grid--gap-12 py-16">
+        <div class="xl:grid__column--span-2">        
+            {% if post.post_excerpt %}<div class="pb-16">{{post.post_excerpt}}</div><hr>{% endif %}
+            <div class="pb-16 border-b-4 border-gray-400 border-dotted">{{ post.content }}</div>
+            {% if has_tickets %}
+                <hr>
+                <div x-data="" class="button-group button-group--right">
+                    <a @click="$dispatch('booking-modal')" class="button button--primary" href="#/">{{ __("Book this event", "ctx-theme") }}</a>
+                </div>  
+                {{ booking }}  
+            {% endif %}   
+        </div> 
+        <aside>
+           <div class="description p-8 bg-gray-200 rounded-xl">
+                <!-- AUDIENCE -->
+                {% if post.event_audience %}
+                <div class="description__item">
+                    <div class="description__image">
+                        <i class="description__icon material-icons">face</i>
+                    </div>
+                    <div class="description__text">
+                        <div class="description__title">{{ __("Audience", "ctx-theme")}}</div>
+                        <div class="description__data">{{post.event_audience}}</div>
+                    </div>
+                </div> 
                 {% endif %}
-                
-            </div>
-            <div class="">
-
-                <div class="description p-4 bg-gray-300">
-                    <div class="description__item">
-                        <i class="text-gray-700 material-icons mr-3">face</i>
-                        <span class="">{{post.get_terms('audience')|first}}</span>
-                    </div> 
-                    <div class="description__item">
-                        <i class="text-gray-700 material-icons mr-3">event</i>
-                        <span class="">
+                <!-- End AUDIENCE -->
+                <!-- DATE -->
+                <div class="description__item">
+                    <div class="description__image">
+                        <i class="description__icon material-icons">event</i>
+                    </div>
+                    <div class="description__text">
+                        <div class="description__title">{{ __("Date", "ctx-theme")}}</div>
+                        <div class="description__data">
+                        
                             {% if post._event_start_date == post._event_end_date %}
-                                {{ post._event_start_date|date("j. F Y") }} 
+                            {{ post._event_start_date|date("j. F Y") }} 
                             {% else %}
                                 {% if post._event_start_date|date("F") == post._event_end_date|date("F") %}
                                     {{ post._event_start_date|date("j.") }} {{ __("to", "ctx-theme") }} {{ post._event_end|date("j. F Y") }}
@@ -38,62 +49,119 @@
                                     {{ post._event_start_date|date("j. F") }} {{ __("to", "ctx-theme") }} {{ post._event_end|date("j. F Y") }}
                                 {% endif %}
                             {% endif %}
-                        </span>
-                        
+
+                        </div>
+                    </div>                        
+                </div>
+                <!-- End DATE -->
+                <!-- TIME will only be shown, if the event is NOT an all-day event -->
+                {% if event.event_all_day != 1 %}
+                <div class="description__item">
+                    <div class="description__image">
+                        <i class="description__icon material-icons">schedule</i>
                     </div>
-                    {% if event.event_all_day != 1 %}
-                    <div class="description__item">
-                        <i class="text-gray-700 material-icons mr-3">schedule</i>
-                        <span class="">
+                    <div class="description__text">
+                        <div class="description__title">{{ __("Time", "ctx-theme")}}</div>
+                        <div class="description__data">
                             {% if post._event_start_date == post._event_end_date %}
-                                {{ __("from", "ctx-theme") }} {{ post._event_start_time|date(site.option("dbem_time_format"), false) }} {{ __("to", "ctx-theme") }} {{ post._event_end_time|date(site.option("dbem_time_format"), false) }} {{ __("o'clock", "ctx-theme") }}
-                             {% else %}
+                            {{ __("from", "ctx-theme") }} {{ post._event_start_time|date(site.option("dbem_time_format"), false) }} {{ __("to", "ctx-theme") }} {{ post._event_end_time|date(site.option("dbem_time_format"), false) }} {{ __("o'clock", "ctx-theme") }}
+                            {% else %}
                                 {{ __("Starts at", "ctx-theme") }} {{ post._event_start_time|date(site.option("dbem_time_format"), false) }} {{ __("o'clock", "ctx-theme") }}<br>{{ __("Ends at", "ctx-theme") }} {{ post._event_end_time|date(site.option("dbem_time_format"), false) }} {{ __("o'clock", "ctx-theme") }}
                             {% endif %}
-                        </span>
+                        </div>
                     </div>
-                    {% endif %}
-
-
+                </div>
+                {% endif %}
+                <!-- End TIME -->
+                <!-- LOCATION -->
+                {% if location %}
+                <div class="description__item">  
+                    <div class="description__image">
+                        <i class="description__icon material-icons">place</i>
+                    </div>
+                    <div class="description__text">
+                        <div class="description__title">{{ __("Location", "ctx-theme")}}</div>
+                        <address class="description__data">{{location.location_name}}<br>{{location.address}}<br>{{location.postcode}} {{location.town}}</address>
+                    </div>
                     
-                    {% if location %}
-                    <address class="description__item">  
-                        <i class="text-gray-700 material-icons mr-3">place</i>
-                        <a href="{{location.region}}">{{location.location_name}}<br>{{location.address}}<br>{{location.postcode}} {{location.town}}</a>
-                    </address>
-                    {% endif %}
-                    {% if bookings and bookings < 5 and bookings > 0 %}
-                    <div class="description__item"></p>
-                        <i class="text-red material-icons mr-3 text-red-500">warning</i>
-                        <span class="text-red-500">{{ __("Only few spaces left", "ctx-theme") }}</span>
+                    {% if location.url %}
+                    <div class="description__action">
+                        <a target="_blank" href="{{location.url}}"><i class="material-icons">navigation</i></a>
                     </div>
                     {% endif %}
-                    {% if bookings and not bookings %}
-                    <div class="description__item"></p>
-                        <i class="text-red material-icons mr-3 text-red-500">block</i>
-                        <span class="text-red-500">{{ __("No places left", "ctx-theme") }}</span>
+                </div>
+                {% endif %}
+                <!-- End LOCATION -->
+                <!-- SPACE WARNING -->
+                {% if bookings and bookings < 5 and bookings > 0 %}
+                <div class="description__item">
+                    <div class="description__image">
+                        <i class="description__icon material-icons">warning</i>
                     </div>
-                    {% endif %}
-                    {% if bookings and price == 0 %}
-                    <div class="description__item"></p>
-                        <i class="text-red material-icons mr-3 text-green-500">savings</i>
-                        <span class="text-green-500">{{ __("Price: free", "ctx-theme")}} </span>
+                    <div class="description__text">
+                        <div class="description__title">{{ __("Caution", "ctx-theme")}}</div>
+                        <div class="description__data">{{ __("Only few spaces left", "ctx-theme") }}</div>
                     </div>
-                    {% elseif bookings and price != 0 %}
-                    <div class="description__item"></p>
-                        <i class="text-red material-icons mr-3 text-gray-700">payments</i>
-                        <span class="">{{ __("Price:", "ctx-theme")}} {{price}} {{currency}} </span>
+                </div>
+                {% endif %}
+                {% if bookings and not bookings %}
+                <div class="description__item">
+                    <div class="description__image">
+                        <i class="description__icon material-icons">warning</i>
                     </div>
-                    {% endif %}
+                    <div class="description__text">
+                        <div class="description__title">{{ __("Caution", "ctx-theme")}}</div>
+                        <div class="description__data">{{ __("No spaces left", "ctx-theme") }}</div>
+                    </div>
+                </div>
+                {% endif %}
+                <!-- End SPACE WARNING -->
+                <!-- PRICE -->
+                {% if bookings and price == 0 %}
+                <div class="description__item">
+                    <div class="description__image">
+                        <i class="description__icon material-icons">savings</i>
+                    </div>
+                    <div class="description__text">
+                        <div class="description__title">{{ __("Price", "ctx-theme")}}</div>
+                        <div class="description__data"> {{ __("Free", "ctx-theme")}} </div>
+                    </div>
+                </div>
+                {% elseif bookings and price != 0 %}
+                <div class="description__item">
+                    <div class="description__image">
+                        <i class="description__icon material-icons">payments</i>
+                    </div>
+                    <div class="description__text">
+                        <div class="description__title">{{ __("Price", "ctx-theme")}}</div>
+                        <div class="description__data"> {{price}} {{currency}} </div>
+                    </div>
+                </div>
+                {% endif %}
+                <!-- End PRICE -->
+                <!-- SPEAKER -->
+                {% if speaker %}
+                <div class="description__item">  
+                    <div class="description__image">
+                        <img src="{{speaker.thumbnail.src}}">
+                    </div>
+                    <div class="description__text">
+                        <div class="description__title">{{ __("Speaker", "ctx-theme")}}</div>
+                        <divclass="description__data">{{speaker.post_title}}</div>
+                    </div>
+                </div>
+                {% endif %}
+                <!-- End SPEAKER -->
                   
-                </div>
-                <div class="mt-20">
-                    <h3 class="mb-6 text-bold core-block">{{ __("Similar events", "ctx-theme")}}</h3>
-                    {% include "partials/similar-events.twig" with {'events': events} %}
-                </div>
             </div>
-        
+            {% if events %}
+            <div class="mt-20">
+                <h3 class="mb-6 text-bold core-block">{{ __("Similar events", "ctx-theme")}}</h3>
+                {% include "partials/similar-events.twig" with {'events': events} %}
+            </div>
+            {% endif %}
+            
+        </aside>
     </div>
-        
-    </article>
+</article>
 {% endblock %}

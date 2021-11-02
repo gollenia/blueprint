@@ -3,25 +3,24 @@
 <style>
     {# Damit die Farben aus der Theme-Configuration direkt im CSS butzbar sind, ohne sie doppelt zu definieren, werden sie hier per twig gerendert #}  
     :root {      
-        {% for colorset in colors %}
-        --{{colorset.slug}}: {{colorset.color}}; 
-        --{{colorset.slug}}-transparent: {{colorset.color}}aa; 
-        --{{colorset.slug}}-contrast: {{colorset.contrast}}ee; 
-        --{{colorset.slug}}-dark: {{colorset.color|shade(70)}}; 
-        --{{colorset.slug}}-light: {{colorset.color|tint(70)}}; 
-        --{{colorset.slug}}-light-transparent: {{colorset.color|tint(70)}}cc; 
+        {% for slug, colorset in colors.get(true) %}
+        --{{slug}}: {{colorset.color}}; 
+        --{{slug}}-transparent: {{colorset.color}}aa; 
+        --{{slug}}-contrast: {{colorset.light ? '#000000ee' : '#ffffffee'}}; 
+        --{{slug}}-dark: {{colorset.color|shade(70)}}; 
+        --{{slug}}-light: {{colorset.color|tint(70)}}; 
+        --{{slug}}-light-transparent: {{colorset.color|tint(70)}}cc; 
         {% endfor %}
-        {% for colorset in grayscale %}
-        --{{colorset.slug}}: {{colorset.color}}; 
-        --{{colorset.slug}}-contrast: {{colorset.brightness == "dark" ? "var(--white)" : "var(--black)"}};
+        {% for slug, colorset in colors.get_grayscale() %}
+        --{{slug}}: {{colorset.color}}; 
+        --{{slug}}-contrast: {{colorset.light ? "var(--black)" : "var(--white)"}};
         {% endfor %}
-
     }
 
-    
-
-    
-    
-   
+    {% for slug, colorset in colors %}
+        .has-{{slug}}-background { background-color: {{colorset.color}}; }  
+        .has-{{slug}}-color { color: {{colorset.color}}; }  
+    {% endfor %}
     
 </style>
+

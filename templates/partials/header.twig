@@ -1,4 +1,4 @@
-<header class="header" style="padding-top: {{post.headerheight ? post.headerheight : 30}}vh; ">  
+<header class="header" style="padding-top: {{post.header.height ?: 30}}vh; ">  
     {% if post.thumbnail.src('xlarge') %}
         <img style="{{post.flippageimage ? 'transform: scaleX(-1);'}}" src="{{post.thumbnail.src('xlarge')}}">
     {% endif %} 
@@ -7,8 +7,8 @@
         <div class="header__title" style="margin-left: -2000px; padding: 50px 50px 50px 2000px;">
             
             <h1 class="font-script">{{post.title}}</h1>
-            <h4 class="ml-4 xl:mr-0">{{post.subtitle}}</h4>
-            {%if post.headerurl %}<a target="{{post.headerurl.target}}" href="{{ post.headerurl.url }}" class="button secondary large skew">{{ post.headerurl.title }}</a>{% endif %}
+            <h4 class="ml-4 xl:mr-0">{{post.header.subtitle}}</h4>
+            {%if post.header.link.url %}<a href="{{ post.header.link.url }}" class="button secondary large skew">{{ post.header.link.title }}</a>{% endif %}
         </div>
     </div>
 </header>
