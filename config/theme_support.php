@@ -21,6 +21,7 @@ return [
     'custom-background' => [],
     'align-wide' => [],
     "automatic-feed-links" => [],
+    "custom-logo" => [],
     "html5"=> ['comment-form', 'comment-list', 'gallery', 'caption'],
     "post-formats"=> ['aside', 'image', 'video', 'quote', 'link', 'gallery', 'audio']
 ];
