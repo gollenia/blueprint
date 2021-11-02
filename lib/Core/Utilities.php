@@ -10,7 +10,7 @@ namespace Contexis\Core;
 class Utilities {
 
     /**
-     *  Cast any variable into the Browser Javascript Console. Better way to analyze arrays than var_dump.
+     *  Print any variable into the Browser's Javascript Console. Better way to analyze arrays than var_dump.
      * 
      * @since 1.0.0
      * 
@@ -39,13 +39,17 @@ class Utilities {
 
     }
 
-    public static function debug_to_log($value = "nothing to debug", $in_header = true) {
+    /**
+     *  Print any variable into the log directory
+     * 
+     * @since 1.0.0
+     * 
+     * @param array $value or variable to log
+     * 
+     */
+    public static function debug_to_log($value = "nothing to debug") {
 
-        if( WP_DEBUG !== true || wp_is_json_request() ) { 
-            return; 
-        }
-        
-        file_put_contents(ABSPATH . "../log/debug.log", print_r($value));
+        file_put_contents(ABSPATH . "../log/debug.log", json_encode($value), FILE_APPEND);
 
     }
 

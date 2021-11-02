@@ -3,28 +3,16 @@
 namespace Contexis\Core;
 
 /**
- * Base Shortcode Class
+ * Class that collects all files in ./Twig and adds them as function or filter
  * 
  * @param array $post_types 
  * @since 1.0.0
  */
 Class TwigExtensions {
 
-    /**
-     * Self-Register Shortcode-Class
-     * 
-     * @since 1.0.0
-     */
-    public function __construct()
-    {
-        add_shortcode( 
-            $this->shortcodeName, 
-            [$this, "init"]
-        );
-    }
 
     /**
-     * Collect all shortcode Classes and load them
+     * Collect all Twig Classes and load them
      * 
      */
     public static function register() {

@@ -31,28 +31,13 @@ class Controller {
      * @since 1.0.0
      */
     public function __construct() {
- 
+
         $this->context = \Timber\Timber::context();
-
-        // Advanced Custom Field Plugin
-        if (function_exists('get_fields')) {
-            $this->context['fields'] = get_fields('option');
-        }
-
-        // until better color management is found
-        //$this->context['colors'] = Config::load('colors');
-
-        
-
-        $this->context['colors'] = \Contexis\Core\Color\PageOptions::get_page_colors($this->context['colors']);
-        $this->context['grayscale'] = \Contexis\Core\Color\Utils::get_grayscale($this->context['colors'][7]['color']);
-
-        // Die Widgets
-        $this->context['footer'] = Timber::get_widgets('footer_area');
-        
-        // Das Menü
-        $this->context['menu'] = Timber::get_menu();
-
+        //$this->context['grayscale'] = \Contexis\Core\Color::get_grayscale($this->context["colors"]["gray"]["color"]);
+        $this->add_to_context([
+            "footer" => Timber::get_widgets('footer_area'),
+            "menu" => Timber::get_menu()
+        ]);
     }
 
     /**
@@ -66,8 +51,8 @@ class Controller {
      * 
      */
     public function add_to_context(array $context) {
-        foreach($context as $key => $value) {
-            $this->context[$key] = $value;
+        foreach($context as $key => $item) {
+            $this->context[$key] = $item;
         }
     }
    
@@ -82,7 +67,6 @@ class Controller {
         if( WP_DEBUG === true ) { 
             Utilities::debug($this->context);
         }
-        Utilities::debug($this->context);
         Timber::render( $this->template, $this->context );
     }
 

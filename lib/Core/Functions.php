@@ -9,17 +9,15 @@
 namespace Contexis\Core;
 
 use Contexis\Core\Config;
-use Contexis\Core\Color;
-use Contexis\Core\Color\PostType;
+use Contexis\Core\Color\Color;
 use Contexis\Core\TwigExtensions;
 use Contexis\Wordpress\Plugins\Fields;
 use Contexis\Wordpress\{
 	ThemeSupport,
 	Widgets,
 	Mime,
+	Post,
 	Assets,
-	Taxonomy,
-	Block,
 	Security
 };
 
@@ -37,9 +35,8 @@ class Functions {
         Widgets::register(Config::load('widgets'));
         Mime::register(Config::load('mimes'));
 		TwigExtensions::register();
+		Post::register();
         Assets::register(Config::load('assets'));
-        Taxonomy::register(Config::load('taxonomies'));
-        Block::register(Config::load('blocks'));
 		self::add_wordpress_functions();
 		self::add_theme_colors();
 		self::add_timber_functions();
@@ -97,22 +94,17 @@ class Functions {
 	}
 
 	private static function add_theme_colors() {
-        \Contexis\Core\Color\Color::register();
-        
-		$colors = new Color(Config::load('colors'));
-		$theme_colors = $colors->get();
+		\Contexis\Core\Color\AdminOptions::register();
+		
+        $colors = \Contexis\Core\Color::register();
+
 		$theme_support = Config::load('theme_support');
-        $new_colors = \Contexis\Core\Color\Color::get();
-		//$theme_support['editor-color-palette'] = $theme_colors;
-        $theme_support['editor-color-palette'] = $new_colors;
-		ThemeSupport::register($theme_support);
-		$colors->add_admin_color_css();
-        
-        add_filter( 'timber/context', function( $context ) use (&$new_colors) {
-            $context['colors'] = $new_colors;
-            return $context;
-        } );
-        //var_dump(\Contexis\Core\Color\ThemeColors::get());
+		add_filter( 'timber/context', function($context) use(&$colors) {
+			$context['colors'] = $colors;
+			return $context;
+		});
+		$theme_support['editor-color-palette'] = array_values($colors->get());
+        ThemeSupport::register($theme_support);
 	}
 
 

@@ -22,6 +22,10 @@ Class Breadcrumbs {
 
         $instance = new static();
 
+        if(!array_key_exists('post', Timber::context())) {
+            return $instance->breadcrumbs;
+        }
+
         $instance->post = Timber::context()['post'];
 
         if(method_exists($instance, 'generate_' . $instance->post->post_type)) {

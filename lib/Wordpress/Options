@@ -5,7 +5,7 @@
  * @since 1.5.0
  */
 
-namespace Contexis\Core\Color;
+namespace Contexis\Wordpress;
 
 class Options {
 
@@ -22,17 +22,12 @@ class Options {
         'lightgray' => "#cccccc"
     ];
 
-	/*
-	 * Constructor - the brain of our class
-	 * */ 
-	public function __construct() {
-		add_action( 'init', array( 'Contexis\Core\Color\Options', 'register_color_post_type' ) );
-	}
+
 
     public static function register() {
-        add_action('admin_menu', array( 'Contexis\Core\Color\Options', 'add_settings_menu' ), 9);    
-		add_action( 'admin_init', ['Contexis\Core\Color\Options','register_settings'] );
-        add_action('after_switch_theme', ['Contexis\Core\Color\Options','generate_default_options']);
+        add_action('admin_menu', array( 'Contexis\Wordpress\Options', 'add_settings_menu' ), 9);    
+		add_action( 'admin_init', ['Contexis\Wordpress\Options','register_settings'] );
+        add_action('after_switch_theme', ['Contexis\Wordpress\Options','generate_default_options']);
         
     }
 
@@ -43,7 +38,7 @@ class Options {
 			__('Base Colors', 'ctx-theme'), 								// Title
 			'administrator', 							// Access Level
 			'ctx-base-colors', 					// Page Name
-			['Contexis\Core\Color\Options', 'display_admin_settings']			// Callback
+			['Contexis\Wordpress\Options', 'display_admin_settings']			// Callback
 		);
         add_submenu_page('themes.php', __('Custom Colors', 'ctx-theme'), __('Custom Colors', 'ctx-theme'), 'manage_options', 'edit.php?post_type=ctx-color-palette');
 	}
@@ -67,20 +62,16 @@ class Options {
 
 	public static function register_settings() {
 		register_setting( 'ctx_base_colors', 'ctx_base_color_options' );
-		add_settings_section( 'main_colors', 'Main Colors', ['Contexis\Core\Color\Options','main_section_text'], 'ctx-main-colors' );
+		add_settings_section( 'main_colors', 'Main Colors', ['Contexis\Wordpress\Options','main_section_text'], 'ctx-main-colors' );
         
         foreach (self::$color_array as $name => $value) {
-            add_settings_field( 'ctx_base_color_' . $name, __(ucfirst($name) . ' Color', 'ctx-theme'), ['Contexis\Core\Color\Options','ctx_color_setting_colorfield'], 'ctx-main-colors', 'main_colors', ['name' => $name] );
+            add_settings_field( 'ctx_base_color_' . $name, __(ucfirst($name) . ' Color', 'ctx-theme'), ['Contexis\Wordpress\Options','ctx_color_setting_colorfield'], 'ctx-main-colors', 'main_colors', ['name' => $name] );
         }
 	
 	}
 
 	public static function main_section_text() {
         echo __("Here you can define the base colors of your theme.");
-	}
-
-	public static function gray_section_text() {
-        echo "hihi";
 	}
 
 	public static function ctx_product_options_validate( $input ) {
@@ -116,7 +107,7 @@ class Options {
         $base_colors = get_option('ctx_base_color_options');
         $colors = [];
         foreach ($base_colors as $slug => $color) {
-            $brightness = \Contexis\Core\Color\Utils::get_brightness($color) < 170 ? "dark" : "light";
+            $brightness = \Contexis\Wordpress\Utils::get_brightness($color) < 170 ? "dark" : "light";
             array_push($colors, [
                     "slug" => $slug,
                     "name" => __(ucfirst($slug) . ' Color', 'ctx-theme'),

@@ -30,8 +30,17 @@ class Event extends \Contexis\Core\Controller {
         }
         
         parent::__construct();
-        $this->event = \EM_Events::get(['post_id' => $this->context['post']->id])[0];    
+
+        $events = \EM_Events::get(['post_id' => $this->context['post']->id]);
+
+        if(empty($events)) {
+            $this->template ="pages/404.twig";
+            return;
+        }
+
+        $this->event = $events[0];
         $this->booking = new \EM_Bookings($this->event);
+        
 
         \Contexis\Core\Utilities::debug($this->event);
 
@@ -43,8 +52,8 @@ class Event extends \Contexis\Core\Controller {
             'currency' => em_get_currency_symbol(true,get_option("dbem_bookings_currency")),          
             "price" =>$this->lowest_price(),
             "bookings" => $this->booking->get_available_spaces(),
-            "has_tickets" => $this->event->get_bookings()->get_available_tickets()
-            
+            "has_tickets" => $this->event->get_bookings()->get_available_tickets(),
+            "speaker" => $this->get_speaker()
         ]);
         
     }
@@ -61,6 +70,25 @@ class Event extends \Contexis\Core\Controller {
         ob_start();
         em_locate_template('placeholders/bookingform.php', true, array('EM_Event'=>$this->event));
         return ob_get_clean();
+    }
+
+    private function get_speaker() {
+
+        if($this->event->speaker_id == 0) {
+            return false;
+        }
+        $args = [
+            'p' => $this->event->speaker_id,
+            'post_type' => 'event-speaker'
+        ];
+
+        $speaker = Timber::get_posts( $args );
+        
+        if ($speaker) {
+            return $speaker[0];
+        }
+
+        return false;
     }
 
     /**

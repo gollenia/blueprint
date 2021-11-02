@@ -4,19 +4,20 @@
 /* @var $EM_Event EM_Event */   
 global $EM_Notices;
 //count tickets and available tickets
+if(!$EM_Event) {
+   new WP_Error("No Event found");
+   die();
+}
 $tickets_count = count($EM_Event->get_bookings()->get_tickets()->tickets);
 $available_tickets_count = count($EM_Event->get_bookings()->get_available_tickets());
 //decide whether user can book, event is open for bookings etc.
-$can_book = is_user_logged_in() || (get_option('dbem_bookings_anonymous') && !is_user_logged_in());
+$can_book = true;
 $show_tickets = true;
-$multiple_tickets = $show_tickets && ($can_book || get_option('dbem_bookings_tickets_show_loggedout')) && ($tickets_count > 1 || get_option('dbem_bookings_tickets_single_form'));
+$multiple_tickets = $show_tickets && ($can_book || get_option('dbem_bookings_tickets_single_form'));
 $single_ticket = $show_tickets && $available_tickets_count == 1 && !get_option('dbem_bookings_tickets_single_form');
 $EM_Tickets = $EM_Event->get_bookings()->get_tickets();
 ?>
 
-<div class="">
-<?php echo $EM_Notices; ?>
-</div>
 
 <div  
 	@booking-modal.window="showModal = true" 
@@ -24,8 +25,8 @@ $EM_Tickets = $EM_Event->get_bookings()->get_tickets();
     @bookingsuccess.window="bookingSuccess = true"
     @bookingpending.window="bookingPending = true"
     @bookingerror.window="bookingError = true"
-    :class="{'bg-gray-100 overflow-y-auto': !bookingSuccess, 'bg-red-500 text-white': bookingError,  }"
-    class="modal modal--fullscreen"
+    :class="{'bg-success overflow-y-auto': !bookingSuccess, 'bg-red-500 text-white': bookingError, 'modal--open modal--animate-open': showModal }"
+    class="modal modal--fullscreen booking-modal"
     style="display: none"
     <?php 
         echo ' x-data="{bookingPending: false, bookingError: false, bookingSuccess: false, showModal: false, ';
@@ -73,7 +74,7 @@ $EM_Tickets = $EM_Event->get_bookings()->get_tickets();
                         } else {
                             do_action('em_booking_form_before_tickets', $EM_Event); //do not delete
                             $EM_Ticket = $EM_Event->get_bookings()->get_available_tickets()->get_first();
-                            em_locate_template('forms/bookingform/ticket-single.php',true, array('EM_Event'=>$EM_Event, 'EM_Ticket'=>$EM_Ticket));
+                            em_locate_template('forms/bookingform/ticket-list.php',true, array('EM_Event'=>$EM_Event, 'EM_Ticket'=>$EM_Ticket));
                             do_action('em_booking_form_after_tickets', $EM_Event); //do not delete
                         }
                     ?>
@@ -84,6 +85,10 @@ $EM_Tickets = $EM_Event->get_bookings()->get_tickets();
                     <?php
                         do_action('em_booking_form_before_user_details', $EM_Event);
                         apply_filters('em_booking_form_custom', $EM_Event); //do not delete
+                        
+                        var_dump(EM_Booking_Form::get_form($EM_Event, true)->form_fields);
+                        var_dump(EM_Attendees_Form::get_form_template());
+                        
                         do_action('em_booking_form_after_user_details', $EM_Event);
                     ?>
                     <?php do_action('em_booking_form_footer', $EM_Event); //do not delete ?>
@@ -96,7 +101,7 @@ $EM_Tickets = $EM_Event->get_bookings()->get_tickets();
 				
 			</form>	
             </div>
-            <div class="text-right pt-10 mx-auto max-w-screen-xl" x-show="bookingSuccess"><a href="#" @click="showModal = false" class="px-4 py-2 border-2 border-white text-white text-lg">Schließen</a></div>
+            <div class="text-right pt-10 mx-auto max-w-screen-xl" x-show="bookingSuccess"><a href="#" @click="showModal = false" class="px-4 bg-success py-2 border-2 border-white text-white text-lg">Schließen</a></div>
             <div class="text-right pt-10 mx-auto max-w-screen-xl" x-show="bookingError"><a href="#" @click="showModal = false" class="px-4 py-2 border-2 border-white text-white text-lg">Schließen</a></div>
 
 		<?php endif; ?>

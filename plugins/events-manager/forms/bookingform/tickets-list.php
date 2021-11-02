@@ -21,7 +21,11 @@ $columns = $EM_Tickets->get_ticket_columns(); //array of column type => title
 		}
 		?>
 	</tr>
+	<?php 
+
+	?>
 	<?php foreach( $EM_Tickets->tickets as $EM_Ticket ): /* @var $EM_Ticket EM_Ticket */ ?>
+		
 		<?php if( $EM_Ticket->is_displayable() ): ?>
 			<?php do_action('em_booking_form_tickets_loop_header', $EM_Ticket); //do not delete ?>
 			<tr class="em-ticket" id="em-ticket-<?php echo $EM_Ticket->ticket_id; ?>">
@@ -86,8 +90,6 @@ $columns = $EM_Tickets->get_ticket_columns(); //array of column type => title
 			<?php do_action('em_booking_form_tickets_loop_footer', $EM_Ticket); //do not delete ?>
 		<?php endif; ?>
 	<?php endforeach; ?>
-	
-
 </table>
 <?php
 

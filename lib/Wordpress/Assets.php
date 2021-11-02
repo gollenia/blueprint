@@ -83,7 +83,7 @@ Class Assets {
                     $style['url'], 
                     isset($style['dependencies']) ? $style['dependencies'] : "", 
                     isset($style['version']) ? $style['version'] : false, 
-                    isset($style['media']) ? $style['media'] : all, 
+                    isset($style['media']) ? $style['media'] : "all", 
                 );
             }
         });

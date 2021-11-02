@@ -24,7 +24,7 @@ class Error extends \Contexis\Core\Controller {
     }
 
     private function get_error_page($page = "error") {
-        $field = get_field("error_page", "options");
+        $field = false;
         
         if($field) {
             $page = Timber::get_post($field->ID);

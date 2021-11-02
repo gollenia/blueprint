@@ -9,6 +9,8 @@ class Router {
 
     /**
 	 * Constructor
+     * 
+     * @todo Make this class self-invoking?
 	 * 
      * @param array $routes
 	 * @since 1.0.0
