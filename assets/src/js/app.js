@@ -1,5 +1,6 @@
 import validateInput from "./validity.js";
 import  './booking.js';
+import  './menu.js';
 
 
 
@@ -13,35 +14,5 @@ document.addEventListener('click', (event) => {
     });
 })
 
-const menu = document.querySelectorAll('.menu__item--has-dropdown')
-if(menu.length > 0) {
-    menu.forEach( (element) => {
-        element.addEventListener('click', (event) => {
-            event.stopPropagation();
-            var open = false;
-            if(event.currentTarget.classList.contains("menu__item--open")) {
-                open = true;
-            }
-            document.querySelectorAll('.menu__item--has-dropdown').forEach((element) => {
-                element.classList.remove("menu__item--open");
-            });
-            if(open) { 
-                event.currentTarget.classList.remove("menu__item--open"); 
-                return;
-            }
-            event.currentTarget.classList.add("menu__item--open"); 
-            
-        })
-    })
-} 
 
-const hamburger = document.getElementById('hamburger')
-
-if(hamburger) {
-    hamburger.addEventListener('click', (event) => {
-        hamburger.firstElementChild.classList.toggle('is-active')
-        var menu = document.getElementById('hamburger-menu')
-            menu.classList.toggle("menu--open");
-    });
-} 
 
