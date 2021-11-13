@@ -1,7 +1,7 @@
 {% extends "master.twig" %}
 
 {% block content %}
-{% include "partials/header.twig" with {'post': post, 'headerimage': true} %}    
+{% include "partials/header.twig" with {'post': post, 'headerimage': true, 'link': '#booking', "linkText": "Anmelden"} %}    
     
 <article class="bg-gray-100">
     <div class="content grid grid--columns-1 xl:grid--columns-3 grid--gap-12 py-16">
@@ -13,7 +13,11 @@
                 <div x-data="" class="button-group button-group--right">
                     <a @click="$dispatch('booking-modal')" class="button button--primary" href="#/">{{ __("Book this event", "ctx-theme") }}</a>
                 </div>  
+                <a href="#/" data-modal="booking_app" class="button button--primary">Buchung Neu</a>
                 {{ booking }}  
+                
+                    {{ booking_form }}
+              
             {% endif %}   
         </div> 
         <aside>
@@ -147,8 +151,14 @@
                     </div>
                     <div class="description__text">
                         <div class="description__title">{{ __("Speaker", "ctx-theme")}}</div>
-                        <divclass="description__data">{{speaker.post_title}}</div>
+                        <div class="description__data">{{speaker.post_title}}</div>
                     </div>
+
+                    {% if speaker.email %}
+                    <div class="description__action">
+                        <a target="_blank" href="mailto:{{speaker.email}}"><i class="material-icons">mail</i></a>
+                    </div>
+                    {% endif %}
                 </div>
                 {% endif %}
                 <!-- End SPEAKER -->
