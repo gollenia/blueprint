@@ -53,10 +53,13 @@ class Event extends \Contexis\Core\Controller {
             "price" =>$this->lowest_price(),
             "bookings" => $this->booking->get_available_spaces(),
             "has_tickets" => $this->event->get_bookings()->get_available_tickets(),
-            "speaker" => $this->get_speaker()
+            "speaker" => $this->get_speaker(),
+            "booking_form" => \EM_Booking_Api::get_booking_form($this->event)
         ]);
         
     }
+
+    
 
     
     /**
