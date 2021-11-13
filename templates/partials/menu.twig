@@ -27,7 +27,7 @@
 								{{item.title}}
 							</a>
 							{% if item.has_child_class %}
-							<ul style="visibility: hidden;" class="dropdown">
+							<ul class="dropdown">
 								{% for child in item.children %}
 								<li class="dropdown__item {{ child.current or child.current_item_ancestor ? "dropdown__item--active" }}">
 									<a href="{{child.url}}">{{child.title}}</a>
