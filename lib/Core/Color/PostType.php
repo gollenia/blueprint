@@ -36,7 +36,7 @@ class PostType {
 			'query_var' => true, 
 			'show_in_admin_bar'   => true,
 			'show_in_nav_menus'   => true,
-			'publicly_queryable'  => true,
+			'publicly_queryable'  => true, 
 			'supports'            => [ 'title' ],
 			'menu_icon'           => 'dashicons-color-picker',
 			'labels' => [

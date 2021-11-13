@@ -102,6 +102,10 @@ class Color {
         return $color;
     }
 
+    public static function get_page_colors() {
+        
+    }
+
  
     /**
      * Rreturn an array with all our colors

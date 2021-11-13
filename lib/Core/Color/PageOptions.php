@@ -35,7 +35,7 @@ class PageOptions {
 
         $color_meta = get_post_meta( $post->ID, 'page_colors', true ) ?: [];
 
-        
+        $options = apply_filters('ctx_custom_colors', iterator_to_array(\Contexis\Core\Color::get_base_colors()));
         $primarycolor = array_key_exists('primary_color', $color_meta) ? $color_meta['primary_color'] : $this->colors['primary']['color'];
         $secondarycolor = array_key_exists('secondary_color', $color_meta) ? $color_meta['secondary_color'] : $this->colors['secondary']['color'];
 
