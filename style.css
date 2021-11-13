@@ -1,11 +1,11 @@
 /*
-Theme Name: KidsTeam
-Text Domain: kidsteam
-Version: 1.4.1
+Theme Name: Blueprint
+Text Domain: blueprint
+Version: 1.6.0
 Requires at least: 5.8
 Requires PHP: 7.4
-Description: Theme for Austrian, German and Swiss kidsteam-Site
-Tags: blog, one-column, custom-background, custom-colors, custom-logo, custom-menu, editor-style, featured-images, footer-widgets, full-width-template, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready, block-styles, wide-blocks, accessibility-ready
+Description: This is a basic Theme without any styling. It renders evewrything with BEM-based classes, so it sould be easy for you to add your style in a child theme.
+Tags: basic, blueprint
 Author: Thomas Gollenia
 Author URI: https://gollenia.at/
 Theme URI: https://github.com/gollenia/kidsteam/
