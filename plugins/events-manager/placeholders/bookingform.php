@@ -86,14 +86,13 @@ $EM_Tickets = $EM_Event->get_bookings()->get_tickets();
                         do_action('em_booking_form_before_user_details', $EM_Event);
                         apply_filters('em_booking_form_custom', $EM_Event); //do not delete
                         
-                        var_dump(EM_Booking_Form::get_form($EM_Event, true)->form_fields);
-                        var_dump(EM_Attendees_Form::get_form_template());
+                        
                         
                         do_action('em_booking_form_after_user_details', $EM_Event);
                     ?>
                     <?php do_action('em_booking_form_footer', $EM_Event); //do not delete ?>
                     <div class="text-right em-booking-buttons">
-                        <input x-show="!bookingPending" x-ref="submitButton" type="submit" class="invalid <?php if(is_admin()) echo 'button bg-primary '; ?>em-booking-submit" id="em-booking-submit" value="<?php echo esc_attr(get_option('dbem_bookings_submit_button')); ?>" />							
+                        <input x-ref="submitButton" type="submit" class="invalid <?php if(is_admin()) echo 'button bg-primary '; ?>em-booking-submit" id="em-booking-submit" value="<?php echo esc_attr(get_option('dbem_bookings_submit_button')); ?>" />							
                         
                     </div>
                     <?php do_action('em_booking_form_footer_after_buttons', $EM_Event); //do not delete ?>
