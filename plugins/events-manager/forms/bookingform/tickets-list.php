@@ -54,7 +54,7 @@ $columns = $EM_Tickets->get_ticket_columns(); //array of column type => title
 							break;
 						case 'spaces':
 							?>
-							<td class="text-right">
+							<td class="text-right py-2">
 							<div class="number-picker">
 							<?php							 
 									$min=0;
