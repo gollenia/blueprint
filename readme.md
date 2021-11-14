@@ -1,11 +1,16 @@
 # Base Theme for Wordpress
 
-This theme is created for the Wordpress-powered Website from kids-team.at/de/ch. This document may be a guideline for anyone who works on the page.
+This is a base theme without any CSS. All pages are created with twig files (yet utilizing Timber). Classes are BEM-compatible.
+
+## Features
+
+  * Advanced Color management: You can set 5 base colors and add more custom colors which are then shown in your gutenberg editor.
+  * Routing system. Add or change routes in config/routes.php
+  * Controller based: Each route can have it's own controller with a render function
 
 ## Used Frameworks
   * Timber
   * [Twig](https://www.google.com) is a Wordpress-Layer for the Twig PHP Template engine that improves code readability a lot. No more echos and PHP/HTML-Mixture.
-  * alpine.js is Tailwind for JavaScript. Many common features can be coded with a few extra HTML Attributes
 
 ## Install
 
