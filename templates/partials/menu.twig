@@ -22,9 +22,10 @@
 				{% for item in menu.get_items %}
 		
 						<li class="menu__item {{ item.has_child_class ? "menu__item--has-dropdown" }} {{ item.current or item.current_item_ancestor ? 'menu__item--active' }}">
-							<a href="{{item.has_child_class ? '#/' : item.url }}">
+							<a href="{{item.url}}">
 								{%if item.post_excerpt %}<i class="menu__icon material-icons">{{item.post_excerpt}}</i>{% endif %}
-								{{item.title}}
+								<span>{{item.title}}</span>
+								{% if item.has_child_class %}<i class="material-icons mobile__arrow">keyboard_arrow_down</i>{% endif %}
 							</a>
 							{% if item.has_child_class %}
 							<ul class="dropdown">

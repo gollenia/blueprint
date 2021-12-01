@@ -1,12 +1,16 @@
+
 const menu = document.querySelectorAll('.menu__item--has-dropdown')
 if(menu.length > 0) {
     menu.forEach( (element) => {
-        element.addEventListener('click', (event) => {
+        
+        element.addEventListener("click", (event) => {
+            console.log(event.target)
+            if(window.innerWidth > 1024) return;
+            if(!event.target.classList.contains("mobile__arrow")) return;
             event.stopPropagation();
-            var open = false;
-            if(event.currentTarget.classList.contains("menu__item--open")) {
-                open = true;
-            }
+            event.preventDefault();
+
+            let open = event.currentTarget.classList.contains("menu__item--open");
             document.querySelectorAll('.menu__item--has-dropdown').forEach((element) => {
                 element.classList.remove("menu__item--open");
             });
@@ -15,8 +19,9 @@ if(menu.length > 0) {
                 return;
             }
             event.currentTarget.classList.add("menu__item--open"); 
-            
+             
         })
+        
     })
 } 
 
