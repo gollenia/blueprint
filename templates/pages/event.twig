@@ -10,13 +10,9 @@
             <div class="pb-16 border-b-4 border-gray-400 border-dotted">{{ post.content }}</div>
             {% if has_tickets %}
                 <hr>
-                <div x-data="" class="button-group button-group--right">
-                    <a @click="$dispatch('booking-modal')" class="button button--primary" href="#/">{{ __("Book this event", "ctx-theme") }}</a>
-                </div>  
-                <a href="#/" data-modal="booking_app" class="button button--primary">Buchung Neu</a>
-                {{ booking }}  
-                
-                    {{ booking_form }}
+           
+ 
+                {{ booking }}
               
             {% endif %}   
         </div> 
