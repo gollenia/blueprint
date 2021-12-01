@@ -10,4 +10,3 @@ require_once( __DIR__ . '/vendor/autoload.php' );
 
 \Contexis\Core\Functions::init();
 
-
