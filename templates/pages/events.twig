@@ -33,7 +33,7 @@
                     
                     {% if site.option("dbem_thumbnails_enabled") != 1 %} 
                     <a href="/{{site.option('dbem_cp_events_slug')}}/{{event.slug}}" class="card__image">
-                        <img src="{{ event.thumbnail.src('large') }}">      
+                        <img src="{{ event.thumbnail.src('large') }}" alt="{{ event.thumbnail.post_excerpt ?: event.thumbnail.post_title }}">      
                     </a>
                     {% endif %}
                     <div class="card__content">

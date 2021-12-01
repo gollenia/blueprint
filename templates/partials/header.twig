@@ -1,6 +1,6 @@
 <header class="header" style="padding-top: {{post.header.height ?: 30}}vh; ">  
     {% if post.thumbnail.src('xlarge') %}
-        <img style="{{post.flippageimage ? 'transform: scaleX(-1);'}}" src="{{post.thumbnail.src('xlarge')}}">
+        <img style="{{post.flippageimage ? 'transform: scaleX(-1);'}}" src="{{post.thumbnail.src('xlarge')}}" alt="{{post.thumbnail.post_excerpt ?: post.thumbnail.post_title }}">
     {% endif %} 
     {% include "partials/breadcrumbs.twig" with {'breadcrumbs': breadcrumbs()} %}
     <div class="content">
