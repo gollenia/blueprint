@@ -45,7 +45,7 @@ class Event extends \Contexis\Core\Controller {
         \Contexis\Core\Utilities::debug($this->event);
 
         $this->add_to_context([
-            "booking" => $this->get_booking_form(),
+            
             "events" => $this->get_related_events(),
             "location" => $this->event->location_id != null ? \EM_Locations::get($this->event->location_id)[0] : false,
             "event" => $this->event,
@@ -54,7 +54,7 @@ class Event extends \Contexis\Core\Controller {
             "bookings" => $this->booking->get_available_spaces(),
             "has_tickets" => $this->event->get_bookings()->get_available_tickets(),
             "speaker" => $this->get_speaker(),
-            "booking_form" => \EM_Booking_Api::get_booking_form($this->event)
+            "booking" => \EM_Booking_Api::get_booking_form($this->event)
         ]);
         
     }
