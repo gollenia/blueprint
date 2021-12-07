@@ -17,7 +17,7 @@ return [
 
     "Search" => !empty($_GET['ctx_search']),
 
-    "Event" => is_singular('event'),        // Seite ist ein einzelnes Event
+    //"Event" => is_singular('event'),        // Seite ist ein einzelnes Event
 
     "Events" => get_option("dbem_cp_events_slug") ? is_page(get_option("dbem_cp_events_slug")) : false,          // Seite beinhaltet eine Eventliste
 
