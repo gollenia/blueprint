@@ -40,10 +40,10 @@ class Color {
     public static function register() {
         $instance = new self;
         add_action( 'customize_register', [$instance, 'add_color_settings'] ); 
-        
+        \Contexis\Core\Color\PostType::register($instance->colors);
         $instance->colors = apply_filters('ctx_custom_colors', iterator_to_array(self::get_base_colors()));
         \Contexis\Core\Color\PageOptions::register($instance->colors);
-		\Contexis\Core\Color\PostType::register($instance->colors);
+		
         return $instance;
     }
 
@@ -108,7 +108,7 @@ class Color {
 
  
     /**
-     * Rreturn an array with all our colors
+     * Return an array with all our colors
      *
      * @param bool $inject_page_colors Inject primary and secondary color setting from the current page if present
      * @return array Colors
