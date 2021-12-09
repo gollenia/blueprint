@@ -1,6 +1,6 @@
 /*
 *   simple event dispatcher that will forward  the jQuery em-booking-events to standars JavaScript Events
-*
+*   @deprecated
 *
 */
 
