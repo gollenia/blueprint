@@ -14,7 +14,7 @@
 
 return [
     "styles" => [
-        [
+        /*[
             'handle' => 'material_icons',
             'url' => 'https://fonts.googleapis.com/icon?family=Material+Icons',
             'version' => false,
