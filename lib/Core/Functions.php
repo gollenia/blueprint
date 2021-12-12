@@ -103,7 +103,7 @@ class Functions {
 			$context['colors'] = $colors;
 			return $context;
 		});
-		$theme_support['editor-color-palette'] = array_values($colors->get());
+		$theme_support['editor-color-palette'] = array_values($colors->get(true));
         ThemeSupport::register($theme_support);
 	}
 
