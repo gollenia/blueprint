@@ -1,37 +1,67 @@
+/**
+ * Open a dropdown menu, but only on amaximum screen width
+ *
+ * @param {Object} args
+ */
+function menuDropdown(args) {
+	const options = {
+		maxScreenWidth: 1024,
+		itemClass: '.menu__item--has-dropdown',
+		dropClass: 'menu__item--open',
+		closeAll: false,
+		...args,
+	};
 
-const menu = document.querySelectorAll('.menu__item--has-dropdown')
-if(menu.length > 0) {
-    menu.forEach( (element) => {
-        
-        element.addEventListener("click", (event) => {
-            console.log(event.target)
-            if(window.innerWidth > 1024) return;
-            if(!event.target.classList.contains("mobile__arrow")) return;
-            event.stopPropagation();
-            event.preventDefault();
+	const closeAllDropdowns = () => {
+		document.querySelectorAll(options.itemClass).forEach((el) => {
+			el.classList.remove(options.dropClass);
+		});
+	};
 
-            let open = event.currentTarget.classList.contains("menu__item--open");
-            document.querySelectorAll('.menu__item--has-dropdown').forEach((element) => {
-                element.classList.remove("menu__item--open");
-            });
-            if(open) { 
-                event.currentTarget.classList.remove("menu__item--open"); 
-                return;
-            }
-            event.currentTarget.classList.add("menu__item--open"); 
-             
-        })
-        
-    })
-} 
+	if (options.closeAll) {
+		closeAllDropdowns();
+		return;
+	}
 
-const hamburger = document.getElementById('hamburger')
+	const menu = document.querySelectorAll(options.itemClass);
+	if (menu.length > 0) {
+		menu.forEach((element) => {
+			element.addEventListener('click', (event) => {
+				if (window.innerWidth > options.maxScreenWidth) return;
+				if (!event.target.classList.contains('mobile__arrow')) return;
 
-if(hamburger) {
-    hamburger.addEventListener('click', (event) => {
-        hamburger.firstElementChild.classList.toggle('is-active')
-        var menu = document.getElementById('hamburger-menu')
-            menu.classList.toggle("menu--open");
-    });
-} 
+				event.stopPropagation();
+				event.preventDefault();
 
+				if (event.currentTarget.classList.contains(options.dropClass)) {
+					event.currentTarget.classList.remove(options.dropClass);
+					return;
+				}
+
+				closeAllDropdowns();
+
+				event.currentTarget.classList.add(options.dropClass);
+			});
+		});
+	}
+}
+
+/**
+ *   Open menu on mobile when hamburger icon is clicked
+ *
+ * @param {string} hamburgerId
+ */
+function menuDrawer(hamburgerId) {
+	const hamburger = document.getElementById(hamburgerId);
+
+	if (hamburger) {
+		hamburger.addEventListener('click', () => {
+			hamburger.firstElementChild.classList.toggle('is-active');
+			const menu = document.getElementById('hamburger-menu');
+			menuDropdown({ closeAll: true });
+			menu.classList.toggle('menu--open');
+		});
+	}
+}
+
+export { menuDropdown, menuDrawer };
