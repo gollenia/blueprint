@@ -1,33 +1,35 @@
 {
-  "name": "kids-team",
-  "version": "1.4.1",
-  "description": "Theme for kids-team Sites",
+  "name": "blueprint",
+  "version": "1.6.0",
+  "description": "Base Wordpress-Theme without any CSS",
   "main": "index.js",
+  "prettier": "@wordpress/prettier-config",
   "directories": {
     "lib": "lib"
   },
   "scripts": {
-    "development": "mix",
-    "watch": "mix watch",
-    "watch-poll": "mix watch -- --watch-options-poll=1000",
-    "hot": "mix watch --hot",
-    "production": "mix --production"
+    "start": "wp-scripts start assets/src/js/app.js assets/src/js/admin.js --output-path='./assets/dist'",
+    "build": "wp-scripts build assets/src/js/app.js assets/src/js/admin.js --output-path='./assets/dist'",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gollenia/kids-team.git"
+    "url": "git+https://github.com/gollenia/blueprint.git"
   },
+  "keywords": [
+    "wordpress",
+    "theme"
+  ],
   "author": "Thomas Gollenia",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/gollenia/kids-team/issues"
+    "url": "https://github.com/gollenia/blueprint/issues"
   },
-  "homepage": "https://github.com/gollenia/kids-team#readme",
+  "homepage": "https://github.com/gollenia/blueprint#readme",
   "devDependencies": {
-    "cross-env": "^7.0.2",
-    "laravel-mix": "^6.0.0-beta.14",
-    "vue-template-compiler": "^2.6.12"
-  },
-  "dependencies": {
+    "@wordpress/eslint-plugin": "^9.3.0",
+    "@wordpress/prettier-config": "^1.1.1",
+    "@wordpress/scripts": "^19.2.2",
+    "eslint": "^7.32.0"
   }
 }
