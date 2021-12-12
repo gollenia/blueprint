@@ -111,7 +111,7 @@ class AdminOptions {
 		$options = get_option( 'ctx_base_color_options' );
         
         $color_value = array_key_exists($color['name'], $options) ? $options[$color['name']] : Helper::$color_array[$color['name']];
-		echo "<input id='ctx_color_setting_" . $color['name'] . "' name='ctx_base_color_options[" . $color['name'] . "]' type='text' class='ctx-color-picker' value='" . $color_value . "' />";
+		echo "<input id='ctx_color_setting_" . $color['name'] . "' name='ctx_base_color_options[" . $color['name'] . "]' type='color' class='ctx-color-picker' value='" . $color_value . "' />";
 	}
 
     /**

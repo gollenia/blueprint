@@ -86,7 +86,7 @@ class PostType {
         }
         wp_nonce_field( basename( __FILE__ ), 'color_fields' );
         echo '<table class="form-table"><tbody>';
-        echo '<tr><th>' . __( 'Color value', 'ctx-theme' ) . '</th><td><input name="color" type="text" value="' . $color . '" class="ctx-color-picker" data-default-color="#ffffff"></td></tr>';
+        echo '<tr><th>' . __( 'Color value', 'ctx-theme' ) . '</th><td><input name="color" type="color" value="' . $color . '" class="ctx-color-picker" data-default-color="#ffffff"></td></tr>';
         echo '<tr><th>'  . __( 'Slug', 'ctx-theme' ) . '</th><td><input id="sluginput" name="post_name" type="text" value="' . $post->post_name . '"><br><p id="slug-error" class="description">' . __( 'No spaces or special chars. Used for internal identification', 'ctx-theme' ) . '</p></td></tr>';
         echo '<tr><th>'  . __( 'Brightness', 'ctx-theme' ) . '</th><td><select name="brightness" value="' . $brightness . '">';
             echo '<option value="auto">' . __( 'Let System decide', 'ctx-theme' ) . '</option>';

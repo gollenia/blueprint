@@ -91,7 +91,7 @@ class Options {
         }
         
         $color_value = array_key_exists($color['name'], $options) ? $options[$color['name']] : "#ffffff";
-		echo "<input id='ctx_color_setting_" . $color['name'] . "' name='ctx_base_color_options[" . $color['name'] . "]' type='text' class='ctx-color-picker' value='" . $color_value . "' />";
+		echo "<input id='ctx_color_setting_" . $color['name'] . "' name='ctx_base_color_options[" . $color['name'] . "]' type='color' class='ctx-color-picker' value='" . $color_value . "' />";
 	}
 
     public static function generate_default_options()
