@@ -31,7 +31,7 @@ class Functions {
 	 */
 	public static function init() {
         
-        Fields::register(Config::load('fields'));
+        
         Widgets::register(Config::load('widgets'));
         Mime::register(Config::load('mimes'));
 		TwigExtensions::register();
