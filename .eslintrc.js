@@ -6,6 +6,9 @@ module.exports = {
 	extends: ['plugin:@wordpress/eslint-plugin/recommended'],
 	parserOptions: {
 		ecmaVersion: 12,
+		ecmaFeatures: {
+			jsx: true,
+		},
 		requireConfigFile: false,
 		sourceType: 'module',
 	},
