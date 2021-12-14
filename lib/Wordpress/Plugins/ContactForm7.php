@@ -4,6 +4,7 @@ namespace Contexis\Wordpress\Plugins;
 
 /**
  * Add custom Shortcode attribute supporting default values for Contactform7
+ * However, this should NOT be here.
  * 
  * @param array $post_types 
  * @since 1.0.0
@@ -22,7 +23,6 @@ Class ContactForm7 {
             return $out;
             
         }, 10, 3 );
-		
     }
 
     /**
