@@ -38,7 +38,7 @@ Class Assets {
         
         wp_enqueue_style( 'wp-color-picker' );
         wp_enqueue_script( 'iris', admin_url( 'js/iris.min.js' ), array( 'wp-color-picker-js', 'jquery-ui-draggable', 'jquery-ui-slider', 'jquery-touch-punch' ), false, true );
-        wp_enqueue_script( 'ctx-color-picker', get_template_directory_uri() . '/assets/dist/admin-color.js', array('jquery'), '', true );
+        
 
         
     }

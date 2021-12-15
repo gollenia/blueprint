@@ -15,7 +15,7 @@ class Post {
     public static function register() {
         add_action( 'add_meta_boxes', array('Contexis\Wordpress\Post', 'add_meta_boxes') );
         add_action( 'save_post', array('Contexis\Wordpress\Post', 'save'), 1, 2 );
-        add_action( 'admin_enqueue_scripts', array('Contexis\Wordpress\Post', 'scripts'));
+        
         //add_action( 'admin_enqueue_scripts', ['Contexis\Core\Color\PostType', 'color_picker'] );
     }
 
@@ -153,10 +153,6 @@ class Post {
             
         
     
-    }
-
-    public static function scripts() {
-        wp_enqueue_script("ctx-links", get_template_directory_uri() . '/assets/dist/admin-link.js', ['jquery'], false, true);
     }
 
 
