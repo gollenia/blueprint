@@ -1,4 +1,4 @@
-# This is a basic workflow that is manually triggered
+# This workflow runs composer and deploys the theme on a server
 
 name: Deploy on Server
 
@@ -28,9 +28,9 @@ jobs:
     - name: rsync deployments
       uses: burnett01/rsync-deployments@5.1
       with:
-        switches: -avzr --delete --exclude .git .github assets/src package.json package-lock.json .gitignore .eslintrc.js .eslintignore readme.md .prettierrc
+        switches: -avzr --delete --exclude .git --exclude .github --exclude assets/src --exclude package.json --exclude package-lock.json --exclude .gitignore --exclude .eslintrc.js --exclude .eslintignore --exclude readme.md --exclude .prettierrc
         path: /
-        remote_path: /www/htdocs/w01a6e9d/common/themes/blueprint
-        remote_host: w01a6e9d.kasserver.com
-        remote_user: ssh-w01a6e9d
+        remote_path: ${{ secrets.SERVER_PATH }}
+        remote_host: ${{ secrets.SERVER }}
+        remote_user: ${{ secrets.SERVER_USER }}
         remote_key: ${{ secrets.ALLINCL }}
