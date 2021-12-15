@@ -23,12 +23,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
+    - uses: php-actions/composer@v6
+    - run: composer install
     - name: rsync deployments
       uses: burnett01/rsync-deployments@5.1
       with:
-        switches: -avzr --delete
+        switches: -avzr --delete --exclude .git .github assets/src package.json package-lock.json .gitignore .eslintrc.js .eslintignore readme.md .prettierrc
         path: /
-        remote_path: /www/htdocs/w01a6e9d/kids-team.at/public/wp-content/themes/blueprint
+        remote_path: /www/htdocs/w01a6e9d/common/themes/blueprint
         remote_host: w01a6e9d.kasserver.com
         remote_user: ssh-w01a6e9d
         remote_key: ${{ secrets.ALLINCL }}
