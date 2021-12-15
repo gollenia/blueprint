@@ -31,4 +31,4 @@ jobs:
         remote_path: /www/htdocs/w01a6e9d/kids-team.at/public/wp-content/themes/blueprint
         remote_host: w01a6e9d.kasserver.com
         remote_user: ssh-w01a6e9d
-        remote_key: ${{ secrets.DEPLOY_KEY }}
+        remote_key: ${{ secrets.ALLINCL }}
