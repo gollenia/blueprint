@@ -20,7 +20,7 @@ class PostType {
         add_filter( 'manage_ctx-color-palette_posts_columns', array($instance, 'set_custom_columns') );
         add_action( 'manage_ctx-color-palette_posts_custom_column' , array($instance, 'custom_column'), 10, 2 );
         add_filter( 'ctx_custom_colors', [$instance, 'insert_colors']);
-        add_action( 'admin_enqueue_scripts', [$instance, 'admin_enqueue_scripts'] );
+        
         add_action( 'edit_form_advanced', [$instance, 'add_back_button'] );
     }
 
@@ -149,12 +149,6 @@ class PostType {
             add_post_meta( $post_id, $key, $value); 
         }
     
-    }
-    
-    public function admin_enqueue_scripts() {
-        wp_enqueue_style( 'wp-color-picker' );
-        wp_enqueue_script( 'wp-color-picker' );
-        wp_enqueue_script( 'ctx-color-picker', get_template_directory_uri() . '/assets/dist/admin-color.js', ['wp-color-picker'], false, true );
     }
     
     public function set_custom_columns($columns) {

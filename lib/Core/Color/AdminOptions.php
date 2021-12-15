@@ -16,7 +16,6 @@ class AdminOptions {
         $instance = new self;
         add_action('admin_menu', [ $instance, 'add_settings_menu' ], 9);    
 		add_action('admin_init', [ $instance, 'register_settings'] );
-        add_action('admin_enqueue_scripts', [ $instance,'enqueue_admin_scripts'] );
         add_action('after_switch_theme', [ $instance,'generate_default_options']); 
     }
 
@@ -145,11 +144,6 @@ class AdminOptions {
         }
         
         return $colors;
-    }
-
-    public function enqueue_admin_scripts() {
-        wp_enqueue_style( 'wp-color-picker' );
-        wp_enqueue_script( 'ctx-color-picker', get_template_directory_uri() . '/assets/dist/admin-color.js', ['wp-color-picker'], false, true );
     }
 
 }
