@@ -114,11 +114,15 @@ class Color {
      * @return array Colors
      * 
      */
-    public function get($inject_page_colors = false) {
+    public function get($inject_page_colors = false, $grayscale = true) {
+		$colors = $this->colors;
+		if ($grayscale) {
+			$colors = array_merge($this->colors, $this->get_grayscale());
+		}
         if ($inject_page_colors) {
-            return apply_filters('ctx_page_colors', $this->colors);
+            return apply_filters('ctx_page_colors', $colors);
         }
-        return $this->colors;
+        return $colors;
     }
 
     /**
@@ -170,6 +174,7 @@ class Color {
             $grayscale["gray-" . $i . "00"] = [
                 "color" => self::adjust_brightness($base_gray, $steps[$i]),
                 "light" => $i < 5,
+				"slug" =>"gray-" . $i . "00"
             ];
         }
  
