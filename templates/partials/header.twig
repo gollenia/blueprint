@@ -8,8 +8,8 @@
             
             <h1 class="font-script">{{post.title}}</h1>
             <h4 class="ml-4 xl:mr-0">{{post.header.subtitle}}</h4>
-            {%if post.header.link.url %}<a href="{{ post.header.link.url }}" class="button secondary large skew">{{ post.header.link.title }}</a>{% endif %}
-            {%if link %}<a href="{{ link }}" class="button secondary large skew">{{ linkText }}</a>{% endif %}
+            {%if post.header.link.url %}<a href="{{ post.header.link.url }}" class="button button--secondary button--large">{{ post.header.link.title }}</a>{% endif %}
+            {%if link %}<a href="{{ link }}" class="button button--secondary button--large">{{ linkText }}</a>{% endif %}
         </div>
     </div>
 </header>
