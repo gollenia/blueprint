@@ -17,7 +17,7 @@
         </div>
     </section>
     <section class="py-16">
-        <div class="content grid grid--columns-3 grid--gap-12">        
+        <div class="content grid md:grid--columns-2 xl:grid--columns-3 grid--gap-12">        
             {% for event in events %}
                 <div 
                     x-show="filter == '' || [{% for term in event.terms('event-categories') %}'{{term.slug}}'{% endfor %}].includes(filter)" 
