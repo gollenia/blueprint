@@ -9,9 +9,7 @@
 namespace Contexis\Core;
 
 use Contexis\Core\Config;
-use Contexis\Core\Color\Color;
 use Contexis\Core\TwigExtensions;
-use Contexis\Wordpress\Plugins\Fields;
 use Contexis\Wordpress\{
 	ThemeSupport,
 	Widgets,
@@ -34,7 +32,7 @@ class Functions {
         
         Widgets::register(Config::load('widgets'));
         Mime::register(Config::load('mimes'));
-		TwigExtensions::register();
+		\Contexis\Core\TwigExtensions::register();
 		Post::register();
         Assets::register(Config::load('assets'));
 		self::add_wordpress_functions();
