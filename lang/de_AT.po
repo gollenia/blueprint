@@ -192,3 +192,6 @@ msgstr "Link hinzufügen"
 msgid "Header Image"
 msgstr "Bildausrichtung"
 
+msgid "Content"
+msgstr "Zum Inhalt"
+

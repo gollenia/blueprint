@@ -170,3 +170,6 @@ msgstr "Slug"
 
 msgid "Error: The slug must not contain any of the base color names"
 msgstr "Fehler: Der Name darf keinem Namen einer Basis-Farbe entsprechen"
+
+msgid "Content"
+msgstr "Zum Inhalt"
