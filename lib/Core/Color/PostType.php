@@ -23,7 +23,7 @@ class PostType {
         
         add_action( 'edit_form_advanced', [$instance, 'add_back_button'] );
     }
-
+ 
 	public function register_color_post_type(){
 		$args = [
 			'hierarchical' 		  => false,
@@ -197,7 +197,8 @@ class PostType {
 
     public function insert_colors($colors) {
         $args = [
-            'post_type' => 'ctx-color-palette'
+            'post_type' => 'ctx-color-palette',
+			'posts_per_page' => -1
         ];
 
         $query = new \WP_Query( $args );
@@ -212,7 +213,7 @@ class PostType {
             $colors[$color->post_name] = [
                     "color" => $color_value,
                     "light" => $brightness,
-                    "name" => __(ucfirst($color->post_name) . ' Color'),
+                    "name" => $color->post_title,
                     "slug" => $color->post_name
             ];
         }
