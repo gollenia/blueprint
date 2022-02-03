@@ -7,7 +7,26 @@
         var theme_uri = "{{site.theme.uri}}";
     </script>
     {{function('wp_footer')}}
-    
+	{% if not privacy_consent %}
+    <div class="modal modal--open" id="consentDialog">
+		<div class="modal__dialog">
+			<div class="modal__header">
+				<div class="modal__title">
+					<h2>{{ __("Privacy consent", "ctx-theme") }}</h2>
+				</div>
+			</div>
+			<div class="modal__content">
+			{{ site.option("privacy_window_text") }}
+			</div>
+			<div class="modal__footer">
+				<div class="button-group button-group--right">
+				<a href="{{ function('get_privacy_policy_url') }}" class="button button--primary button--link">{{ __("Data Privacy", "ctx-theme") }}</a>
+				<button id="consentPrivacy" class="button button--primary">{{ __("Consent", "ctx-theme") }}</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	{% endif %}
 </footer>
 <div class="bottom">
     
