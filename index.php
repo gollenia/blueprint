@@ -21,3 +21,4 @@ if (class_exists($controller)) {
 else {
     echo "No Controller found";
 }
+
