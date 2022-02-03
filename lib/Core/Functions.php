@@ -9,6 +9,7 @@
 namespace Contexis\Core;
 
 use Contexis\Core\Config;
+use Contexis\Core\Cookies;
 use Contexis\Core\TwigExtensions;
 use Contexis\Wordpress\{
 	ThemeSupport,
@@ -35,6 +36,7 @@ class Functions {
 		\Contexis\Core\TwigExtensions::register();
 		Post::register();
         Assets::register(Config::load('assets'));
+		Cookies::init();
 		self::add_wordpress_functions();
 		self::add_theme_colors();
 		self::add_timber_functions();
