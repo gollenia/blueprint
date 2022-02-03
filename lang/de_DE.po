@@ -195,3 +195,17 @@ msgstr "Bildausrichtung"
 msgid "Content"
 msgstr "Zum Inhalt"
 
+msgid "Consent"
+msgstr "Zustimmen"
+
+msgid "Data Privacy"
+msgstr "Datenschutzerklärung"
+
+msgid "Privacy consent"
+msgstr "Datenschutz"
+
+msgid "Privacy Consent window"
+msgstr "Datenschutz Fenster"
+
+msgid "Privacy window text message"
+msgstr "Text für Datenschutz-Fenster"

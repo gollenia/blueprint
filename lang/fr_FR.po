@@ -72,91 +72,106 @@ msgid "Base Colors"
 msgstr "Grundfarben"
 
 msgid "Here you can define the base colors of your theme."
-msgstr "Hier können die Grundfarben für das Theme festgeleg werden. "
+msgstr "Les couleurs de base du thème peuvent être spécifiées ici."
 
 msgid "Primary Color"
-msgstr "Primärfarbe"
+msgstr "couleur primaire"
 
 msgid "Secondary Color"
-msgstr "Sekundärfarbe"
+msgstr "couleur secondaire"
 
 msgid "Error Color"
-msgstr "Farbe für Fehler"
+msgstr "couleur pour erreur"
 
 msgid "Warning Color"
-msgstr "Warnfarbe"
+msgstr "couleur d'avertissement"
 
 msgid "Success Color"
-msgstr "Farbe für Erfolg"
+msgstr "la couleur du succès"
 
 msgid "Black Color"
-msgstr "Schwarz"
+msgstr "noir"
 
 msgid "White Color"
-msgstr "Weiß"
+msgstr "blanc"
 
 msgid "Darkgray Color"
-msgstr "Dunkelgrau"
+msgstr "gris foncé"
 
 msgid "Gray Color"
-msgstr "Grau"
+msgstr "gris"
 
 msgid "Lightgray Color"
-msgstr "Hellgrau"
+msgstr "gris clair"
 
 msgid "Main Colors"
-msgstr "Hauptfarben"
+msgstr "couleurs principales"
 
 msgid "Color Palette"
-msgstr "Farbpalette"
+msgstr "palette de couleurs"
 
 msgid "Create new color"
-msgstr "Neue Farbe erstellen"
+msgstr "nouvelle couleur"
 
 msgid "Color"
-msgstr "Farbe"
+msgstr "couleur"
 
 msgid "Edit color"
-msgstr "Farbe bearbeiten"
+msgstr "Modifier la couleur"
 
 msgid "Color Settings"
-msgstr "Farbeinstellungen"
+msgstr "paramètres de couleur"
 
 msgid "Color value"
-msgstr "Farbwert"
+msgstr "valeur de couleur"
 
 msgid "Internal name"
-msgstr "Slug-Name"
+msgstr "Slug-Nom"
 
 msgid "Custom Colors"
-msgstr "Eigene Farben"
+msgstr "Couleurs propres"
 
 msgid "Brightness"
-msgstr "Helligkeit"
+msgstr "luminosité"
 
 msgid "No spaces or special chars. Used for internal identification"
-msgstr "Interner Name zur Identifizierung. Keine Leerzeichen oder Umlaute."
+msgstr "Nom interne pour l'identification. Pas d'espaces ni de trémas."
 
 msgid "Decides if text on this color should be white or black"
-msgstr "Beeinflusst, ob der Text über dieser Farbe schwarz oder weiß ist. Nur im Notfall ändern!"
+msgstr "Affecte si le texte au-dessus de cette couleur est noir ou blanc. Ne changez que si nécessaire!"
 
 msgid "Dark"
-msgstr "Dunkel"
+msgstr "Foncé"
 
 msgid "Light"
-msgstr "Hell"
+msgstr "Brillant"
 
 msgid "Let System decide"
-msgstr "Automatisch"
+msgstr "Automatiquement"
 
 msgid "Back"
-msgstr "Zurück"
+msgstr "Retour"
 
 msgid "Slug"
 msgstr "Slug"
 
 msgid "Error: The slug must not contain any of the base color names"
-msgstr "Fehler: Der Name darf keinem Namen einer Basis-Farbe entsprechen"
+msgstr "Erreur : Le nom ne peut pas correspondre à un nom de couleur de base"
 
 msgid "Content"
 msgstr "Aller au contenu"
+
+msgid "Consent"
+msgstr "Accepter"
+
+msgid "Data Privacy"
+msgstr "Protection des données"
+
+msgid "Privacy consent"
+msgstr "intimité"
+
+msgid "Privacy Consent window"
+msgstr "Datenschutz Fenster"
+
+msgid "Privacy window text message"
+msgstr "Text für Datenschutz-Fenster"
