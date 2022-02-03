@@ -33,10 +33,11 @@ class Controller {
     public function __construct() {
 
         $this->context = \Timber\Timber::context();
-        //$this->context['grayscale'] = \Contexis\Core\Color::get_grayscale($this->context["colors"]["gray"]["color"]);
+
         $this->add_to_context([
             "footer" => Timber::get_widgets('footer_area'),
-            "menu" => Timber::get_menu()
+            "menu" => Timber::get_menu(),
+			"privacy_consent" => \Contexis\Core\Cookies::get_consent()
         ]);
     }
 
