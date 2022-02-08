@@ -27,15 +27,15 @@ class Cookies {
 			'privacy_window_section',
 			__('Privacy Consent window','ctx-theme'),
 			[$this,'print_section'],
-			'privacy'
+			'reading'
 		);
 
 		register_setting( 
-			'privacy', 
+			'reading', 
 			'privacy_window_text'
 		);
 		
-		add_settings_field( "privacy_window_text", __("Privacy window text message"), [$this, "print_settings"], 'privacy', 'privacy_window_section');
+		add_settings_field( "privacy_window_text", __("Privacy window text message"), [$this, "print_settings"], 'reading', 'privacy_window_section');
 	}
 
 	public function print_settings() {
