@@ -36,8 +36,7 @@ class Controller {
 
         $this->add_to_context([
             "footer" => Timber::get_widgets('footer_area'),
-            "menu" => Timber::get_menu(),
-			"privacy_consent" => \Contexis\Core\Cookies::get_consent()
+            "menu" => Timber::get_menu()
         ]);
     }
 
