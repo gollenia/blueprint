@@ -170,9 +170,6 @@ msgstr "Fehler: Der Name darf keinem Namen einer Basis-Farbe entsprechen"
 msgid "Content"
 msgstr "Zum Inhalt"
 
-msgid "Consent"
-msgstr "Zustimmen"
-
 msgid "Data Privacy"
 msgstr "Datenschutzerklärung"
 
@@ -180,7 +177,55 @@ msgid "Privacy consent"
 msgstr "Datenschutz"
 
 msgid "Privacy Consent window"
-msgstr "Datenschutz Fenster"
+msgstr "DSGVO Datenschutz-Fenster"
 
 msgid "Privacy window text message"
 msgstr "Text für Datenschutz-Fenster"
+
+msgid "You can use HTML Markup here for links, bold and italic type, line breaks and paragraphs. Leave this field empty to disable the privacy window and cookie consent entirely."
+msgstr "Du kannst hier HTML-Tags verwenden um Links einzufügen, text fett oder kursiv zu schreiben und Zeilenumbrüche und Absätze einzufügen. Lass dieses Feld leer, um das Cookie-Fenster und den Datenschutz komplett zu deaktivieren."
+
+msgid "Title of Button 'Save'"
+msgstr "Beschriftung des 'Speichern'-Buttons"
+
+msgid "Save settings"
+msgstr "Auswahl speichern"
+
+msgid "Accept all"
+msgstr "Alle akzeptieren"
+
+msgid "Title of Button 'Accept all'"
+msgstr "Beschriftung des 'Alles akzeptieren'-Buttons"
+
+msgid "Privacy window Caption"
+msgstr "Titel des Cookie-Fensters"
+
+msgid "Critical clocks"
+msgstr "Kritische Blöcke"
+
+msgid "Blocks to exclude when the user accepts only neccessary cookies. Use parts of block names or full block names. One entry per line. All embed blocks (like YouTube or Spotify) are removed automatically."
+msgstr "Blöcke die entfernt werden, wenn der Besucher nur die notwendigen Cookies akzeptiert. Es können auch Teile von Blocknamen verwendet werden. Ein Eintrag pro Zeile. Alle eingebetteten Blöcke wie YouTube oder Spotify werden bereits automatisch entfernt."
+
+msgid "Here you can adjust settings concerning the European data privacy protection, also known as DSGVO or GDPR"
+msgstr "Hier kannst du Einstellungen anpassen, die den Europäischen Datenschutz betreffen. Wenn der Benutzer die nicht benötigten Cookies ablehnt, können automatisch Blöcke aus dem Seiteninhalt entfernt werden"
+
+msgid "Label for neccessary cookies"
+msgstr "Schalterbeschriftung für notwendige Cookies"
+
+msgid "Only neccessary cookies"
+msgstr "Notwendige Cookies"
+
+msgid "Third party cookies"
+msgstr "Drittanbieter-Cookies und externe Inhalte laden"
+
+msgid "Label for third party cookies"
+msgstr "Schalterbeschriftung für externe Inhalte"
+
+msgid "Explanation for third party cookies"
+msgstr "Erklärung über externe Inhalte"
+
+msgid "Give your visitors a short explanation of what kind of third-party-cookies they're about to accept and why you are using them"
+msgstr "Gib deinen Besuchern eine kurze Erklärung, welche Drittanbieter-Cookies und Dienste du verwendest und warum."
+
+msgid "Privacy settings"
+msgstr "Privatsphäre-Einstellungen"

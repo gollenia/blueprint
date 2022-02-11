@@ -161,9 +161,6 @@ msgstr "Erreur : Le nom ne peut pas correspondre à un nom de couleur de base"
 msgid "Content"
 msgstr "Aller au contenu"
 
-msgid "Consent"
-msgstr "Accepter"
-
 msgid "Data Privacy"
 msgstr "Protection des données"
 
@@ -171,7 +168,55 @@ msgid "Privacy consent"
 msgstr "intimité"
 
 msgid "Privacy Consent window"
-msgstr "Datenschutz Fenster"
+msgstr "Fenêtre de protection des données GDPR"
 
 msgid "Privacy window text message"
-msgstr "Text für Datenschutz-Fenster"
+msgstr "Texte pour la fenêtre de confidentialité"
+
+msgid "You can use HTML Markup here for links, bold and italic type, line breaks and paragraphs. Leave this field empty to disable the privacy window and cookie consent entirely."
+msgstr "Vous pouvez utiliser des balises HTML ici pour insérer des liens, mettre du texte en gras ou en italique et insérer des sauts de ligne et des paragraphes. Laissez ce champ vide pour désactiver complètement la fenêtre des cookies et la protection de la vie privée."
+
+msgid "Title of Button 'Save'"
+msgstr "Légende du bouton 'Enregistrer'"
+
+msgid "Save settings"
+msgstr "enregistrer la sélection"
+
+msgid "Accept all"
+msgstr "Accepter tout"
+
+msgid "Title of Button 'Accept all'"
+msgstr "Libellé du bouton 'Accepter tout'"
+
+msgid "Privacy window Caption"
+msgstr "Titre de la fenêtre des cookies"
+
+msgid "Critical clocks"
+msgstr "blocs critiques"
+
+msgid "Blocks to exclude when the user accepts only neccessary cookies. Use parts of block names or full block names. One entry per line. All embed blocks (like YouTube or Spotify) are removed automatically."
+msgstr "Blocages qui sont supprimés lorsque le visiteur n'accepte que les cookies nécessaires. Des parties de noms de blocs peuvent également être utilisées. Une entrée par ligne. Tous les blocs intégrés comme YouTube ou Spotify sont déjà supprimés automatiquement."
+
+msgid "Here you can adjust settings concerning the European data privacy protection, also known as DSGVO or GDPR"
+msgstr "Ici, vous pouvez ajuster les paramètres qui affectent la protection des données européennes. Si l'utilisateur refuse les cookies qui ne sont pas nécessaires, les blocages du contenu de la page peuvent être supprimés automatiquement"
+
+msgid "Label for neccessary cookies"
+msgstr "Changer d'étiquette pour les cookies nécessaires"
+
+msgid "Only neccessary cookies"
+msgstr "Cookies nécessaires"
+
+msgid "Third party cookies"
+msgstr "Charger des cookies tiers et du contenu externe"
+
+msgid "Label for third party cookies"
+msgstr "Changer de libellé pour le contenu externe"
+
+msgid "Explanation for third party cookies"
+msgstr "Déclaration de contenu externe"
+
+msgid "Give your visitors a short explanation of what kind of third-party-cookies they're about to accept and why you are using them"
+msgstr "Donnez à vos visiteurs une brève explication des cookies et services tiers que vous utilisez et pourquoi."
+
+msgid "Privacy settings"
+msgstr "Paramètres de confidentialité"
