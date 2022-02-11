@@ -1,0 +1,33 @@
+<div class="modal {% if not privacy_consent %}modal--open{% endif %}" id="consentDialog">
+		<div class="modal__dialog">
+			<div class="modal__header">
+				<div class="modal__title">
+					<h2>{{ options.privacy_window_caption ?: __("Privacy consent", "ctx-theme") }}</h2>
+				</div>
+			</div>
+			<div class="modal__content">
+			{{ options.privacy_window_text|raw }}
+			<form class="form">
+			<div class="fieldset">
+				<div class="checkbox">
+				<label class="text-gray"><input type="checkbox" disabled checked>{{ options.privacy_cookies_neccessary ?: __("Only neccessary cookies", "ctx-theme") }}</label>
+				</div>
+				<div class="checkbox">
+				<label><input id="allCookiesCheck" type="checkbox" {{ privacy_consent_all ? "checked" }}>{{ options.privacy_cookies_all ?: __("Third party cookies", "ctx-theme") }}</label>
+				<p>
+					{{ options.privacy_cookies_explanation }}
+				</p>
+				</div>
+			</div>
+			</form>
+			</div>
+			
+			<div class="modal__footer modal__footer--seperator">
+				<div class="button-group button-group--right">
+				
+				<button id="consentPrivacy" class="button button--primary button--outline">{{ options.privacy_window_button_ok ?: __("Save settings", "ctx-theme") }}</button>
+				<button id="consentAll" class="button button--primary">{{ options.privacy_window_button_all ?: __("Accept all", "ctx-theme") }}</button>
+				</div>
+			</div>
+		</div>
+	</div>
