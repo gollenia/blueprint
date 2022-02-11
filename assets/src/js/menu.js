@@ -1,9 +1,10 @@
 /**
  * Open a dropdown menu, but only on amaximum screen width
  *
+ * @param {string} itemClass class that contains the menu item
  * @param {Object} args
  */
-function menuDropdown(args) {
+function menuDropdown(itemClass, args) {
 	const options = {
 		maxScreenWidth: 1024,
 		itemClass: '.menu__item--has-dropdown',
@@ -13,7 +14,7 @@ function menuDropdown(args) {
 	};
 
 	const closeAllDropdowns = () => {
-		document.querySelectorAll(options.itemClass).forEach((el) => {
+		document.querySelectorAll(itemClass).forEach((el) => {
 			el.classList.remove(options.dropClass);
 		});
 	};
