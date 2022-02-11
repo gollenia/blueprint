@@ -3,7 +3,7 @@ function extendColorInput() {
 		'DOMContentLoaded',
 		() => {
 			const colorInputFields = document.getElementsByTagName('input');
-			for (let element of colorInputFields) {
+			for (const element of colorInputFields) {
 				if (element.type === 'color') {
 					const hexInput = document.createElement('input');
 					hexInput.value = element.value;
