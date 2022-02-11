@@ -7,19 +7,14 @@
         var theme_uri = "{{site.theme.uri}}";
     </script>
     {{function('wp_footer')}}
-	
-    
-	
 </footer>
 <div class="bottom">
-    
-        <div class="bottom__text"> 
-            <div class="text-xs mr-2 hidden md:block">{{ __("This website is protected by reCaptcha. See the", "ctx-theme") }} <a href="https://policies.google.com/privacy">{{ __("Privacy Policy", "ctx-theme") }}</a> {{ __("aswell as the", "ctx-theme") }} <a href="https://policies.google.com/terms">{{ __("Terms of Service", "ctx-theme") }}</a>.</div>
-            <div class="text-xs mr-2 hidden md:block"><span>© kids-team</span></div>
-			<div class="text-xs mr-2"><a id="openCookiesDialog" href="#/">{{ __("Privacy settings", "ctx-theme") }}</a></div>
-            <div class="text-xs mr-2"><a href="/impressum">{{ __("Imprint", "ctx-theme") }}</a></div>
-            <div class="text-xs mr-2"><a href="/datenschutzerklaerung">{{ __("Data protection", "ctx-theme") }}</a></div>
-            <div class="bottom__logo"><figure>{{ source(logo(), ignore_missing = true) }}</figure></div>
-        </div>
-    
+	<div class="bottom__text"> 
+		<div class="text-xs mr-2 hidden md:block">{{ __("This website is protected by reCaptcha. See the", "ctx-theme") }} <a href="https://policies.google.com/privacy">{{ __("Privacy Policy", "ctx-theme") }}</a> {{ __("aswell as the", "ctx-theme") }} <a href="https://policies.google.com/terms">{{ __("Terms of Service", "ctx-theme") }}</a>.</div>
+		<div class="text-xs mr-2 hidden md:block"><span>© kids-team</span></div>
+		<div class="text-xs mr-2"><a id="openCookiesDialog" href="#/">{{ __("Privacy settings", "ctx-theme") }}</a></div>
+		<div class="text-xs mr-2"><a href="/impressum">{{ __("Imprint", "ctx-theme") }}</a></div>
+		<div class="text-xs mr-2"><a href="/datenschutzerklaerung">{{ __("Data protection", "ctx-theme") }}</a></div>
+		<div class="bottom__logo"><figure>{{ source(logo(), ignore_missing = true) }}</figure></div>
+	</div>
 </div>
