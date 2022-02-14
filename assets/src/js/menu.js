@@ -18,6 +18,8 @@ function menuDropdown(itemClass, args) {
 	};
 
 	const menu = document.querySelectorAll(itemClass);
+
+	console.log(menu);
 	if (menu.length > 0) {
 		menu.forEach((element) => {
 			element.addEventListener('click', (event) => {

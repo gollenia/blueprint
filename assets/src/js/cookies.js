@@ -32,7 +32,7 @@ const cookies = () => {
 		});
 
 		const openDialog = document.getElementById('openCookiesDialog');
-		console.log(openDialog);
+
 		if (!openDialog) return;
 		openDialog.addEventListener('click', () => {
 			document
