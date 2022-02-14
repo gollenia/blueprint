@@ -34,7 +34,7 @@ return [
              'dependencies' => [
                  'wp-api-fetch'
              ],
-            'version' => "z2308946f980326",
+            'version' => "z2308946f95680326",
             'in_footer' => true
         ],
         [
