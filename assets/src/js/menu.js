@@ -7,9 +7,7 @@
 function menuDropdown(itemClass, args) {
 	const options = {
 		maxScreenWidth: 1024,
-		itemClass: '.menu__item--has-dropdown',
-		dropClass: 'menu__item--open',
-		closeAll: false,
+		dropClass: 'menu-open',
 		...args,
 	};
 
@@ -19,12 +17,7 @@ function menuDropdown(itemClass, args) {
 		});
 	};
 
-	if (options.closeAll) {
-		closeAllDropdowns();
-		return;
-	}
-
-	const menu = document.querySelectorAll(options.itemClass);
+	const menu = document.querySelectorAll(itemClass);
 	if (menu.length > 0) {
 		menu.forEach((element) => {
 			element.addEventListener('click', (event) => {
@@ -51,16 +44,25 @@ function menuDropdown(itemClass, args) {
  *   Open menu on mobile when hamburger icon is clicked
  *
  * @param {string} hamburgerId
+ * @param {Object} args
  */
-function menuDrawer(hamburgerId) {
+function menuDrawer(hamburgerId, args) {
 	const hamburger = document.getElementById(hamburgerId);
+
+	const target = hamburger.getAttribute('data-target');
+
+	const options = {
+		openClass: 'menu--open',
+		activeClass: 'hamburger--active',
+		...args,
+	};
 
 	if (hamburger) {
 		hamburger.addEventListener('click', () => {
-			hamburger.firstElementChild.classList.toggle('is-active');
-			const menu = document.getElementById('hamburger-menu');
-			menuDropdown({ closeAll: true });
-			menu.classList.toggle('menu--open');
+			hamburger.firstElementChild.classList.toggle(options.activeClass);
+			const menu = document.getElementById(target);
+			//menuDropdown({ closeAll: true });
+			menu.classList.toggle(options.openClass);
 		});
 	}
 }
