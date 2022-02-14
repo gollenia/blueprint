@@ -4,7 +4,7 @@ import cookies from './cookies.js';
 
 validateInput();
 
-menuDropdown('menu__item--has-dropdown', {
+menuDropdown('.menu__item--has-dropdown', {
 	dropClass: 'menu__item--open',
 });
 
