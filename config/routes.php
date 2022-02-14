@@ -10,6 +10,9 @@
  * 
  * @since 1.0
  * 
+ * @todo remove this, as it sould be solved differently
+ * 
+ * 
  */
 
 return [
@@ -24,8 +27,6 @@ return [
     "Post" => is_single(),
 
     "Categories" => is_category()  ,       // Kategorie oder Tag
-
-    //"Freizeiten" => in_category('freizeiten') && is_singular('event'),
 
     //"Frontpage" => is_front_page(),                    // Es handelt sich um eine normale Seite
 
