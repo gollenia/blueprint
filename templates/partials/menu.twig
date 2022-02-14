@@ -9,10 +9,10 @@
 			<span class="top-bar__claim">{{ site.description }}</span>
 		</a>
 
-		<div class="top-bar__hamburger" id="hamburger">
+		<div class="top-bar__hamburger" data-target="hamburger-menu" id="hamburger">
 				<button @click="open = !open" :class="{'is-active': open}" class="hamburger hamburger--collapse hamburger--3dx" type="button">
-				<span class="hamburger-box">
-					<span class="hamburger-inner"></span>
+				<span class="hamburger__box">
+					<span class="hamburger__inner"></span>
 				</span>
 				</button>
 		</div>
