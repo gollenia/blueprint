@@ -12,6 +12,10 @@ module.exports = {
 		requireConfigFile: false,
 		sourceType: 'module',
 	},
+	rules: {
+		// since we remove console.log in build, this option is ok
+		'no-console': 'off',
+	},
 	settings: {
 		jsdoc: {
 			mode: 'typescript',
