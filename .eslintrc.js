@@ -12,6 +12,7 @@ module.exports = {
 		requireConfigFile: false,
 		sourceType: 'module',
 	},
+	plugins: ['react', 'jsx'],
 	rules: {
 		// since we remove console.log in build, this option is ok
 		'no-console': 'off',
