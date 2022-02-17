@@ -3,9 +3,6 @@ import colorSettings from './admin/colorSettings';
 import { registerPlugin } from '@wordpress/plugins';
 import './admin.scss';
 
-extendColorInput();
-
-
 registerPlugin('plugin-page-attributes', {
 	icon: null,
 	render: headerSettings,
