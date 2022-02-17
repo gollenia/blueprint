@@ -12,10 +12,10 @@ Class Assets {
     public static function register() {
 		$instance = new self;
         add_action( 'admin_enqueue_scripts', [$instance, 'enqueue_admin_scripts'] );
-		add_action( 'enqueue_scripts', [$instance, 'enqueue_scripts'] );
+		add_action( 'wp_enqueue_scripts', [$instance, 'enqueue_scripts'] );
     }
 
-	private function enqueue_scripts() {
+	public function enqueue_scripts() {
 
 		if(is_admin()) return;
 
