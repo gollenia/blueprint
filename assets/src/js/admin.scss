@@ -22,91 +22,9 @@
   width: 80px;
 }
 
-.manage-column.column-color {
-  width: 150px;
-}
 
 .description.error {
   color: #bb0000 !important;
-}
-
-.color-select {
-  margin-top: 20px;
-}
-
-.ctx-color-selector {
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: 20px;
-}
-
-.ctx-color-selector-input {
-  margin-left: 10px;
-  margin-left: 10px;
-  padding: 0;
-}
-
-.ctx-color-selector-button {
-  background-color: #666666;
-  color: #ffffff;
-  width: 24px;
-  height: 24px;
-  padding: 0;
-  transition: transform 100ms ease-in-out;
-  border: 1px solid #bbb;
-  border-radius: 50%;
-  cursor: pointer;
-}
-
-.ctx-color-selector-button:hover {
-  transform: scale(1.2);
-}
-
-.ctx-color-selector-holder {
-  width: 16%;
-  display: grid;
-  place-items: center;
-  margin-bottom: 10px;
-}
-
-.ctx-metabox__formfield {
-  margin-top: 16px;
-  margin-bottom: 16px;
-}
-
-.ctx-metabox__label {
-  margin-bottom: 5px;
-  display: block;
-}
-
-.ctx-metabox__formfield input, .ctx-metabox__formfield select {
-  width: 100%;
-  box-sizing: border-box;
-}
-
-.ctx-link__preview {
-  display: block;
-  margin-bottom: 10px;
-}
-
-input[type=color] {
-	border-color: #8c8f94;
-	border-right: none;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-    margin-right: 0;
-}
-
-input[type=color] + input {
-	height: 27px;
-    border: 1px solid #8c8f94;
-    border-left: none;
-    margin-left: 0;
-    text-align: right;
-    width: 70px;
-    padding-right: 7px;
-    border-top-right-radius: 3px;
-    border-bottom-right-radius: 3px;
 }
 
 .header-settings-section {
