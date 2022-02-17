@@ -1,6 +1,12 @@
+/**
+ * Adds a metabox for the page header settings
+ */
 
+/**
+ * WordPress dependencies
+ */
 import { PluginDocumentSettingPanel } from '@wordpress/edit-post';
-import { RangeControl, PanelBody, PanelRow, SelectControl, TextControl } from '@wordpress/components';
+import { RangeControl, SelectControl, TextControl } from '@wordpress/components';
 import { URLInput } from '@wordpress/block-editor';
 import { useSelect, useDispatch } from '@wordpress/data';
 import { useState, useEffect } from '@wordpress/element';
@@ -18,22 +24,22 @@ const headerSettings = () => {
 
 	const { editPost } = useDispatch('core/editor');
 
-	const [myData, setMyData] = useState(header);
+	const [headerData, setheaderData] = useState(header);
 
 	const setData = (key, data) => {
-		setMyData({...myData, [key]: data});
+		setheaderData({...headerData, [key]: data});
 	}
 
-	console.log(myData)
+	console.log("header", meta)
 
 	useEffect(() => {
 		editPost({
 			meta: {
 				...meta,
-				header: myData,
+				header: headerData,
 			},
 		});
-	}, [myData]);
+	}, [headerData]);
 
 	return (
 		<PluginDocumentSettingPanel
@@ -42,18 +48,18 @@ const headerSettings = () => {
 			className="header-settings"
 		>
 		
-			<TextControl label={__('Subtitle', 'blueprint')} value={myData.subtitle} onChange={(value) => { setData('subtitle', value)}}/>
+			<TextControl label={__('Subtitle', 'blueprint')} value={headerData.subtitle} onChange={(value) => { setData('subtitle', value)}}/>
 	
 			<div className="header-settings-section">
 			<h3>{__('Image Settings', 'blueprint')}</h3>
 
-				<RangeControl help={__('Percent of browser height', 'blueprint')} min={10} max={100} step={10} label={__('Header image height', 'blueprint')} value={myData.height} onChange={(value) => { setData('height', value)}}/>
+				<RangeControl help={__('Percent of browser height', 'blueprint')} min={10} max={100} step={10} label={__('Header image height', 'blueprint')} value={headerData.height} onChange={(value) => { setData('height', value)}}/>
 		
 			
 				<SelectControl 
 					label={__('Orientation', 'blueprint')}
 					onChange={(value) => { setData('image_position', value)}}
-					value={myData.image_position}
+					value={headerData.image_position}
 					options={[
 						{label: __('Top', 'blueprint'), value: 0},
 						{label: __('Middle', 'blueprint'), value: 1},
@@ -67,12 +73,12 @@ const headerSettings = () => {
 			<div>
 				<URLInput
 					label={__('Page or URL', 'blueprint')}
-					value={ myData.link.url }
+					value={ headerData.link?.url }
 					onChange={ ( url, post ) => setData( 'link', { url, title: post && post.title || __('Click here', 'blueprint') }) } 
 				/>
 				</div>
 
-				<TextControl label={__('Button title', 'blueprint')} value={myData.link.title} onChange={(value) => { setData('link', {url: myData.link.url, title: value})}}/>
+				<TextControl label={__('Button title', 'blueprint')} value={headerData.link?.title} onChange={(value) => { setData('link', {url: headerData.link.url, title: value})}}/>
 		
 			</div>
 
