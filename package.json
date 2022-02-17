@@ -1,6 +1,6 @@
 {
   "name": "blueprint",
-  "version": "1.6.0",
+  "version": "1.7.0",
   "description": "Base Wordpress-Theme without any CSS",
   "main": "index.js",
   "prettier": "@wordpress/prettier-config",
