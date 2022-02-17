@@ -35,7 +35,7 @@ class Functions {
         Mime::register(Config::load('mimes'));
 		\Contexis\Core\TwigExtensions::register();
 		Post::register();
-        Assets::register(Config::load('assets'));
+        Assets::register();
 		Cookies::init();
 		self::add_wordpress_functions();
 		self::add_theme_colors();
@@ -103,6 +103,7 @@ class Functions {
 			$context['colors'] = $colors;
 			return $context;
 		});
+		
 		$theme_support['editor-color-palette'] = array_values($colors->get(true));
         ThemeSupport::register($theme_support);
 	}
