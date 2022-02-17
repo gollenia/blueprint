@@ -1,13 +1,17 @@
-import extendColorInput from './admin/extendColorInput';
-import customLinkModal from './admin/customLinkModal';
 import headerSettings from './admin/headerSettings';
+import colorSettings from './admin/colorSettings';
 import { registerPlugin } from '@wordpress/plugins';
 import './admin.scss';
 
 extendColorInput();
-customLinkModal();
+
 
 registerPlugin('plugin-page-attributes', {
 	icon: null,
 	render: headerSettings,
+});
+
+registerPlugin('plugin-color-settings', {
+	icon: null,
+	render: colorSettings,
 });
