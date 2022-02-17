@@ -48,6 +48,15 @@
 		],
 		"Overwrites the link text": [
 			"Überschreibt den Seitennamen"
+		],
+		"Primary Color": [
+			"Primärfarbe"
+		],
+		"Secondary Color": [
+			"Sekundärfarbe"
+		],
+		"Color Settings": [
+			"Seitenfarben"
 		]
 	   }
 	}
