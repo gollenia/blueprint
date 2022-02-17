@@ -2,109 +2,52 @@
 namespace Contexis\Wordpress;
 
 /**
- * Load Assets from a config Array and enqeue/dequeue them
+ * Completely rewritten to load deeply integrated JS without config file
  * 
  * @param array $assets 
- * @since 1.0.0
+ * @since 1.7.0
  */
 Class Assets {
 
-    public static function register($assets) {
-        add_action( 'admin_enqueue_scripts', ['Contexis\Wordpress\Assets', 'enqueue_color_picker'] );
-        if (!$assets) {return;}
-        if (isset($assets['scripts'])) { self::addScripts($assets['scripts']); }
-        if (isset($assets['styles'])) { self::addStyles($assets['styles']); }
-        if (isset($assets['remove_scripts'])) { self::removeScripts($assets['remove_scripts']); }
-        if (isset($assets['admin_styles'])) { self::adminStyles($assets['admin_styles']); }
-        if (isset($assets['admin_scripts'])) { self::adminScripts($assets['admin_scripts']); }
-        if (isset($assets['remove_styles'])) { self::removeStyles($assets['remove_styles']); }
+    public static function register() {
+		$instance = new self;
+        add_action( 'admin_enqueue_scripts', [$instance, 'enqueue_admin_scripts'] );
+		add_action( 'enqueue_scripts', [$instance, 'enqueue_scripts'] );
     }
 
-    private static function addScripts($scripts) {
-        add_action('wp_enqueue_scripts', function() use (&$scripts) {
-            foreach($scripts as $script) {
-                wp_enqueue_script( $script['handle'], $script['url'], $script['dependencies'], $script['version'], $script['in_footer'] );
-            }
-        });
-    }
+	private function enqueue_scripts() {
 
-    public static function enqueue_color_picker( $hook_suffix ) {
-        //var_dump($hook_suffix);
-        //if(!in_array($hook_suffix, ['appearance_page_ctx-base-colors', 'post.php']));
+		if(is_admin()) return;
 
-        if($hook_suffix == 'appearance_page_ctx-base-colors') {
-            wp_enqueue_script('wp-color-picker', admin_url(('js/color-picker.min.js'), array( 'wp-color-picker-js', 'jquery-ui-draggable', 'jquery-ui-slider', 'jquery-touch-punch' ), false, true));
-        }
-        
-        wp_enqueue_style( 'wp-color-picker' );
-        wp_enqueue_script( 'iris', admin_url( 'js/iris.min.js' ), array( 'wp-color-picker-js', 'jquery-ui-draggable', 'jquery-ui-slider', 'jquery-touch-punch' ), false, true );
-        
+		$script = require_once(__DIR__ . '/../../assets/dist/app.asset.php');
+		
+		wp_enqueue_script( 
+			'blueprint', 
+			get_template_directory_uri() . '/assets/dist/app.js',
+			$script['dependencies'],
+			$script['version']
+		);
 
-        
-    }
+		wp_enqueue_script( 
+			'alpine', 
+			'https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js',
+			[],
+			false
+		);
+	}
 
-    private static function addStyles($styles) {
-        if(!$styles) {
-            return;
-        }
-        add_action('wp_print_styles', function() use (&$styles) {
-            foreach($styles as $style) {
-                wp_enqueue_style( 
-                    $style['handle'], 
-                    $style['url'], 
-                    isset($style['dependencies']) ? $style['dependencies'] : "", 
-                    isset($style['version']) ? $style['version'] : false, 
-                    isset($style['media']) ? $style['media'] : "all", 
-                );
-            }
-        });
+    public function enqueue_admin_scripts() {
+		$admin_script = require_once(__DIR__ . '/../../assets/dist/admin.asset.php');
+		
+		wp_enqueue_script( 
+			'blueprint-admin', 
+			get_template_directory_uri() . '/assets/dist/admin.js',
+			$admin_script['dependencies'],
+			$admin_script['version']
+		);
 
-    }
-
-    private static function adminScripts($scripts) {
-        add_action('admin_enqueue_scripts', function() use (&$scripts) {
-            foreach($scripts as $script) {
-                wp_enqueue_script( 
-                    $script['handle'], 
-                    $script['url'], 
-                    isset($style['dependencies']) ? $style['dependencies'] : "",  
-                    isset($style['version']) ? $style['version'] : false, 
-                    isset($style['in_footer']) ? $style['in_footer'] : false, 
-                );
-            }
-        });
-    }
-
-    private static function adminStyles($styles) {
-        add_action('admin_head', function() use (&$styles) {
-            foreach($styles as $style) {
-                wp_enqueue_style( 
-                    $style['handle'], 
-                    $style['url'], 
-                    isset($style['dependencies']) ? $style['dependencies'] : "", 
-                    isset($style['version']) ? $style['version'] : false, 
-                    isset($style['media']) ? $style['media'] : "all", 
-                );
-            }
-        });
-
-    }
-
-    private static function removeScripts($scripts) {
-        add_action('wp_footer', function() use (&$scripts) {
-            foreach($scripts as $script) {
-                wp_dequeue_script( $script );
-            }
-        });
-    }
-
-    private static function removeStyles($styles) {
-        add_action('em_enqueue_styles', function() use (&$styles) {
-            foreach($styles as $style) {
-                wp_dequeue_style($style);
-                wp_deregister_style( $style );
-            }
-        });
+		wp_enqueue_style('blueprint-admin-style', get_template_directory_uri() . '/assets/dist/admin.css', [], $admin_script['version']);
+		wp_set_script_translations( 'blueprint-admin', 'blueprint', plugin_dir_path( __FILE__ ) . '../../lang' );
     }
 
 }
