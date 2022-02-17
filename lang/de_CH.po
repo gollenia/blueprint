@@ -191,6 +191,13 @@ msgstr "Beschriftung des 'Speichern'-Buttons"
 msgid "Save settings"
 msgstr "Auswahl speichern"
 
+
+msgid "Delete link"
+msgstr "Link entfernen"
+
+msgid "Add link"
+msgstr "Link hinzufügen"
+
 msgid "Accept all"
 msgstr "Alle akzeptieren"
 

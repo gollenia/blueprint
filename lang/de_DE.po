@@ -189,6 +189,9 @@ msgstr "Link"
 msgid "Add link"
 msgstr "Link hinzufügen"
 
+msgid "Delete link"
+msgstr "Link entfernen"
+
 msgid "Header Image"
 msgstr "Bildausrichtung"
 
