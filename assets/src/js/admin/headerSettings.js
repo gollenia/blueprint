@@ -41,7 +41,7 @@ const headerSettings = () => {
 		});
 	}, [headerData]);
 
-	if(!headerData) return;
+	if(!headerData) return (<></>);
 
 	return (
 		<PluginDocumentSettingPanel
