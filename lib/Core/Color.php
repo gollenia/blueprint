@@ -89,6 +89,10 @@ class Color {
         }
     }
 
+	public static function get_base_color($slug) {
+		return get_theme_mod('ctx_' . $slug . '_color');
+	}
+
     public static function get_background_color() {
         $color = get_background_color() ?: false;
         if($color) {

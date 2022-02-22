@@ -17,10 +17,12 @@
         {% endfor %}
     }
 
-    {% for slug, colorset in colors %}
+    {% for slug, colorset in colors.get(true) %}
         .has-{{slug}}-background { background-color: {{colorset.color}}; }  
         .has-{{slug}}-color { color: {{colorset.color}}; }  
     {% endfor %}
+
+	
     
 </style>
 

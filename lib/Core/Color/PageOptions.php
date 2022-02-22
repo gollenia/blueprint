@@ -10,8 +10,8 @@ class PageOptions {
     public static function register($colors) {
         $instance = new self;
         $instance->colors = $colors;
+		add_action('init', array($instance, 'register_meta') );
         add_filter( 'ctx_page_colors', array($instance, 'get_page_colors'), 1, 2 );
-        
     }
 
 	/**
@@ -21,8 +21,8 @@ class PageOptions {
 	 * @return void
 	 */
 	public static function register_meta() {
-		foreach (['post', 'page', 'event'] as $type) {
-			register_post_meta( $type, 'page_colors', [
+		
+			register_post_meta( '', 'page_colors', [
 				'type' => 'object',
 				'show_in_rest' => ['schema' => [
 					'type'  => 'object',
@@ -36,7 +36,7 @@ class PageOptions {
 					return current_user_can( 'edit_posts' );
 				}
 			]);
-		}
+		
     }
 
 	/**
@@ -56,16 +56,20 @@ class PageOptions {
 
         $color_meta = get_post_meta( $post->ID, 'page_colors', true );
 
+		$colors['primary-page']['color'] = $colors['primary']['color'];
+		$colors['secondary-page']['color'] = $colors['secondary']['color'];
+
         if(isset($color_meta['primary_color'])) {
-            $colors['primary']['color'] = $color_meta['primary_color'];
-            $colors['primary']['light'] = \Contexis\Core\Color::get_brightness($colors['primary']['color']);
+            $colors['primary-page']['color'] = $color_meta['primary_color'];
         }
         
         if(isset($color_meta['secondary_color'])) {
-            $colors['secondary']['color'] = $color_meta['secondary_color'];
-            $colors['secondary']['light'] = \Contexis\Core\Color::get_brightness($colors['secondary']['color']);
+            $colors['secondary-page']['color'] = $color_meta['secondary_color'];
         }
 
+		$colors['primary-page']['light'] = \Contexis\Core\Color::get_brightness($colors['primary-page']['color']);
+		$colors['secondary-page']['light'] = \Contexis\Core\Color::get_brightness($colors['primary-page']['color']);
+		
         return $colors;
     }
 }
