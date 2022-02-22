@@ -17,6 +17,7 @@ return [
     'disable-custom-colors' => [],
     'wp-block-styles' => [],
     'responsive-embeds' => [],
+	"custom-fields",
     'editor-styles' => [],
     'custom-background' => [],
     'align-wide' => [],
