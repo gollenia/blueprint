@@ -18,11 +18,11 @@
 return [
     "Error" => is_404(),                      // Seite existiert nicht - könnte in den normalen Controller übergehen
 
-    "Events" => get_option("dbem_cp_events_slug") ? is_page(get_option("dbem_cp_events_slug")) : false,          // Wird ausgegliedert
+    //"Events" => get_option("dbem_cp_events_slug") ? is_page(get_option("dbem_cp_events_slug")) : false,          // Wird ausgegliedert
 
     "Post" => is_single(),
 
-    "Categories" => is_category()  ,       // Kategorie oder Tag
+    //"Categories" => is_category()  ,       // Kategorie oder Tag
 
     //"Frontpage" => is_front_page(),                    // Es handelt sich um eine normale Seite
 
