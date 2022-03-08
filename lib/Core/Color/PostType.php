@@ -9,21 +9,32 @@ namespace Contexis\Core\Color;
 
 class PostType {
 
-    public $colors = [];
-
-    public static function register($colors) {
+    public static function register() {
         $instance = new self;
-        $instance->colors = $colors;
+		add_action('admin_menu', [ $instance, 'add_settings_menu' ], 9);    
         add_action( 'init', array($instance, 'register_color_post_type') );
         add_action( 'add_meta_boxes', array($instance, 'add_meta_boxes') );
         add_action( 'save_post', array($instance, 'save'), 1, 2 );
         add_filter( 'manage_ctx-color-palette_posts_columns', array($instance, 'set_custom_columns') );
         add_action( 'manage_ctx-color-palette_posts_custom_column' , array($instance, 'custom_column'), 10, 2 );
         add_filter( 'ctx_custom_colors', [$instance, 'insert_colors']);
-        
         add_action( 'edit_form_advanced', [$instance, 'add_back_button'] );
     }
+
+	/**
+	 * Callback for admin_menuj to add menu entry
+	 *
+	 * @return void
+	 */
+	public function add_settings_menu(){
+        add_submenu_page('themes.php', __('Custom Colors', 'ctx-theme'), __('Custom Colors', 'ctx-theme'), 'manage_options', 'edit.php?post_type=ctx-color-palette');
+	}
  
+	/**
+	 * Callback for init to register custom post type
+	 *
+	 * @return void
+	 */
 	public function register_color_post_type(){
 		$args = [
 			'hierarchical' 		  => false,
@@ -56,12 +67,15 @@ class PostType {
 			]
 		];
 
-		register_post_type( 'ctx-color-palette', $args );
-
-                
+		register_post_type( 'ctx-color-palette', $args );   
         
     }
 
+	/**
+	 * Callback for add_meta_boxes. This may be replaced by blocks in the future.
+	 *
+	 * @return void
+	 */
 	public function add_meta_boxes() {
         add_meta_box(
                 'color_settings',
@@ -72,6 +86,11 @@ class PostType {
             ); 
     }
 
+	/**
+	 * Callback for metabox. This may be replaced by blocks in the future.
+	 *
+	 * @return void
+	 */
     public function metabox_callback() {
         global $post;
         
@@ -117,7 +136,14 @@ class PostType {
         <?php
     }
 
-    public function save( $post_id, $post ) {
+	/**
+	 * Callback for save action. Add metadata to ctx-color-palette post type
+	 *
+	 * @param int $post_id
+	 * @param WP_Post $post
+	 * @return void
+	 */
+    public function save( int $post_id, \WP_Post $post ) {
 
         if($post->post_type != "ctx-color-palette" || ! current_user_can( 'edit_post', $post_id )) {
             return $post_id;
@@ -131,8 +157,9 @@ class PostType {
     
         $color_meta['color'] = sanitize_text_field( $_POST['color'] );
         $color_meta['brightness'] = sanitize_text_field( $_POST['brightness'] );
+		$color_meta['computed_brightness'] = false;
         if($color_meta['brightness'] == 'auto') {
-            $color_meta['computed_brightness'] = \Contexis\Core\Color::get_brightness($color_meta['color']);
+            $color_meta['computed_brightness'] = \Contexis\Core\Color::get_brightness($color_meta['color']) ? 'light' : 'dark';
         } 
     
         foreach ( $color_meta as $key => $value ) {    
@@ -151,28 +178,64 @@ class PostType {
     
     }
     
-    public function set_custom_columns($columns) {
+	/**
+	 * Callback function for manage_ctx-color-palette_posts_columns hook
+	 *
+	 * @param array $columns
+	 * @return array
+	 */
+    public function set_custom_columns(array $columns) : array {
         $columns['slug'] = __( 'Slug', 'ctx-theme' );
+		$columns['brightness'] = __( 'Brightness', 'ctx-theme' );
         $columns['color'] = __( 'Color', 'ctx-theme' );
         unset($columns['date']);
         return $columns;
     }
 
 
-
-    public function custom_column( $column, $post_id ) {
-        if($column == "color") {
-            $color = get_post_meta( $post_id , 'color' , true );
-            $computed = get_post_meta( $post_id , 'computed_brightness' , true );
-            $brightness = $computed ? $computed : get_post_meta( $post_id , 'brightness' , true );
-            $foreground = $brightness == "dark" ? '#ffffff' : "#000000";
-            echo "<div class='ctx-color-badge' style='height: 24px; width: 120px; background-color: " . $color . "; color: " . $foreground . "'><span>" . $color . "</span></div>";
-        }
-        if($column == "slug") {
-            global $post;
-            echo $post->post_name;
-        }
+	/**
+	 * Callback function for manage_ctx-color-palette_posts_custom_column hook
+	 *
+	 * @param string $column
+	 * @param int $post_id
+	 * @return void
+	 */
+    public function custom_column( string $column, int $post_id ) {
+		switch ($column) {
+			case "color":
+				$color = get_post_meta( $post_id , 'color' , true );
+				$foreground = $this->get_brightness($post_id) == "dark" ? '#ffffff' : "#000000";
+				echo "<div class='ctx-color-badge' style='height: 24px; width: 120px; background-color: " . $color . "; color: " . $foreground . "'><span>" . $color . "</span></div>";
+				break;
+			case "slug":
+				global $post;
+				echo $post->post_name;
+				break;
+			case "brightness":
+				global $post;
+				echo __(ucfirst(get_post_meta( $post_id, 'brightness', true)), 'ctx-theme'); 
+				break;
+		}
     }
+
+	/**
+	 * Get the brightness of a color.
+	 *
+	 * @param integer $post_id
+	 * @return string 'dark' or 'light'
+	 */
+	public function get_brightness(int $post_id) : string {
+
+		$computed = get_post_meta( $post_id , 'computed_brightness' , true );
+		$brightness = get_post_meta( $post_id , 'brightness' , true );
+
+		if($brightness == "auto" && preg_match('/(dark|light)/i', $computed) ) return $computed;
+
+		if(preg_match('/(dark|light)/i', $brightness)) return $brightness;
+
+		$color = get_post_meta( $post_id , 'color' , true );
+		return \Contexis\Core\Color::get_brightness($color) ? 'light' : 'dark';
+	}
 
     public function add_back_button( $post ) {
         if( $post->post_type == 'ctx-color-palette' )
@@ -181,9 +244,7 @@ class PostType {
 
     public function verify_slug($data) {
         
-        if($data->post_type != "ctx-color-palette") {
-            return $data;
-        }
+        if($data->post_type != "ctx-color-palette") return $data;
 
         if(array_key_exists($data['post_name'], \Contexis\Core\Color::$default_colors)) {
             add_action( 'admin_notices', [$this, 'slug_admin_notice__error'] );
@@ -193,9 +254,13 @@ class PostType {
         return $data;
     }
 
-    
-
-    public function insert_colors($colors) {
+	/**
+	 * Callback function to insert the custom colors into the theme-color array.
+	 *
+	 * @param array $colors
+	 * @return array
+	 */
+    public function insert_colors(array $colors) : array {
         $args = [
             'post_type' => 'ctx-color-palette',
 			'posts_per_page' => -1
@@ -207,16 +272,15 @@ class PostType {
         foreach ($color_posts as $color) {
             
             $color_value = get_post_meta($color->ID, 'color', true);
-            $brightness = get_post_meta($color->ID, 'brightness', true);
-            
-            $brightness = $brightness == "auto" ? \Contexis\Core\Color::get_brightness($color_value) : $brightness;
+
             $colors[$color->post_name] = [
                     "color" => $color_value,
-                    "light" => $brightness,
+                    "light" => $this->get_brightness($color->ID) == 'light',
                     "name" => $color->post_title,
                     "slug" => $color->post_name
             ];
         }
+		
         return $colors;
     }
 
