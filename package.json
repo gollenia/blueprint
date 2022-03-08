@@ -27,13 +27,13 @@
   },
   "homepage": "https://github.com/gollenia/blueprint#readme",
   "devDependencies": {
-    "@wordpress/eslint-plugin": "^9.3.0",
-    "@wordpress/prettier-config": "^1.1.1",
-    "@wordpress/scripts": "^19.2.2",
-    "eslint": "^7.32.0"
+    "@wordpress/eslint-plugin": "^10.0.2",
+    "@wordpress/prettier-config": "^1.1.2",
+    "@wordpress/scripts": "^22.1.0",
+    "eslint": "^8.10.0"
   },
   "dependencies": {
-    "@wordpress/edit-post": "^6.0.0",
-    "@wordpress/plugins": "^4.1.1"
+    "@wordpress/edit-post": "^6.0.2",
+    "@wordpress/plugins": "^4.1.3"
   }
 }
