@@ -28,12 +28,6 @@ Class Assets {
 			$script['version']
 		);
 
-		wp_enqueue_script( 
-			'alpine', 
-			'https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js',
-			[],
-			false
-		);
 	}
 
     public function enqueue_admin_scripts() {
