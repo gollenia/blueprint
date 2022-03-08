@@ -94,7 +94,7 @@ class Functions {
 	}
 
 	private static function add_theme_colors() {
-		\Contexis\Core\Color\AdminOptions::register();
+		//\Contexis\Core\Color\AdminOptions::register();
 		
         $colors = \Contexis\Core\Color::register();
 
