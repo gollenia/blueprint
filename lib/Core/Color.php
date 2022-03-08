@@ -14,7 +14,8 @@ use OzdemirBurak\Iris\Color\Hex;
 class Color {
 
     /**
-     * Default color array with fallback colors to be overwritten PageOptions or AdminOptions
+     * We have to make sure, that a basic set of colors exist.
+	 * Default color array with fallback colors to be overwritten by PageOptions
      *
      * @var array $default_colors
      */
@@ -40,7 +41,7 @@ class Color {
     public static function register() {
         $instance = new self;
         add_action( 'customize_register', [$instance, 'add_color_settings'] ); 
-        \Contexis\Core\Color\PostType::register($instance->colors);
+        \Contexis\Core\Color\PostType::register();
         $instance->colors = apply_filters('ctx_custom_colors', iterator_to_array(self::get_base_colors()));
         \Contexis\Core\Color\PageOptions::register($instance->colors);
 		
@@ -160,13 +161,10 @@ class Color {
         if(!preg_match('/#(?:[0-9a-fA-F]{6})/', $hex)) {
             return false;
         }
-
-        $red = hexdec(substr($hex, 1, 2));
+		
         $redbase = hexdec("1" . substr($hex, 2, 1));
-        $green = hexdec(substr($hex, 3, 2));
-        $blue =  hexdec(substr($hex, 5, 2));
-        $green_diff = $red - $green;
-        $blue_diff = $red - $blue;
+        $green_diff = hexdec(substr($hex, 1, 2)) - hexdec(substr($hex, 3, 2));
+        $blue_diff = hexdec(substr($hex, 1, 2)) - hexdec(substr($hex, 5, 2));
         $greenbase = $redbase - $green_diff;
         $bluebase = $redbase  - $blue_diff;
         $base_gray = '#' . str_pad(dechex($redbase), 2, "0", STR_PAD_LEFT) . str_pad(dechex($greenbase), 2, "0", STR_PAD_LEFT) . str_pad(dechex($bluebase), 2, "0", STR_PAD_LEFT);
