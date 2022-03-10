@@ -7,10 +7,22 @@ const validateInput = (args) => {
 	const conf = {
 		events: ['focusout', 'change'],
 		errorClass: 'error',
+		notEmptyClass: 'filled',
 		...args,
 	};
 
+	const checkIfEmpty = (event) => {
+		if (event.target.value == null || event.target.value == "") {
+			event.target.parentElement.classList.remove(conf.notEmptyClass);
+			return
+		}
+		event.target.parentElement.classList.add(conf.notEmptyClass);
+	}
+
 	const addErrorListener = (event) => {
+		
+		checkIfEmpty(event);
+
 		if (!event.target.required) return;
 		const errorMessage =
 			event.target.parentElement.querySelector('.error-message');
