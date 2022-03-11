@@ -26,6 +26,8 @@ class Cookies {
     }
 
 	public function set_consent() {
+		setcookie(self::$cookie_ok, "true", time()+31556926, '/', $_SERVER['HTTP_HOST']);
+
 		if(!isset($_REQUEST['all'])) wp_die();
 		
 		if($_REQUEST['all'] == 1) {
@@ -39,7 +41,6 @@ class Cookies {
 			echo "notall";
 		}
 
-		setcookie(self::$cookie_ok, "true", time()+31556926, '/', $_SERVER['HTTP_HOST']);
 		echo "OK";
 		wp_die();
 	}
