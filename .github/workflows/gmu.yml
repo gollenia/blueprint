@@ -1,6 +1,6 @@
 # This workflow runs composer and deploys the theme on a server
 
-name: Deploy on netcup-Server
+name: Deploy on GMU Server
 
 on:
   workflow_dispatch
@@ -18,7 +18,7 @@ jobs:
       with:
         switches: -avzr --delete --exclude .git --exclude .github --exclude assets/src --exclude package.json --exclude package-lock.json --exclude .gitignore --exclude .eslintrc.js --exclude .eslintignore --exclude readme.md --exclude .prettierrc --exclude DOCKER_ENV --exclude docker_tag --exclude output.log
         path: /
-        remote_path: ${{ secrets.NETCUP_PATH }}
-        remote_host: ${{ secrets.NETCUP_SERVER }}
-        remote_user: ${{ secrets.NETCUP_USER }}
-        remote_key: ${{ secrets.NETCUP_KEY }}
+        remote_path: ${{ secrets.GMU_PATH }}
+        remote_host: ${{ secrets.GMU_SERVER }}
+        remote_user: ${{ secrets.GMU_USER }}
+        remote_key: ${{ secrets.GMU_KEY }}
