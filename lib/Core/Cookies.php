@@ -200,6 +200,7 @@ class Cookies {
 		$blocks = explode( "\n", $blocks_to_remove );
 
 		foreach ($blocks as $blockname) {
+			if($blockname == '') break;
 			if( str_contains($block['blockName'], $blockname)) {
 				$block_content = '';
 			}
