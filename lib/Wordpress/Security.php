@@ -48,7 +48,7 @@ Class Security {
                     is_trackback(),
                     is_embed(),
                 ) ) ) {
-                wp_die( __( "NO SOUP FOR YOU!" ) );
+                wp_die( __( "Forbidden" ) );
             }
         } );
     }
@@ -85,7 +85,6 @@ Class Security {
                 wp_mail( get_bloginfo('admin_email'), __( 'Too many login attempts by user ', "ctx-theme" ) . $username, __( 'There have been more than five wrong login attempts. Maybe this is interesting for you.', "ctx-theme" ));
                 die();    
             }
-            var_dump($datas);
         }
         return $user;
     }
