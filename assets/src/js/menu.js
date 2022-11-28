@@ -49,12 +49,13 @@ function menuDropdown(itemClass, args) {
  * @param {Object} args
  */
 function menuDrawer(hamburgerId, args) {
-	let hamburger = document.getElementById("hamburger");
+	let hamburgers = document.getElementsByClassName('hamburger');
 
-	console.log(hamburgerId)
-	console.log(hamburger)
+	console.log(hamburgerId);
 
-	if (!hamburger) return;
+	if (!hamburgers.length) return;
+
+	let hamburger = hamburgers[0];
 
 	const target = hamburger.getAttribute('data-target');
 

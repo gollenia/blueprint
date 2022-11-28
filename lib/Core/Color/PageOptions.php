@@ -10,7 +10,7 @@ class PageOptions {
     public static function register($colors) {
         $instance = new self;
         $instance->colors = $colors;
-		add_action('init', array($instance, 'register_meta') );
+		add_action('rest_api_init', array($instance, 'register_meta') );
         add_filter( 'ctx_page_colors', array($instance, 'get_page_colors'), 1, 2 );
     }
 
@@ -22,7 +22,7 @@ class PageOptions {
 	 */
 	public static function register_meta() {
 		
-			register_post_meta( '', 'page_colors', [
+			register_meta( 'post', 'page_colors', [
 				'type' => 'object',
 				'show_in_rest' => ['schema' => [
 					'type'  => 'object',

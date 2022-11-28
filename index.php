@@ -9,7 +9,7 @@
 // either set choose config files manually or scan whole directory
 // $config_array = ["site", "theme_support", "fields", "mimes", "assets", "routes", "widgets"];
 
-
+/*
 $route = new \Contexis\Core\Router(\Contexis\Core\Config::load('routes'));
 
 $controller = 'Contexis\\Controllers\\' . $route->get();
@@ -22,3 +22,4 @@ else {
     echo "No Controller found";
 }
 
+*/

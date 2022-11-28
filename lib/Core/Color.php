@@ -8,9 +8,6 @@
 
 namespace Contexis\Core;
 
-// @TODO Replace this with own functions for less dependencies
-use OzdemirBurak\Iris\Color\Hex;
-
 class Color {
 
     /**
@@ -44,9 +41,44 @@ class Color {
         \Contexis\Core\Color\PostType::register();
         $instance->colors = apply_filters('ctx_custom_colors', iterator_to_array(self::get_base_colors()));
         \Contexis\Core\Color\PageOptions::register($instance->colors);
-		
+		add_action('wp_head', [$instance, 'add_color_css']);
         return $instance;
     }
+
+	/**
+	 * Add color settings to the page Head.
+	 * 
+	 * @return void
+	 */
+	function add_color_css() {
+		$colors = self::get(true);
+		
+		echo "<style>:root {";
+		foreach ($colors as $key => $value) {
+			echo "--{$key}: {$value['color']};";
+			echo "--{$key}-transparent: {$value['color']}aa;";
+			echo "--{$key}-contrast: " . ($value['light'] ? "var(--black)" : "var(--white)") . ";";
+			echo "--{$key}-dark: " . self::adjust_brightness($value['color'], -.4) . ";";
+			echo "--{$key}-light: " . self::adjust_brightness($value['color'], .4) . ";";
+			echo "--{$key}-light-transparent: {$value['color']};";
+		}
+
+		
+		echo "}";
+
+		foreach ($colors as $key => $value) {
+			echo "has-{$key}-background: { background: {$value['color']};}";
+			echo "has-{$key}-text: { color: {$value['color']};}";
+		}
+
+		echo "</style>";
+		if(key_exists('primary-page', $colors)) {
+			echo "<meta name='theme-color' content='{$colors['primary-page']['color']}'>";
+		}
+		
+
+	}
+	
 
 
     /**
@@ -89,28 +121,6 @@ class Color {
             ]);
         }
     }
-
-	public static function get_base_color($slug) {
-		return get_theme_mod('ctx_' . $slug . '_color');
-	}
-
-    public static function get_background_color() {
-        $color = get_background_color() ?: false;
-        if($color) {
-            $color = [
-            "color" => $color,
-            "slug" => "background",
-            "name" => __('Background', 'ctx-theme'),
-            "light" => self::get_brightness($color)
-            ];
-        }
-        return $color;
-    }
-
-    public static function get_page_colors() {
-        
-    }
-
  
     /**
      * Return an array with all our colors
@@ -130,23 +140,7 @@ class Color {
         return $colors;
     }
 
-    /**
-     * Calculate the brightness of a color based on a threshold
-     *
-     * @param string $hex
-     * @return bool true for bright, false for dark
-     */
-    public static function get_brightness($hex, $threshold = 170) { 
-        if(!preg_match('/#(?:[0-9a-fA-F]{6})/', $hex)) {
-            return false;
-        }
-        $hex = str_replace('#', '', $hex); 
-        $c_r = hexdec(substr($hex, 0, 2)); 
-        $c_g = hexdec(substr($hex, 2, 2)); 
-        $c_b = hexdec(substr($hex, 4, 2)); 
-        
-        return intval((($c_r * 299) + ($c_g * 587) + ($c_b * 114)) / 1000) > $threshold;
-    }
+    
 
     /**
      * Generate a grayscale
@@ -183,8 +177,33 @@ class Color {
         return $grayscale;
     }
 
+	/**
+     * Decide if a color is more dark or more light, e.g. to select a fitting contrast
+     *
+     * @param string $color hexadecimal color value
+	 * @param string $threshold adjust the threshold value when a color should e treated as bright
+     * @return bool true for bright, false for dark
+     */
+    public static function get_brightness($color, $threshold = 170) { 
+        if(!preg_match('/#(?:[0-9a-fA-F]{6})/', $color)) {
+            return false;
+        }
+        $color = str_replace('#', '', $color); 
+        $red = hexdec(substr($color, 0, 2)); 
+        $green = hexdec(substr($color, 2, 2)); 
+        $blue = hexdec(substr($color, 4, 2)); 
+        
+        return intval((($red * 299) + ($green * 587) + ($blue * 114)) / 1000) > $threshold;
+    }
 
-    public static function adjust_brightness($hexCode, $adjustPercent) {
+	/**
+	 * brighten or darken a hexadecimal color (add white or black)
+	 *
+	 * @param string $hexCode
+	 * @param float $factor from -1 to 1
+	 * @return string hexadecimal color code
+	 */
+    public static function adjust_brightness($hexCode, $factor) {
         $hexCode = ltrim($hexCode, '#');
     
         if (strlen($hexCode) == 3) {
@@ -194,8 +213,8 @@ class Color {
         $hexCode = array_map('hexdec', str_split($hexCode, 2));
     
         foreach ($hexCode as & $color) {
-            $adjustableLimit = $adjustPercent < 0 ? $color : 255 - $color;
-            $adjustAmount = ceil($adjustableLimit * $adjustPercent);
+            $adjustableLimit = $factor < 0 ? $color : 255 - $color;
+            $adjustAmount = ceil($adjustableLimit * $factor);
     
             $color = str_pad(dechex($color + $adjustAmount), 2, '0', STR_PAD_LEFT);
         }
@@ -203,51 +222,9 @@ class Color {
         return '#' . implode($hexCode);
     }
 
-    /**
-     * Add twig filters for tinting colors
-     *
-     * @param \Twig\Twig $twig
-     * @return \Twig\Twig
-     */
-    public static function add_twig_filter($twig)
-    {
-        $twig->addFilter( new \Twig\TwigFilter( 'darken', function( $color, $percent ) {
-            if(!$color) {return;}
-            $hex = new Hex($color);
-            return $hex->darken($percent);
-        } ) );
-        $twig->addFilter( new \Twig\TwigFilter( 'lighten', function( $color, $percent ) {
-            if(!$color) {return;}
-            $hex = new Hex($color);
-            return $hex->lighten($percent);
-        } ) );
-        $twig->addFilter( new \Twig\TwigFilter( 'tint', function( $color, $percent ) {
-            if(!$color) {return;}
-            $hex = new Hex($color);
-            return $hex->tint($percent);
-        } ) );
-        $twig->addFilter( new \Twig\TwigFilter( 'shade', function( $color, $percent ) {
-            if(!$color) {return;}
-            $hex = new Hex($color);
-            return $hex->shade($percent);
-        } ) );
-        $twig->addFunction( new \Twig\TwigFunction( 'editor-color-palette', function( $slug ) {
-            $color = [];
-            $colors = get_theme_support('editor-color-palette');
-            //var_dump($colors);
-            foreach ($colors[0] as $set) {
-                //var_dump($set);
-                if($set['slug'] === $slug) {
-                    $color = $set;
-                    break;
-                }
-            }
+	
 
-        return $color;
-        } ) );
-
-        return $twig;
-    }
+   
 
 
 }

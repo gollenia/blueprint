@@ -7,22 +7,19 @@
  * @link https://developer.wordpress.org/reference/functions/add_theme_support/
  * 
  * @return array Taxonomies
-*/
+ */
 
 return [
-    "menus" => [],
-    "post-thumbnails" => [],
-    "title-tag" => [],
-    'disable-custom-font-sizes' => [],
-    'disable-custom-colors' => [],
-    'wp-block-styles' => [],
-    'responsive-embeds' => [],
+	"menus" => [],
+	"post-thumbnails" => [],
+	"title-tag" => [],
+	'wp-block-styles' => [],
+	'responsive-embeds' => [],
 	"custom-fields",
-    'editor-styles' => [],
-    'custom-background' => [],
-    'align-wide' => [],
-    "automatic-feed-links" => [],
-    "custom-logo" => [],
-    "html5"=> ['comment-form', 'comment-list', 'gallery', 'caption'],
-    "post-formats"=> ['aside', 'image', 'video', 'quote', 'link', 'gallery', 'audio']
+	'editor-styles' => [],
+	'custom-background' => [],
+	"automatic-feed-links" => [],
+	"custom-logo" => [],
+	"html5" => ['comment-form', 'comment-list', 'gallery', 'caption'],
+	"post-formats" => ['aside', 'image', 'video', 'quote', 'link', 'gallery', 'audio']
 ];
