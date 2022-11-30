@@ -1,8 +1,0 @@
-{% if breadcrumbs %}
-<div class="breadcrumbs">
-    <a href="/" class="breadcrumbs__item">{{ __("Home", "ctx-theme") }}</a>
-    {% for item in breadcrumbs %}
-        <a class="breadcrumbs__item {{ loop.last ? "breadcrumbs__item--last" }}" href="{{item.url}}">{{item.title}}</a>
-    {% endfor %}
-</div>
-{% endif %}

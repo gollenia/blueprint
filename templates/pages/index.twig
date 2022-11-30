@@ -1,8 +1,0 @@
-{% extends "master.twig" %}
-
-{% block content %}
-{% include "partials/header.twig" with {'post': post, 'headerimage': true} %}
-    <article>
-        {{ function( 'apply_filters', 'the_content', post.content ) }}
-    </article>
-{% endblock %}

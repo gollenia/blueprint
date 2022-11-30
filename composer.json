@@ -1,47 +1,46 @@
 {
-    "name": "contexis/kids-team",
-    "version": "1.7.0",
-    "description": "Wordpress Theme for kids-team Europe",
-    "type": "project",
-    "homepage": "http://www.kids-team.at",
-    "readme": "readme.md",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Thomas Gollenia",
-            "email": "thomas@gollenia.at",
-            "homepage": "http://www.gollenia.at",
-            "role": "Developer"
-        },
-        {
-            "name": "Laura Emeder",
-            "email": "laura@kids-team.at",
-            "role": "Designer"
-        },
-        {
-            "name": "Matthias Demmin",
-            "email": "matthias@kids-team.at",
-            "role": "Manager"
-        }
-    ],
-    "config": {
-        "platform":{
-            "php":"7.4"
-        }
-    },
-    "require": {
-        "timber/timber": "^2.0.0-alpha.2",
-        "ozdemirburak/iris": "^2.2"
-    },
-    "autoload": {
-        "psr-4": {
-              "Contexis\\Core\\": "lib/Core",
-              "Contexis\\Core\\Color\\": "lib/Core/Color",
-              "Contexis\\Wordpress\\": "lib/Wordpress",
-              "Contexis\\Wordpress\\Shortcodes\\": "lib/Wordpress/Shortcodes",
-              "Contexis\\Wordpress\\Plugins\\": "lib/Wordpress/Plugins",
-              "Contexis\\Wordpress\\Customizer\\": "lib/Wordpress/Customizer",
-              "Contexis\\Controllers\\": "lib/Controllers"
-        }
-    }
+	"name": "contexis/kids-team",
+	"version": "2.0.0",
+	"description": "Wordpress Theme for kids-team Europe",
+	"type": "project",
+	"homepage": "http://www.kids-team.at",
+	"readme": "readme.md",
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Thomas Gollenia",
+			"email": "thomas@gollenia.at",
+			"homepage": "http://www.gollenia.at",
+			"role": "Developer"
+		},
+		{
+			"name": "Laura Emeder",
+			"email": "laura@kids-team.at",
+			"role": "Designer"
+		},
+		{
+			"name": "Matthias Demmin",
+			"email": "matthias@kids-team.at",
+			"role": "Manager"
+		}
+	],
+	"config": {
+		"platform": {
+			"php": "7.4"
+		},
+		"allow-plugins": {
+			"composer/installers": true
+		}
+	},
+	"autoload": {
+		"psr-4": {
+			"Contexis\\Core\\": "lib/Core",
+			"Contexis\\Core\\Color\\": "lib/Core/Color",
+			"Contexis\\Wordpress\\": "lib/Wordpress",
+			"Contexis\\Wordpress\\Shortcodes\\": "lib/Wordpress/Shortcodes",
+			"Contexis\\Wordpress\\Plugins\\": "lib/Wordpress/Plugins",
+			"Contexis\\Wordpress\\Customizer\\": "lib/Wordpress/Customizer",
+			"Contexis\\Controllers\\": "lib/Controllers"
+		}
+	}
 }
