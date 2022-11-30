@@ -2,13 +2,10 @@
 
 namespace Contexis\Wordpress;
 
-use Timber\{
-    Term,
-    Timber
-};
-
 /**
  * Generates an Array with parent Pages
+ * Needs rewrite because Timbewr is missing
+ * Move to Bricks
  * 
  * @since 1.0.0
  */
@@ -22,14 +19,8 @@ Class Breadcrumbs {
 
         $instance = new static();
 
-        if(!array_key_exists('post', Timber::context())) {
-            return $instance->breadcrumbs;
-        }
-
-        $instance->post = Timber::context()['post'];
-
-        if(method_exists($instance, 'generate_' . $instance->post->post_type)) {
-            call_user_func([$instance, 'generate_' . $instance->post->post_type]);
+        if(method_exists($instance, 'generate_' . get_post_type())) {
+            call_user_func([$instance, 'generate_' . get_post_type()]);
         }
 
         if (!$add_current_page || is_front_page()) {
@@ -43,14 +34,6 @@ Class Breadcrumbs {
 
         return $instance->breadcrumbs;
     } 
-
-    static function get_terms($post) {
-        $term = $post->terms ? $post->terms[0] : false;
-        while($term->parent) {
-            $term = new Term($term->parent);
-            array_unshift($breadcrumbs, ["title" => $term->name,"url" => $term->slug]);
-        }
-    }
 
     function generate_event() {
         $this->breadcrumbs = [

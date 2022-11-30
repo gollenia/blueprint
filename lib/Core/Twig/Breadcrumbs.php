@@ -2,10 +2,6 @@
 
 namespace Contexis\Core\Twig;
 
-use Timber\{
-    Term,
-    Timber
-};
 
 /**
  * Generates an Array with parent Pages
@@ -18,7 +14,7 @@ Class Breadcrumbs {
 
     public static function init($twig) {
         
-        $twig->addFunction( new \Twig\TwigFunction( 'breadcrumbs', [__CLASS__,'get'] ) );
+        //$twig->addFunction( new \Twig\TwigFunction( 'breadcrumbs', [__CLASS__,'get'] ) );
         return $twig;
     }
 
