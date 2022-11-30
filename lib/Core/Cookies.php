@@ -210,20 +210,44 @@ class Cookies {
 	}
 
 	public function add_cookie_window() {
-		$args = [
-			'privacy_consent' => $this->get_consent(),
-			'privacy_consent_all' => $this->get_consent_all(),
-			'options' => [
-				'privacy_window_text' => get_option('privacy_window_text'),
-				'privacy_window_button_ok' => get_option('privacy_window_button_ok'),
-				'privacy_cookies_neccessary' => get_option('privacy_cookies_neccessary'),
-				'privacy_cookies_all' => get_option('privacy_cookies_all'),
-				'privacy_cookies_explanation' => get_option('privacy_cookies_explanation'),
-				'privacy_window_button_all' => get_option('privacy_window_button_all'),
-				'privacy_window_caption' => get_option('privacy_window_caption'),
-			]
-		];
-
-		\Timber\Timber::render( 'partials/cookies.twig', $args );
+		
+		?>
+		<div class="modal <?php echo $this->get_consent() ? "" : "modal--open" ?>" id="consentDialog">
+		<div class="modal__dialog">
+			<div class="modal__header">
+				<div class="modal__title">
+					<h2><?php echo get_option('privacy_window_caption') ?: __("Privacy consent", "ctx-theme") ?></h2>
+				</div>
+			</div>
+			<div class="modal__content">
+			<?php echo get_option('privacy_window_text'); ?>
+			<form class="form">
+			<div class="fieldset">
+				<div class="checkbox">
+					<label class="text-gray"><input type="checkbox" disabled checked><?php echo get_option('privacy_cookies_neccessary') ?: __("Only neccessary cookies", "ctx-theme") ?></label>
+				</div>
+				<div class="checkbox">
+				<label>
+					<input id="allCookiesCheck" type="checkbox" <?php echo $this->get_consent_all() ? "checked" : "" ?>>
+					<?php echo get_option('privacy_cookies_all') ?: __("Third party cookies", "ctx-theme") ?>
+				</label>
+				<p>
+					<?php get_option('privacy_cookies_explanation') ?>
+				</p>
+				</div>
+			</div>
+			</form>
+			</div>
+			
+			<div class="modal__footer modal__footer--seperator">
+				<div class="button-group button-group--right">
+				
+				<button id="consentPrivacy" class="button button--primary button--outline"><?php echo get_option('privacy_window_button_ok') ?: __("Save settings", "ctx-theme") ?></button>
+				<button id="consentAll" class="button button--primary button--outline"><?php echo get_option('privacy_window_button_all') ?: __("Accept all", "ctx-theme") ?></button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<?php
 	}
 }
