@@ -1,39 +1,39 @@
 {
-  "name": "blueprint",
-  "version": "1.7.0",
-  "description": "Base Wordpress-Theme without any CSS",
-  "main": "index.js",
-  "prettier": "@wordpress/prettier-config",
-  "directories": {
-    "lib": "lib"
-  },
-  "scripts": {
-    "start": "wp-scripts start assets/src/js/app.js assets/src/js/admin.js --output-path='./assets/dist'",
-    "build": "wp-scripts build assets/src/js/app.js assets/src/js/admin.js --output-path='./assets/dist'",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/gollenia/blueprint.git"
-  },
-  "keywords": [
-    "wordpress",
-    "theme"
-  ],
-  "author": "Thomas Gollenia",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/gollenia/blueprint/issues"
-  },
-  "homepage": "https://github.com/gollenia/blueprint#readme",
-  "devDependencies": {
-    "@wordpress/eslint-plugin": "^10.0.2",
-    "@wordpress/prettier-config": "^1.1.2",
-    "@wordpress/scripts": "^22.1.0",
-    "eslint": "^8.10.0"
-  },
-  "dependencies": {
-    "@wordpress/edit-post": "^6.0.2",
-    "@wordpress/plugins": "^4.1.3"
-  }
+	"name": "blueprint",
+	"version": "2.0.0",
+	"description": "Base Wordpress-Theme without any CSS",
+	"main": "index.js",
+	"prettier": "@wordpress/prettier-config",
+	"directories": {
+		"lib": "lib"
+	},
+	"scripts": {
+		"start": "wp-scripts start assets/src/js/app.js assets/src/js/admin.js --output-path='./assets/dist'",
+		"build": "wp-scripts build assets/src/js/app.js assets/src/js/admin.js --output-path='./assets/dist'",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/gollenia/blueprint.git"
+	},
+	"keywords": [
+		"wordpress",
+		"theme"
+	],
+	"author": "Thomas Gollenia",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/gollenia/blueprint/issues"
+	},
+	"homepage": "https://github.com/gollenia/blueprint#readme",
+	"devDependencies": {
+		"@wordpress/eslint-plugin": "^10.0.2",
+		"@wordpress/prettier-config": "^1.1.2",
+		"@wordpress/scripts": "^22.1.0",
+		"eslint": "^8.10.0"
+	},
+	"dependencies": {
+		"@wordpress/edit-post": "^6.0.2",
+		"@wordpress/plugins": "^4.1.3"
+	}
 }
