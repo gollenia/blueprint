@@ -11,7 +11,7 @@
  * @since 1.0
  * 
  * @todo remove this, as it sould be solved differently
- * 
+ * @deprecated 2.0
  * 
  */
 
