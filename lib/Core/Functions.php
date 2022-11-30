@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Child Class of the \Timber\Site Object. Collects data about the Page and sets up Wordpress
+ * 
  * functions such as Theme-Support, Widgets, Shortcodes, etc. 
  * 
  * @since 1.4.0
@@ -34,13 +34,11 @@ class Functions
 	{
 		Widgets::register(Config::load('widgets'));
 		Mime::register(Config::load('mimes'));
-		\Contexis\Core\TwigExtensions::register();
 		Post::register();
 		Assets::register();
 		Cookies::init();
 		self::add_wordpress_functions();
 		self::add_theme_colors();
-		self::add_timber_functions();
 		self::custom_functions();
 	}
 
@@ -67,7 +65,6 @@ class Functions
 	{
 		add_action('init', [__CLASS__, 'add_taxonomies_to_pages']);
 
-		add_filter('block_editor_settings_all', [__CLASS__, 'removeCorePatterns']);
 		load_theme_textdomain('ctx-theme', get_template_directory() . '/lang');
 		// remove automatic <p>-tags
 		remove_filter('the_content', 'wpautop');
@@ -89,42 +86,17 @@ class Functions
 		add_image_size("huge", 2560, 1800);
 	}
 
-	// remove Block patterns, which only generate errors in the console.
-	public static function removeCorePatterns(array $settings): array
-	{
-		$settings['__experimentalBlockPatterns'] = [];
-		return $settings;
-	}
 
 	private static function add_theme_colors()
 	{
-		//\Contexis\Core\Color\AdminOptions::register();
-
+		
 		$colors = \Contexis\Core\Color::register();
 
 		$theme_support = Config::load('theme_support');
-		add_filter('timber/context', function ($context) use (&$colors) {
-			$context['colors'] = $colors;
-			return $context;
-		});
-
-		$theme_support['editor-color-palette'] = array_values($colors->get(true));
+		$theme_support['editor-color-palette'] = array_values($colors->get_editor_colors(true));
 		ThemeSupport::register($theme_support);
 	}
 
-
-
-
-	/**
-	 * Calls all Timber related functions
-	 * 
-	 * @since 1.0.0
-	 */
-	private static function add_timber_functions()
-	{
-		\Timber\Timber::$dirname = "templates";
-		//add_filter( 'timber/twig', "\Contexis\Core\Color::add_twig_filter" );
-	}
 
 	/**
 	 * Call custom functions for plugins etc.
