@@ -3,10 +3,12 @@
  * Color Management Class
  * 
  * @since 1.6.0
- * @link https://github.com/ozdemirburak/iris
  */
 
 namespace Contexis\Core;
+
+use Contexis\Core\Color\PageOptions;
+use Contexis\Core\Color\PostType;
 
 class Color {
 
@@ -42,6 +44,7 @@ class Color {
         $instance->colors = apply_filters('ctx_custom_colors', iterator_to_array(self::get_base_colors()));
         \Contexis\Core\Color\PageOptions::register($instance->colors);
 		add_action('wp_head', [$instance, 'add_color_css']);
+		add_action('admin_head', [$instance, 'add_admin_css']);
         return $instance;
     }
 
@@ -63,19 +66,21 @@ class Color {
 			echo "--{$key}-light-transparent: {$value['color']};";
 		}
 
-		
 		echo "}";
 
-		foreach ($colors as $key => $value) {
-			echo "has-{$key}-background: { background: {$value['color']};}";
-			echo "has-{$key}-text: { color: {$value['color']};}";
-		}
-
 		echo "</style>";
-		if(key_exists('primary-page', $colors)) {
-			echo "<meta name='theme-color' content='{$colors['primary-page']['color']}'>";
+		if(key_exists('primary', $colors)) {
+			echo "<meta name='theme-color' content='{$colors['primary']['color']}'>";
 		}
-		
+	}
+
+
+	function add_admin_css() {
+		$colors = self::get(false);
+		echo "<style> :root {";
+			echo "--primary:" . $colors['primary']['color'] . ";";
+			echo "--primary--contrast" . $colors['primary']['light'] ? "var(--black)" : "var(--white);";
+		echo "}";
 
 	}
 	
@@ -132,7 +137,7 @@ class Color {
     public function get($inject_page_colors = false, $grayscale = true) {
 		$colors = $this->colors;
 		if ($grayscale) {
-			$colors = array_merge($this->colors, $this->get_grayscale());
+			$colors = array_merge($colors, $this->get_grayscale());
 		}
         if ($inject_page_colors) {
             return apply_filters('ctx_page_colors', $colors);
@@ -140,6 +145,20 @@ class Color {
         return $colors;
     }
 
+
+	public function get_editor_colors($inject_page_colors = false, $grayscale = true) {
+		$colors = [];
+		unset($colors['primary']);
+		unset($colors['secondary']);
+		
+		if ($grayscale) {
+			$colors = array_merge($colors, $this->get_grayscale());
+		}
+        
+        return PostType::get_colors($colors);
+        
+        return $colors;
+    }
     
 
     /**

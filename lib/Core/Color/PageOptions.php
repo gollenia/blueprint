@@ -28,7 +28,6 @@ class PageOptions {
 					'type'  => 'object',
 					'properties' => [
 						'primary_color' => ['type' => 'string'],
-						'secondary_color' => ['type' => 'string'],
 					]
 				]],
 				'single'       => true,
@@ -56,19 +55,13 @@ class PageOptions {
 
         $color_meta = get_post_meta( $post->ID, 'page_colors', true );
 
-		$colors['primary-page']['color'] = $colors['primary']['color'];
-		$colors['secondary-page']['color'] = $colors['secondary']['color'];
+		$colors['primary']['color'] = $colors['primary']['color'];
 
         if(isset($color_meta['primary_color'])) {
-            $colors['primary-page']['color'] = $color_meta['primary_color'];
+            $colors['primary']['color'] = $color_meta['primary_color'];
         }
         
-        if(isset($color_meta['secondary_color'])) {
-            $colors['secondary-page']['color'] = $color_meta['secondary_color'];
-        }
-
-		$colors['primary-page']['light'] = \Contexis\Core\Color::get_brightness($colors['primary-page']['color']);
-		$colors['secondary-page']['light'] = \Contexis\Core\Color::get_brightness($colors['primary-page']['color']);
+		$colors['primary']['light'] = \Contexis\Core\Color::get_brightness($colors['primary']['color']);
 		
         return $colors;
     }
