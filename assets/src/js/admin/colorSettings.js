@@ -13,7 +13,7 @@ import { __ } from '@wordpress/i18n';
 
 const pageColorSettings = () => {
 	const {
-		meta,
+		meta, 
 		meta: { page_colors },
 	} = useSelect((select) => ({
 		meta: select('core/editor').getEditedPostAttribute('meta') || {},
@@ -26,12 +26,6 @@ const pageColorSettings = () => {
 	const [pageColors, setpageColors] = useState(page_colors);
 
 	const setData = (key, data) => {
-		const primary = colors.find((color) => color.slug === 'primary').color;
-
-		if (key == 'primary_color' && data == primary) {
-			setpageColors({ ...pageColors, [key]: '' });
-			return;
-		}
 		setpageColors({ ...pageColors, [key]: data });
 	};
 
