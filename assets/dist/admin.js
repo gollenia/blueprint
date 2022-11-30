@@ -50,15 +50,6 @@ const pageColorSettings = () => {
   const [pageColors, setpageColors] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)(page_colors);
 
   const setData = (key, data) => {
-    const primary = colors.find(color => color.slug === 'primary').color;
-
-    if (key == 'primary_color' && data == primary) {
-      setpageColors({ ...pageColors,
-        [key]: ''
-      });
-      return;
-    }
-
     setpageColors({ ...pageColors,
       [key]: data
     });
