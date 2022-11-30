@@ -284,6 +284,49 @@ class PostType {
         return $colors;
     }
 
+	public static function get_colors(array $colors) : array {
+        $args = [
+            'post_type' => 'ctx-color-palette',
+			'posts_per_page' => -1
+        ];
+
+        $query = new \WP_Query( $args );
+        $color_posts = $query->posts;
+        
+        foreach ($color_posts as $color) {
+            
+            $color_value = get_post_meta($color->ID, 'color', true);
+
+            $colors[$color->post_name] = [
+                    "color" => $color_value,
+                    "light" => self::brightness($color->ID) == 'light',
+                    "name" => $color->post_title,
+                    "slug" => $color->post_name
+            ];
+        }
+		
+        return $colors;
+    }
+
+	/**
+	 * Get the brightness of a color.
+	 *
+	 * @param integer $post_id
+	 * @return string 'dark' or 'light'
+	 */
+	public static function brightness(int $post_id) : string {
+
+		$computed = get_post_meta( $post_id , 'computed_brightness' , true );
+		$brightness = get_post_meta( $post_id , 'brightness' , true );
+
+		if($brightness == "auto" && preg_match('/(dark|light)/i', $computed) ) return $computed;
+
+		if(preg_match('/(dark|light)/i', $brightness)) return $brightness;
+
+		$color = get_post_meta( $post_id , 'color' , true );
+		return \Contexis\Core\Color::get_brightness($color) ? 'light' : 'dark';
+	}
+
     
 }
     
