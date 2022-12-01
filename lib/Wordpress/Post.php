@@ -6,6 +6,7 @@ namespace Contexis\Wordpress;
  * Now runs with react component
  * (see assets/src/js/admin/headerSettings.js)
  * 
+ * @deprecated 2.1
  * @since 1.5.0a
  * @author Thomas Gollenia <thomas@gollenia.at>
  * 
