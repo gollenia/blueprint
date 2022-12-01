@@ -14,41 +14,6 @@ msgstr ""
 "Language: de\n"
 "Project-Id-Version: kids-team Theme\n"
 
-# event.twig
-msgid "Price:"
-msgstr "Preis:"
-
-msgid "Book this event"
-msgstr "Zur Anmeldung"
-
-msgid "Starts at"
-msgstr "Beginn:"
-
-msgid "Ends at"
-msgstr "Ende:"
-
-msgid "to"
-msgstr "bis"
-
-msgid "from"
-msgstr "von"
-
-msgid "Similar events"
-msgstr "Ähnliche Veranstaltungen"
-
-msgid "Only few spaces left"
-msgstr "Nur noch wenige Plätze frei"
-
-msgid "Price: free"
-msgstr "Preis: gratis"
-
-msgid "o'clock"
-msgstr "Uhr"
-
-# events.twig
-msgid "All"
-msgstr "Alle"
-
 # footer.twig
 msgid "This website is protected by reCaptcha. See the"
 msgstr "Diese Webseite wird von reCaptcha geschützt. Siehe die"
@@ -71,14 +36,6 @@ msgstr "Datenschutz-Bestimmungen"
 # breadcrumbs.twig
 msgid "Home"
 msgstr "Startseite"
-
-# breadcrumbs.twig
-msgid "No places left"
-msgstr "Ausgebucht"
-
-# event.php
-msgid "Event Manager Plugin not installed"
-msgstr "Event Manager nicht installiert"
 
 # Color Management
 msgid "Base Colors"
@@ -108,14 +65,8 @@ msgstr "Schwarz"
 msgid "White Color"
 msgstr "Weiß"
 
-msgid "Darkgray Color"
-msgstr "Dunkelgrau"
-
 msgid "Gray Color"
 msgstr "Grau"
-
-msgid "Lightgray Color"
-msgstr "Hellgrau"
 
 msgid "Main Colors"
 msgstr "Hauptfarben"
@@ -171,30 +122,6 @@ msgstr "Slug"
 msgid "Error: The slug must not contain any of the base color names"
 msgstr "Fehler: Der Name darf keinem Namen einer Basis-Farbe entsprechen"
 
-msgid "Page Header"
-msgstr "Seitenkopf"
-
-msgid "Header Height"
-msgstr "Höhe des Bildes"
-
-msgid "Page height in percent"
-msgstr "Angabe in Prozent der Fensterhöhe"
-
-msgid "Header Subtitle"
-msgstr "Untertitel"
-
-msgid "Header Link"
-msgstr "Link"
-
-msgid "Add link"
-msgstr "Link hinzufügen"
-
-msgid "Delete link"
-msgstr "Link entfernen"
-
-msgid "Header Image"
-msgstr "Bildausrichtung"
-
 msgid "Content"
 msgstr "Zum Inhalt"
 
@@ -228,7 +155,7 @@ msgstr "Beschriftung des 'Alles akzeptieren'-Buttons"
 msgid "Privacy window Caption"
 msgstr "Titel des Cookie-Fensters"
 
-msgid "Critical clocks"
+msgid "Critical blocks"
 msgstr "Kritische Blöcke"
 
 msgid "Blocks to exclude when the user accepts only neccessary cookies. Use parts of block names or full block names. One entry per line. All embed blocks (like YouTube or Spotify) are removed automatically."

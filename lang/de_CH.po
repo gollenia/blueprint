@@ -14,41 +14,6 @@ msgstr ""
 "Language: de\n"
 "Project-Id-Version: kids-team Theme\n"
 
-# event.twig
-msgid "Price:"
-msgstr "Preis:"
-
-msgid "Book this event"
-msgstr "Zur Anmeldung"
-
-msgid "Starts at"
-msgstr "Beginn:"
-
-msgid "Ends at"
-msgstr "Ende:"
-
-msgid "to"
-msgstr "bis"
-
-msgid "from"
-msgstr "von"
-
-msgid "Similar events"
-msgstr "Ähnliche Veranstaltungen"
-
-msgid "Only few spaces left"
-msgstr "Nur noch wenige Plätze frei"
-
-msgid "Price: free"
-msgstr "Preis: gratis"
-
-msgid "o'clock"
-msgstr "Uhr"
-
-# events.twig
-msgid "All"
-msgstr "Alle"
-
 # footer.twig
 msgid "This website is protected by reCaptcha. See the"
 msgstr "Diese Webseite wird von reCaptcha geschützt. Siehe die"
@@ -71,10 +36,6 @@ msgstr "Datenschutz-Bestimmungen"
 # breadcrumbs.twig
 msgid "Home"
 msgstr "Startseite"
-
-# breadcrumbs.twig
-msgid "No places left"
-msgstr "Ausgebucht"
 
 # Color Management
 msgid "Base Colors"
@@ -102,16 +63,10 @@ msgid "Black Color"
 msgstr "Schwarz"
 
 msgid "White Color"
-msgstr "Weiss"
-
-msgid "Darkgray Color"
-msgstr "Dunkelgrau"
+msgstr "Weiß"
 
 msgid "Gray Color"
 msgstr "Grau"
-
-msgid "Lightgray Color"
-msgstr "Hellgrau"
 
 msgid "Main Colors"
 msgstr "Hauptfarben"
@@ -147,7 +102,7 @@ msgid "No spaces or special chars. Used for internal identification"
 msgstr "Interner Name zur Identifizierung. Keine Leerzeichen oder Umlaute."
 
 msgid "Decides if text on this color should be white or black"
-msgstr "Beeinflusst, ob der Text über dieser Farbe schwarz oder weiss ist. Nur im Notfall ändern!"
+msgstr "Beeinflusst, ob der Text über dieser Farbe schwarz oder weiß ist. Nur im Notfall ändern!"
 
 msgid "Dark"
 msgstr "Dunkel"
@@ -191,13 +146,6 @@ msgstr "Beschriftung des 'Speichern'-Buttons"
 msgid "Save settings"
 msgstr "Auswahl speichern"
 
-
-msgid "Delete link"
-msgstr "Link entfernen"
-
-msgid "Add link"
-msgstr "Link hinzufügen"
-
 msgid "Accept all"
 msgstr "Alle akzeptieren"
 
@@ -207,7 +155,7 @@ msgstr "Beschriftung des 'Alles akzeptieren'-Buttons"
 msgid "Privacy window Caption"
 msgstr "Titel des Cookie-Fensters"
 
-msgid "Critical clocks"
+msgid "Critical blocks"
 msgstr "Kritische Blöcke"
 
 msgid "Blocks to exclude when the user accepts only neccessary cookies. Use parts of block names or full block names. One entry per line. All embed blocks (like YouTube or Spotify) are removed automatically."

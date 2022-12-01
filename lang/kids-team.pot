@@ -3,20 +3,184 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
-
-"Project-Id-Version: ctx Base Theme\n"
-"Report-Msgid-Bugs-To: thomas@gollenia.at\n"
-"POT-Creation-Date: 2021-07-07 19:08+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Thomas Gollenia <thomas@gollenia.at>\n"
-"Language-Team: kids-team <LL@li.org>\n"
-"Language: de_AT\n"
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2017-05-13 12:42:28+0000\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/2.3.1\n"
+"Language: de\n"
+"Project-Id-Version: kids-team Theme\n"
 
-# event.twig
-msgid "Price:"
-msgstr "Price:"
+# footer.twig
+msgid "This website is protected by reCaptcha. See the"
+msgstr "Diese Webseite wird von reCaptcha geschützt. Siehe die"
 
+msgid "aswell as the"
+msgstr "sowie die"
+
+msgid "Imprint"
+msgstr "Impressum"
+
+msgid "Data protection"
+msgstr "Datenschutzerklärung"
+
+msgid "Terms of Service"
+msgstr "Nutzungsbestimmungen"
+
+msgid "Privacy Policy"
+msgstr "Datenschutz-Bestimmungen"
+
+# breadcrumbs.twig
+msgid "Home"
+msgstr "Startseite"
+
+# Color Management
+msgid "Base Colors"
+msgstr "Grundfarben"
+
+msgid "Here you can define the base colors of your theme."
+msgstr "Hier können die Grundfarben für das Theme festgeleg werden. "
+
+msgid "Primary Color"
+msgstr "Primärfarbe"
+
+msgid "Secondary Color"
+msgstr "Sekundärfarbe"
+
+msgid "Error Color"
+msgstr "Farbe für Fehler"
+
+msgid "Warning Color"
+msgstr "Warnfarbe"
+
+msgid "Success Color"
+msgstr "Farbe für Erfolg"
+
+msgid "Black Color"
+msgstr "Schwarz"
+
+msgid "White Color"
+msgstr "Weiß"
+
+msgid "Gray Color"
+msgstr "Grau"
+
+msgid "Main Colors"
+msgstr "Hauptfarben"
+
+msgid "Color Palette"
+msgstr "Farbpalette"
+
+msgid "Create new color"
+msgstr "Neue Farbe erstellen"
+
+msgid "Color"
+msgstr "Farbe"
+
+msgid "Edit color"
+msgstr "Farbe bearbeiten"
+
+msgid "Color Settings"
+msgstr "Farbeinstellungen"
+
+msgid "Color value"
+msgstr "Farbwert"
+
+msgid "Internal name"
+msgstr "Slug-Name"
+
+msgid "Custom Colors"
+msgstr "Eigene Farben"
+
+msgid "Brightness"
+msgstr "Helligkeit"
+
+msgid "No spaces or special chars. Used for internal identification"
+msgstr "Interner Name zur Identifizierung. Keine Leerzeichen oder Umlaute."
+
+msgid "Decides if text on this color should be white or black"
+msgstr "Beeinflusst, ob der Text über dieser Farbe schwarz oder weiß ist. Nur im Notfall ändern!"
+
+msgid "Dark"
+msgstr "Dunkel"
+
+msgid "Light"
+msgstr "Hell"
+
+msgid "Let System decide"
+msgstr "Automatisch"
+
+msgid "Back"
+msgstr "Zurück"
+
+msgid "Slug"
+msgstr "Slug"
+
+msgid "Error: The slug must not contain any of the base color names"
+msgstr "Fehler: Der Name darf keinem Namen einer Basis-Farbe entsprechen"
+
+msgid "Content"
+msgstr "Zum Inhalt"
+
+msgid "Data Privacy"
+msgstr "Datenschutzerklärung"
+
+msgid "Privacy consent"
+msgstr "Datenschutz"
+
+msgid "Privacy Consent window"
+msgstr "DSGVO Datenschutz-Fenster"
+
+msgid "Privacy window text message"
+msgstr "Text für Datenschutz-Fenster"
+
+msgid "You can use HTML Markup here for links, bold and italic type, line breaks and paragraphs. Leave this field empty to disable the privacy window and cookie consent entirely."
+msgstr "Du kannst hier HTML-Tags verwenden um Links einzufügen, text fett oder kursiv zu schreiben und Zeilenumbrüche und Absätze einzufügen. Lass dieses Feld leer, um das Cookie-Fenster und den Datenschutz komplett zu deaktivieren."
+
+msgid "Title of Button 'Save'"
+msgstr "Beschriftung des 'Speichern'-Buttons"
+
+msgid "Save settings"
+msgstr "Auswahl speichern"
+
+msgid "Accept all"
+msgstr "Alle akzeptieren"
+
+msgid "Title of Button 'Accept all'"
+msgstr "Beschriftung des 'Alles akzeptieren'-Buttons"
+
+msgid "Privacy window Caption"
+msgstr "Titel des Cookie-Fensters"
+
+msgid "Critical blocks"
+msgstr "Kritische Blöcke"
+
+msgid "Blocks to exclude when the user accepts only neccessary cookies. Use parts of block names or full block names. One entry per line. All embed blocks (like YouTube or Spotify) are removed automatically."
+msgstr "Blöcke die entfernt werden, wenn der Besucher nur die notwendigen Cookies akzeptiert. Es können auch Teile von Blocknamen verwendet werden. Ein Eintrag pro Zeile. Alle eingebetteten Blöcke wie YouTube oder Spotify werden bereits automatisch entfernt."
+
+msgid "Here you can adjust settings concerning the European data privacy protection, also known as DSGVO or GDPR"
+msgstr "Hier kannst du Einstellungen anpassen, die den Europäischen Datenschutz betreffen. Wenn der Benutzer die nicht benötigten Cookies ablehnt, können automatisch Blöcke aus dem Seiteninhalt entfernt werden"
+
+msgid "Label for neccessary cookies"
+msgstr "Schalterbeschriftung für notwendige Cookies"
+
+msgid "Only neccessary cookies"
+msgstr "Notwendige Cookies"
+
+msgid "Third party cookies"
+msgstr "Drittanbieter-Cookies und externe Inhalte laden"
+
+msgid "Label for third party cookies"
+msgstr "Schalterbeschriftung für externe Inhalte"
+
+msgid "Explanation for third party cookies"
+msgstr "Erklärung über externe Inhalte"
+
+msgid "Give your visitors a short explanation of what kind of third-party-cookies they're about to accept and why you are using them"
+msgstr "Gib deinen Besuchern eine kurze Erklärung, welche Drittanbieter-Cookies und Dienste du verwendest und warum."
+
+msgid "Privacy settings"
+msgstr "Privatsphäre-Einstellungen"

@@ -4,10 +4,11 @@
 		"messages": {
 			"": {
 				"domain": "messages",
-				"lang": "de_AT"
+				"lang": "fr_FR"
 			},
-			"Primary Color": ["Primärfarbe"],
-			"Color Settings": ["Seitenfarben"]
+
+			"Primary Color": ["Couleur des page"],
+			"Color Settings": ["couleur primaire"]
 		}
 	}
 }
