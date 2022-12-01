@@ -87,11 +87,12 @@ class Functions
 	}
 
 
+	/*
+	* Add custom colors to the editor. Maybe this will work with theme,json later?
+	*/
 	private static function add_theme_colors()
 	{
-		
 		$colors = \Contexis\Core\Color::register();
-
 		$theme_support = Config::load('theme_support');
 		$theme_support['editor-color-palette'] = array_values($colors->get_editor_colors(true));
 		ThemeSupport::register($theme_support);
