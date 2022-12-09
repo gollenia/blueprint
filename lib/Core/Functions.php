@@ -34,7 +34,6 @@ class Functions
 	{
 		Widgets::register(Config::load('widgets'));
 		Mime::register(Config::load('mimes'));
-		Post::register();
 		Assets::register();
 		Cookies::init();
 		self::add_wordpress_functions();
@@ -43,10 +42,9 @@ class Functions
 	}
 
 	/**
-	 * add_taxonomies_to_pages()
-	 * 
 	 * Add Taxonomy to normal pages. Must be hooked into init
 	 * 
+	 * @return void
 	 * @since 1.0.0
 	 */
 	public static function add_taxonomies_to_pages()
@@ -59,6 +57,7 @@ class Functions
 	/**
 	 * Calls all Wordpress related functions
 	 * 
+	 * @return void
 	 * @since 1.0.0
 	 */
 	private static function add_wordpress_functions()
@@ -82,8 +81,6 @@ class Functions
 
 		update_option('medium_size_w', 640);
 		update_option('medium_size_h', 600);
-
-		add_image_size("huge", 2560, 1800);
 	}
 
 
@@ -101,7 +98,7 @@ class Functions
 
 	/**
 	 * Call custom functions for plugins etc.
-	 * 
+	 * CF7 will disappear in future
 	 * @since 1.0.0
 	 */
 	private static function custom_functions()
