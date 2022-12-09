@@ -1,10 +1,10 @@
 <?php
 
-spl_autoload_register('awhitepixel_autoloader');
+spl_autoload_register('ctx_autoloader');
 
 
 
-function awhitepixel_autoloader($class) {
+function ctx_autoloader($class) {
 	$namespace = 'Contexis';
  
 	if (strpos($class, $namespace) !== 0) {
