@@ -72,6 +72,8 @@ class Functions
 		Security::disable_xmlrpc();
 		Security::clean_header();
 		//Security::limit_login_attempts(5);
+		add_action( 'do_meta_boxes', [__CLASS__, 'remove_default_custom_fields_meta_box'], 1, 3 );
+		
 
 		remove_action('wp_head', 'wlwmanifest_link');
 		remove_action('wp_head', 'rsd_link');
@@ -81,6 +83,10 @@ class Functions
 
 		update_option('medium_size_w', 640);
 		update_option('medium_size_h', 600);
+	}
+
+	public static function remove_default_custom_fields_meta_box( $post_type, $context, $post ) {
+		remove_meta_box( 'postcustom', $post_type, $context );
 	}
 
 
