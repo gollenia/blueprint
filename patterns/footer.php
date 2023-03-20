@@ -26,7 +26,12 @@
 		<div class="text-xs mr-2"><a id="openCookiesDialog" href="#/"><?php _e("Privacy settings", "ctx-theme") ?></a></div>
 		<div class="text-xs mr-2"><a href="/impressum"><?php _e("Imprint", "ctx-theme") ?></a></div>
 		<div class="text-xs mr-2"><a href="/datenschutzerklaerung"><?php _e("Data protection", "ctx-theme") ?></a></div>
-		<div class="bottom__logo"><figure><?php include( get_attached_file(get_theme_mod( 'custom_logo', 'full', false ))); ?></figure></div>
+		<div class="bottom__logo"><figure><?php 
+			$logo = get_theme_mod( 'custom_logo', '' );
+			if(!empty($logo)) {
+				include( $logo ); 
+			}
+		?></figure></div>
 	</div>
 </div>
 
