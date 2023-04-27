@@ -32,13 +32,13 @@ class Functions
 	 */
 	public static function init()
 	{
-		Widgets::register(Config::load('widgets'));
+		
 		Mime::register(Config::load('mimes'));
 		Assets::register();
 		Cookies::init();
 		self::add_wordpress_functions();
 		self::add_theme_colors();
-		self::custom_functions();
+		
 	}
 
 	/**
@@ -102,15 +102,5 @@ class Functions
 	}
 
 
-	/**
-	 * Call custom functions for plugins etc.
-	 * CF7 will disappear in future
-	 * @since 1.0.0
-	 */
-	private static function custom_functions()
-	{
-		\Contexis\Wordpress\Plugins\ContactForm7::add_custom_attribute("booking");
-		\Contexis\Wordpress\Plugins\ContactForm7::add_required_to_wpcf7();
-		\Contexis\Wordpress\Plugins\ContactForm7::remove_span_wrap();
-	}
+
 }
