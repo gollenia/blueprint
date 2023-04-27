@@ -147,9 +147,20 @@ class Color {
 
 
 	public function get_editor_colors($inject_page_colors = false, $grayscale = true) {
-		$colors = [];
-		unset($colors['primary']);
-		unset($colors['secondary']);
+		$colors = [
+			[
+				'name' => 'Black',
+				'slug' => 'black',
+				'color' => $this->colors['black']['color'],
+				'light' => false
+			],
+			[
+				'name' => 'White',
+				'slug' => 'white',
+				'color' => $this->colors['white']['color'],
+				'light' => true
+			]
+		];
 		
 		if ($grayscale) {
 			$colors = array_merge($colors, $this->get_grayscale());
