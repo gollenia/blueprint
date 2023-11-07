@@ -16,18 +16,32 @@ class Assets
 		$instance = new self;
 		
 		add_action('wp_enqueue_scripts', [$instance, 'enqueue_scripts']);
+		add_action('admin_enqueue_scripts', [$instance, 'enqueue_admin_scripts']);
 	}
 
 	public function enqueue_scripts()
 	{
 
 		if (is_admin()) return;
-
 		$script = require_once(__DIR__ . '/../../assets/dist/app.asset.php');
 
 		wp_enqueue_script(
 			'blueprint',
 			get_template_directory_uri() . '/assets/dist/app.js',
+			$script['dependencies'],
+			$script['version'],
+			true
+		);
+	}
+
+	public function enqueue_admin_scripts()
+	{
+		if (!is_admin()) return;
+		$script = require_once(__DIR__ . '/../../assets/dist/admin.asset.php');
+
+		wp_enqueue_script(
+			'blueprint-admin',
+			get_template_directory_uri() . '/assets/dist/admin.js',
 			$script['dependencies'],
 			$script['version'],
 			true

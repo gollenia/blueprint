@@ -14,9 +14,7 @@ use Contexis\Core\Cookies;
 
 use Contexis\Wordpress\{
 	ThemeSupport,
-	Widgets,
 	Mime,
-	Post,
 	Assets,
 	Security
 };
@@ -32,13 +30,11 @@ class Functions
 	 */
 	public static function init()
 	{
-		
 		Mime::register(Config::load('mimes'));
 		Assets::register();
 		Cookies::init();
 		self::add_wordpress_functions();
 		self::add_theme_colors();
-		
 	}
 
 	/**
@@ -70,13 +66,8 @@ class Functions
 
 		Security::disable_feed();
 		Security::disable_xmlrpc();
-		Security::clean_header();
-		//Security::limit_login_attempts(5);
-		add_action( 'do_meta_boxes', [__CLASS__, 'remove_default_custom_fields_meta_box'], 1, 3 );
 		
-
-		remove_action('wp_head', 'wlwmanifest_link');
-		remove_action('wp_head', 'rsd_link');
+		add_action( 'do_meta_boxes', [__CLASS__, 'remove_default_custom_fields_meta_box'], 1, 3 );
 
 		update_option('large_size_w', 1440);
 		update_option('large_size_h', 900);
@@ -89,18 +80,12 @@ class Functions
 		remove_meta_box( 'postcustom', $post_type, $context );
 	}
 
-
-	/*
-	* Add custom colors to the editor. Maybe this will work with theme,json later?
-	*/
 	private static function add_theme_colors()
 	{
 		$colors = \Contexis\Core\Color::register();
 		$theme_support = Config::load('theme_support');
-		$theme_support['editor-color-palette'] = array_values($colors->get_editor_colors(true));
+		//$theme_support['editor-color-palette'] = array_values($colors->get_editor_colors(true));
 		ThemeSupport::register($theme_support);
 	}
-
-
 
 }

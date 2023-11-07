@@ -43,6 +43,8 @@ const pageColorSettings = () => {
 		} );
 	}, [ pageColors ] );
 
+	console.log( 'pageColors', meta );
+
 	return (
 		<PluginDocumentSettingPanel
 			name="page-color-settings"
@@ -56,7 +58,7 @@ const pageColorSettings = () => {
 				onChange={ ( value ) => {
 					setData( 'primary_color', value );
 				} }
-				defaultValue="#000"
+				defaultValue="#000000"
 				disableCustomColors={ false }
 			/>
 		</PluginDocumentSettingPanel>
