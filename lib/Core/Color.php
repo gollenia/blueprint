@@ -36,10 +36,10 @@ class Color {
 	function add_color_css() {
 		$primary = $this->get_page_color();
 		echo "<style>:root {";
-			echo "--primary:" . $primary . ";}";
+			echo "--primary:" . $primary . ";";
 			echo "--white: #fff;";
 			echo "--black: #000;";
-		echo "</style>";
+		echo "} </style>";
 	}
 
 	/**
