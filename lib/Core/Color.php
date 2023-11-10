@@ -39,6 +39,7 @@ class Color {
 			echo "--primary:" . $primary . ";";
 			echo "--white: #fff;";
 			echo "--black: #000;";
+			echo "--primary-contrast: " . (self::get_brightness($primary) ? "var(--black)" : "var(--white)") . ";";
 		echo "} </style>";
 	}
 
@@ -90,6 +91,25 @@ class Color {
         }
 		
         return "#fff";
+    }
+
+	/**
+     * Decide if a color is more dark or more light, e.g. to select a fitting contrast
+     *
+     * @param string $color hexadecimal color value
+         * @param string $threshold adjust the threshold value when a color should e treated as bright
+     * @return bool true for bright, false for dark
+     */
+    public static function get_brightness($color, $threshold = 170) {
+        if(!preg_match('/#(?:[0-9a-fA-F]{6})/', $color)) {
+            return false;
+        }
+        $color = str_replace('#', '', $color);
+        $red = hexdec(substr($color, 0, 2));
+        $green = hexdec(substr($color, 2, 2));
+        $blue = hexdec(substr($color, 4, 2));
+
+        return intval((($red * 299) + ($green * 587) + ($blue * 114)) / 1000) > $threshold;
     }
 	
 
