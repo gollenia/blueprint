@@ -40,6 +40,7 @@ class Color {
 			echo "--white: #fff;";
 			echo "--black: #000;";
 			echo "--primary-contrast: " . (self::get_brightness($primary) ? "var(--black)" : "var(--white)") . ";";
+			echo "--primary-transparent: " . $primary . "33;";
 		echo "} </style>";
 	}
 
