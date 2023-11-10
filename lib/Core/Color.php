@@ -41,15 +41,15 @@ class Color {
 			echo "--black: #000;";
 			echo "--primary-contrast: " . (self::get_brightness($primary) ? "var(--black)" : "var(--white)") . ";";
 			echo "--primary-transparent: " . $primary . "aa;";
-			echo "--gray-100: #f7fafc;";
-			echo "--gray-200: #edf2f7;";
-			echo "--gray-300: #e2e8f0;";
-			echo "--gray-400: #cbd5e0;";
-			echo "--gray-500: #a0aec0;";
-			echo "--gray-600: #718096;";
-			echo "--gray-700: #4a5568;";
-			echo "--gray-800: #2d3748;";
-			echo "--gray-900: #1a202c;";
+			echo "--gray-100: #f4f4f4;";
+			echo "--gray-200: #eaeaea;";
+			echo "--gray-300: #d1d1d1;";
+			echo "--gray-400: #b7b7b7;";
+			echo "--gray-500: #9d9d9d;";
+			echo "--gray-600: #838383;";
+			echo "--gray-700: #696969;";
+			echo "--gray-800: #4f4f4f;";
+			echo "--gray-900: #353535;";
 		echo "} </style>";
 	}
 
