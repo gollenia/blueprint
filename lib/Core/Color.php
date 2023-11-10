@@ -34,6 +34,7 @@ class Color {
 	 * @return void
 	 */
 	function add_color_css() {
+
 		$primary = $this->get_page_color();
 		echo "<style>:root {";
 			echo "--primary:" . $primary . ";";
@@ -100,7 +101,11 @@ class Color {
             return $color_meta['primary_color'];
         }
 		
-        return "#fff";
+        if(defined('PRIMARY')) {
+			return PRIMARY;
+		}
+
+		return "#00abe5";
     }
 
 	/**
