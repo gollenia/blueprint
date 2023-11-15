@@ -24,7 +24,7 @@ class Color {
         $instance = new self;
 		add_action('rest_api_init', array($instance, 'register_meta') );
 		add_action('wp_head', [$instance, 'add_color_css']);
-		add_action('admin_head', [$instance, 'add_color_css']);
+		add_action('admin_head', [$instance, 'add_color_css'], 100);
         return $instance;
     }
 
@@ -36,7 +36,7 @@ class Color {
 	function add_color_css() {
 
 		$primary = $this->get_page_color();
-		echo "<style>:root {";
+		echo "<style>body {";
 			echo "--primary:" . $primary . ";";
 			echo "--white: #fff;";
 			echo "--black: #000;";
@@ -100,12 +100,8 @@ class Color {
         if(isset($color_meta['primary_color'])) {
             return $color_meta['primary_color'];
         }
-		
-        if(defined('PRIMARY')) {
-			return PRIMARY;
-		}
 
-		return "#00abe5";
+		return "var(--wp--preset--color--primary)";
     }
 
 	/**
