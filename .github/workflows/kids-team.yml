@@ -11,7 +11,7 @@ jobs:
         steps:
             - uses: actions/checkout@v3
             - name: rsync deployments
-              uses: burnett01/rsync-deployments@5.1
+              uses: burnett01/rsync-deployments@6.0.0
               with:
                   switches: -avzr --delete --exclude .git --exclude .github --exclude assets/src --exclude package.json --exclude package-lock.json --exclude .gitignore --exclude .eslintrc.js --exclude .eslintignore --exclude readme.md --exclude .prettierrc --exclude DOCKER_ENV --exclude docker_tag --exclude output.log
                   path: /
