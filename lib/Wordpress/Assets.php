@@ -23,11 +23,11 @@ class Assets
 	{
 
 		if (is_admin()) return;
-		$script = require_once(__DIR__ . '/../../assets/dist/app.asset.php');
+		$script = require_once(__DIR__ . '/../../build/app.asset.php');
 
 		wp_enqueue_script(
 			'blueprint',
-			get_template_directory_uri() . '/assets/dist/app.js',
+			get_template_directory_uri() . '/build/app.js',
 			$script['dependencies'],
 			$script['version'],
 			true
@@ -37,11 +37,11 @@ class Assets
 	public function enqueue_admin_scripts()
 	{
 		if (!is_admin()) return;
-		$script = require_once(__DIR__ . '/../../assets/dist/admin.asset.php');
+		$script = require_once(__DIR__ . '/../../build/admin.asset.php');
 
 		wp_enqueue_script(
 			'blueprint-admin',
-			get_template_directory_uri() . '/assets/dist/admin.js',
+			get_template_directory_uri() . '/build/admin.js',
 			$script['dependencies'],
 			$script['version'],
 			true

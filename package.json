@@ -8,8 +8,8 @@
 		"lib": "lib"
 	},
 	"scripts": {
-		"start": "wp-scripts start assets/src/js/app.js assets/src/js/admin.js --output-path='./assets/dist'",
-		"build": "wp-scripts build assets/src/js/app.js assets/src/js/admin.js --output-path='./assets/dist'",
+		"start": "wp-scripts start src/js/app.js src/js/admin.js",
+		"build": "wp-scripts build src/js/app.js src/js/admin.js",
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
 	"repository": {
