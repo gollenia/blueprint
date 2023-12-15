@@ -19,7 +19,6 @@ function menuDropdown(itemClass, args) {
 
 	const menu = document.querySelectorAll(itemClass);
 
-	console.log(menu);
 	if (menu.length > 0) {
 		menu.forEach((element) => {
 			element.addEventListener('click', (event) => {
@@ -51,8 +50,6 @@ function menuDropdown(itemClass, args) {
 function menuDrawer(hamburgerId, args) {
 	let hamburgers = document.getElementsByClassName('hamburger');
 
-	console.log(hamburgerId);
-
 	if (!hamburgers.length) return;
 
 	let hamburger = hamburgers[0];
@@ -75,4 +72,4 @@ function menuDrawer(hamburgerId, args) {
 	}
 }
 
-export { menuDropdown, menuDrawer };
+export { menuDrawer, menuDropdown };
