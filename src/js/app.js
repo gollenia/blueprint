@@ -1,11 +1,9 @@
-import validateInput from './validity.js';
-import { menuDrawer, menuDropdown } from './menu.js';
 import cookies from './cookies.js';
 import formTrap from './formTrap.js';
+import { menuDrawer, menuDropdown } from './menu.js';
 
-
-document.addEventListener("DOMContentLoaded", function(event) {
-	validateInput();
+document.addEventListener('DOMContentLoaded', function (event) {
+	//traps the tab-next within a form
 	formTrap();
 	menuDropdown('.menu__item--has-dropdown', {
 		dropClass: 'menu__item--open',
@@ -13,4 +11,4 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 	menuDrawer('hamburger');
 	cookies();
-})
+});
